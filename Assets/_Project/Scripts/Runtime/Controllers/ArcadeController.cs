@@ -21,8 +21,6 @@
  * SOFTWARE. */
 
 using Cysharp.Threading.Tasks;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace Arcade

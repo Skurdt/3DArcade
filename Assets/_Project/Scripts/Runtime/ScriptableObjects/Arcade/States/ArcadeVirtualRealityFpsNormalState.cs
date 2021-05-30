@@ -31,16 +31,34 @@ namespace Arcade
         {
             Debug.Log($"> <color=green>Entered</color> {GetType().Name}");
             Context.ArcadeStateChangeEvent.Raise(this);
+
+            Context.InputActions.Disable();
+            Context.InputActions.Global.Enable();
         }
 
         public override void OnExit() => Debug.Log($"> <color=orange>Exited</color> {GetType().Name}");
 
         public override void OnUpdate(float dt)
         {
-            if (Context.InputActions.Global.Quit.triggered)
-                ApplicationUtils.ExitApp();
-
             Context.VideoPlayerController.Value.UpdateVideosState();
+
+            if (Context.InputActions.Global.Quit.triggered)
+            {
+                ApplicationUtils.ExitApp();
+                return;
+            }
+
+            if (Context.InputActions.Global.Reload.triggered)
+            {
+                Context.ReloadCurrentArcade();
+                return;
+            }
+
+            if (Context.InputActions.Global.Restart.triggered)
+            {
+                Context.Restart();
+                return;
+            }
         }
     }
 }

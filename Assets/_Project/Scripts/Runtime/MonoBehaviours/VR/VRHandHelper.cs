@@ -68,9 +68,17 @@ namespace Arcade
             _animatorIdsSet = true;
         }
 
-        private void OnEnable() => InputDevices.deviceConnected += InputDeviceConnectedCallback;
+        private void OnEnable()
+        {
+            InputDevices.deviceConnected    += DeviceConnectedCallback;
+            InputDevices.deviceDisconnected += DeviceDisconnectedCallback;
+        }
 
-        private void OnDisable() => InputDevices.deviceConnected -= InputDeviceDisconnectedCallback;
+        private void OnDisable()
+        {
+            InputDevices.deviceConnected    -= DeviceConnectedCallback;
+            InputDevices.deviceDisconnected -= DeviceDisconnectedCallback;
+        }
 
         private void Update()
         {
@@ -94,13 +102,13 @@ namespace Arcade
                 _animator.SetFloat(_animatorParamPinch, 0f);
         }
 
-        private void InputDeviceConnectedCallback(InputDevice inputDevice)
+        private void DeviceConnectedCallback(InputDevice inputDevice)
         {
             if ((inputDevice.characteristics & _inputDeviceCharacteristics) == _inputDeviceCharacteristics)
                 _inputDevice = inputDevice;
         }
 
-        private void InputDeviceDisconnectedCallback(InputDevice inputDevice)
+        private void DeviceDisconnectedCallback(InputDevice inputDevice)
         {
             if ((inputDevice.characteristics & _inputDeviceCharacteristics) == _inputDeviceCharacteristics)
                 _inputDevice = default;

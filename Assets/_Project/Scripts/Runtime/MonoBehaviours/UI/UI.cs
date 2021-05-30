@@ -36,7 +36,9 @@ namespace Arcade
 
         public void HandleArcadeStateChange(ArcadeState arcadeState)
         {
-            if (arcadeState is ArcadeStandardLoadingState)
+            _uiContext.TransitionTo<UIDisabledState>();
+
+            if (arcadeState is ArcadeStandardLoadingState || arcadeState is ArcadeVirtualRealityLoadingState)
             {
                 if (_generalConfiguration.Value.EnableVR)
                     _uiContext.TransitionTo<UIVirtualRealityLoadingState>();
@@ -45,7 +47,7 @@ namespace Arcade
                 return;
             }
 
-            if (arcadeState is ArcadeStandardFpsNormalState)
+            if (arcadeState is ArcadeStandardFpsNormalState || arcadeState is ArcadeVirtualRealityFpsNormalState)
             {
                 if (_generalConfiguration.Value.EnableVR)
                     _uiContext.TransitionTo<UIVirtualRealityNormalState>();

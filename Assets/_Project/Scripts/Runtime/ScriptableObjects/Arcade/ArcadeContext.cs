@@ -1,4 +1,4 @@
-﻿/* MIT License
+/* MIT License
 
  * Copyright (c) 2020 Skurdt
  *
@@ -24,6 +24,8 @@ using Cysharp.Threading.Tasks;
 using SK.Utilities.Unity.StateMachine;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
+using UnityEngine.XR.Management;
 using Zenject;
 
 namespace Arcade
@@ -123,10 +125,13 @@ namespace Arcade
 
             if (Application.isPlaying)
             {
-                List<UnityEngine.XR.InputDevice> devices = new List<UnityEngine.XR.InputDevice>();
-                UnityEngine.XR.InputDevices.GetDevices(devices);
-                if (devices.Count == 0)
-                    GeneralConfiguration.Value.EnableVR = false;
+                if (GeneralConfiguration.Value.EnableVR)
+                {
+                    List<InputDevice> devices = new List<InputDevice>();
+                    InputDevices.GetDevices(devices);
+                    if (devices.Count == 0)
+                        GeneralConfiguration.Value.EnableVR = false;
+                }
 
                 if (GeneralConfiguration.Value.EnableVR)
                     TransitionTo<ArcadeVirtualRealityLoadingState>();

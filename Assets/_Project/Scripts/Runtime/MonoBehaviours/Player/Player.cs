@@ -72,7 +72,11 @@ namespace Arcade
 
         public void TransitionTo<T>() where T : PlayerState => _playerContext.TransitionTo<T>();
 
-        public void EnableNormalFpsControls() => _standardControls.EnableFpsController();
+        public void EnableNormalFpsControls()
+        {
+            _standardControls.EnableFpsController();
+            _standardControls.ActiveTransform.Translate(Vector3.up * 0.4f);
+        }
 
         public void EnableNormalCylControls() => _standardControls.EnableCylController();
 

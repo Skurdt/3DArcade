@@ -21,6 +21,7 @@
  * SOFTWARE. */
 
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 namespace Arcade
 {
@@ -31,12 +32,18 @@ namespace Arcade
 
         [SerializeField] private ModelConfigurationComponentEvent _targetChangedEvent;
 
+        public void HoverEnteredCallback(HoverEnterEventArgs args)
+            => Set(args.interactable.GetComponent<ModelConfigurationComponent>(), int.MinValue);
+
+        public void HoverExitedCallback(HoverExitEventArgs args)
+            => Reset();
+
         public void Set(ModelConfigurationComponent target, int layer)
         {
             if (Current == target)
                 return;
 
-            if (target != null)
+            if (target != null && layer >= 0)
                 target.SetLayer(layer);
 
             Current = target;

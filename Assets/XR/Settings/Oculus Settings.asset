@@ -24,3 +24,4 @@ MonoBehaviour:
   PhaseSync: 0
   TargetQuest: 1
   TargetQuest2: 1
+  SystemSplashScreen: {fileID: 0}

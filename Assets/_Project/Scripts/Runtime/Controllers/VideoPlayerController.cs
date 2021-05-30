@@ -39,6 +39,8 @@ namespace Arcade
         public void UpdateVideosState()
         {
             VideoPlayer[] toEnable = GetVideosToEnable();
+            if (toEnable is null)
+                return;
 
             foreach (VideoPlayer videoPlayer in toEnable)
             {
