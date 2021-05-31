@@ -20,7 +20,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE. */
 
-using SK.Utilities;
 using System.IO;
 using UnityEngine;
 
@@ -29,7 +28,7 @@ namespace Arcade
     public abstract class MultiFileDatabase<T> : Database<T>
         where T : DatabaseEntry
     {
-        public bool Save(T item)
+        public override bool Save(T item)
         {
             if (item is null || string.IsNullOrEmpty(item.Id))
             {
@@ -94,7 +93,7 @@ namespace Arcade
                 string[] filePaths = System.IO.Directory.GetFiles(Directory, "*.xml", SearchOption.TopDirectoryOnly);
                 foreach (string filePath in filePaths)
                 {
-                    T entry = Deserialize(filePath);
+                    T entry = Deserialize<T>(filePath);
                     if (entry is null)
                         continue;
                     entry.Id = Path.GetFileNameWithoutExtension(filePath);
@@ -118,9 +117,5 @@ namespace Arcade
                 _ = System.IO.Directory.CreateDirectory(Directory);
             }
         }
-
-        private static bool Serialize(string filePath, T entry) => XMLUtils.Serialize(filePath, entry);
-
-        private static T Deserialize(string filePath) => XMLUtils.Deserialize<T>(filePath);
     }
 }

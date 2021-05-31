@@ -28,7 +28,7 @@ namespace Arcade
 {
     [DisallowMultipleComponent]
     public abstract class UIConfiguration<TDatabase, TConfiguration> : MonoBehaviour
-        where TDatabase : MultiFileDatabase<TConfiguration>
+        where TDatabase : Database<TConfiguration>
         where TConfiguration : DatabaseEntry
     {
         [field: SerializeField] public TMP_Text TitleText { get; private set; }

@@ -20,6 +20,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE. */
 
+using SK.Utilities;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +32,9 @@ namespace Arcade
         where T : DatabaseEntry
     {
         [SerializeField] private VirtualFileSystem _virtualFileSystem;
+
+        public List<string> Names => _entries.Keys.ToList();
+        public T[] Values => _entries.Values.ToArray();
 
         protected abstract string DirectoryAlias { get; }
 
@@ -53,10 +57,6 @@ namespace Arcade
 
         public bool Contains(string name) => _entries.ContainsKey(name);
 
-        public List<string> GetNames() => _entries.Keys.ToList();
-
-        public T[] GetValues() => _entries.Values.ToArray();
-
         public T Get(string id)
         {
             if (string.IsNullOrEmpty(id))
@@ -76,12 +76,6 @@ namespace Arcade
 
         public bool TryGet(string id, out T outResult)
         {
-            if (string.IsNullOrEmpty(id))
-            {
-                outResult = null;
-                return false;
-            }
-
             outResult = Get(id);
             return !(outResult is null);
         }
@@ -106,6 +100,8 @@ namespace Arcade
 
             return entry;
         }
+
+        public abstract bool Save(T item);
 
         public bool Delete(string id)
         {
@@ -161,6 +157,10 @@ namespace Arcade
         protected abstract bool LoadAllFromDisk();
 
         protected abstract void DeleteAllFromDisk();
+
+        protected static bool Serialize<U>(string filePath, U obj) where U : class => XMLUtils.Serialize(filePath, obj);
+
+        protected static U Deserialize<U>(string filePath) where U : class => XMLUtils.Deserialize<U>(filePath);
 
         public T this[int index]
         {

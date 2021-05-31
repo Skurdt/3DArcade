@@ -1,4 +1,4 @@
-﻿/* MIT License
+/* MIT License
 
  * Copyright (c) 2020 Skurdt
  *
@@ -54,7 +54,7 @@ namespace Arcade
 
             _emulatorsDatabase.Initialize();
             _emulatorDropdown.ClearOptions();
-            _emulatorDropdown.AddOptions(new List<string> { "" }.Concat(_emulatorsDatabase.GetNames()).ToList());
+            _emulatorDropdown.AddOptions(new List<string> { "" }.Concat(_emulatorsDatabase.Names).ToList());
             _emulatorDropdown.value = _emulatorDropdown.options.FindIndex(x => x.text == _configuration.Emulator);
 
             _availableModels.Refresh();

@@ -20,7 +20,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE. */
 
-using SK.Utilities;
 using System.IO;
 using System.Linq;
 using UnityEngine;
@@ -35,14 +34,14 @@ namespace Arcade
 
         [SerializeField] private string _fileName;
 
+        public override bool Save(T item) => SaveAll();
+
         public sealed override bool SaveAll()
         {
             try
             {
                 U entryList = new U { Entries = _entries.Values.ToArray() };
-                Serialize(entryList);
-
-                return true;
+                return Serialize(FilePath, entryList);
             }
             catch (System.Exception e)
             {
@@ -61,7 +60,7 @@ namespace Arcade
         {
             try
             {
-                U entryList = Deserialize();
+                U entryList = Deserialize<U>(FilePath);
                 if (entryList is null)
                     return false;
 
@@ -82,9 +81,5 @@ namespace Arcade
             if (File.Exists(FilePath))
                 File.Delete(FilePath);
         }
-
-        private void Serialize(U entry) => XMLUtils.Serialize(FilePath, entry);
-
-        private U Deserialize() => XMLUtils.Deserialize<U>(FilePath);
     }
 }

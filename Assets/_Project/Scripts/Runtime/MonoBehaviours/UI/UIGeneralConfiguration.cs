@@ -50,7 +50,7 @@ namespace Arcade
             GeneralConfiguration generalConfiguration = _generalConfiguration.Value;
 
             _startingArcadeDropdown.ClearOptions();
-            _startingArcadeDropdown.AddOptions(_arcadeDatabase.GetNames());
+            _startingArcadeDropdown.AddOptions(_arcadeDatabase.Names);
             _startingArcadeDropdown.value = _startingArcadeDropdown.options.FindIndex(x => x.text == generalConfiguration.StartingArcade);
 
             _startingArcadeTypeDropdown.ClearOptions();

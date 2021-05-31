@@ -1,4 +1,4 @@
-﻿/* MIT License
+/* MIT License
 
  * Copyright (c) 2020 Skurdt
  *
@@ -30,7 +30,7 @@ namespace Arcade
 {
     [DisallowMultipleComponent]
     public abstract class UIConfigurations<TDatabase, TConfiguration, TUIConfiguration> : MonoBehaviour
-        where TDatabase : MultiFileDatabase<TConfiguration>
+        where TDatabase : Database<TConfiguration>
         where TConfiguration : DatabaseEntry, new()
         where TUIConfiguration : UIConfiguration<TDatabase, TConfiguration>
     {
@@ -82,7 +82,7 @@ namespace Arcade
 
             _database.Initialize();
 
-            TConfiguration[] configurations = _database.GetValues();
+            TConfiguration[] configurations = _database.Values;
             foreach (TConfiguration configuration in configurations)
             {
                 UIListButton buttonObject = Instantiate(_listButtonPrefab, _listContent);

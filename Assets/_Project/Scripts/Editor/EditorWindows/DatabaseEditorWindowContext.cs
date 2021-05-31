@@ -49,7 +49,7 @@ namespace Arcade.UnityEditor
         public void RefreshEntriesArray()
         {
             ClearSerializedFields();
-            Entries = DatabaseEditorWindow.Database.GetValues();
+            Entries = DatabaseEditorWindow.Database.Values;
         }
 
         public bool AddEntry(T entry) => !(DatabaseEditorWindow.Database.Add(entry) is null);

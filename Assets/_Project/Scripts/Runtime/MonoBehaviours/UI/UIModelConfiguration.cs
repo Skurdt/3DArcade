@@ -81,14 +81,14 @@ namespace Arcade
             _databases.Initialize();
 
             _platformDropdown.ClearOptions();
-            _platformDropdown.AddOptions(new List<string> { "" }.Concat(_databases.Platforms.GetNames()).ToList());
+            _platformDropdown.AddOptions(new List<string> { "" }.Concat(_databases.Platforms.Names).ToList());
 
             _availableModels.Refresh();
             _modelOverrideDropdown.ClearOptions();
             _modelOverrideDropdown.AddOptions(_availableModels.GameModels);
 
             _emulatorOverrideDropdown.ClearOptions();
-            _emulatorOverrideDropdown.AddOptions(new List<string> { "" }.Concat(_databases.Emulators.GetNames()).ToList());
+            _emulatorOverrideDropdown.AddOptions(new List<string> { "" }.Concat(_databases.Emulators.Names).ToList());
 
             _ = _transform.DOAnchorPosX(_endPositionX, _animationDuration.Value);
         }
