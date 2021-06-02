@@ -40,16 +40,25 @@ namespace Arcade
         [SerializeField] private RectTransform _listContent;
         [SerializeField] private UIListButton _listButtonPrefab;
         [SerializeField] private TUIConfiguration _uiConfiguration;
+        [SerializeField] private FloatVariable _animationDuration;
 
         private readonly List<UIListButton> _buttons = new List<UIListButton>();
 
         private RectTransform _transform;
+        private float _animationStartPosition;
+        private float _animationEndPosition;
 
-        private void Awake() => _transform = transform as RectTransform;
+        private void Awake()
+        {
+            _transform              = transform as RectTransform;
+            _animationStartPosition = -_transform.rect.width;
+            _animationEndPosition   = 0f;
+        }
 
         public void Show()
         {
-            _addButton.onClick.RemoveAllListeners();
+            gameObject.SetActive(true);
+
             _addButton.onClick.AddListener(() =>
             {
                 if (string.IsNullOrEmpty(_addInputField.text))
@@ -65,13 +74,14 @@ namespace Arcade
             });
 
             InitializeList();
-            _ = _transform.DOAnchorPosX(0f, 0.3f);
+            _ = _transform.DOAnchorPosX(_animationEndPosition, _animationDuration.Value);
         }
 
         public void Hide()
         {
             _addButton.onClick.RemoveAllListeners();
-            _ = _transform.DOAnchorPosX(-500f, 0.3f);
+            _ = _transform.DOAnchorPosX(_animationStartPosition, _animationDuration.Value)
+                          .OnComplete(() => gameObject.SetActive(false));
         }
 
         private void InitializeList()

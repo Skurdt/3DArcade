@@ -124,7 +124,7 @@ namespace Arcade
             CreateInternalTables();
         }
 
-        public IEnumerable<string> GetGameLists() => _database.GetTables().Where(x => !x.StartsWith("_"));
+        public List<string> GetGameLists() => _database.GetTables().Where(x => !x.StartsWith("_")).ToList();
 
         public GameConfiguration[] GetGames(string gameListName)
             => _database.GetTableEntries<GameConfiguration>(gameListName, new string[] { "*" }, new GameConfiguration())
@@ -220,6 +220,8 @@ namespace Arcade
         }
 
         public void AddGameList(string name) => _database.CreateTable(name, false, DBGame.Columns);
+
+        public void RemoveGameList(string name) => _database.DropTable(name, false);
 
         public void AddGame(string gameListName, GameConfiguration game)
         {

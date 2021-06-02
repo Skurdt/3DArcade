@@ -28,12 +28,12 @@ namespace Arcade
     [DisallowMultipleComponent]
     public sealed class UIInfo : MonoBehaviour
     {
-        [SerializeField] private FloatVariable _animationDuration;
         [SerializeField] private RectTransform _leftPanel;
         [SerializeField] private RectTransform _rightPanel;
         [SerializeField] private RectTransform _topPanel;
         [SerializeField] private RectTransform _bottomPanel;
         [SerializeField] private RectTransform _closeButton;
+        [SerializeField] private FloatVariable _animationDuration;
 
         private RectTransform _transform;
 
@@ -41,6 +41,8 @@ namespace Arcade
 
         public void Show()
         {
+            gameObject.SetActive(true);
+
             Rect transformRect = _transform.rect;
             float width        = transformRect.width / 3f;
             float height       = transformRect.height;
@@ -60,23 +62,20 @@ namespace Arcade
             _bottomPanel.anchoredPosition = new Vector2(0f, -height);
 
             float animationDuration = _animationDuration.Value;
-            _ = _leftPanel.DOAnchorPosX(0f, (float)animationDuration);
-            _ = _rightPanel.DOAnchorPosX(0f, (float)animationDuration);
-            _ = _topPanel.DOAnchorPosY(0f, (float)animationDuration);
-            _ = _bottomPanel.DOAnchorPosY(0f, (float)animationDuration);
-            _ = _closeButton.DOAnchorPos(Vector2.zero, (float)animationDuration);
+            _ = DOTween.Sequence().Join(_leftPanel.DOAnchorPosX(0f, animationDuration))
+                                  .Join(_rightPanel.DOAnchorPosX(0f, animationDuration))
+                                  .Join(_topPanel.DOAnchorPosY(0f, animationDuration))
+                                  .Join(_bottomPanel.DOAnchorPosY(0f, animationDuration));
         }
 
         public void Hide()
         {
             float animationDuration = _animationDuration.Value;
-            _ = _leftPanel.DOAnchorPosX(-_leftPanel.rect.width, (float)animationDuration);
-            _ = _rightPanel.DOAnchorPosX(_rightPanel.rect.width, (float)animationDuration);
-            _ = _topPanel.DOAnchorPosY(_topPanel.rect.height, (float)animationDuration);
-            _ = _bottomPanel.DOAnchorPosY(-_bottomPanel.rect.height, (float)animationDuration);
-
-            Rect closeButtonRect = _closeButton.rect;
-            _ = _closeButton.DOAnchorPos(new Vector2(closeButtonRect.width, closeButtonRect.height), (float)animationDuration);
+            _ = DOTween.Sequence().Join(_leftPanel.DOAnchorPosX(-_leftPanel.rect.width, animationDuration))
+                                  .Join(_rightPanel.DOAnchorPosX(_rightPanel.rect.width, animationDuration))
+                                  .Join(_topPanel.DOAnchorPosY(_topPanel.rect.height, animationDuration))
+                                  .Join(_bottomPanel.DOAnchorPosY(-_bottomPanel.rect.height, animationDuration))
+                                  .OnComplete(() => gameObject.SetActive(false));
         }
     }
 }

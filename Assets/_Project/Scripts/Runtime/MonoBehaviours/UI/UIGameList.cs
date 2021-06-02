@@ -71,7 +71,11 @@ namespace Arcade
                 Hide();
         }
 
-        public void Show() => _transform.DOAnchorPosX(_endPositionX, _animationDuration.Value);
+        public void Show()
+        {
+            _databases.Games.Initialize();
+            _ = _transform.DOAnchorPosX(_endPositionX, _animationDuration.Value);
+        }
 
         public void Hide()
         {
@@ -90,18 +94,21 @@ namespace Arcade
             }
 
             _platformIndex = index - 1;
-            if (_allGames.ContainsKey(_platformIndex))
+            if (!_allGames.ContainsKey(_platformIndex))
             {
-                if (_allGames[_platformIndex] is null)
-                    _filteredGames.Clear();
-                else
-                    _filteredGames = _allGames[_platformIndex].Where(x => x.Description.IndexOf(_searchInputField.text, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
-
-                _recyclableScrollRect.ReloadData();
+                RefreshAsync().Forget();
                 return;
             }
 
-            RefreshAsync().Forget();
+            if (_allGames[_platformIndex] is null)
+            {
+                _searchInputField.SetTextWithoutNotify("");
+                _filteredGames.Clear();
+            }
+            else
+                _filteredGames = _allGames[_platformIndex].ToList();
+
+            _recyclableScrollRect.ReloadData();
         }
 
         public void Search(string lookUp)
@@ -164,17 +171,19 @@ namespace Arcade
             _searchInputField.SetTextWithoutNotify("");
             _allGames.Clear();
             _filteredGames.Clear();
+            _recyclableScrollRect.ReloadData();
         }
 
         private async UniTaskVoid RefreshAsync()
         {
+            _searchInputField.SetTextWithoutNotify("");
             await UniTask.Run(() =>
             {
-                _searchInputField.SetTextWithoutNotify("");
-                _databases.Games.Initialize();
                 GameConfiguration[] games = _databases.Games.GetGames(_databases.Platforms[_platformIndex].MasterList);
                 _allGames.Add(_platformIndex, games);
-                if (!(games is null) && games.Length > 0)
+                if (games is null)
+                    _filteredGames.Clear();
+                else
                     _filteredGames = games.ToList();
             });
             _recyclableScrollRect.ReloadData();
@@ -184,9 +193,6 @@ namespace Arcade
 
         public void SetCell(ICell cell, int index)
         {
-            if (_filteredGames.Count == 0)
-                return;
-
             UIGameButton item = cell as UIGameButton;
             item.ConfigureCell(_idInputField, _filteredGames[index]);
         }

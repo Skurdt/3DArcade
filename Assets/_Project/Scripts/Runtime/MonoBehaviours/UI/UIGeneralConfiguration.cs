@@ -37,13 +37,23 @@ namespace Arcade
         [SerializeField] private TMP_Dropdown _startingArcadeTypeDropdown;
         [SerializeField] private Toggle _mouseLookReverseToggle;
         [SerializeField] private Toggle _enableVRToggle;
+        [SerializeField] private FloatVariable _animationDuration;
 
         private RectTransform _transform;
+        private float _animationStartPosition;
+        private float _animationEndPosition;
 
-        private void Awake() => _transform = transform as RectTransform;
+        private void Awake()
+        {
+            _transform              = transform as RectTransform;
+            _animationStartPosition = -_transform.rect.width;
+            _animationEndPosition   = 0f;
+        }
 
         public void Show()
         {
+            gameObject.SetActive(true);
+
             _generalConfiguration.Initialize();
             _arcadeDatabase.Initialize();
 
@@ -60,10 +70,11 @@ namespace Arcade
             _mouseLookReverseToggle.isOn = generalConfiguration.MouseLookReverse;
             _enableVRToggle.isOn         = generalConfiguration.EnableVR;
 
-            _ = _transform.DOAnchorPosX(0f, 0.3f);
+            _ = _transform.DOAnchorPosX(_animationEndPosition, _animationDuration.Value);
         }
 
-        public void Hide() => _transform.DOAnchorPosX(-500f, 0.3f);
+        public void Hide() => _ = _transform.DOAnchorPosX(_animationStartPosition, _animationDuration.Value)
+                                            .OnComplete(() => gameObject.SetActive(false));
 
         public void Save()
         {

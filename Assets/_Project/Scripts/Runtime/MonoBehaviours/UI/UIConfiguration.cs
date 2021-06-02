@@ -36,19 +36,29 @@ namespace Arcade
         [SerializeField] protected FileExplorer _fileExplorer;
         [SerializeField] protected TMP_InputField _descriptionInputField;
         [SerializeField] protected TDatabase _database;
+        [SerializeField] private FloatVariable _animationDuration;
 
         protected TConfiguration _configuration;
 
         private RectTransform _transform;
+        private float _animationStartPosition;
+        private float _animationEndPosition;
 
-        private void Awake() => _transform = transform as RectTransform;
+        private void Awake()
+        {
+            _transform              = transform as RectTransform;
+            _animationStartPosition = -_transform.rect.width;
+            _animationEndPosition   = 0f;
+        }
 
         public void Show(TConfiguration configuration)
         {
+            gameObject.SetActive(true);
+
             _configuration = configuration;
             _descriptionInputField.SetTextWithoutNotify(configuration.Description);
             SetUIValues();
-            _ = _transform.DOAnchorPosX(0f, 0.3f);
+            _ = _transform.DOAnchorPosX(_animationEndPosition, _animationDuration.Value);
         }
 
         public void SaveAndHide()
@@ -63,7 +73,8 @@ namespace Arcade
             _descriptionInputField.SetTextWithoutNotify("");
             ClearUIValues();
             _configuration = null;
-            _ = _transform.DOAnchorPosX(-500f, 0.3f);
+            _ = _transform.DOAnchorPosX(_animationStartPosition, _animationDuration.Value)
+                          .OnComplete(() => gameObject.SetActive(false));
         }
 
         protected abstract void SetUIValues();

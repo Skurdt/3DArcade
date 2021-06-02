@@ -46,21 +46,16 @@ namespace Arcade
         [SerializeField] private TMP_InputField _supportedExtensionsInputField;
         [SerializeField] private UIDirectories _gamesDirectories;
 
-        private void Start() => _interactionTypeDropdown.onValueChanged.AddListener((index) =>
-        {
-            if ((InteractionType)index == InteractionType.GameInternal)
-            {
-                SwitchToInternalSetup();
-                return;
-            }
-            SwitchToExternalSetup();
-        });
+        private void Start()
+            => _interactionTypeDropdown.onValueChanged.AddListener((index) => SetSetupMode((InteractionType)index));
+
+        private void OnDestroy() => _interactionTypeDropdown.onValueChanged.RemoveAllListeners();
 
         protected override void SetUIValues()
         {
-            _interactionTypeDropdown.SetValueWithoutNotify(-1);
-            int interactionType = _configuration.InteractionType <= InteractionType.URL ? (int)_configuration.InteractionType : 0;
-            _interactionTypeDropdown.value = interactionType;
+            InteractionType interactionType = _configuration.InteractionType <= InteractionType.URL ? _configuration.InteractionType : InteractionType.Default;
+            SetSetupMode(interactionType);
+            _interactionTypeDropdown.value = (int)interactionType;
 
             _gamesDirectories.Init(_fileExplorer, _configuration.GamesDirectories);
         }
@@ -100,6 +95,16 @@ namespace Arcade
             _supportedExtensionsInputField.caretPosition = 0;
 
             _gamesDirectories.Clear();
+        }
+
+        private void SetSetupMode(InteractionType interactionType)
+        {
+            if (interactionType == InteractionType.GameInternal)
+            {
+                SwitchToInternalSetup();
+                return;
+            }
+            SwitchToExternalSetup();
         }
 
         private void SwitchToInternalSetup()

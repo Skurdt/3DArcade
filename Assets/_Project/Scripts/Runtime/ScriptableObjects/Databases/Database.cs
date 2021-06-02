@@ -76,7 +76,7 @@ namespace Arcade
 
         public bool TryGet(string id, out T outResult)
         {
-            outResult = Get(id);
+            outResult = !string.IsNullOrEmpty(id) ? Get(id) : null;
             return !(outResult is null);
         }
 

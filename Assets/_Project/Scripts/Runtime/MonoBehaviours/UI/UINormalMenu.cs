@@ -31,26 +31,37 @@ namespace Arcade
         [SerializeField] private FloatVariable _animationDuration;
 
         private RectTransform _transform;
-        private Vector2 _animationStartPosition;
-        private Vector2 _animationEndPosition;
+        private float _animationStartPosition;
+        private float _animationEndPosition;
+        private Tween _tween;
 
         private void Awake()
         {
             _transform              = transform as RectTransform;
-            _animationStartPosition = _transform.anchoredPosition;
-            _animationEndPosition  = _animationStartPosition + new Vector2(_transform.rect.width, 0f);
+            _animationStartPosition = _transform.anchoredPosition.x;
+            _animationEndPosition   = _animationStartPosition + _transform.rect.width;
         }
 
         public void SetVisibility(bool visible)
         {
             if (visible)
-                Show();
-            else
                 Hide();
+            else
+                Show();
         }
 
-        private void Show() => _transform.DOAnchorPos(_animationEndPosition, _animationDuration.Value);
+        public void Show()
+        {
+            _tween?.Kill();
+            gameObject.SetActive(true);
+            _tween = _transform.DOAnchorPosX(_animationEndPosition, _animationDuration.Value);
+        }
 
-        private void Hide() => _transform.DOAnchorPos(_animationStartPosition, _animationDuration.Value);
+        public void Hide()
+        {
+            _tween?.Kill();
+            _tween = _transform.DOAnchorPosX(_animationStartPosition, _animationDuration.Value)
+                               .OnComplete(() => gameObject.SetActive(false));
+        }
     }
 }
