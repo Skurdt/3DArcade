@@ -20,6 +20,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE. */
 
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Arcade
@@ -27,6 +28,6 @@ namespace Arcade
     [CreateAssetMenu(menuName = "3DArcade/Variable/GameListVariable", fileName = "GameList")]
     public sealed class GameListVariable : VariableBase<GameConfiguration[]>
     {
-        //[System.NonSerialized] public List<GameConfiguration> FilteredList = new List<GameConfiguration>();
+        [System.NonSerialized] public List<GameConfiguration> FilteredList = new List<GameConfiguration>();
     }
 }

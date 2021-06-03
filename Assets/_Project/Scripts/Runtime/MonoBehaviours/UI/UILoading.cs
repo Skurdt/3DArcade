@@ -31,9 +31,15 @@ namespace Arcade
         [SerializeField] private ArcadeConfigurationVariable _arcadeConfigurationVariable;
         [SerializeField] private UnityEvent<string> _onVisibilityChange;
 
+        private bool _visible;
+
         public void SetVisibility(bool visible)
         {
-            if (visible)
+            if (_visible == visible)
+                return;
+
+            _visible = visible;
+            if (_visible)
             {
                 gameObject.SetActive(true);
                 _onVisibilityChange.Invoke(_arcadeConfigurationVariable.Value.ToString());

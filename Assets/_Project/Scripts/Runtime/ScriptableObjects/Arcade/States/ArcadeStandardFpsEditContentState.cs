@@ -51,45 +51,49 @@ namespace Arcade
             if (inputActions.Global.ToggleCursor.triggered)
                 HandleCursorToggle();
 
+            InteractionControllers interactionControllers               = Context.InteractionControllers;
+            EditModeEditContentInteractionController editModeController = interactionControllers.EditModeEditContentController;
+
+            editModeController.UpdateCurrentTarget(Context.Player.Value.Camera);
+
+            if (inputActions.FpsEditContent.ApplyOrAdd.triggered)
+                editModeController.ApplyChangesOrAddModel();
+
+            if (inputActions.FpsEditContent.Remove.triggered)
+                editModeController.RemoveModel();
+
             if (inputActions.Global.Quit.triggered)
             {
-                Context.InteractionControllers.EditModeEditContentController.DestroyAddedItems();
-                Context.InteractionControllers.EditModeEditContentController.RestoreRemovedItems();
+                editModeController.DestroyAddedItems();
+                editModeController.RestoreRemovedItems();
                 Context.TransitionToPrevious();
                 return;
             }
 
             if (inputActions.FpsNormal.EditContent.triggered)
             {
-                Context.InteractionControllers.EditModeEditContentController.DestroyRemovedItems();
+                editModeController.DestroyRemovedItems();
                 Context.SaveCurrentArcade(true);
                 Context.TransitionToPrevious();
                 return;
             }
-
-            InteractionControllers interactionControllers               = Context.InteractionControllers;
-            EditModeEditContentInteractionController editModeController = interactionControllers.EditModeEditContentController;
-
-            editModeController.UpdateCurrentTarget(Context.Player.Value.Camera);
         }
 
         public void EnableInput()
         {
-            Context.InputActions.Global.Enable();
-            Context.InputActions.FpsNormal.Enable();
-            if (Cursor.lockState != CursorLockMode.Locked)
-                Context.InputActions.FpsNormal.Look.Disable();
-        }
-
-        private void SetupInput()
-        {
-            Context.InputActions.Disable();
             Context.InputActions.Global.Enable();
             Context.InputActions.Global.Reload.Disable();
             Context.InputActions.Global.Restart.Disable();
             Context.InputActions.FpsNormal.Enable();
             if (Cursor.lockState != CursorLockMode.Locked)
                 Context.InputActions.FpsNormal.Look.Disable();
+            Context.InputActions.FpsEditContent.Enable();
+        }
+
+        private void SetupInput()
+        {
+            DisableInput();
+            EnableInput();
         }
 
         private void HandleCursorToggle()

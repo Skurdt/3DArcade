@@ -103,18 +103,10 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Raster</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="-0.24" y="-0" z="2.2" />
-      <rotation x="0" y="178.72" z="0" />
+      <position x="0.06" y="0" z="2.23" />
+      <rotation x="-0" y="170.08" z="-0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="1942" platform="arcade">
@@ -127,19 +119,10 @@
         <emulator />
         <artwork_files />
         <artwork_directories />
-        <game>
-          <ScreenType p6:nil="true" xmlns:p6="http://www.w3.org/2001/XMLSchema-instance" />
-          <ScreenOrientation p6:nil="true" xmlns:p6="http://www.w3.org/2001/XMLSchema-instance" />
-          <Mature p6:nil="true" xmlns:p6="http://www.w3.org/2001/XMLSchema-instance" />
-          <Playable p6:nil="true" xmlns:p6="http://www.w3.org/2001/XMLSchema-instance" />
-          <IsBios p6:nil="true" xmlns:p6="http://www.w3.org/2001/XMLSchema-instance" />
-          <IsDevice p6:nil="true" xmlns:p6="http://www.w3.org/2001/XMLSchema-instance" />
-          <IsMechanical p6:nil="true" xmlns:p6="http://www.w3.org/2001/XMLSchema-instance" />
-          <Available p6:nil="true" xmlns:p6="http://www.w3.org/2001/XMLSchema-instance" />
-        </game>
+        <game />
       </overrides>
       <position x="1.05" y="-0.01" z="2.12" />
-      <rotation x="0" y="-168.64" z="0" />
+      <rotation x="-0" y="-168.64" z="0" />
       <scale x="1" y="1" z="1" />
     </game>
   </games>

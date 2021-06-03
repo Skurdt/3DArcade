@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1840672952582155632}
   - component: {fileID: 1176783488571197486}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,8 +108,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12
-  m_fontSizeBase: 12
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 7
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 10, y: 0, z: 10, w: 0}
+  m_margin: {x: 10, y: -2, z: 10, w: -2}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -160,11 +160,12 @@ GameObject:
   m_Component:
   - component: {fileID: 6633856888283022536}
   - component: {fileID: 1471322561346458856}
+  - component: {fileID: 4135551129059253542}
   - component: {fileID: 2797561662460738196}
   - component: {fileID: 4980805408429394430}
-  - component: {fileID: 819727745436955920}
+  - component: {fileID: 2827408013294010323}
   m_Layer: 5
-  m_Name: pfDatabaseEntryButton
+  m_Name: pfEditContentGameCell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -185,11 +186,11 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 16}
-  m_Pivot: {x: 0.5, y: 1}
+  m_SizeDelta: {x: 400, y: 16}
+  m_Pivot: {x: 0, y: 1}
 --- !u!222 &1471322561346458856
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -198,6 +199,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7347827425735235735}
   m_CullTransparentMesh: 1
+--- !u!114 &4135551129059253542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7347827425735235735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: 16
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &2797561662460738196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,7 +293,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &819727745436955920
+--- !u!114 &2827408013294010323
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -281,8 +302,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7347827425735235735}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96547883e3f04c64a898b1f7ecf28cd2, type: 3}
+  m_Script: {fileID: 11500000, guid: 82efda5359d91cf4f94f2df89caccf63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gameListVariable: {fileID: 11400000, guid: afd7a498f208f02459f8ed42cc06de92, type: 2}
   _interactionController: {fileID: 11400000, guid: 27e65619ac7fc024c90d51bcd7c82fa5,
     type: 2}
+  _onButtonClicked: {fileID: 11400000, guid: cd98a40003465df4eb78b854d0208df0, type: 2}
+  _button: {fileID: 4980805408429394430}
+  _description: {fileID: 1176783488571197486}

@@ -775,6 +775,52 @@ namespace Arcade
             ]
         },
         {
+            ""name"": ""FpsEditContent"",
+            ""id"": ""3a8d13a1-682d-432c-8cad-da698e08c73e"",
+            ""actions"": [
+                {
+                    ""name"": ""ApplyOrAdd"",
+                    ""type"": ""Button"",
+                    ""id"": ""bd1774bb-dbc8-40fc-af12-be359f289094"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Remove"",
+                    ""type"": ""Button"",
+                    ""id"": ""ed032eca-4259-4588-8e13-fc4c9fabaa21"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""9ce9edd9-67e4-47bd-9818-3870e4e57309"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""ApplyOrAdd"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7c345d49-424b-4ab4-b198-6c9e953dfbdc"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Remove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
             ""name"": ""CylNormal"",
             ""id"": ""cee92ad0-24ac-4ae8-b5bb-9fd31a285831"",
             ""actions"": [
@@ -1306,6 +1352,10 @@ namespace Arcade
             m_FpsEditPositions_Move = m_FpsEditPositions.FindAction("Move", throwIfNotFound: true);
             m_FpsEditPositions_Rotate = m_FpsEditPositions.FindAction("Rotate", throwIfNotFound: true);
             m_FpsEditPositions_Grab = m_FpsEditPositions.FindAction("Grab", throwIfNotFound: true);
+            // FpsEditContent
+            m_FpsEditContent = asset.FindActionMap("FpsEditContent", throwIfNotFound: true);
+            m_FpsEditContent_ApplyOrAdd = m_FpsEditContent.FindAction("ApplyOrAdd", throwIfNotFound: true);
+            m_FpsEditContent_Remove = m_FpsEditContent.FindAction("Remove", throwIfNotFound: true);
             // CylNormal
             m_CylNormal = asset.FindActionMap("CylNormal", throwIfNotFound: true);
             m_CylNormal_NavigationVertical = m_CylNormal.FindAction("Navigation Vertical", throwIfNotFound: true);
@@ -1564,6 +1614,47 @@ namespace Arcade
         }
         public FpsEditPositionsActions @FpsEditPositions => new FpsEditPositionsActions(this);
 
+        // FpsEditContent
+        private readonly InputActionMap m_FpsEditContent;
+        private IFpsEditContentActions m_FpsEditContentActionsCallbackInterface;
+        private readonly InputAction m_FpsEditContent_ApplyOrAdd;
+        private readonly InputAction m_FpsEditContent_Remove;
+        public struct FpsEditContentActions
+        {
+            private @InputActions m_Wrapper;
+            public FpsEditContentActions(@InputActions wrapper) { m_Wrapper = wrapper; }
+            public InputAction @ApplyOrAdd => m_Wrapper.m_FpsEditContent_ApplyOrAdd;
+            public InputAction @Remove => m_Wrapper.m_FpsEditContent_Remove;
+            public InputActionMap Get() { return m_Wrapper.m_FpsEditContent; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(FpsEditContentActions set) { return set.Get(); }
+            public void SetCallbacks(IFpsEditContentActions instance)
+            {
+                if (m_Wrapper.m_FpsEditContentActionsCallbackInterface != null)
+                {
+                    @ApplyOrAdd.started -= m_Wrapper.m_FpsEditContentActionsCallbackInterface.OnApplyOrAdd;
+                    @ApplyOrAdd.performed -= m_Wrapper.m_FpsEditContentActionsCallbackInterface.OnApplyOrAdd;
+                    @ApplyOrAdd.canceled -= m_Wrapper.m_FpsEditContentActionsCallbackInterface.OnApplyOrAdd;
+                    @Remove.started -= m_Wrapper.m_FpsEditContentActionsCallbackInterface.OnRemove;
+                    @Remove.performed -= m_Wrapper.m_FpsEditContentActionsCallbackInterface.OnRemove;
+                    @Remove.canceled -= m_Wrapper.m_FpsEditContentActionsCallbackInterface.OnRemove;
+                }
+                m_Wrapper.m_FpsEditContentActionsCallbackInterface = instance;
+                if (instance != null)
+                {
+                    @ApplyOrAdd.started += instance.OnApplyOrAdd;
+                    @ApplyOrAdd.performed += instance.OnApplyOrAdd;
+                    @ApplyOrAdd.canceled += instance.OnApplyOrAdd;
+                    @Remove.started += instance.OnRemove;
+                    @Remove.performed += instance.OnRemove;
+                    @Remove.canceled += instance.OnRemove;
+                }
+            }
+        }
+        public FpsEditContentActions @FpsEditContent => new FpsEditContentActions(this);
+
         // CylNormal
         private readonly InputActionMap m_CylNormal;
         private ICylNormalActions m_CylNormalActionsCallbackInterface;
@@ -1696,6 +1787,11 @@ namespace Arcade
             void OnMove(InputAction.CallbackContext context);
             void OnRotate(InputAction.CallbackContext context);
             void OnGrab(InputAction.CallbackContext context);
+        }
+        public interface IFpsEditContentActions
+        {
+            void OnApplyOrAdd(InputAction.CallbackContext context);
+            void OnRemove(InputAction.CallbackContext context);
         }
         public interface ICylNormalActions
         {

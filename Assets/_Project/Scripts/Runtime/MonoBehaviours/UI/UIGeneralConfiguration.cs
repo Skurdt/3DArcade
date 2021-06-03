@@ -52,6 +52,9 @@ namespace Arcade
 
         public void Show()
         {
+            if (gameObject.activeSelf)
+                return;
+
             gameObject.SetActive(true);
 
             _generalConfiguration.Initialize();
@@ -73,8 +76,14 @@ namespace Arcade
             _ = _transform.DOAnchorPosX(_animationEndPosition, _animationDuration.Value);
         }
 
-        public void Hide() => _ = _transform.DOAnchorPosX(_animationStartPosition, _animationDuration.Value)
-                                            .OnComplete(() => gameObject.SetActive(false));
+        public void Hide()
+        {
+            if (!gameObject.activeSelf)
+                return;
+
+            _ = _transform.DOAnchorPosX(_animationStartPosition, _animationDuration.Value)
+                          .OnComplete(() => gameObject.SetActive(false));
+        }
 
         public void Save()
         {

@@ -751,6 +751,52 @@
             ]
         },
         {
+            "name": "FpsEditContent",
+            "id": "3a8d13a1-682d-432c-8cad-da698e08c73e",
+            "actions": [
+                {
+                    "name": "ApplyOrAdd",
+                    "type": "Button",
+                    "id": "bd1774bb-dbc8-40fc-af12-be359f289094",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Remove",
+                    "type": "Button",
+                    "id": "ed032eca-4259-4588-8e13-fc4c9fabaa21",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "9ce9edd9-67e4-47bd-9818-3870e4e57309",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "ApplyOrAdd",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7c345d49-424b-4ab4-b198-6c9e953dfbdc",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "Remove",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
             "name": "CylNormal",
             "id": "cee92ad0-24ac-4ae8-b5bb-9fd31a285831",
             "actions": [

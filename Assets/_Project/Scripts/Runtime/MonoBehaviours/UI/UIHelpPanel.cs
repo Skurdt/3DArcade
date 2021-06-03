@@ -42,14 +42,17 @@ namespace Arcade
             _endPositionX   = 0f;
         }
 
-        private void Start() => Hide();
-
         public void Toggle()
         {
             if (_visible)
+            {
                 Hide();
-            else
-                Show();
+                _visible = false;
+                return;
+            }
+
+            Show();
+            _visible = true;
         }
 
         public void SetVisibility(bool visible)
@@ -62,14 +65,20 @@ namespace Arcade
 
         public void Show()
         {
-            _visible = true;
+            if (gameObject.activeSelf)
+                return;
+
+            gameObject.SetActive(true);
             _ = _transform.DOAnchorPosX(_endPositionX, _transitionDuration.Value);
         }
 
         public void Hide()
         {
-            _visible = false;
-            _ = _transform.DOAnchorPosX(_startPositionX, _transitionDuration.Value);
+            if (!gameObject.activeSelf)
+                return;
+
+            _ = _transform.DOAnchorPosX(_startPositionX, _transitionDuration.Value)
+                          .OnComplete(() => gameObject.SetActive(false));
         }
     }
 }

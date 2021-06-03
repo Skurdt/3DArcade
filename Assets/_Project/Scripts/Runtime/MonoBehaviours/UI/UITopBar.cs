@@ -49,8 +49,22 @@ namespace Arcade
                 Hide();
         }
 
-        public void Show() => _transform.DOAnchorPosY(_endPositionY, _transitionDuration.Value);
+        public void Show()
+        {
+            if (gameObject.activeSelf)
+                return;
 
-        public void Hide() => _transform.DOAnchorPosY(_startPositionY, _transitionDuration.Value);
+            gameObject.SetActive(true);
+            _ = _transform.DOAnchorPosY(_endPositionY, _transitionDuration.Value);
+        }
+
+        public void Hide()
+        {
+            if (!gameObject.activeSelf)
+                return;
+
+            _ = _transform.DOAnchorPosY(_startPositionY, _transitionDuration.Value)
+                          .OnComplete(() => gameObject.SetActive(false));
+        }
     }
 }

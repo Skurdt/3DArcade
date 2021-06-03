@@ -25,20 +25,12 @@ namespace Arcade
     [System.Serializable]
     public sealed class GameOverrides
     {
-        public string Name                               = null;
-        public string Description                        = null;
-        public string CloneOf                            = null;
-        public string RomOf                              = null;
-        public string Genre                              = null;
-        public string Year                               = null;
-        public string Manufacturer                       = null;
-        public GameScreenType? ScreenType                = null;
-        public GameScreenOrientation? ScreenOrientation  = null;
-        public bool? Mature                              = null;
-        public bool? Playable                            = null;
-        public bool? IsBios                              = null;
-        public bool? IsDevice                            = null;
-        public bool? IsMechanical                        = null;
-        public bool? Available                           = null;
+        public string Name         = null;
+        public string Description  = null;
+        public string CloneOf      = null;
+        public string RomOf        = null;
+        public string Genre        = null;
+        public string Year         = null;
+        public string Manufacturer = null;
     }
 }

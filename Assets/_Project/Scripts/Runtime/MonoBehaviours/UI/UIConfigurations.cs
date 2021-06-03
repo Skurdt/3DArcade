@@ -57,6 +57,9 @@ namespace Arcade
 
         public void Show()
         {
+            if (gameObject.activeSelf)
+                return;
+
             gameObject.SetActive(true);
 
             _addButton.onClick.AddListener(() =>
@@ -79,6 +82,9 @@ namespace Arcade
 
         public void Hide()
         {
+            if (!gameObject.activeSelf)
+                return;
+
             _addButton.onClick.RemoveAllListeners();
             _ = _transform.DOAnchorPosX(_animationStartPosition, _animationDuration.Value)
                           .OnComplete(() => gameObject.SetActive(false));

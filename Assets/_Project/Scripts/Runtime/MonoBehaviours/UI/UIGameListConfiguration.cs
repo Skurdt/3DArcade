@@ -34,22 +34,24 @@ namespace Arcade
 
         [SerializeField] private GameListVariable _gameListVariable;
         [SerializeField] private FloatVariable _animationDuration;
+        [SerializeField] private LoopScrollRect _scrollRect;
 
         private RectTransform _transform;
         private float _animationStartPosition;
         private float _animationEndPosition;
-        private LoopScrollRect _scrollRect;
 
         private void Awake()
         {
             _transform              = transform as RectTransform;
             _animationStartPosition = -_transform.rect.width;
             _animationEndPosition   = 0f;
-            _scrollRect             = GetComponentInChildren<LoopScrollRect>();
         }
 
         public void Show(GameConfiguration[] configurations)
         {
+            if (gameObject.activeSelf)
+                return;
+
             gameObject.SetActive(true);
 
             _gameListVariable.Value = configurations;
@@ -62,6 +64,9 @@ namespace Arcade
 
         public void Hide()
         {
+            if (!gameObject.activeSelf)
+                return;
+
             _gameListVariable.Value = null;
             _scrollRect.totalCount = 0;
             _scrollRect.RefillCells();

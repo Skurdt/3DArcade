@@ -22,7 +22,7 @@
 
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
-using PolyAndCode.UI;
+using SG;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,39 +32,33 @@ using UnityEngine;
 namespace Arcade
 {
     [DisallowMultipleComponent]
-    public sealed class UIGameList : MonoBehaviour, IRecyclableScrollRectDataSource
+    public sealed class UIGameList : MonoBehaviour
     {
-        [SerializeField] private FloatVariable _animationDuration;
         [SerializeField] private Databases _databases;
-        [SerializeField] private TMP_InputField _idInputField;
+        [SerializeField] private GameListVariable _gameListVariable;
+        [SerializeField] private FloatVariable _animationDuration;
         [SerializeField] private TMP_InputField _searchInputField;
+        [SerializeField] private LoopScrollRect _scrollRect;
 
         private readonly Dictionary<int, GameConfiguration[]> _allGames = new Dictionary<int, GameConfiguration[]>();
-
-        private List<GameConfiguration> _filteredGames = new List<GameConfiguration>();
 
         private RectTransform _transform;
         private float _startPositionX;
         private float _endPositionX;
 
-        private RecyclableScrollRect _recyclableScrollRect;
         private int _platformIndex;
 
         private void Awake()
         {
             _transform      = transform as RectTransform;
-            _startPositionX = _transform.anchoredPosition.x;
+            _startPositionX = _transform.rect.width;
             _endPositionX   = 0f;
-
-            _recyclableScrollRect = GetComponentInChildren<RecyclableScrollRect>();
-            _recyclableScrollRect.DataSource = this;
         }
 
         public void SetVisibility(bool visible)
         {
             _searchInputField.SetTextWithoutNotify("");
-            _filteredGames.Clear();
-            _recyclableScrollRect.ReloadData();
+            _gameListVariable.FilteredList.Clear();
             if (visible)
                 Show();
             else
@@ -73,14 +67,26 @@ namespace Arcade
 
         public void Show()
         {
+            if (gameObject.activeSelf)
+                return;
+
+            gameObject.SetActive(true);
+
+            _scrollRect.totalCount = _gameListVariable.FilteredList.Count();
+            _scrollRect.RefillCells();
+
             _databases.Games.Initialize();
             _ = _transform.DOAnchorPosX(_endPositionX, _animationDuration.Value);
         }
 
         public void Hide()
         {
+            if (!gameObject.activeSelf)
+                return;
+
             ResetLists();
-            _ = _transform.DOAnchorPosX(_startPositionX, _animationDuration.Value);
+            _ = _transform.DOAnchorPosX(_startPositionX, _animationDuration.Value)
+                          .OnComplete(() => gameObject.SetActive(false));
         }
 
         public void Refresh(int index)
@@ -88,8 +94,9 @@ namespace Arcade
             if (index == 0)
             {
                 _searchInputField.SetTextWithoutNotify("");
-                _filteredGames.Clear();
-                _recyclableScrollRect.ReloadData();
+                _gameListVariable.FilteredList.Clear();
+                _scrollRect.totalCount = _gameListVariable.FilteredList.Count();
+                _scrollRect.RefillCells();
                 return;
             }
 
@@ -103,27 +110,30 @@ namespace Arcade
             if (_allGames[_platformIndex] is null)
             {
                 _searchInputField.SetTextWithoutNotify("");
-                _filteredGames.Clear();
+                _gameListVariable.FilteredList.Clear();
             }
             else
-                _filteredGames = _allGames[_platformIndex].ToList();
+                _gameListVariable.FilteredList = _allGames[_platformIndex].ToList();
 
-            _recyclableScrollRect.ReloadData();
+            _scrollRect.totalCount = _gameListVariable.FilteredList.Count();
+            _scrollRect.RefillCells();
         }
 
         public void Search(string lookUp)
         {
             if (!_allGames.ContainsKey(_platformIndex))
             {
-                _filteredGames.Clear();
-                _recyclableScrollRect.ReloadData();
+                _gameListVariable.FilteredList.Clear();
+                _scrollRect.totalCount = _gameListVariable.FilteredList.Count();
+                _scrollRect.RefillCells();
                 return;
             }
 
             if (string.IsNullOrEmpty(lookUp))
             {
-                _filteredGames = _allGames[_platformIndex].ToList();
-                _recyclableScrollRect.ReloadData();
+                _gameListVariable.FilteredList = _allGames[_platformIndex].ToList();
+                _scrollRect.totalCount = _gameListVariable.FilteredList.Count();
+                _scrollRect.RefillCells();
                 return;
             }
 
@@ -134,12 +144,13 @@ namespace Arcade
             {
                 if (lookUpSplit.Length < 2)
                 {
-                    _filteredGames = _allGames[_platformIndex].ToList();
-                    _recyclableScrollRect.ReloadData();
+                    _gameListVariable.FilteredList = _allGames[_platformIndex].ToList();
+                    _scrollRect.totalCount = _gameListVariable.FilteredList.Count();
+                    _scrollRect.RefillCells();
                     return;
                 }
 
-                _filteredGames = _allGames[_platformIndex].Where(x =>
+                _gameListVariable.FilteredList = _allGames[_platformIndex].Where(x =>
                 {
                     for (int i = 1; i < lookUpSplit.Length; ++i)
                     {
@@ -149,11 +160,12 @@ namespace Arcade
                     }
                     return true;
                 }).ToList();
-                _recyclableScrollRect.ReloadData();
+                _scrollRect.totalCount = _gameListVariable.FilteredList.Count();
+                _scrollRect.RefillCells();
                 return;
             }
 
-            _filteredGames = _allGames[_platformIndex].Where(x =>
+            _gameListVariable.FilteredList = _allGames[_platformIndex].Where(x =>
             {
                 for (int i = 0; i < lookUpSplit.Length; ++i)
                 {
@@ -163,15 +175,17 @@ namespace Arcade
                 }
                 return true;
             }).ToList();
-            _recyclableScrollRect.ReloadData();
+            _scrollRect.totalCount = _gameListVariable.FilteredList.Count();
+            _scrollRect.RefillCells();
         }
 
         public void ResetLists()
         {
             _searchInputField.SetTextWithoutNotify("");
             _allGames.Clear();
-            _filteredGames.Clear();
-            _recyclableScrollRect.ReloadData();
+            _gameListVariable.FilteredList.Clear();
+            _scrollRect.totalCount = _gameListVariable.FilteredList.Count();
+            _scrollRect.RefillCells();
         }
 
         private async UniTaskVoid RefreshAsync()
@@ -182,19 +196,12 @@ namespace Arcade
                 GameConfiguration[] games = _databases.Games.GetGames(_databases.Platforms[_platformIndex].MasterList);
                 _allGames.Add(_platformIndex, games);
                 if (games is null)
-                    _filteredGames.Clear();
+                    _gameListVariable.FilteredList.Clear();
                 else
-                    _filteredGames = games.ToList();
+                    _gameListVariable.FilteredList = games.ToList();
             });
-            _recyclableScrollRect.ReloadData();
-        }
-
-        public int GetItemCount() => _filteredGames.Count;
-
-        public void SetCell(ICell cell, int index)
-        {
-            UIGameButton item = cell as UIGameButton;
-            item.ConfigureCell(_idInputField, _filteredGames[index]);
+            _scrollRect.totalCount = _gameListVariable.FilteredList.Count();
+            _scrollRect.RefillCells();
         }
     }
 }

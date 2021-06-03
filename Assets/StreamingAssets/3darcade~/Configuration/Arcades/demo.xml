@@ -72,7 +72,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -103,18 +103,10 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="-5.72" y="-0" z="1.07" />
-      <rotation x="-0" y="101.36" z="0" />
+      <position x="-5.72" y="0" z="1.07" />
+      <rotation x="-0" y="101.36" z="-0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="tutankst" platform="arcade">
@@ -122,7 +114,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -153,17 +145,9 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="-0.93" y="-0" z="-5.77" />
+      <position x="-0.93" y="0" z="-5.77" />
       <rotation x="-0" y="7.24" z="-0" />
       <scale x="1" y="1" z="1" />
     </game>
@@ -172,7 +156,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -203,18 +187,10 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="3.27" y="-0" z="4.83" />
-      <rotation x="-0" y="-149.27" z="-0" />
+      <position x="3.27" y="0" z="4.83" />
+      <rotation x="-0" y="-149.27" z="0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="smashtv" platform="arcade">
@@ -222,7 +198,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -253,18 +229,10 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="-5.78" y="-0" z="-1.13" />
-      <rotation x="-0" y="76.72" z="0" />
+      <position x="-5.78" y="0" z="-1.13" />
+      <rotation x="-0" y="76.72" z="-0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="scramble" platform="arcade">
@@ -272,7 +240,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -303,18 +271,10 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="-5.47" y="-0" z="-2.22" />
-      <rotation x="0" y="62.16" z="-0" />
+      <position x="-5.47" y="0" z="-2.22" />
+      <rotation x="-0" y="62.16" z="-0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="rtype" platform="arcade">
@@ -322,7 +282,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -353,17 +313,9 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="2.33" y="-0" z="2.07" />
+      <position x="2.33" y="0" z="2.07" />
       <rotation x="-0" y="-136.16" z="0" />
       <scale x="1" y="1" z="1" />
     </game>
@@ -372,7 +324,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -403,18 +355,10 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="3.27" y="-0" z="-1.2" />
-      <rotation x="0" y="-90" z="-0" />
+      <position x="3.27" y="0" z="-1.2" />
+      <rotation x="-0" y="-90" z="0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="polepos" platform="arcade">
@@ -422,7 +366,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -453,18 +397,10 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="5.11" y="-0" z="-2.94" />
-      <rotation x="0" y="-56.71" z="0" />
+      <position x="5.11" y="0" z="-2.94" />
+      <rotation x="-0" y="-56.71" z="0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="pacman" platform="arcade">
@@ -472,7 +408,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -503,17 +439,9 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="-0.5" y="-0" z="2.99" />
+      <position x="-0.5" y="0" z="2.99" />
       <rotation x="-0" y="164.88" z="-0" />
       <scale x="1" y="1" z="1" />
     </game>
@@ -522,7 +450,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -553,18 +481,10 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="2.46" y="-0" z="-2.61" />
-      <rotation x="0" y="-42.48" z="-0" />
+      <position x="2.46" y="0" z="-2.61" />
+      <rotation x="-0" y="-42.48" z="0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="mappy" platform="arcade">
@@ -572,7 +492,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -603,17 +523,9 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="5.89" y="-0" z="0.05" />
+      <position x="5.89" y="0" z="0.05" />
       <rotation x="-0" y="-90.31" z="0" />
       <scale x="1" y="1" z="1" />
     </game>
@@ -622,7 +534,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -653,18 +565,10 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="5.59" y="-0" z="-1.94" />
-      <rotation x="-0" y="-71.66" z="-0" />
+      <position x="5.59" y="0" z="-1.94" />
+      <rotation x="-0" y="-71.66" z="0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="commando" platform="arcade">
@@ -672,7 +576,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -703,17 +607,9 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="1.03" y="-0" z="-3.11" />
+      <position x="1.03" y="0" z="-3.11" />
       <rotation x="-0" y="-8.56" z="0" />
       <scale x="1" y="1" z="1" />
     </game>
@@ -722,7 +618,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -753,17 +649,9 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="4.17" y="-0" z="4.08" />
+      <position x="4.17" y="0" z="4.08" />
       <rotation x="-0" y="-130.81" z="0" />
       <scale x="1" y="1" z="1" />
     </game>
@@ -772,7 +660,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -803,17 +691,9 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="5.7" y="-0" z="1.09" />
+      <position x="5.7" y="0" z="1.09" />
       <rotation x="-0" y="-91.33" z="0" />
       <scale x="1" y="1" z="1" />
     </game>
@@ -822,7 +702,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -853,17 +733,9 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="5.45" y="-0" z="2.13" />
+      <position x="5.45" y="0" z="2.13" />
       <rotation x="-0" y="-107.72" z="0" />
       <scale x="1" y="1" z="1" />
     </game>
@@ -872,7 +744,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -903,17 +775,9 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="-1.84" y="-0" z="-1.96" />
+      <position x="-1.84" y="0" z="-1.96" />
       <rotation x="-0" y="40.72" z="-0" />
       <scale x="1" y="1" z="1" />
     </game>
@@ -922,7 +786,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -953,18 +817,10 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="4.41" y="-0" z="-3.83" />
-      <rotation x="0" y="-48.48" z="0" />
+      <position x="4.41" y="0" z="-3.83" />
+      <rotation x="-0" y="-48.48" z="0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="qbert" platform="arcade">
@@ -972,7 +828,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -1003,18 +859,10 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="-1.03" y="-0" z="5.81" />
-      <rotation x="0" y="165.75" z="-0" />
+      <position x="-1.03" y="0" z="5.81" />
+      <rotation x="-0" y="165.75" z="-0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="pengo" platform="arcade">
@@ -1022,7 +870,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -1053,18 +901,10 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="1.92" y="-0" z="-5.57" />
-      <rotation x="0" y="-18.64" z="-0" />
+      <position x="1.92" y="0" z="-5.57" />
+      <rotation x="-0" y="-18.64" z="0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="mspacman" platform="arcade">
@@ -1072,7 +912,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -1103,18 +943,10 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="1.09" y="-0" z="5.75" />
-      <rotation x="0" y="-164.66" z="0" />
+      <position x="1.09" y="0" z="5.75" />
+      <rotation x="-0" y="-164.66" z="0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="mrdo" platform="arcade">
@@ -1122,7 +954,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -1153,18 +985,10 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="0.99" y="-0" z="-5.81" />
-      <rotation x="0" y="-8.01" z="0" />
+      <position x="0.99" y="0" z="-5.81" />
+      <rotation x="-0" y="-8.01" z="0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="mpatrol" platform="arcade">
@@ -1172,7 +996,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -1203,18 +1027,10 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="-2.03" y="-0" z="5.56" />
-      <rotation x="-0" y="158.48" z="0" />
+      <position x="-2.03" y="0" z="5.56" />
+      <rotation x="-0" y="158.48" z="-0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="Space Invaders - The Original Game (J).smc" platform="arcade">
@@ -1222,7 +1038,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -1253,18 +1069,10 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="-5.91" y="-0" z="-0.09" />
-      <rotation x="0" y="90" z="0" />
+      <position x="-5.91" y="0" z="-0.09" />
+      <rotation x="-0" y="90" z="-0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="galaga" platform="arcade">
@@ -1272,7 +1080,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -1303,18 +1111,10 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="2.2" y="-0" z="5.36" />
-      <rotation x="0" y="-154.14" z="0" />
+      <position x="2.2" y="0" z="5.36" />
+      <rotation x="-0" y="-154.14" z="0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="frogger" platform="arcade">
@@ -1322,7 +1122,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -1353,18 +1153,10 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="0.09" y="-0" z="-5.87" />
-      <rotation x="0" y="0" z="-0" />
+      <position x="0.09" y="0" z="-5.87" />
+      <rotation x="-0" y="0" z="0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="digdug" platform="arcade">
@@ -1372,7 +1164,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -1403,18 +1195,10 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="-1.86" y="-0" z="-5.59" />
-      <rotation x="-0" y="17.76" z="0" />
+      <position x="-1.86" y="0" z="-5.59" />
+      <rotation x="-0" y="17.76" z="-0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="defender" platform="arcade">
@@ -1422,7 +1206,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -1453,18 +1237,10 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="-2.78" y="-0" z="-5.22" />
-      <rotation x="0" y="26.94" z="0" />
+      <position x="-2.78" y="0" z="-5.22" />
+      <rotation x="-0" y="26.94" z="-0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="centiped" platform="arcade">
@@ -1472,7 +1248,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -1503,18 +1279,10 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="-3.63" y="-0" z="-4.63" />
-      <rotation x="-0" y="42.78" z="0" />
+      <position x="-3.63" y="0" z="-4.63" />
+      <rotation x="-0" y="42.78" z="-0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="bzone" platform="arcade">
@@ -1522,7 +1290,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -1553,18 +1321,10 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="-4.33" y="-0" z="-3.98" />
-      <rotation x="0" y="51.14" z="0" />
+      <position x="-4.33" y="0" z="-3.98" />
+      <rotation x="-0" y="51.14" z="-0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="bombjack" platform="arcade">
@@ -1572,7 +1332,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -1603,17 +1363,9 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="-3.92" y="-0" z="4.23" />
+      <position x="-3.92" y="0" z="4.23" />
       <rotation x="-0" y="130.6" z="-0" />
       <scale x="1" y="1" z="1" />
     </game>
@@ -1622,7 +1374,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -1653,18 +1405,10 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="-5.36" y="-0" z="2.18" />
-      <rotation x="0" y="114.22" z="-0" />
+      <position x="-5.36" y="0" z="2.18" />
+      <rotation x="-0" y="114.22" z="-0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="asteroid" platform="arcade">
@@ -1672,7 +1416,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -1703,18 +1447,10 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="-3.06" y="-0" z="4.98" />
-      <rotation x="0" y="140.18" z="-0" />
+      <position x="-3.06" y="0" z="4.98" />
+      <rotation x="-0" y="140.18" z="-0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="gyruss" platform="arcade">
@@ -1722,7 +1458,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -1753,17 +1489,9 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="3.64" y="-0" z="-4.59" />
+      <position x="3.64" y="0" z="-4.59" />
       <rotation x="-0" y="-46.44" z="0" />
       <scale x="1" y="1" z="1" />
     </game>
@@ -1772,7 +1500,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -1803,18 +1531,10 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="-0.48" y="-0" z="-2.95" />
-      <rotation x="0" y="11.44" z="0" />
+      <position x="-0.48" y="0" z="-2.95" />
+      <rotation x="-0" y="11.44" z="-0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="szaxxon" platform="arcade">
@@ -1822,7 +1542,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -1853,18 +1573,10 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="2.81" y="-0" z="-5.21" />
-      <rotation x="0" y="-28.44" z="-0" />
+      <position x="2.81" y="0" z="-5.21" />
+      <rotation x="-0" y="-28.44" z="0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="timeplt" platform="arcade">
@@ -1872,7 +1584,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -1903,17 +1615,9 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="-4.74" y="-0" z="3.26" />
+      <position x="-4.74" y="0" z="3.26" />
       <rotation x="-0" y="124.09" z="-0" />
       <scale x="1" y="1" z="1" />
     </game>
@@ -1922,7 +1626,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -1953,18 +1657,10 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="4.91" y="-0" z="3.08" />
-      <rotation x="0" y="-119.63" z="-0" />
+      <position x="4.91" y="0" z="3.08" />
+      <rotation x="-0" y="-119.63" z="0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="joust" platform="arcade">
@@ -1972,7 +1668,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -2003,17 +1699,9 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="-4.98" y="-0" z="-3.13" />
+      <position x="-4.98" y="0" z="-3.13" />
       <rotation x="-0" y="55.52" z="-0" />
       <scale x="1" y="1" z="1" />
     </game>
@@ -2022,7 +1710,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -2053,18 +1741,10 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="-3.35" y="-0" z="-0.51" />
-      <rotation x="-0" y="62.57" z="0" />
+      <position x="-3.35" y="0" z="-0.51" />
+      <rotation x="-0" y="62.57" z="-0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="ssf2" platform="arcade">
@@ -2072,7 +1752,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -2103,18 +1783,10 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="3.04" y="-0" z="0.71" />
-      <rotation x="0" y="-110.64" z="0" />
+      <position x="3.04" y="0" z="0.71" />
+      <rotation x="-0" y="-110.64" z="0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="ssf2" platform="arcade">
@@ -2122,7 +1794,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator>mame_0228</emulator>
         <artwork_files>
@@ -2153,18 +1825,10 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="1.14" y="-0" z="2.87" />
-      <rotation x="0" y="-168.64" z="0" />
+      <position x="1.14" y="0" z="2.87" />
+      <rotation x="-0" y="-168.64" z="0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="1942" platform="arcade">
@@ -2172,7 +1836,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -2203,18 +1867,10 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
       <position x="-2.25" y="-0.01" z="2.24" />
-      <rotation x="0" y="142.96" z="-0" />
+      <rotation x="-0" y="142.96" z="-0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="id" platform="arcade">
@@ -2222,7 +1878,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -2253,18 +1909,10 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="0" y="-0" z="5.91" />
-      <rotation x="-0" y="180" z="-0" />
+      <position x="0" y="0" z="5.91" />
+      <rotation x="0" y="180" z="0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="mainmenu" platform="">
@@ -2272,7 +1920,7 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides description="Main Menu">
+      <overrides>
         <model />
         <emulator />
         <artwork_files>
@@ -2303,18 +1951,10 @@
           <Genre />
           <Year />
           <Manufacturer />
-          <ScreenType>Default</ScreenType>
-          <ScreenOrientation>Default</ScreenOrientation>
-          <Mature>false</Mature>
-          <Playable>false</Playable>
-          <IsBios>false</IsBios>
-          <IsDevice>false</IsDevice>
-          <IsMechanical>false</IsMechanical>
-          <Available>false</Available>
         </game>
       </overrides>
-      <position x="5.76" y="-0" z="-0.91" />
-      <rotation x="0" y="-77.07" z="0" />
+      <position x="5.76" y="0" z="-0.91" />
+      <rotation x="-0" y="-77.07" z="0" />
       <scale x="1" y="1" z="1" />
     </game>
   </games>

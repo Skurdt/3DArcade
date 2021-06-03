@@ -53,6 +53,9 @@ namespace Arcade
 
         public void Show(TConfiguration configuration)
         {
+            if (gameObject.activeSelf)
+                return;
+
             gameObject.SetActive(true);
 
             _configuration = configuration;
@@ -70,6 +73,9 @@ namespace Arcade
 
         public void Hide()
         {
+            if (!gameObject.activeSelf)
+                return;
+
             _descriptionInputField.SetTextWithoutNotify("");
             ClearUIValues();
             _configuration = null;

@@ -38,7 +38,6 @@ namespace Arcade
             Debug.Log($">> <color=green>Entered</color> {GetType().Name}");
 
             Context.ArcadeContext.InteractionControllers.EditModeEditPositionsController.ResetData();
-            Context.ArcadeEditModeStateChangeEvent.Raise(this);
         }
 
         public override void OnExit() => Debug.Log($">> <color=orange>Exited</color> {GetType().Name}");

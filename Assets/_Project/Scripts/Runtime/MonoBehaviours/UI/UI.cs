@@ -36,8 +36,6 @@ namespace Arcade
 
         public void HandleArcadeStateChange(ArcadeState arcadeState)
         {
-            _uiContext.TransitionTo<UIDisabledState>();
-
             if (arcadeState is ArcadeStandardLoadingState || arcadeState is ArcadeVirtualRealityLoadingState)
             {
                 if (_generalConfiguration.Value.EnableVR)
@@ -71,18 +69,6 @@ namespace Arcade
                     _uiContext.TransitionTo<UIVirtualRealityEditContentState>();
                 else
                     _uiContext.TransitionTo<UIStandardEditContentState>();
-                return;
-            }
-        }
-
-        public void HandleArcadeEditModeStateChange(ArcadeEditModeState editModeState)
-        {
-            if (editModeState is ArcadeEditModeManualMoveState || editModeState is ArcadeEditModeAutoMoveState)
-            {
-                if (_generalConfiguration.Value.EnableVR)
-                    _uiContext.TransitionTo<UIVirtualRealityEditPositionsState>();
-                else
-                    _uiContext.TransitionTo<UIStandardEditPositionsState>();
                 return;
             }
 

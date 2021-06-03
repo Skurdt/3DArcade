@@ -36,9 +36,6 @@ namespace Arcade
         [SerializeField] private Databases _databases;
         [SerializeField] private AvailableModels _availableModels;
 
-        [SerializeField] private Button _applyChangesButton;
-        [SerializeField] private Button _addModelButton;
-        [SerializeField] private Button _removeModelButton;
         [SerializeField] private TMP_Text _title;
         [SerializeField] private TMP_InputField _idInputField;
         [SerializeField] private TMP_Dropdown _interactionTypeDropdown;
@@ -48,6 +45,10 @@ namespace Arcade
         [SerializeField] private Toggle _editGrabbableToggle;
         [SerializeField] private TMP_Dropdown _modelOverrideDropdown;
         [SerializeField] private TMP_Dropdown _emulatorOverrideDropdown;
+        [SerializeField] private Button _applyButton;
+        [SerializeField] private Button _actionBarApplyButton;
+        [SerializeField] private Button _actionBarAddButton;
+        [SerializeField] private Button _actionBarRemoveButton;
 
         private RectTransform _transform;
         private float _startPositionX;
@@ -56,7 +57,7 @@ namespace Arcade
         private void Awake()
         {
             _transform      = transform as RectTransform;
-            _startPositionX = _transform.anchoredPosition.x;
+            _startPositionX = -_transform.rect.width;
             _endPositionX   = 0f;
         }
 
@@ -78,6 +79,11 @@ namespace Arcade
 
         public void Show()
         {
+            if (gameObject.activeSelf)
+                return;
+
+            gameObject.SetActive(true);
+
             _databases.Initialize();
 
             _platformDropdown.ClearOptions();
@@ -95,8 +101,12 @@ namespace Arcade
 
         public void Hide()
         {
+            if (!gameObject.activeSelf)
+                return;
+
             ResetUIData();
-            _ = _transform.DOAnchorPosX(_startPositionX, _animationDuration.Value);
+            _ = _transform.DOAnchorPosX(_startPositionX, _animationDuration.Value)
+                          .OnComplete(() => gameObject.SetActive(false));
         }
 
         public void SetUIData(ModelConfigurationComponent modelConfigurationComponent)
@@ -130,9 +140,11 @@ namespace Arcade
         {
             bool state = modelConfigurationComponent != null;
 
-            _applyChangesButton.interactable = state;
-            _removeModelButton.interactable  = state;
-            _addModelButton.interactable     = !state;
+            _applyButton.interactable = state;
+
+            _actionBarApplyButton.gameObject.SetActive(state);
+            _actionBarAddButton.gameObject.SetActive(!state);
+            _actionBarRemoveButton.interactable = state;
         }
 
         public void UpdateModelConfigurationValues(ModelConfiguration modelConfiguration)

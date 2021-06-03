@@ -20,41 +20,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE. */
 
-//using UnityEngine;
-//using UnityEngine.EventSystems;
-
-//namespace Arcade
-//{
-//    [DisallowMultipleComponent]
-//    public sealed class UIMenuTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
-//    {
-//        private UINormalMenu _normalMenu;
-
-//        public bool InteractionsEnabled { get; set; } = true;
-
-//        private void Awake() => _normalMenu = GetComponentInChildren<UINormalMenu>();
-
-//        public void OnPointerEnter(PointerEventData eventData)
-//        {
-//            if (!InteractionsEnabled)
-//                return;
-
-//            ShowMenu();
-//        }
-
-//        public void OnPointerExit(PointerEventData eventData)
-//        {
-//            if (!InteractionsEnabled)
-//                return;
-
-//            HideMenu();
-//        }
-
-//        private void ShowMenu() => _normalMenu.Show();
-
-//        private void HideMenu() => _normalMenu.Hide();
-//    }
-//}
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;

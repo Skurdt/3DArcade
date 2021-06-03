@@ -30,6 +30,15 @@ namespace Arcade
     {
         [SerializeField] private UnityEvent<bool> _onVisibilityChange;
 
-        public void SetVisibility(bool visible) => _onVisibilityChange.Invoke(visible);
+        private bool _visible;
+
+        public void SetVisibility(bool visible)
+        {
+            if (_visible == visible)
+                return;
+
+            _visible = visible;
+            _onVisibilityChange.Invoke(_visible);
+        }
     }
 }

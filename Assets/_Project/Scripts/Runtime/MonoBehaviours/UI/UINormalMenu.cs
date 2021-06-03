@@ -33,7 +33,6 @@ namespace Arcade
         private RectTransform _transform;
         private float _animationStartPosition;
         private float _animationEndPosition;
-        private Tween _tween;
 
         private void Awake()
         {
@@ -52,16 +51,20 @@ namespace Arcade
 
         public void Show()
         {
-            _tween?.Kill();
+            if (gameObject.activeSelf)
+                return;
+
             gameObject.SetActive(true);
-            _tween = _transform.DOAnchorPosX(_animationEndPosition, _animationDuration.Value);
+            _ = _transform.DOAnchorPosX(_animationEndPosition, _animationDuration.Value);
         }
 
         public void Hide()
         {
-            _tween?.Kill();
-            _tween = _transform.DOAnchorPosX(_animationStartPosition, _animationDuration.Value)
-                               .OnComplete(() => gameObject.SetActive(false));
+            if (!gameObject.activeSelf)
+                return;
+
+            _ = _transform.DOAnchorPosX(_animationStartPosition, _animationDuration.Value)
+                          .OnComplete(() => gameObject.SetActive(false));
         }
     }
 }

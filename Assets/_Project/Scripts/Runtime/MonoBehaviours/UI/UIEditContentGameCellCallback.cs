@@ -20,37 +20,34 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE. */
 
-using PolyAndCode.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Arcade
 {
-    [DisallowMultipleComponent]
-    public sealed class UIGameButton : MonoBehaviour, ICell
+    public sealed class UIEditContentGameCellCallback : MonoBehaviour
     {
+        [SerializeField] private GameListVariable _gameListVariable;
         [SerializeField] private EditModeEditContentInteractionController _interactionController;
+        [SerializeField] private StringEvent _onButtonClicked;
+        [SerializeField] private Button _button;
+        [SerializeField] private TMP_Text _description;
 
-        private Button _button;
-        private TMP_Text _buttonText;
-
-        private void Awake()
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "Called using SendMessage")]
+        private void ScrollCellIndex(int idx)
         {
-            _button     = GetComponent<Button>();
-            _buttonText = GetComponentInChildren<TMP_Text>();
-        }
+            GameConfiguration gameConfiguration = _gameListVariable.FilteredList[idx];
+            string gameName                     = gameConfiguration.Name;
+		    gameObject.name                     = gameName;
 
-        public void ConfigureCell(TMP_InputField idInputField, GameConfiguration gameConfiguration)
-        {
             _button.onClick.RemoveAllListeners();
             _button.onClick.AddListener(() =>
             {
-                idInputField.text = gameConfiguration.Name;
-                idInputField.DeactivateInputField();
+                _onButtonClicked.Raise(gameName);
                 _interactionController.ApplyChangesOrAddModel();
             });
-            _buttonText.SetText(gameConfiguration.ToString());
-        }
+			_description.SetText(gameConfiguration.ToString());
+	    }
     }
 }

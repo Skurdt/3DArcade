@@ -53,7 +53,11 @@ namespace Arcade
         public void Reset(bool raiseEvent = true)
         {
             if (Current == null)
+            {
+                if (raiseEvent)
+                    _targetChangedEvent.Raise(null);
                 return;
+            }
 
             Current.RestoreLayerToOriginal();
             Current = null;

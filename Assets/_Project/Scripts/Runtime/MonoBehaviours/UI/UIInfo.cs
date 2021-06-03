@@ -41,6 +41,9 @@ namespace Arcade
 
         public void Show()
         {
+            if (gameObject.activeSelf)
+                return;
+
             gameObject.SetActive(true);
 
             Rect transformRect = _transform.rect;
@@ -70,6 +73,9 @@ namespace Arcade
 
         public void Hide()
         {
+            if (!gameObject.activeSelf)
+                return;
+
             float animationDuration = _animationDuration.Value;
             _ = DOTween.Sequence().Join(_leftPanel.DOAnchorPosX(-_leftPanel.rect.width, animationDuration))
                                   .Join(_rightPanel.DOAnchorPosX(_rightPanel.rect.width, animationDuration))
