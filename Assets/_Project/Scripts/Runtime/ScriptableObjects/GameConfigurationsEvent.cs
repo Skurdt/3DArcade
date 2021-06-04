@@ -20,26 +20,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE. */
 
-using TMPro;
 using UnityEngine;
 
 namespace Arcade
 {
-    public sealed class UIGameConfigurationCellCallback : MonoBehaviour
+    [CreateAssetMenu(menuName = "3DArcade/Event/GameConfigurationsEvent", fileName = "GameConfigurationsEvent")]
+    public sealed class GameConfigurationsEvent : EventBase<GameConfiguration[]>
     {
-        [SerializeField] private GameListVariable _gameListVariable;
-        [SerializeField] private TMP_Text _description;
-        [SerializeField] private TMP_Text _name;
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "Called using SendMessage")]
-        private void ScrollCellIndex(int idx)
-        {
-            GameConfiguration gameConfiguration = _gameListVariable.Value[idx];
-            string gameName                     = gameConfiguration.Name;
-		    gameObject.name                     = gameName;
-
-			_description.SetText(gameConfiguration.Description);
-            _name.SetText(gameName);
-	    }
     }
 }

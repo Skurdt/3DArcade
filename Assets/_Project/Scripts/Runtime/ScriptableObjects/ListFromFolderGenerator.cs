@@ -20,26 +20,31 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE. */
 
-using TMPro;
-using UnityEngine;
+using System.IO;
+using System.Linq;
 
 namespace Arcade
 {
-    public sealed class UIGameConfigurationCellCallback : MonoBehaviour
+    public sealed class ListFromFolderGenerator : IGameConfigurationListGenerator
     {
-        [SerializeField] private GameListVariable _gameListVariable;
-        [SerializeField] private TMP_Text _description;
-        [SerializeField] private TMP_Text _name;
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "Called using SendMessage")]
-        private void ScrollCellIndex(int idx)
+        public GameConfiguration[] Generate(FileExplorer fileExplorer)
         {
-            GameConfiguration gameConfiguration = _gameListVariable.Value[idx];
-            string gameName                     = gameConfiguration.Name;
-		    gameObject.name                     = gameName;
+            GameConfiguration[] result = null;
+            fileExplorer.OpenDirectoryDialog(directoryPaths =>
+            {
+                if (directoryPaths is null || directoryPaths.Length == 0)
+                    return;
 
-			_description.SetText(gameConfiguration.Description);
-            _name.SetText(gameName);
-	    }
+                if (!FileSystemUtils.TryGetFiles(directoryPaths[0], "*.*", false, out string[] filePaths))
+                    return;
+
+                result = filePaths.Select(path =>
+                {
+                    string fileName = Path.GetFileNameWithoutExtension(path);
+                    return new GameConfiguration { Description = fileName, Name = fileName };
+                }).ToArray();
+            });
+            return result;
+        }
     }
 }

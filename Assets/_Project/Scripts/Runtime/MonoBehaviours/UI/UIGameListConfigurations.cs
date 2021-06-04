@@ -22,7 +22,6 @@
 
 using DG.Tweening;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,7 +32,6 @@ namespace Arcade
     {
         [SerializeField] private GamesDatabase _database;
         [SerializeField] private Button _addButton;
-        [SerializeField] private TMP_InputField _addInputField;
         [SerializeField] private RectTransform _listContent;
         [SerializeField] private UIListButton _listButtonPrefab;
         [SerializeField] private UIGameListConfiguration _uiConfiguration;
@@ -59,20 +57,8 @@ namespace Arcade
 
             gameObject.SetActive(true);
 
-            _addButton.onClick.AddListener(() =>
-            {
-                string listName = _addInputField.text;
-                if (string.IsNullOrEmpty(listName))
-                    return;
-
-                _database.AddGameList(listName);
-
-                _addInputField.SetTextWithoutNotify(null);
-                _addInputField.DeactivateInputField(true);
-                InitializeList();
-            });
-
             InitializeList();
+
             _ = _transform.DOAnchorPosX(_animationEndPosition, _animationDuration.Value);
         }
 
@@ -81,7 +67,6 @@ namespace Arcade
             if (!gameObject.activeSelf)
                 return;
 
-            _addButton.onClick.RemoveAllListeners();
             _ = _transform.DOAnchorPosX(_animationStartPosition, _animationDuration.Value)
                           .OnComplete(() => gameObject.SetActive(false));
         }

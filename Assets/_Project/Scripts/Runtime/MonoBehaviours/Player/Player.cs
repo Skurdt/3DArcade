@@ -75,7 +75,7 @@ namespace Arcade
         public void EnableNormalFpsControls()
         {
             _standardControls.EnableFpsController();
-            _standardControls.ActiveTransform.Translate(Vector3.up * 0.4f);
+            _standardControls.ActiveTransform.position = Vector3.up * 0.4f;
         }
 
         public void EnableNormalCylControls() => _standardControls.EnableCylController();

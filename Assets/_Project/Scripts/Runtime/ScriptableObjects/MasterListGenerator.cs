@@ -20,26 +20,30 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE. */
 
-using TMPro;
 using UnityEngine;
 
 namespace Arcade
 {
-    public sealed class UIGameConfigurationCellCallback : MonoBehaviour
+    [CreateAssetMenu(menuName = "3DArcade/MasterListGenerator", fileName = "MasterListGenerator")]
+    public sealed class MasterListGenerator : ScriptableObject
     {
-        [SerializeField] private GameListVariable _gameListVariable;
-        [SerializeField] private TMP_Text _description;
-        [SerializeField] private TMP_Text _name;
+        [field: SerializeField] public GameListVariable GameListVariable { get; private set; }
+        [SerializeField] private GameConfigurationsEvent _gameConfigurationsEvent;
+        [SerializeField] private FileExplorer _fileExplorer;
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "Called using SendMessage")]
-        private void ScrollCellIndex(int idx)
+        [System.NonSerialized] private IGameConfigurationListGenerator _generator;
+
+        public void SetGenerator(IGameConfigurationListGenerator generator) => _generator = generator;
+
+        public void Generate()
         {
-            GameConfiguration gameConfiguration = _gameListVariable.Value[idx];
-            string gameName                     = gameConfiguration.Name;
-		    gameObject.name                     = gameName;
+            if (_generator is null)
+                return;
 
-			_description.SetText(gameConfiguration.Description);
-            _name.SetText(gameName);
-	    }
+            GameListVariable.Value = _generator.Generate(_fileExplorer);
+            _gameConfigurationsEvent.Raise(GameListVariable.Value);
+        }
+
+        public void ClearList() => GameListVariable.Value = null;
     }
 }

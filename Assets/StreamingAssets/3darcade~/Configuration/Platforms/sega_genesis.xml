@@ -1,5 +1,5 @@
 <platform description="Sega Genesis">
-  <master_list />
+  <master_list>sega_genesis</master_list>
   <emulator>lr_genesis_plus_gx</emulator>
   <model />
   <marquee_images_directories />
