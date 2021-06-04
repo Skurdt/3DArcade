@@ -150,15 +150,17 @@ namespace Arcade
             _workingDirectoryInputField.text = _configuration.WorkingDirectory;
 
             _executableButton.onClick.AddListener(()
-                => _fileExplorer.OpenFileDialog(paths =>
+                => _fileExplorer.OpenFileDialog("Select executable", paths =>
                 {
                     if (paths is null || paths.Length == 0)
                         return;
+
                     if (string.IsNullOrEmpty(_directoryInputField.text))
                     {
                         _directoryInputField.SetTextWithoutNotify(Path.GetDirectoryName(paths[0]));
                         _directoryInputField.caretPosition = 0;
                     }
+
                     _executableInputField.SetTextWithoutNotify(Path.GetFileName(paths[0]));
                     _executableInputField.caretPosition = 0;
 

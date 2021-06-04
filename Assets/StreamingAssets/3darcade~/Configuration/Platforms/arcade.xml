@@ -1,5 +1,5 @@
 <platform description="Arcade">
-  <master_list>mame2003_plus</master_list>
+  <master_list>mame_2003plus</master_list>
   <emulator>lr_mame2003_plus</emulator>
   <model />
   <marquee_images_directories>

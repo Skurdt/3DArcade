@@ -27,10 +27,8 @@ namespace Arcade
 {
     public sealed class ListFromFolderGenerator : IGameConfigurationListGenerator
     {
-        public GameConfiguration[] Generate(FileExplorer fileExplorer)
-        {
-            GameConfiguration[] result = null;
-            fileExplorer.OpenDirectoryDialog(directoryPaths =>
+        public void Generate(FileExplorer fileExplorer, GameConfigurationsEvent gameConfigurationsEvent)
+            => fileExplorer.OpenDirectoryDialog(directoryPaths =>
             {
                 if (directoryPaths is null || directoryPaths.Length == 0)
                     return;
@@ -38,13 +36,13 @@ namespace Arcade
                 if (!FileSystemUtils.TryGetFiles(directoryPaths[0], "*.*", false, out string[] filePaths))
                     return;
 
-                result = filePaths.Select(path =>
+                GameConfiguration[] games = filePaths.Select(filePath =>
                 {
-                    string fileName = Path.GetFileNameWithoutExtension(path);
+                    string fileName = Path.GetFileNameWithoutExtension(filePath);
                     return new GameConfiguration { Description = fileName, Name = fileName };
                 }).ToArray();
+
+                gameConfigurationsEvent.Raise(games);
             });
-            return result;
-        }
     }
 }

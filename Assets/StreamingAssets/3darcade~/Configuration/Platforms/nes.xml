@@ -1,5 +1,5 @@
 <platform description="Nintendo NES">
-  <master_list />
+  <master_list>nintendo_nes</master_list>
   <emulator>lr_nestopia</emulator>
   <model />
   <marquee_images_directories />

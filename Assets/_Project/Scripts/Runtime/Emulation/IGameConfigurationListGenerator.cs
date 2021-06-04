@@ -24,6 +24,6 @@ namespace Arcade
 {
     public interface IGameConfigurationListGenerator
     {
-        GameConfiguration[] Generate(FileExplorer fileExplorer);
+        void Generate(FileExplorer fileExplorer, GameConfigurationsEvent gameConfigurationsEvent);
     }
 }

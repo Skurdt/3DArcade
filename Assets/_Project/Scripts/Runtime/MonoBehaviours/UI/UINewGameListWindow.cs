@@ -35,6 +35,7 @@ namespace Arcade
 
         [SerializeField] private GamesDatabase _gamesDatabase;
         [SerializeField] private MasterListGenerator _masterListGenerator;
+        [SerializeField] private GameListVariable _gameListVariable;
         [SerializeField] private TMP_Dropdown _generateFromDropdown;
         [SerializeField] private Button _generateButton;
         [SerializeField] private LoopScrollRect _scrollRect;
@@ -65,7 +66,6 @@ namespace Arcade
             _generateFromDropdown.value = _lastGeneratorIndex;
             SetGenerator(_lastGeneratorIndex);
 
-            _masterListGenerator.ClearList();
             RefreshList(null);
             _idInputField.text = "";
 
@@ -77,7 +77,6 @@ namespace Arcade
             if (!gameObject.activeSelf)
                 return;
 
-            _masterListGenerator.ClearList();
             RefreshList(null);
             _idInputField.text = "";
 
@@ -87,36 +86,44 @@ namespace Arcade
 
         public void SetGenerator(int index)
         {
-            _lastGeneratorIndex = index;
-            _masterListGenerator.ClearList();
-            if (_generateFromDropdown.options[index].text == "Folder")
+            IGameConfigurationListGenerator generator = index switch
             {
+                0 => new ListFromFolderGenerator(),
+                2 => new ListFromMameXmlGenerator(),
+                _ => null
+            };
+
+            if (generator is null)
+            {
+                _lastGeneratorIndex          = 0;
+                _generateButton.interactable = false;
+                RefreshList(null);
+            }
+            else
+            {
+                _lastGeneratorIndex          = index;
                 _generateButton.interactable = true;
-                _masterListGenerator.SetGenerator(new ListFromFolderGenerator());
-                return;
             }
 
-            _lastGeneratorIndex = 0;
-            _generateButton.interactable = false;
-            _masterListGenerator.SetGenerator(null);
-            RefreshList(null);
+            _masterListGenerator.SetGenerator(generator);
         }
 
         public void SetSaveButtonState(string value) => _saveButton.interactable = !string.IsNullOrEmpty(value)
-                                                                                && _masterListGenerator.GameListVariable.Value.Length > 0;
+                                                                                && _gameListVariable.Value.Length > 0;
 
         public void AddListToDatabase()
         {
-            if (string.IsNullOrEmpty(_idInputField.text) || _masterListGenerator.GameListVariable.Value.Length == 0)
+            if (string.IsNullOrEmpty(_idInputField.text) || _gameListVariable.Value.Length == 0)
                 return;
 
             _gamesDatabase.AddGameList(_idInputField.text);
-            _gamesDatabase.AddGames(_idInputField.text, _masterListGenerator.GameListVariable.Value);
+            _gamesDatabase.AddGames(_idInputField.text, _gameListVariable.Value);
         }
 
         private void RefreshList(GameConfiguration[] gameConfigurations)
         {
-            _scrollRect.totalCount = !(gameConfigurations is null) ? gameConfigurations.Length : 0;
+            _gameListVariable.Value = gameConfigurations;
+            _scrollRect.totalCount  = !(gameConfigurations is null) ? gameConfigurations.Length : 0;
             _scrollRect.RefillCells();
         }
     }

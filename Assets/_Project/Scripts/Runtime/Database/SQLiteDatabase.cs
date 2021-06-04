@@ -21,7 +21,6 @@
  * SOFTWARE. */
 
 using Dapper;
-using Dapper.Contrib.Extensions;
 using Mono.Data.Sqlite;
 using System.Collections.Generic;
 using System.Data;
@@ -33,11 +32,6 @@ namespace Arcade
 {
     public sealed class SQLiteDatabase
     {
-        public abstract class MappedEntry
-        {
-            [Key] public int Id { get; set; }
-        }
-
         [System.Serializable]
         public abstract class ReflectedEntry
         {
@@ -118,33 +112,6 @@ namespace Arcade
             {
                 return null;
             }
-        }
-
-        public int GetId<TParameter>(string tableName, string where, TParameter parameter)
-            where TParameter : MappedEntry
-        {
-            string statement= $"SELECT (Id) FROM '{tableName}' WHERE {where}=@{where};";
-
-            DynamicParameters parameters = new DynamicParameters(parameter);
-
-            using IDbConnection connection = GetConnection();
-            return connection.QueryFirst<int>(statement, parameters);
-        }
-
-        public void Insert<T>(T item) where T : MappedEntry
-        {
-            using IDbConnection connection = GetConnection();
-            _ = connection.Insert(item);
-        }
-
-        public void Insert<T>(IEnumerable<T> items)
-            where T : MappedEntry
-        {
-            using IDbConnection connection = GetConnection();
-            connection.Open();
-            using IDbTransaction transaction = connection.BeginTransaction();
-            _ = connection.Insert(items, transaction);
-            transaction.Commit();
         }
 
         public void Insert<T>(string tableName, T item)

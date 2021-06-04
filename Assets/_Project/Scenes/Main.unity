@@ -20850,6 +20850,7 @@ MonoBehaviour:
   _gamesDatabase: {fileID: 11400000, guid: 83bea0e6cf65ff94b8471817a2c434db, type: 2}
   _masterListGenerator: {fileID: 11400000, guid: 32b7a846bcc0fef49b63ca17a2777f40,
     type: 2}
+  _gameListVariable: {fileID: 11400000, guid: afd7a498f208f02459f8ed42cc06de92, type: 2}
   _generateFromDropdown: {fileID: 1363103677}
   _generateButton: {fileID: 490837259}
   _scrollRect: {fileID: 1069405050}
@@ -21345,7 +21346,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 2.1103017, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

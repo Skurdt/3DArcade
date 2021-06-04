@@ -36,6 +36,8 @@ namespace Arcade
 
         public void HandleArcadeStateChange(ArcadeState arcadeState)
         {
+            _uiContext.TransitionTo<UIDisabledState>();
+
             if (arcadeState is ArcadeStandardLoadingState || arcadeState is ArcadeVirtualRealityLoadingState)
             {
                 if (_generalConfiguration.Value.EnableVR)
@@ -71,8 +73,6 @@ namespace Arcade
                     _uiContext.TransitionTo<UIStandardEditContentState>();
                 return;
             }
-
-            _uiContext.TransitionTo<UIDisabledState>();
         }
     }
 }

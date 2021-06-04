@@ -22,10 +22,8 @@
 
 using System.IO;
 using UnityEngine;
-#if !UNITY_EDITOR
 using SimpleFileBrowser;
 using System.Linq;
-#endif
 
 namespace Arcade
 {
@@ -34,21 +32,10 @@ namespace Arcade
     {
         [System.NonSerialized] private string _lastDirectory;
         [System.NonSerialized] private string _lastFileDirectory;
-#if !UNITY_EDITOR
         [System.NonSerialized] private System.Action<string[]> _callback;
-#endif
+
         public void OpenDirectoryDialog(System.Action<string[]> callback)
         {
-#if UNITY_EDITOR
-            string result = UnityEditor.EditorUtility.OpenFolderPanel("Select directory", _lastDirectory, null);
-            if (string.IsNullOrEmpty(result))
-            {
-                callback.Invoke(null);
-                return;
-            }
-            _lastDirectory = Path.GetDirectoryName(_lastDirectory);
-            callback.Invoke(new[] { result.Replace('\\', '/') });
-#else
             _callback = callback;
             _ = FileBrowser.ShowLoadDialog(OpenDirectoryDialogSuccessCallback,
                                            OpenDirectoryDialogCancelCallback,
@@ -58,21 +45,10 @@ namespace Arcade
                                            null,
                                            "Select directory",
                                            "Select");
-#endif
         }
 
-        public void OpenFileDialog(System.Action<string[]> callback)
+        public void OpenFileDialog(string title, System.Action<string[]> callback)
         {
-#if UNITY_EDITOR
-            string result = UnityEditor.EditorUtility.OpenFilePanel("Select file", _lastFileDirectory, null);
-            if (string.IsNullOrEmpty(result))
-            {
-                callback.Invoke(null);
-                return;
-            }
-            _lastFileDirectory = Path.GetDirectoryName(result);
-            callback.Invoke(new[] { result.Replace('\\', '/') });
-#else
             _callback = callback;
             _ = FileBrowser.ShowLoadDialog(OpenFileDialogSuccessCallback,
                                            OpenFileDialogCancelCallback,
@@ -80,12 +56,10 @@ namespace Arcade
                                            false,
                                            _lastFileDirectory,
                                            null,
-                                           "Select file",
+                                           title,
                                            "Select");
-#endif
         }
 
-#if !UNITY_EDITOR
         private void OpenDirectoryDialogSuccessCallback(string[] paths)
         {
             paths = paths.Select(x => x.Replace('\\', '/')).ToArray();
@@ -115,6 +89,5 @@ namespace Arcade
             _callback?.Invoke(null);
             _callback = null;
         }
-#endif
     }
 }

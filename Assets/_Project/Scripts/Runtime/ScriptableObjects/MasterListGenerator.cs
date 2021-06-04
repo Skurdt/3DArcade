@@ -27,7 +27,6 @@ namespace Arcade
     [CreateAssetMenu(menuName = "3DArcade/MasterListGenerator", fileName = "MasterListGenerator")]
     public sealed class MasterListGenerator : ScriptableObject
     {
-        [field: SerializeField] public GameListVariable GameListVariable { get; private set; }
         [SerializeField] private GameConfigurationsEvent _gameConfigurationsEvent;
         [SerializeField] private FileExplorer _fileExplorer;
 
@@ -35,15 +34,6 @@ namespace Arcade
 
         public void SetGenerator(IGameConfigurationListGenerator generator) => _generator = generator;
 
-        public void Generate()
-        {
-            if (_generator is null)
-                return;
-
-            GameListVariable.Value = _generator.Generate(_fileExplorer);
-            _gameConfigurationsEvent.Raise(GameListVariable.Value);
-        }
-
-        public void ClearList() => GameListVariable.Value = null;
+        public void Generate() => _generator?.Generate(_fileExplorer, _gameConfigurationsEvent);
     }
 }
