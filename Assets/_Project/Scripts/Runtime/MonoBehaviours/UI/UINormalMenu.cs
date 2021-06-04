@@ -22,6 +22,7 @@
 
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Arcade
 {
@@ -29,6 +30,7 @@ namespace Arcade
     public sealed class UINormalMenu : MonoBehaviour
     {
         [SerializeField] private FloatVariable _animationDuration;
+        [SerializeField] private Button _menuButton;
 
         private RectTransform _transform;
         private float _animationStartPosition;
@@ -55,7 +57,9 @@ namespace Arcade
                 return;
 
             gameObject.SetActive(true);
-            _ = _transform.DOAnchorPosX(_animationEndPosition, _animationDuration.Value);
+            _menuButton.interactable = false;
+            _ = _transform.DOAnchorPosX(_animationEndPosition, _animationDuration.Value)
+                          .OnComplete(() => _menuButton.interactable = true);
         }
 
         public void Hide()
@@ -63,8 +67,13 @@ namespace Arcade
             if (!gameObject.activeSelf)
                 return;
 
+            _menuButton.interactable = false;
             _ = _transform.DOAnchorPosX(_animationStartPosition, _animationDuration.Value)
-                          .OnComplete(() => gameObject.SetActive(false));
+                          .OnComplete(() =>
+                          {
+                              _menuButton.interactable = true;
+                              gameObject.SetActive(false);
+                          });
         }
     }
 }

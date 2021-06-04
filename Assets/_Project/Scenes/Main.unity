@@ -2631,7 +2631,7 @@ PrefabInstance:
     - target: {fileID: 2348699123454740113, guid: 9f2ee5e460ef740469c2dbe7865e0372,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2348699123454740113, guid: 9f2ee5e460ef740469c2dbe7865e0372,
         type: 3}
@@ -2646,7 +2646,7 @@ PrefabInstance:
     - target: {fileID: 2348699123454740113, guid: 9f2ee5e460ef740469c2dbe7865e0372,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2348699123454740113, guid: 9f2ee5e460ef740469c2dbe7865e0372,
         type: 3}
@@ -2656,7 +2656,7 @@ PrefabInstance:
     - target: {fileID: 2348699123454740113, guid: 9f2ee5e460ef740469c2dbe7865e0372,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2348699123454740113, guid: 9f2ee5e460ef740469c2dbe7865e0372,
         type: 3}
@@ -2711,7 +2711,7 @@ PrefabInstance:
     - target: {fileID: 2348699123454740113, guid: 9f2ee5e460ef740469c2dbe7865e0372,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -674
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 2348699123454740113, guid: 9f2ee5e460ef740469c2dbe7865e0372,
         type: 3}
@@ -5308,11 +5308,11 @@ RectTransform:
   m_Father: {fileID: 1461029538}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -20, y: -674}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 750, y: 16}
   m_SizeDelta: {x: 30, y: 30}
-  m_Pivot: {x: 1, y: 1}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &400278894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21345,7 +21345,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 2.1103017, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -30703,6 +30703,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animationDuration: {fileID: 11400000, guid: 343fdfebba3761847942995d7d888706, type: 2}
+  _menuButton: {fileID: 1990860795}
 --- !u!114 &6069060234107168890
 MonoBehaviour:
   m_ObjectHideFlags: 0
