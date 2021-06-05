@@ -140,3 +140,5 @@ $RECYCLE.BIN/
 !/[Aa]ssets/StreamingAssets/libretro~/cores_using_options_intl.json
 
 uDesktopDuplication.log
+
+*.blend1

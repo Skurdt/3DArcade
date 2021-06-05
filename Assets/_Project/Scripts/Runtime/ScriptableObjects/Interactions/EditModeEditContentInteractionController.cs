@@ -23,6 +23,7 @@
 using Cysharp.Threading.Tasks;
 using SK.Utilities.Unity;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace Arcade
@@ -34,8 +35,12 @@ namespace Arcade
         [SerializeField] private ModelConfigurationComponentEvent _onRealTargetChange;
         [SerializeField] private ModelConfigurationEvent _requestUpdatedModelConfigurationValues;
         [SerializeField, Layer] private int _hightlightLayer;
+        [SerializeField] private Color _outlineColor;
         [SerializeField] private float _spawnDistance  = 2f;
         [SerializeField] private float _verticalOffset = 0.4f;
+        [SerializeField] private LayerMask _worldLayerMask;
+        [SerializeField] private Mesh _spawnPositionMesh;
+        [SerializeField] private Material _spawnPositionMaterial;
 
         private readonly List<GameObject> _addedItems   = new List<GameObject>();
         private readonly List<GameObject> _removedItems = new List<GameObject>();
@@ -59,14 +64,38 @@ namespace Arcade
             if (target != _realTarget)
             {
                 if (_realTarget != null)
+                {
+                    if (_realTarget.gameObject.TryGetComponent(out QuickOutline quickOutlineComponent))
+                        Destroy(quickOutlineComponent);
                     _realTarget.RestoreLayerToOriginal();
+                }
+
                 _realTarget = target;
+
+                if (_realTarget != null)
+                {
+                    QuickOutline outlineComponent = target.gameObject.AddComponentIfNotFound<QuickOutline>();
+                    outlineComponent.OutlineColor = _outlineColor;
+                    outlineComponent.OutlineWidth = 6f;
+                }
 
                 _onRealTargetChange.Raise(_realTarget);
             }
 
             if (_realTarget == null)
+            {
+                Player player             = _arcadeContext.Player.Value;
+                Transform playerTransform = player.ActiveTransform;
+                Vector3 playerPosition    = playerTransform.position;
+                Vector3 playerDirection   = playerTransform.forward;
+                Vector3 spawnPosition     = playerPosition + (playerDirection * _spawnDistance);
+                Quaternion spawnRotation  = Quaternion.LookRotation(-playerDirection);
+
+                Ray ray = player.Camera.ScreenPointToRay(player.Camera.WorldToScreenPoint(spawnPosition));
+                if (Physics.Raycast(ray, out RaycastHit hitInfo, math.INFINITY, _worldLayerMask))
+                    Graphics.DrawMesh(_spawnPositionMesh, hitInfo.point, spawnRotation, _spawnPositionMaterial, 0);
                 return;
+            }
 
             InteractionData.Set(_realTarget, _hightlightLayer);
         }

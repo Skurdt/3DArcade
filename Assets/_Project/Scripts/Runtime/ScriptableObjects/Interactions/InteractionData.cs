@@ -35,7 +35,7 @@ namespace Arcade
         public void HoverEnteredCallback(HoverEnterEventArgs args)
             => Set(args.interactable.GetComponent<ModelConfigurationComponent>(), int.MinValue);
 
-        public void HoverExitedCallback(HoverExitEventArgs args)
+        public void HoverExitedCallback(HoverExitEventArgs _)
             => Reset();
 
         public void Set(ModelConfigurationComponent target, int layer)
@@ -60,6 +60,8 @@ namespace Arcade
             }
 
             Current.RestoreLayerToOriginal();
+            if (Current.TryGetComponent(out QuickOutline quickOutlineComponent))
+                Destroy(quickOutlineComponent);
             Current = null;
 
             if (raiseEvent)

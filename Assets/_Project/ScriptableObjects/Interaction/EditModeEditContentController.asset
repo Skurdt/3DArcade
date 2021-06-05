@@ -21,5 +21,13 @@ MonoBehaviour:
   _requestUpdatedModelConfigurationValues: {fileID: 11400000, guid: c280b2f5286ce3c41a0d36b8b91561dd,
     type: 2}
   _hightlightLayer: 11
+  _outlineColor: {r: 1, g: 0.3882353, b: 0, a: 1}
   _spawnDistance: 2
   _verticalOffset: 0.4
+  _worldLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  _spawnPositionMesh: {fileID: -5908799853881665459, guid: 3ac886a8a6e349140bf391bd6bf0f1dc,
+    type: 3}
+  _spawnPositionMaterial: {fileID: 2100000, guid: f890ccdce46e3ea48b12e2f532ee98e3,
+    type: 2}

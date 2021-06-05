@@ -28,7 +28,8 @@ namespace Arcade
     [CreateAssetMenu(menuName = "3DArcade/Interaction/EditModeEditPositions", fileName = "EditModeEditPositionsInteractionController")]
     public sealed class EditModeEditPositionsInteractionController : InteractionController
     {
-        [SerializeField, Layer] private int _hightlightLayer;
+        [SerializeField, Layer] private int _highlightLayer;
+        [SerializeField] private Color _outlineColor;
 
         public override void UpdateCurrentTarget(Camera camera)
         {
@@ -40,7 +41,17 @@ namespace Arcade
                 return;
             }
 
-            InteractionData.Set(target, _hightlightLayer);
+            if (InteractionData.Current != null && target != InteractionData.Current && InteractionData.Current.gameObject.TryGetComponent(out QuickOutline quickOutlineComponent))
+                Destroy(quickOutlineComponent);
+
+            if (!target.gameObject.TryGetComponent(out QuickOutline _))
+            {
+                QuickOutline outlineComponent = target.gameObject.AddComponent<QuickOutline>();
+                outlineComponent.OutlineColor = _outlineColor;
+                outlineComponent.OutlineWidth = 6f;
+            }
+
+            InteractionData.Set(target, _highlightLayer);
         }
 
         public void ManualMoveAndRotate(Vector2 direction, float rotation)
