@@ -9699,31 +9699,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4670694980532845387, guid: 5b93cd9f61e134b4f922ccd277b047eb,
         type: 3}
-      propertyPath: m_Options.m_Options.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4670694980532845387, guid: 5b93cd9f61e134b4f922ccd277b047eb,
-        type: 3}
-      propertyPath: m_Options.m_Options.Array.data[0].m_Text
-      value: Folder
-      objectReference: {fileID: 0}
-    - target: {fileID: 4670694980532845387, guid: 5b93cd9f61e134b4f922ccd277b047eb,
-        type: 3}
-      propertyPath: m_Options.m_Options.Array.data[1].m_Text
-      value: MAME Executable
-      objectReference: {fileID: 0}
-    - target: {fileID: 4670694980532845387, guid: 5b93cd9f61e134b4f922ccd277b047eb,
-        type: 3}
-      propertyPath: m_Options.m_Options.Array.data[2].m_Text
-      value: MAME Xml
-      objectReference: {fileID: 0}
-    - target: {fileID: 4670694980532845387, guid: 5b93cd9f61e134b4f922ccd277b047eb,
-        type: 3}
-      propertyPath: m_Options.m_Options.Array.data[3].m_Text
-      value: No-Intro DAT
-      objectReference: {fileID: 0}
-    - target: {fileID: 4670694980532845387, guid: 5b93cd9f61e134b4f922ccd277b047eb,
-        type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}

@@ -54,6 +54,31 @@
             ]
         },
         {
+            "CoreName": "mame",
+            "Options": [
+                "mame_alternate_renderer;disabled;disabled|enabled;",
+                "mame_altres;640x480;640x480|640x360|800x600|800x450|960x720|960x540|1024x768|1024x576|1280x960|1280x720|1600x1200|1600x900|1440x1080|1920x1080|1920x1440|2560x1440|2880x2160|3840x2160;",
+                "mame_auto_save;disabled;disabled|enabled;",
+                "mame_boot_from_cli;disabled;disabled|enabled;",
+                "mame_boot_to_bios;disabled;disabled|enabled;",
+                "mame_boot_to_osd;disabled;disabled|enabled;",
+                "mame_buttons_profiles;enabled;enabled|disabled;",
+                "mame_cheats_enable;disabled;disabled|enabled;",
+                "mame_cpu_overclock;default;default|30|31|32|33|34|35|36|37|38|39|40|41|42|43|44|45|46|47|48|49|50|51|52|53|54|55|60|65|70|75|80|85|90|95|100|105|110|115|120|125|130|135|140|145|150;",
+                "mame_lightgun_mode;none;none|touchscreen|lightgun;",
+                "mame_mame_4way_enable;disabled;disabled|4way|strict|qbert;",
+                "mame_mame_paths_enable;disabled;disabled|enabled;",
+                "mame_media_type;rom;rom|cart|flop|cdrm|cass|hard|serl|prin;",
+                "mame_mouse_enable;disabled;disabled|enabled;",
+                "mame_read_config;enabled;disabled|enabled;",
+                "mame_saves;game;game|system;",
+                "mame_softlists_auto_media;enabled;enabled|disabled;",
+                "mame_softlists_enable;enabled;enabled|disabled;",
+                "mame_throttle;enabled;disabled|enabled;",
+                "mame_write_config;enabled;disabled|enabled;"
+            ]
+        },
+        {
             "CoreName": "mame2003_plus",
             "Options": [
                 "mame2003-plus_art_overlay_opacity;default;default|0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|50|70;",

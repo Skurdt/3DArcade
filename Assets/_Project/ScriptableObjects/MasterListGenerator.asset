@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc1b265a18feabf48a84ca02d721a7ae, type: 3}
   m_Name: MasterListGenerator
   m_EditorClassIdentifier: 
-  <GameListVariable>k__BackingField: {fileID: 11400000, guid: afd7a498f208f02459f8ed42cc06de92,
-    type: 2}
-  _gameConfigurationsEvent: {fileID: 11400000, guid: cf07a3616361e3144a1af4ce80b3dd4f,
+  <GameConfigurationsEvent>k__BackingField: {fileID: 11400000, guid: cf07a3616361e3144a1af4ce80b3dd4f,
     type: 2}
   _fileExplorer: {fileID: 11400000, guid: 919ade8aeb960d442ab43abc4c03f36f, type: 2}

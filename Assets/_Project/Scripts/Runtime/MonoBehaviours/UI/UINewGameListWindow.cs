@@ -22,12 +22,21 @@
 
 using DG.Tweening;
 using SG;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Arcade
 {
+    public enum MasterListSource
+    {
+        Folder,
+        Mame2003PlusXML,
+        Mame0221Compatible,
+        NoIntroDAT
+    }
+
     [DisallowMultipleComponent]
     public sealed class UINewGameListWindow : MonoBehaviour
     {
@@ -48,12 +57,28 @@ namespace Arcade
         private float _animationEndPosition;
 
         private int _lastGeneratorIndex;
+        private bool _fromExeEventRaised;
 
         private void Awake()
         {
             _transform              = transform as RectTransform;
             _animationStartPosition = -_transform.rect.width;
             _animationEndPosition   = 0f;
+        }
+
+        private void Update()
+        {
+            if (_fromExeEventRaised)
+                return;
+
+            if (!(_masterListGenerator.Generator is ListFromMame0221CompatibleGenerator fromExeGenerator))
+                return;
+
+            if (fromExeGenerator.Games is null)
+                return;
+
+            _masterListGenerator.GameConfigurationsEvent.Raise(fromExeGenerator.Games);
+            _fromExeEventRaised = true;
         }
 
         public void Show()
@@ -63,6 +88,8 @@ namespace Arcade
 
             gameObject.SetActive(true);
 
+            _generateFromDropdown.ClearOptions();
+            _generateFromDropdown.AddOptions(System.Enum.GetNames(typeof(MasterListSource)).ToList());
             _generateFromDropdown.value = _lastGeneratorIndex;
             SetGenerator(_lastGeneratorIndex);
 
@@ -86,11 +113,12 @@ namespace Arcade
 
         public void SetGenerator(int index)
         {
-            IGameConfigurationListGenerator generator = index switch
+            IGameConfigurationListGenerator generator = (MasterListSource)index switch
             {
-                0 => new ListFromFolderGenerator(),
-                2 => new ListFromMameXmlGenerator(),
-                _ => null
+                MasterListSource.Folder             => new ListFromFolderGenerator(),
+                MasterListSource.Mame2003PlusXML    => new ListFromMame2003PlusXmlGenerator(),
+                MasterListSource.Mame0221Compatible => new ListFromMame0221CompatibleGenerator(),
+                _                                   => null
             };
 
             if (generator is null)
@@ -103,6 +131,9 @@ namespace Arcade
             {
                 _lastGeneratorIndex          = index;
                 _generateButton.interactable = true;
+
+                if (generator is ListFromMame0221CompatibleGenerator)
+                    _fromExeEventRaised = false;
             }
 
             _masterListGenerator.SetGenerator(generator);

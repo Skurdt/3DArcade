@@ -127,7 +127,7 @@ namespace Arcade.Emulation.Mame
         }
     }
 
-    namespace v0221
+    namespace v0221Compatible
     {
         [XmlRoot("mame")]
         public sealed class Data
@@ -139,37 +139,37 @@ namespace Arcade.Emulation.Mame
         public sealed class Machine
         {
             [XmlAttribute("name")] public string Name { get; set; }
-            [XmlAttribute("sourcefile")] public string SourceFile { get; set; }
+            //[XmlAttribute("sourcefile")] public string SourceFile { get; set; }
             [XmlAttribute("isbios")] public string IsBios { get; set; }
             [XmlAttribute("isdevice")] public string IsDevice { get; set; }
             [XmlAttribute("ismechanical")] public string IsMechanical { get; set; }
             [XmlAttribute("runnable")] public string Runnable { get; set; }
             [XmlAttribute("cloneof")] public string CloneOf { get; set; }
             [XmlAttribute("romof")] public string RomOf { get; set; }
-            [XmlAttribute("sampleof")] public string SampleOf { get; set; }
+            //[XmlAttribute("sampleof")] public string SampleOf { get; set; }
             [XmlElement("description")] public string Description { get; set; }
             [XmlElement("year")] public string Year { get; set; }
             [XmlElement("manufacturer")] public string Manufacturer { get; set; }
-            [XmlElement("biosset")] public BiosSet[] BiosSets { get; set; }
-            [XmlElement("rom")] public Rom[] Roms { get; set; }
-            [XmlElement("disk")] public Disk[] Disks { get; set; }
-            [XmlElement("device_ref")] public DeviceRef[] DeviceRefs { get; set; }
-            [XmlElement("sample")] public Sample[] Samples { get; set; }
-            [XmlElement("chip")] public Chip[] Chips { get; set; }
+            //[XmlElement("biosset")] public BiosSet[] BiosSets { get; set; }
+            //[XmlElement("rom")] public Rom[] Roms { get; set; }
+            //[XmlElement("disk")] public Disk[] Disks { get; set; }
+            //[XmlElement("device_ref")] public DeviceRef[] DeviceRefs { get; set; }
+            //[XmlElement("sample")] public Sample[] Samples { get; set; }
+            //[XmlElement("chip")] public Chip[] Chips { get; set; }
             [XmlElement("display")] public Display Display { get; set; }
             [XmlElement("sound")] public Sound Sound { get; set; }
             [XmlElement("condition")] public Condition Condition { get; set; }
-            [XmlElement("input")] public Input Input { get; set; }
-            [XmlElement("dipswitch")] public Dipswitch[] Dipswitches { get; set; }
-            [XmlElement("configuration")] public Configuration[] Configurations { get; set; }
-            [XmlElement("port")] public Port[] Ports { get; set; }
-            [XmlElement("adjuster")] public Adjuster Adjuster { get; set; }
+            //[XmlElement("input")] public Input Input { get; set; }
+            //[XmlElement("dipswitch")] public Dipswitch[] Dipswitches { get; set; }
+            //[XmlElement("configuration")] public Configuration[] Configurations { get; set; }
+            //[XmlElement("port")] public Port[] Ports { get; set; }
+            //[XmlElement("adjuster")] public Adjuster Adjuster { get; set; }
             [XmlElement("driver")] public Driver Driver { get; set; }
-            [XmlElement("feature")] public Feature Feature { get; set; }
-            [XmlElement("device")] public Device Device { get; set; }
-            [XmlElement("slot")] public Slot Slot { get; set; }
-            [XmlElement("softwarelist")] public SoftwareList SoftwareList { get; set; }
-            [XmlElement("ramoption")] public RamOption RamOption { get; set; }
+            //[XmlElement("feature")] public Feature Feature { get; set; }
+            //[XmlElement("device")] public Device Device { get; set; }
+            //[XmlElement("slot")] public Slot Slot { get; set; }
+            //[XmlElement("softwarelist")] public SoftwareList SoftwareList { get; set; }
+            //[XmlElement("ramoption")] public RamOption RamOption { get; set; }
         }
 
         public sealed class BiosSet
