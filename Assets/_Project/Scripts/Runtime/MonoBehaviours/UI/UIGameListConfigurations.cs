@@ -80,25 +80,24 @@ namespace Arcade
             _database.Initialize();
 
             IEnumerable<string> gameLists = _database.GetGameLists();
-            foreach (string gameList in gameLists)
+            foreach (string gameListName in gameLists)
             {
                 UIListButton buttonObject = Instantiate(_listButtonPrefab, _listContent);
                 _buttons.Add(buttonObject);
 
-                buttonObject.name = gameList;
+                buttonObject.name = gameListName;
 
-                buttonObject.SelectButtonText.SetText(gameList);
+                buttonObject.SelectButtonText.SetText(gameListName);
 
                 buttonObject.SelectButton.onClick.AddListener(() =>
                 {
                     Hide();
-                    _uiConfiguration.TitleText.SetText(gameList);
-                    _uiConfiguration.Show(_database.GetGames(gameList));
+                    _uiConfiguration.Show(gameListName, _database.GetGames(gameListName));
                 });
 
                 buttonObject.DeleteButton.onClick.AddListener(() =>
                 {
-                    _database.RemoveGameList(gameList);
+                    _database.RemoveGameList(gameListName);
                     InitializeList();
                 });
             }

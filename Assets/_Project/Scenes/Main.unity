@@ -15061,6 +15061,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1071452535}
   - component: {fileID: 1071452536}
+  - component: {fileID: 1071452537}
   m_Layer: 5
   m_Name: GameListConfiguration
   m_TagString: Untagged
@@ -15103,10 +15104,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59f5b495ead766a47bdaf0f2b20eec44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <TitleText>k__BackingField: {fileID: 2110526978}
   _gameListVariable: {fileID: 11400000, guid: afd7a498f208f02459f8ed42cc06de92, type: 2}
-  _animationDuration: {fileID: 11400000, guid: 343fdfebba3761847942995d7d888706, type: 2}
+  _titleText: {fileID: 2110526978}
   _scrollRect: {fileID: 1320192877}
+  _animationDuration: {fileID: 11400000, guid: 343fdfebba3761847942995d7d888706, type: 2}
+--- !u!114 &1071452537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071452534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a85a5b20f58f08e478d14c4e1798e623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event: {fileID: 11400000, guid: 4a62f71382e3b2a4da296b6862a70275, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1071452536}
+        m_TargetAssemblyTypeName: Arcade.UIGameListConfiguration, Arcade.Runtime
+        m_MethodName: RemoveGame
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1079681550
 GameObject:
   m_ObjectHideFlags: 0
@@ -21321,7 +21350,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.1222761, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -24171,7 +24200,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2085172119}
   m_Direction: 3
   m_Value: 0.5
-  m_Size: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -27643,8 +27672,8 @@ RectTransform:
   m_Father: {fileID: 449394787}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.000061035156, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

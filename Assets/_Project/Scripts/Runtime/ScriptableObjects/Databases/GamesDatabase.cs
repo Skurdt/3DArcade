@@ -83,10 +83,10 @@ namespace Arcade
             CreateInternalTables();
         }
 
-        public List<string> GetGameLists() => _database.GetTables().Where(x => !x.StartsWith("_")).ToList();
+        public List<string> GetGameLists() => _database.GetTableNames().Where(x => !x.StartsWith("_")).ToList();
 
         public GameConfiguration[] GetGames(string gameListName)
-            => _database.GetTableEntries<GameConfiguration>(gameListName, new string[] { "*" }, new GameConfiguration())
+            => _database.SelectAllFrom<GameConfiguration>(gameListName, new string[] { "*" }, new GameConfiguration())
                        ?.OrderBy(x => x.Description)
                         .ToArray();
 
@@ -98,7 +98,7 @@ namespace Arcade
                 return false;
             }
 
-            outGame = _database.Get<GameConfiguration>(gameListName, returnFields, searchFields, new { Name = gameName });
+            outGame = _database.SelectSingleFrom<GameConfiguration>(gameListName, returnFields, searchFields, new { Name = gameName });
             return !(outGame is null);
         }
 
@@ -112,7 +112,7 @@ namespace Arcade
                 return;
 
             DBGame gameToInsert = GetDatabaseGame(game);
-            _database.Insert(gameListName, gameToInsert);
+            _database.InsertInto(gameListName, gameToInsert);
         }
 
         public void AddGames(string gameListName, IReadOnlyCollection<GameConfiguration> games)
@@ -121,7 +121,15 @@ namespace Arcade
                 return;
 
             IEnumerable<DBGame> gamesToInsert = games.Select(game => GetDatabaseGame(game)).ToArray();
-            _database.Insert(gameListName, gamesToInsert);
+            _database.InsertAllInto(gameListName, gamesToInsert);
+        }
+
+        public void RemoveGame(string gameListName, GameConfiguration game)
+        {
+            if (string.IsNullOrEmpty(gameListName) || game is null)
+                return;
+
+            _database.DeleteFrom(gameListName, "Name", game.Name);
         }
 
         private void CreateInternalTables() => CreateStatsTable();

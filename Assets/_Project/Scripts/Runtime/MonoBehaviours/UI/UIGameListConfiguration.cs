@@ -22,23 +22,29 @@
 
 using DG.Tweening;
 using SG;
+using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 namespace Arcade
 {
     [DisallowMultipleComponent]
     public sealed class UIGameListConfiguration : MonoBehaviour
     {
-        [field: SerializeField] public TMP_Text TitleText { get; private set; }
-
         [SerializeField] private GameListVariable _gameListVariable;
-        [SerializeField] private FloatVariable _animationDuration;
+        [SerializeField] private TMP_Text _titleText;
         [SerializeField] private LoopScrollRect _scrollRect;
+        [SerializeField] private FloatVariable _animationDuration;
 
         private RectTransform _transform;
         private float _animationStartPosition;
         private float _animationEndPosition;
+
+        private UIGameConfigurationCellCallback _currentCell;
 
         private void Awake()
         {
@@ -47,17 +53,44 @@ namespace Arcade
             _animationEndPosition   = 0f;
         }
 
-        public void Show(GameConfiguration[] configurations)
+        private void Update()
+        {
+            PointerEventData pointerEventData = new PointerEventData(EventSystem.current)
+            {
+                position = Mouse.current.position.ReadValue()
+            };
+
+            List<RaycastResult> raycastResults = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(pointerEventData, raycastResults);
+            if (raycastResults.Count == 0)
+                return;
+
+            UIGameConfigurationCellCallback cell = raycastResults[0].gameObject.GetComponentInParent<UIGameConfigurationCellCallback>();
+            if (_currentCell == cell)
+                return;
+
+            if (_currentCell != null)
+                _currentCell.StopHighlight();
+
+            _currentCell = cell;
+
+            if (_currentCell != null)
+                _currentCell.StartHighlight();
+        }
+
+        public void Show(string gameListName, GameConfiguration[] configurations)
         {
             if (gameObject.activeSelf)
                 return;
 
             gameObject.SetActive(true);
 
-            _gameListVariable.Value = configurations;
+            _titleText.SetText(gameListName);
 
-            _scrollRect.totalCount = configurations.Length;
-            _scrollRect.RefillCells();
+            _gameListVariable.GameListName = gameListName;
+            _gameListVariable.Value        = configurations?.ToList();
+
+            RefreshList(configurations.Length);
 
             _ = _transform.DOAnchorPosX(_animationEndPosition, _animationDuration.Value);
         }
@@ -67,11 +100,41 @@ namespace Arcade
             if (!gameObject.activeSelf)
                 return;
 
-            _gameListVariable.Value = null;
-            _scrollRect.totalCount = 0;
-            _scrollRect.RefillCells();
+            _gameListVariable.GameListName = null;
+            _gameListVariable.Value        = null;
+
+            _scrollRect.ClearCells();
+
             _ = _transform.DOAnchorPosX(_animationStartPosition, _animationDuration.Value)
                           .OnComplete(() => gameObject.SetActive(false));
+        }
+
+        public void RemoveGame(GameConfiguration gameConfiguration)
+        {
+            if (gameConfiguration is null || _gameListVariable.Value is null)
+                return;
+
+            if (!_gameListVariable.Value.Contains(gameConfiguration))
+                return;
+
+            _currentCell = null;
+
+            //int index = _gameListVariable.Value.IndexOf(gameConfiguration);
+            _ = _gameListVariable.Value.Remove(gameConfiguration);
+
+            _scrollRect.RefreshCells();
+
+            //RefreshList(_gameListVariable.Value.Count);
+
+            //if (index >= _scrollRect.totalCount)
+            //    --index;
+            //_scrollRect.SrollToCell(index, 0f);
+        }
+
+        private void RefreshList(int numItems)
+        {
+            _scrollRect.totalCount = numItems;
+            _scrollRect.RefillCells();
         }
     }
 }

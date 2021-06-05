@@ -26,8 +26,9 @@ using UnityEngine;
 namespace Arcade
 {
     [CreateAssetMenu(menuName = "3DArcade/Variable/GameListVariable", fileName = "GameList")]
-    public sealed class GameListVariable : VariableBase<GameConfiguration[]>
+    public sealed class GameListVariable : VariableBase<List<GameConfiguration>>
     {
+        [System.NonSerialized] public string GameListName;
         [System.NonSerialized] public List<GameConfiguration> FilteredList = new List<GameConfiguration>();
     }
 }

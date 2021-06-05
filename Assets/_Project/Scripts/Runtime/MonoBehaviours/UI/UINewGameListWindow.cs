@@ -140,11 +140,11 @@ namespace Arcade
         }
 
         public void SetSaveButtonState(string value) => _saveButton.interactable = !string.IsNullOrEmpty(value)
-                                                                                && _gameListVariable.Value.Length > 0;
+                                                                                && _gameListVariable.Value.Count > 0;
 
         public void AddListToDatabase()
         {
-            if (string.IsNullOrEmpty(_idInputField.text) || _gameListVariable.Value.Length == 0)
+            if (string.IsNullOrEmpty(_idInputField.text) || _gameListVariable.Value.Count == 0)
                 return;
 
             _gamesDatabase.AddGameList(_idInputField.text);
@@ -153,7 +153,7 @@ namespace Arcade
 
         private void RefreshList(GameConfiguration[] gameConfigurations)
         {
-            _gameListVariable.Value = gameConfigurations;
+            _gameListVariable.Value = gameConfigurations.ToList();
             _scrollRect.totalCount  = !(gameConfigurations is null) ? gameConfigurations.Length : 0;
             _scrollRect.RefillCells();
         }

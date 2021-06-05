@@ -57,7 +57,7 @@ namespace Arcade
             return connection.Execute(statement) > 0;
         }
 
-        public IEnumerable<string> GetTables()
+        public IEnumerable<string> GetTableNames()
         {
             string statement = "SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%';";
 
@@ -65,7 +65,7 @@ namespace Arcade
             return connection.Query<string>(statement);
         }
 
-        public T Get<T>(string tableName, string[] columns, string[] parameters, object obj)
+        public T SelectSingleFrom<T>(string tableName, string[] columns, string[] parameters, object obj)
             where T : class
         {
             StringBuilder statement = new StringBuilder($"SELECT {JoinWithCommas(columns)} FROM '{tableName}' WHERE ");
@@ -94,7 +94,7 @@ namespace Arcade
             }
         }
 
-        public T[] GetTableEntries<T>(string tableName, string[] columns, object obj)
+        public T[] SelectAllFrom<T>(string tableName, string[] columns, object obj)
             where T : class
         {
             if (string.IsNullOrEmpty(tableName))
@@ -114,7 +114,7 @@ namespace Arcade
             }
         }
 
-        public void Insert<T>(string tableName, T item)
+        public void InsertInto<T>(string tableName, T item)
             where T : ReflectedEntry
         {
             string statement = GetInsertIntoStatement<T>(tableName);
@@ -123,7 +123,7 @@ namespace Arcade
             _ = connection.Execute(statement, item);
         }
 
-        public void Insert<T>(string tableName, IEnumerable<T> items)
+        public void InsertAllInto<T>(string tableName, IEnumerable<T> items)
             where T : ReflectedEntry
         {
             string statement = GetInsertIntoStatement<T>(tableName);
@@ -137,6 +137,14 @@ namespace Arcade
             transaction.Commit();
         }
 
+        public void DeleteFrom(string tableName, string column, string itemId)
+        {
+            string statement = GetRemoveFromStatement(tableName, column);
+
+            using IDbConnection connection = GetConnection();
+            _ = connection.Execute(statement, new { Name = itemId });
+        }
+
         private IDbConnection GetConnection() => new SqliteConnection(_connectionString);
 
         private static string GetInsertIntoStatement<T>(string tableName)
@@ -145,6 +153,8 @@ namespace Arcade
             (string columns, string parameters) = GetTypeColumnsAndParameters<T>();
             return $"INSERT INTO '{tableName}'({columns}) VALUES({parameters});";
         }
+
+        private static string GetRemoveFromStatement(string tableName, string column) => $"DELETE FROM '{tableName}' WHERE ({column} = @{column});";
 
         private static (string, string) GetTypeColumnsAndParameters<T>()
             where T : ReflectedEntry

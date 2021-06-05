@@ -22,24 +22,49 @@
 
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Arcade
 {
     public sealed class UIGameConfigurationCellCallback : MonoBehaviour
     {
+        [SerializeField] private GamesDatabase _gamesDatabase;
         [SerializeField] private GameListVariable _gameListVariable;
+        [SerializeField] private GameConfigurationEvent _gameRemovedEvent;
+        [SerializeField] private Color _evenColor;
+        [SerializeField] private Color _oddColor;
+        [SerializeField] private Color _highlightColor;
+        [SerializeField] private Image _background;
         [SerializeField] private TMP_Text _description;
         [SerializeField] private TMP_Text _name;
+        [SerializeField] private Button _removeButton;
+
+        private Color _backgroundColor;
+
+        public void StartHighlight() => _background.color = _highlightColor;
+
+        public void StopHighlight() => _background.color = _backgroundColor;
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "Called using SendMessage")]
-        private void ScrollCellIndex(int idx)
+        private void ScrollCellIndex(int index)
         {
-            GameConfiguration gameConfiguration = _gameListVariable.Value[idx];
+            if (index >= _gameListVariable.Value.Count)
+                return;
+
+            GameConfiguration gameConfiguration = _gameListVariable.Value[index];
             string gameName                     = gameConfiguration.Name;
 		    gameObject.name                     = gameName;
 
+            _backgroundColor  = index % 2 == 0 ? _evenColor : _oddColor;
+            _background.color = _backgroundColor;
 			_description.SetText(gameConfiguration.Description);
             _name.SetText(gameName);
+            _removeButton.onClick.RemoveAllListeners();
+            _removeButton.onClick.AddListener(() =>
+            {
+                _gamesDatabase.RemoveGame(_gameListVariable.GameListName, gameConfiguration);
+                _gameRemovedEvent.Raise(gameConfiguration);
+            });
 	    }
     }
 }
