@@ -22,9 +22,12 @@
 
 using DG.Tweening;
 using SG;
+using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 namespace Arcade
@@ -57,6 +60,7 @@ namespace Arcade
         private float _animationEndPosition;
 
         private int _lastGeneratorIndex;
+        private UINewGameConfigurationCellCallback _currentCell;
         private bool _fromExeEventRaised;
 
         private void Awake()
@@ -68,6 +72,8 @@ namespace Arcade
 
         private void Update()
         {
+            HandleCellHighlighting();
+
             if (_fromExeEventRaised)
                 return;
 
@@ -139,6 +145,16 @@ namespace Arcade
             _masterListGenerator.SetGenerator(generator);
         }
 
+        public void RemoveGameFromList(GameConfiguration gameConfiguration)
+        {
+            if (_gameListVariable.Value is null || !_gameListVariable.Value.Contains(gameConfiguration))
+                return;
+
+            _ = _gameListVariable.Value.Remove(gameConfiguration);
+            _scrollRect.totalCount  = _gameListVariable.Value.Count;
+            _scrollRect.RefreshCells();
+        }
+
         public void SetSaveButtonState(string value) => _saveButton.interactable = !string.IsNullOrEmpty(value)
                                                                                 && _gameListVariable.Value.Count > 0;
 
@@ -156,6 +172,31 @@ namespace Arcade
             _gameListVariable.Value = gameConfigurations?.ToList();
             _scrollRect.totalCount  = !(gameConfigurations is null) ? gameConfigurations.Length : 0;
             _scrollRect.RefillCells();
+        }
+
+        private void HandleCellHighlighting()
+        {
+            PointerEventData pointerEventData = new PointerEventData(EventSystem.current)
+            {
+                position = Mouse.current.position.ReadValue()
+            };
+
+            List<RaycastResult> raycastResults = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(pointerEventData, raycastResults);
+            if (raycastResults.Count == 0)
+                return;
+
+            UINewGameConfigurationCellCallback cell = raycastResults[0].gameObject.GetComponentInParent<UINewGameConfigurationCellCallback>();
+            if (_currentCell == cell)
+                return;
+
+            if (_currentCell != null)
+                _currentCell.StopHighlight();
+
+            _currentCell = cell;
+
+            if (_currentCell != null)
+                _currentCell.StartHighlight();
         }
     }
 }

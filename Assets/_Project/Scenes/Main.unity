@@ -14976,7 +14976,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabSource:
-    prefabName: Prefabs/UI/pfGameConfigurationCell
+    prefabName: Prefabs/UI/pfNewGameConfigurationCell
     poolSize: 30
   totalCount: 0
   reverseDirection: 0
@@ -20804,6 +20804,7 @@ GameObject:
   - component: {fileID: 1461029538}
   - component: {fileID: 1461029539}
   - component: {fileID: 1461029540}
+  - component: {fileID: 1461029541}
   m_Layer: 5
   m_Name: NewGameListWindow
   m_TagString: Untagged
@@ -20880,6 +20881,34 @@ MonoBehaviour:
       - m_Target: {fileID: 1461029539}
         m_TargetAssemblyTypeName: Arcade.UINewGameListWindow, Arcade.Runtime
         m_MethodName: RefreshList
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1461029541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1461029537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a85a5b20f58f08e478d14c4e1798e623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event: {fileID: 11400000, guid: 4a62f71382e3b2a4da296b6862a70275, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1461029539}
+        m_TargetAssemblyTypeName: Arcade.UINewGameListWindow, Arcade.Runtime
+        m_MethodName: RemoveGameFromList
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -21350,7 +21379,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.1222761, y: 1}
+    m_SensorSize: {x: 2.1558442, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
