@@ -83,7 +83,7 @@
       <rotation x="-0" y="-167.44" z="-0" />
       <scale x="1" y="1" z="1" />
     </game>
-    <game id="tempest" platform="arcade">
+    <game id="ssf2" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>

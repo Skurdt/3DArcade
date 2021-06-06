@@ -1,7 +1,7 @@
 <platform description="Nintendo SNES">
   <master_list>nintendo_snes</master_list>
   <emulator>lr_snes9x</emulator>
-  <model />
+  <model>Television</model>
   <marquee_images_directories>
     <directory>@/3darcade~/Platforms/snes/carts</directory>
   </marquee_images_directories>

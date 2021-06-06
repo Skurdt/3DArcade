@@ -1,7 +1,7 @@
 <platform description="Nintendo NES">
   <master_list>nintendo_nes</master_list>
   <emulator>lr_nestopia</emulator>
-  <model />
+  <model>Television</model>
   <marquee_images_directories />
   <marquee_videos_directories />
   <screen_snaps_directories />

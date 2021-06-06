@@ -1,7 +1,7 @@
 <platform description="Sega Genesis">
   <master_list>sega_genesis</master_list>
   <emulator>lr_genesis_plus_gx</emulator>
-  <model />
+  <model>Television</model>
   <marquee_images_directories />
   <marquee_videos_directories />
   <screen_snaps_directories />

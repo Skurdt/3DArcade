@@ -32,6 +32,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - GameModels
+  - m_GUID: 8886825d433f4734c813b9de15e877eb
+    m_Address: Games/Television
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GameModels
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a791319076b3e034bb0f17c6bf81a76f, type: 2}
   m_SchemaSet:
