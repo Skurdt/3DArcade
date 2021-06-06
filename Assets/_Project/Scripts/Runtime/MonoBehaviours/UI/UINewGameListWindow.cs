@@ -153,7 +153,7 @@ namespace Arcade
 
         private void RefreshList(GameConfiguration[] gameConfigurations)
         {
-            _gameListVariable.Value = gameConfigurations.ToList();
+            _gameListVariable.Value = gameConfigurations?.ToList();
             _scrollRect.totalCount  = !(gameConfigurations is null) ? gameConfigurations.Length : 0;
             _scrollRect.RefillCells();
         }
