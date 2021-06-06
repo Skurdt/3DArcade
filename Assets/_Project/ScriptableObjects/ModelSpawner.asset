@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: ModelSpawner
   m_EditorClassIdentifier: 
   _arcadeContext: {fileID: 11400000, guid: 699a2679e60a772459b83c09413cf198, type: 2}
+  _dissolveMaterial: {fileID: 2100000, guid: adee795607fa2b74f81f7b235cf00f99, type: 2}

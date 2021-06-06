@@ -1,4 +1,4 @@
-﻿/* MIT License
+/* MIT License
 
  * Copyright (c) 2020 Skurdt
  *
@@ -41,18 +41,22 @@ namespace Arcade
         [SerializeField] private LayerMask _worldLayerMask;
         [SerializeField] private Mesh _spawnPositionMesh;
         [SerializeField] private Material _spawnPositionMaterial;
+        [SerializeField] private Material _dissolveMaterial;
 
         private readonly List<GameObject> _addedItems   = new List<GameObject>();
         private readonly List<GameObject> _removedItems = new List<GameObject>();
 
-        [System.NonSerialized] private ModelConfigurationComponent _realTarget;
+        [System.NonSerialized] private ModelConfigurationComponent _realTarget = null;
+        [System.NonSerialized] private bool _drawDummyMesh                     = true;
 
-        public void Initialize()
+        public void Initialize(Camera camera)
         {
             _arcadeContext.Databases.Initialize();
 
             _addedItems.Clear();
             _removedItems.Clear();
+
+            UpdateCurrentTarget(camera);
         }
 
         public override void UpdateCurrentTarget(Camera camera)
@@ -82,7 +86,7 @@ namespace Arcade
                 _onRealTargetChange.Raise(_realTarget);
             }
 
-            if (_realTarget == null)
+            if (_realTarget == null && _drawDummyMesh)
             {
                 Player player             = _arcadeContext.Player.Value;
                 Transform playerTransform = player.ActiveTransform;
@@ -122,32 +126,41 @@ namespace Arcade
             if (_addedItems.Contains(targetObject))
             {
                 _ = _addedItems.Remove(targetObject);
-                ObjectUtils.DestroyObject(targetObject);
+                DissolveObject(targetObject, true).Forget();
                 return;
             }
 
             _removedItems.Add(targetObject);
-            targetObject.SetActive(false);
+            DissolveObject(targetObject, false).Forget();
         }
 
         public void DestroyAddedItems()
         {
             foreach (GameObject item in _addedItems)
-                ObjectUtils.DestroyObject(item);
+                Destroy(item);
             _addedItems.Clear();
         }
 
         public void DestroyRemovedItems()
         {
             foreach (GameObject item in _removedItems)
-                ObjectUtils.DestroyObject(item);
+                Destroy(item);
             _removedItems.Clear();
         }
 
         public void RestoreRemovedItems()
         {
             foreach (GameObject item in _removedItems)
+            {
                 item.SetActive(true);
+                if (item.TryGetComponent(out Collider collider))
+                    collider.enabled = true;
+                if (item.TryGetComponent(out Rigidbody rigidbody))
+                    rigidbody.isKinematic = false;
+                DynamicArtworkComponent[] dynamicArtworkComponents = item.GetComponentsInChildren<DynamicArtworkComponent>();
+                foreach (DynamicArtworkComponent dynamicArtworkComponent in dynamicArtworkComponents)
+                    dynamicArtworkComponent.enabled = false;
+            }
             _removedItems.Clear();
         }
 
@@ -156,22 +169,38 @@ namespace Arcade
             if (_realTarget == null)
                 return;
 
+            _drawDummyMesh = false;
+
             ModelConfiguration modelConfiguration = ClassUtils.DeepCopy(_realTarget.Configuration);
             Vector3 spawnPosition                 = _realTarget.transform.position;
             Quaternion spawnRotation              = _realTarget.transform.localRotation;
 
             _requestUpdatedModelConfigurationValues.Raise(modelConfiguration);
 
-            RemoveModel();
+            GameObject targetObject = _realTarget.gameObject;
+            if (_addedItems.Contains(targetObject))
+            {
+                _ = _addedItems.Remove(targetObject);
+                await DissolveObject(targetObject, true, false);
+            }
+            else
+            {
+                _removedItems.Add(targetObject);
+                await DissolveObject(targetObject, false, false);
+            }
 
-            GameObject spawnedGame = await _arcadeContext.ArcadeController.Value.ModelSpawner.SpawnGameAsync(modelConfiguration, spawnPosition, spawnRotation);
+            GameObject spawnedGame = await _arcadeContext.ArcadeController.Value.ModelSpawner.SpawnGameAsync(modelConfiguration, spawnPosition, spawnRotation, true);
             _addedItems.Add(spawnedGame);
+
+            _drawDummyMesh = true;
         }
 
         private async UniTaskVoid SpawnGameAsync()
         {
-            if (_realTarget != null)
+            if (!_drawDummyMesh || _realTarget != null)
                 return;
+
+            _drawDummyMesh = false;
 
             ModelConfiguration modelConfiguration = new ModelConfiguration();
 
@@ -183,8 +212,44 @@ namespace Arcade
 
             _requestUpdatedModelConfigurationValues.Raise(modelConfiguration);
 
-            GameObject spawnedGame = await _arcadeContext.ArcadeController.Value.ModelSpawner.SpawnGameAsync(modelConfiguration, spawnPosition, spawnRotation);
+            GameObject spawnedGame = await _arcadeContext.ArcadeController.Value.ModelSpawner.SpawnGameAsync(modelConfiguration, spawnPosition, spawnRotation, true);
             _addedItems.Add(spawnedGame);
+
+            _drawDummyMesh = true;
+        }
+
+        private async UniTask DissolveObject(GameObject obj, bool destroy, bool reEnableDummy = true)
+        {
+            _drawDummyMesh = false;
+
+            DynamicArtworkComponent[] dynamicArtworkComponents = obj.GetComponentsInChildren<DynamicArtworkComponent>();
+            foreach (DynamicArtworkComponent dynamicArtworkComponent in dynamicArtworkComponents)
+                dynamicArtworkComponent.enabled = false;
+            if (obj.TryGetComponent(out Rigidbody rigidbody))
+                rigidbody.isKinematic = true;
+            if (obj.TryGetComponent(out Collider collider))
+                collider.enabled = false;
+
+            MeshRenderer[] renderers = obj.GetComponentsInChildren<MeshRenderer>();
+            foreach (MeshRenderer renderer in renderers)
+                renderer.material = _dissolveMaterial;
+
+            float dissolve = 0f;
+            while (dissolve < 1f)
+            {
+                foreach (MeshRenderer renderer in renderers)
+                    renderer.material.SetFloat("_Dissolve", dissolve);
+                dissolve += Time.deltaTime;
+                await UniTask.Yield(PlayerLoopTiming.Update);
+            }
+
+            if (destroy)
+                Destroy(obj);
+            else
+                obj.SetActive(false);
+
+            if (reEnableDummy)
+                _drawDummyMesh = true;
         }
     }
 }

@@ -119,16 +119,10 @@ namespace Arcade
 
             _currentCell = null;
 
-            //int index = _gameListVariable.Value.IndexOf(gameConfiguration);
             _ = _gameListVariable.Value.Remove(gameConfiguration);
 
+            _scrollRect.totalCount = _gameListVariable.Value.Count;
             _scrollRect.RefreshCells();
-
-            //RefreshList(_gameListVariable.Value.Count);
-
-            //if (index >= _scrollRect.totalCount)
-            //    --index;
-            //_scrollRect.SrollToCell(index, 0f);
         }
 
         private void RefreshList(int numItems)

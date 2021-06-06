@@ -1,4 +1,4 @@
-﻿/* MIT License
+/* MIT License
 
  * Copyright (c) 2020 Skurdt
  *
@@ -31,13 +31,41 @@ namespace Arcade
     [CreateAssetMenu(menuName = "3DArcade/ModelSpawner", fileName = "ModelSpawner")]
     public sealed class ModelSpawner : ModelSpawnerBase
     {
-        protected override async UniTask<GameObject> SpawnAsync(AssetAddresses addressesToTry, Vector3 position, Quaternion orientation, Transform parent)
+        [SerializeField] private Material _dissolveMaterial;
+        
+        protected override async UniTask<GameObject> SpawnAsync(AssetAddresses addressesToTry, Vector3 position, Quaternion orientation, Transform parent, bool dissolveEffect)
         {
             IList<IResourceLocation> resourceLocations = await Addressables.LoadResourceLocationsAsync(addressesToTry, Addressables.MergeMode.UseFirst, typeof(GameObject));
             if (resourceLocations.Count == 0)
                 return null;
 
-            return await Addressables.InstantiateAsync(resourceLocations[0], position, orientation, parent);
+            GameObject gameObject = await Addressables.InstantiateAsync(resourceLocations[0], position, orientation, parent);
+
+            if (dissolveEffect)
+            {
+                MeshRenderer[] renderers                          = gameObject.GetComponentsInChildren<MeshRenderer>();
+                Dictionary<MeshRenderer, Material> savedMaterials = new Dictionary<MeshRenderer, Material>(renderers.Length);
+
+                foreach (MeshRenderer renderer in renderers)
+                {
+                    savedMaterials[renderer] = renderer.material;
+                    renderer.material = _dissolveMaterial;
+                }
+
+                float dissolveValue = 1f;
+                while (dissolveValue > 0f)
+                {
+                    foreach (MeshRenderer renderer in renderers)
+                        renderer.material.SetFloat("_Dissolve", dissolveValue);
+                    dissolveValue -= Time.deltaTime;
+                    await UniTask.Yield(PlayerLoopTiming.Update);
+                }
+
+                foreach (MeshRenderer renderer in renderers)
+                    renderer.material = savedMaterials[renderer];
+            }
+
+            return gameObject;
         }
     }
 }

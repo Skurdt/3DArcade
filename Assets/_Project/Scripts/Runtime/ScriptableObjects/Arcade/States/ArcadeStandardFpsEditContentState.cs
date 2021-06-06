@@ -37,7 +37,7 @@ namespace Arcade
 
             Context.InteractionControllers.ResetControllers();
 
-            Context.InteractionControllers.EditModeEditContentController.Initialize();
+            Context.InteractionControllers.EditModeEditContentController.Initialize(Context.Player.Value.Camera);
 
             Context.ArcadeStateChangeEvent.Raise(this);
         }

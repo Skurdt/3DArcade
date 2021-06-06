@@ -32,7 +32,7 @@ namespace Arcade
     {
         [SerializeField] private ArcadeContext _arcadeContext;
 
-        public async UniTask<ModelConfigurationComponent[]> SpawnGamesAsync()
+        public async UniTask<ModelConfigurationComponent[]> SpawnGamesAsync(bool dissolveEffect)
         {
             ArcadeConfiguration arcadeConfiguration  = _arcadeContext.ArcadeConfiguration.Value;
             ModelConfiguration[] modelConfigurations = arcadeConfiguration.Games;
@@ -42,13 +42,13 @@ namespace Arcade
             List<ModelConfigurationComponent> result = new List<ModelConfigurationComponent>();
             foreach (ModelConfiguration modelConfiguration in modelConfigurations)
             {
-                GameObject go = await SpawnGameAsync(modelConfiguration, _arcadeContext.Scenes.Entities.GamesNodeTransform);
+                GameObject go = await SpawnGameAsync(modelConfiguration, _arcadeContext.Scenes.Entities.GamesNodeTransform, dissolveEffect);
                 result.Add(go.GetComponent<ModelConfigurationComponent>());
             }
             return result.ToArray();
         }
 
-        public async UniTask<ModelConfigurationComponent[]> SpawPropsAsync()
+        public async UniTask<ModelConfigurationComponent[]> SpawPropsAsync(bool dissolveEffect)
         {
             ArcadeConfiguration arcadeConfiguration  = _arcadeContext.ArcadeConfiguration.Value;
             ModelConfiguration[] modelConfigurations = arcadeConfiguration.ArcadeType switch
@@ -60,41 +60,41 @@ namespace Arcade
             if (modelConfigurations is null || modelConfigurations.Length == 0)
                 return null;
 
-            return await SpawnPropsAsync(modelConfigurations);
+            return await SpawnPropsAsync(modelConfigurations, dissolveEffect);
         }
 
-        public async UniTask<GameObject> SpawnGameAsync(ModelConfiguration modelConfiguration, Vector3 position, Quaternion rotation)
+        public async UniTask<GameObject> SpawnGameAsync(ModelConfiguration modelConfiguration, Vector3 position, Quaternion rotation, bool dissolveEffect)
         {
             AssetAddresses addressesToTry = ProcessGameConfigurationAndGetAddressesToTry(modelConfiguration);
-            return await SpawnModelAsync(modelConfiguration, position, rotation, _arcadeContext.Scenes.Entities.GamesNodeTransform, EntitiesScene.GamesLayer, addressesToTry, true);
+            return await SpawnModelAsync(modelConfiguration, position, rotation, _arcadeContext.Scenes.Entities.GamesNodeTransform, EntitiesScene.GamesLayer, addressesToTry, dissolveEffect, true);
         }
 
-        protected abstract UniTask<GameObject> SpawnAsync(AssetAddresses addressesToTry, Vector3 position, Quaternion orientation, Transform parent);
+        protected abstract UniTask<GameObject> SpawnAsync(AssetAddresses addressesToTry, Vector3 position, Quaternion orientation, Transform parent, bool dissolveEffect);
 
-        private async UniTask<GameObject> SpawnGameAsync(ModelConfiguration modelConfiguration, Transform parent)
+        private async UniTask<GameObject> SpawnGameAsync(ModelConfiguration modelConfiguration, Transform parent, bool dissolveEffect)
         {
             AssetAddresses addressesToTry = ProcessGameConfigurationAndGetAddressesToTry(modelConfiguration);
-            return await SpawnModelAsync(modelConfiguration, parent, EntitiesScene.GamesLayer, _arcadeContext.ArcadeController.Value.GameModelsSpawnAtPositionWithRotation, addressesToTry, true);
+            return await SpawnModelAsync(modelConfiguration, parent, EntitiesScene.GamesLayer, _arcadeContext.ArcadeController.Value.GameModelsSpawnAtPositionWithRotation, addressesToTry, dissolveEffect, true);
         }
 
-        private async UniTask<ModelConfigurationComponent[]> SpawnPropsAsync(ModelConfiguration[] modelConfigurations)
+        private async UniTask<ModelConfigurationComponent[]> SpawnPropsAsync(ModelConfiguration[] modelConfigurations, bool dissolveEffect)
         {
             List<ModelConfigurationComponent> result = new List<ModelConfigurationComponent>();
             foreach (ModelConfiguration modelConfiguration in modelConfigurations)
             {
-                GameObject go = await SpawnPropAsync(modelConfiguration, _arcadeContext.Scenes.Entities.PropsNodeTransform);
+                GameObject go = await SpawnPropAsync(modelConfiguration, _arcadeContext.Scenes.Entities.PropsNodeTransform, dissolveEffect);
                 result.Add(go.GetComponent<ModelConfigurationComponent>());
             }
             return result.ToArray();
         }
 
-        private async UniTask<GameObject> SpawnPropAsync(ModelConfiguration modelConfiguration, Transform parent)
+        private async UniTask<GameObject> SpawnPropAsync(ModelConfiguration modelConfiguration, Transform parent, bool dissolveEffect)
         {
             AssetAddresses addressesToTry = _arcadeContext.AssetAddressesProviders.Prop.GetAddressesToTry(modelConfiguration);
-            return await SpawnModelAsync(modelConfiguration, parent, EntitiesScene.PropsLayer, true, addressesToTry, false);
+            return await SpawnModelAsync(modelConfiguration, parent, EntitiesScene.PropsLayer, true, addressesToTry, dissolveEffect, false);
         }
 
-        private async UniTask<GameObject> SpawnModelAsync(ModelConfiguration modelConfiguration, Transform parent, int layer, bool spawnAtPositionWithRotation, AssetAddresses addressesToTry, bool applyArtworks)
+        private async UniTask<GameObject> SpawnModelAsync(ModelConfiguration modelConfiguration, Transform parent, int layer, bool spawnAtPositionWithRotation, AssetAddresses addressesToTry, bool dissolveEffect, bool applyArtworks)
         {
             Vector3 position;
             Quaternion rotation;
@@ -110,12 +110,12 @@ namespace Arcade
                 rotation = Quaternion.identity;
             }
 
-            return await SpawnModelAsync(modelConfiguration, position, rotation, parent, layer, addressesToTry, applyArtworks);
+            return await SpawnModelAsync(modelConfiguration, position, rotation, parent, layer, addressesToTry, dissolveEffect, applyArtworks);
         }
 
-        private async UniTask<GameObject> SpawnModelAsync(ModelConfiguration modelConfiguration, Vector3 position, Quaternion rotation, Transform parent, int layer, AssetAddresses addressesToTry, bool applyArtworks)
+        private async UniTask<GameObject> SpawnModelAsync(ModelConfiguration modelConfiguration, Vector3 position, Quaternion rotation, Transform parent, int layer, AssetAddresses addressesToTry, bool dissolveEffect, bool applyArtworks)
         {
-            GameObject go = await SpawnAsync(addressesToTry, position, rotation, parent);
+            GameObject go = await SpawnAsync(addressesToTry, position, rotation, parent, dissolveEffect);
             if (go == null)
                 return null;
 

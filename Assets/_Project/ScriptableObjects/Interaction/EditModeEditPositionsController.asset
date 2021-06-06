@@ -16,4 +16,4 @@ MonoBehaviour:
     type: 2}
   _raycaster: {fileID: 11400000, guid: a0e4e56e7e5d4a84d8040906c1fb87e4, type: 2}
   _highlightLayer: 11
-  _outlineColor: {r: 1, g: 0.3882353, b: 0, a: 1}
+  _outlineColor: {r: 1, g: 0.61699814, b: 0, a: 1}

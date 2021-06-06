@@ -54,8 +54,8 @@ namespace Arcade
             SetupPlayer();
             _arcadeContext.Player.SaveTransformState();
 
-            _gameModels = await ModelSpawner.SpawnGamesAsync();
-            _propModels = await ModelSpawner.SpawPropsAsync();
+            _gameModels = await ModelSpawner.SpawnGamesAsync(false);
+            _propModels = await ModelSpawner.SpawPropsAsync(false);
 
             ReflectionProbe[] probes = Object.FindObjectsOfType<ReflectionProbe>();
             foreach (ReflectionProbe probe in probes)

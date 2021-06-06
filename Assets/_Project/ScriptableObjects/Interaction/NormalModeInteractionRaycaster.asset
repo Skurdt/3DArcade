@@ -15,4 +15,4 @@ MonoBehaviour:
   _raycastMaxDistance: 1.8
   _raycastMask:
     serializedVersion: 2
-    m_Bits: 1920
+    m_Bits: 3968
