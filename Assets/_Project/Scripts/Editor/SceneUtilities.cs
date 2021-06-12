@@ -27,7 +27,9 @@ namespace Arcade.UnityEditor
 {
     internal static class SceneUtilities
     {
+        private const string BOOT_SCENE_NAME = "Boot";
         private const string MAIN_SCENE_NAME = "Main";
+        private const string BOOT_SCENE_PATH = "Assets/_Project/Scenes/" + BOOT_SCENE_NAME + ".unity";
         private const string MAIN_SCENE_PATH = "Assets/_Project/Scenes/" + MAIN_SCENE_NAME + ".unity";
 
         public static void CloseAllScenes(bool keepFirst = true)
@@ -38,6 +40,13 @@ namespace Arcade.UnityEditor
                 Scene scene = SceneManager.GetSceneAt(EditorSceneManager.loadedSceneCount - 1);
                 _ = EditorSceneManager.CloseScene(scene, true);
             }
+        }
+
+        public static void OpenBootScene()
+        {
+            Scene scene = SceneManager.GetSceneByName(BOOT_SCENE_NAME);
+            if (!scene.isLoaded)
+                _ = EditorSceneManager.OpenScene(BOOT_SCENE_PATH, OpenSceneMode.Single);
         }
 
         public static void OpenMainScene()

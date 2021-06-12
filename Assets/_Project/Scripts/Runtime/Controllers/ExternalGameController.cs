@@ -23,6 +23,7 @@
 using SK.Utilities;
 using System.IO;
 using UnityEngine;
+using Zenject;
 
 namespace Arcade
 {
@@ -35,7 +36,7 @@ namespace Arcade
 
         private OSUtils.ProcessLauncher _processLauncher;
 
-        public ExternalGameController(Material screenMaterial) => ScreenMaterial = screenMaterial;
+        public ExternalGameController([Inject(Id = "udd")] Material screenMaterial) => ScreenMaterial = screenMaterial;
 
         public bool StartGame(EmulatorConfiguration emulator, string gameName, bool persistent = false)
         {

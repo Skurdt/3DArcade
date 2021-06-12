@@ -26,13 +26,13 @@ namespace Arcade
     {
         public override void OnEnter()
         {
-            if (Context.StandardUI != null)
+            if (Context.ValidStandardUI)
                 Context.StandardUI.SetEditPositionsUIVisibility(true);
         }
 
         public override void OnExit()
         {
-            if (Context.StandardUI != null)
+            if (Context.ValidStandardUI)
                 Context.StandardUI.SetEditPositionsUIVisibility(false);
         }
     }

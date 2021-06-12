@@ -20,6 +20,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE. */
 
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -27,7 +28,12 @@ namespace Arcade
 {
     public sealed class ListFromFolderGenerator : IGameConfigurationListGenerator
     {
-        public void Generate(FileExplorer fileExplorer, GameConfigurationsEvent gameConfigurationsEvent)
+        private readonly GameConfigurationsEvent _gamesGeneratedEvent;
+
+        public ListFromFolderGenerator(GameConfigurationsEvent gamesGeneratedEvent)
+            => _gamesGeneratedEvent = gamesGeneratedEvent;
+
+        public void Generate(FileExplorer fileExplorer, params string[] extensions)
             => fileExplorer.OpenDirectoryDialog(directoryPaths =>
             {
                 if (directoryPaths is null || directoryPaths.Length == 0)
@@ -36,13 +42,26 @@ namespace Arcade
                 if (!FileSystemUtils.TryGetFiles(directoryPaths[0], "*.*", false, out string[] filePaths))
                     return;
 
-                GameConfiguration[] games = filePaths.Select(filePath =>
-                {
-                    string fileName = Path.GetFileNameWithoutExtension(filePath);
-                    return new GameConfiguration { Description = fileName, Name = fileName };
-                }).ToArray();
+                IEnumerable<string> filteredList;
+                if (extensions is null || extensions.Length == 0)
+                    filteredList = filePaths;
+                else
+                    filteredList = filePaths.Where(fullPath =>
+                                                  {
+                                                      string extension = Path.GetExtension(fullPath).TrimStart('.');
+                                                      return extensions.Contains(extension);
+                                                  });
 
-                gameConfigurationsEvent.Raise(games);
+                GameConfiguration[] games = filteredList.Where(fullPath =>
+                                                              {
+                                                                  string extension = Path.GetExtension(fullPath).TrimStart('.');
+                                                                  return extensions.Contains(extension);
+                                                              })
+                                                        .Select(filePath => Path.GetFileNameWithoutExtension(filePath))
+                                                        .Distinct()
+                                                        .Select(fileName => new GameConfiguration { Description = fileName, Name = fileName })
+                                                        .ToArray();
+                _gamesGeneratedEvent.Raise(games);
             });
     }
 }

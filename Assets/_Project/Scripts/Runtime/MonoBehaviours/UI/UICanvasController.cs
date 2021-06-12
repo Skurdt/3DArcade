@@ -21,16 +21,26 @@
  * SOFTWARE. */
 
 using UnityEngine;
+using Zenject;
 
 namespace Arcade
 {
     [DisallowMultipleComponent]
     public sealed class UICanvasController : MonoBehaviour
     {
-        [SerializeField] private UILoading _loading;
-        [SerializeField] private UINormal _normal;
-        [SerializeField] private UIEditPositions _editPositions;
-        [SerializeField] private UIEditContent _editContent;
+        private UILoading _loading;
+        private UINormal _normal;
+        private UIEditPositions _editPositions;
+        private UIEditContent _editContent;
+
+        [Inject]
+        public void Construct(UILoading loading, UINormal normal, UIEditPositions editPositions, UIEditContent editContent)
+        {
+            _loading       = loading;
+            _normal        = normal;
+            _editPositions = editPositions;
+            _editContent   = editContent;
+        }
 
         public void SetSceneLoadingUIVisibility(bool visible) => _loading.SetVisibility(visible);
 

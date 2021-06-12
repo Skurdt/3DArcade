@@ -29,6 +29,6 @@ namespace Arcade
     {
         [SerializeField] private Player _player;
 
-        public override void InstallBindings() => Container.Bind<Player>().FromInstance(_player).AsSingle();
+        public override void InstallBindings() => Container.BindInstance(_player).AsSingle();
     }
 }

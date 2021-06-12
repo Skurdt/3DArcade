@@ -1,0 +1,11 @@
+<emulator description="Libretro: PCSX Rearmed">
+  <interaction_type>LibretroCore</interaction_type>
+  <directory />
+  <working_directory />
+  <executable>pcsx_rearmed</executable>
+  <arguments />
+  <supported_extensions />
+  <games_directories>
+    <directory>D:/__Roms/Sony - Playstation</directory>
+  </games_directories>
+</emulator>

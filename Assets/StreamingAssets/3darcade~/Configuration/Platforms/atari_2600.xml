@@ -1,0 +1,13 @@
+<platform description="Atari 2600">
+  <master_list>atari_2600</master_list>
+  <emulator>lr_stella</emulator>
+  <model />
+  <marquee_images_directories />
+  <marquee_videos_directories />
+  <screen_snaps_directories />
+  <screen_titles_directories />
+  <screen_videos_directories />
+  <generic_images_directories />
+  <generic_videos_directories />
+  <info_directories />
+</platform>

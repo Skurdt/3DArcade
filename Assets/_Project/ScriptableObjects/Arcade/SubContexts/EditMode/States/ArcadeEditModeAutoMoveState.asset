@@ -12,6 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 809b62bdbfd0d0842b86a26b3dfcb965, type: 3}
   m_Name: ArcadeEditModeAutoMoveState
   m_EditorClassIdentifier: 
+  <ArcadeContext>k__BackingField: {fileID: 11400000, guid: 699a2679e60a772459b83c09413cf198,
+    type: 2}
+  <ArcadeController>k__BackingField: {fileID: 11400000, guid: b50b6273569d084419687f9fc89cae03,
+    type: 2}
+  <Interactions>k__BackingField: {fileID: 11400000, guid: 7174b68e664731b459625626624ac374,
+    type: 2}
   _worldRaycastLayerMask:
     serializedVersion: 2
     m_Bits: 896

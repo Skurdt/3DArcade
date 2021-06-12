@@ -34,7 +34,7 @@ namespace Arcade
         {
             Debug.Log($">> <color=green>Entered</color> {GetType().Name}");
 
-            _screenNode = Context.InteractionControllers.NormalModeController.InteractionData.Current.GetComponentInChildren<ScreenNodeTag>();
+            _screenNode = Context.Interactions.Normal.CurrentTarget.GetComponentInChildren<ScreenNodeTag>();
             if (_screenNode == null)
             {
                 Context.TransitionToPrevious();
@@ -52,7 +52,7 @@ namespace Arcade
             renderer.material = Context.GameControllers.External.ScreenMaterial;
 
             uDesktopDuplication.Texture uddTexture = _screenNode.gameObject.AddComponent<uDesktopDuplication.Texture>();
-            uddTexture.invertY = true;
+            uddTexture.InvertY = true;
         }
 
         protected override void OnExitState()

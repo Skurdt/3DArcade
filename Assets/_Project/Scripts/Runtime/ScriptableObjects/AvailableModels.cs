@@ -32,13 +32,13 @@ namespace Arcade
     [CreateAssetMenu(menuName = "3DArcade/AvailableModels", fileName = "AvailableModels")]
     public sealed class AvailableModels : ScriptableObject
     {
-        [field: System.NonSerialized] public List<string> GameModels { get; private set; }
+        [field: System.NonSerialized] public string[] GameModels { get; private set; }
 
         public void Refresh()
         {
             AsyncOperationHandle<IList<IResourceLocation>> gameModels = Addressables.LoadResourceLocationsAsync("GameModels");
             IList<IResourceLocation> items = gameModels.WaitForCompletion();
-            GameModels = new List<string> { "" }.Concat(items.Select(x => x.PrimaryKey.Substring(6))).ToList();
+            GameModels = items.Select(x => x.PrimaryKey.Substring(6)).ToArray();
             Addressables.Release(gameModels);
         }
     }

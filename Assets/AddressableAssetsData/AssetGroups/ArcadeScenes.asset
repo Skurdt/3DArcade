@@ -20,18 +20,21 @@ MonoBehaviour:
   - m_GUID: c7e2229a4c3af3a4aad085ebc220366d
     m_Address: Arcades/_cylinder
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - ArcadeScenes
   - m_GUID: 0ddf96e3f788c3d4daffc8ff6c372313
     m_Address: Arcades/_empty
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - ArcadeScenes
   - m_GUID: 4670e51116b2334488fcea51409183fb
     m_Address: Arcades/spaceport
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - ArcadeScenes
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a791319076b3e034bb0f17c6bf81a76f, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 4a36080b6510155419b924d4350f5fe4, type: 2}
     - {fileID: 11400000, guid: e34d3aa66d3cf094a9b509510678bcdd, type: 2}
+    - {fileID: 11400000, guid: 4a36080b6510155419b924d4350f5fe4, type: 2}

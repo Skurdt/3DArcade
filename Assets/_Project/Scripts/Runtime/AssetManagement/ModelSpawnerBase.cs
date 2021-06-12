@@ -31,10 +31,15 @@ namespace Arcade
     public abstract class ModelSpawnerBase : ScriptableObject
     {
         [SerializeField] private ArcadeContext _arcadeContext;
+        [SerializeField] private ArcadeConfigurationVariable _arcadeConfiguration;
+        [SerializeField] private Scenes _scenes;
+        [SerializeField] private ArcadeControllerVariable _arcadeController;
+        [SerializeField] private GeneralConfigurationVariable _generalConfiguration;
+        [SerializeField] private Databases _databases;
 
         public async UniTask<ModelConfigurationComponent[]> SpawnGamesAsync(bool dissolveEffect)
         {
-            ArcadeConfiguration arcadeConfiguration  = _arcadeContext.ArcadeConfiguration.Value;
+            ArcadeConfiguration arcadeConfiguration  = _arcadeConfiguration.Value;
             ModelConfiguration[] modelConfigurations = arcadeConfiguration.Games;
             if (modelConfigurations is null || modelConfigurations.Length == 0)
                 return null;
@@ -42,15 +47,15 @@ namespace Arcade
             List<ModelConfigurationComponent> result = new List<ModelConfigurationComponent>();
             foreach (ModelConfiguration modelConfiguration in modelConfigurations)
             {
-                GameObject go = await SpawnGameAsync(modelConfiguration, _arcadeContext.Scenes.Entities.GamesNodeTransform, dissolveEffect);
-                result.Add(go.GetComponent<ModelConfigurationComponent>());
+                ModelConfigurationComponent modelConfigurationComponent = await SpawnGameAsync(modelConfiguration, _scenes.Entities.GamesNodeTransform, dissolveEffect);
+                result.Add(modelConfigurationComponent);
             }
             return result.ToArray();
         }
 
         public async UniTask<ModelConfigurationComponent[]> SpawPropsAsync(bool dissolveEffect)
         {
-            ArcadeConfiguration arcadeConfiguration  = _arcadeContext.ArcadeConfiguration.Value;
+            ArcadeConfiguration arcadeConfiguration  = _arcadeConfiguration.Value;
             ModelConfiguration[] modelConfigurations = arcadeConfiguration.ArcadeType switch
             {
                 ArcadeType.Fps => arcadeConfiguration.FpsArcadeProperties.Props,
@@ -63,18 +68,18 @@ namespace Arcade
             return await SpawnPropsAsync(modelConfigurations, dissolveEffect);
         }
 
-        public async UniTask<GameObject> SpawnGameAsync(ModelConfiguration modelConfiguration, Vector3 position, Quaternion rotation, bool dissolveEffect)
+        public async UniTask<ModelConfigurationComponent> SpawnGameAsync(ModelConfiguration modelConfiguration, Vector3 position, Quaternion rotation, bool dissolveEffect)
         {
             AssetAddresses addressesToTry = ProcessGameConfigurationAndGetAddressesToTry(modelConfiguration);
-            return await SpawnModelAsync(modelConfiguration, position, rotation, _arcadeContext.Scenes.Entities.GamesNodeTransform, EntitiesScene.GamesLayer, addressesToTry, dissolveEffect, true);
+            return await SpawnModelAsync(modelConfiguration, position, rotation, _scenes.Entities.GamesNodeTransform, EntitiesScene.GamesLayer, addressesToTry, dissolveEffect, true);
         }
 
         protected abstract UniTask<GameObject> SpawnAsync(AssetAddresses addressesToTry, Vector3 position, Quaternion orientation, Transform parent, bool dissolveEffect);
 
-        private async UniTask<GameObject> SpawnGameAsync(ModelConfiguration modelConfiguration, Transform parent, bool dissolveEffect)
+        private async UniTask<ModelConfigurationComponent> SpawnGameAsync(ModelConfiguration modelConfiguration, Transform parent, bool dissolveEffect)
         {
             AssetAddresses addressesToTry = ProcessGameConfigurationAndGetAddressesToTry(modelConfiguration);
-            return await SpawnModelAsync(modelConfiguration, parent, EntitiesScene.GamesLayer, _arcadeContext.ArcadeController.Value.GameModelsSpawnAtPositionWithRotation, addressesToTry, dissolveEffect, true);
+            return await SpawnModelAsync(modelConfiguration, parent, EntitiesScene.GamesLayer, _arcadeController.Value.GameModelsSpawnAtPositionWithRotation, addressesToTry, dissolveEffect, true);
         }
 
         private async UniTask<ModelConfigurationComponent[]> SpawnPropsAsync(ModelConfiguration[] modelConfigurations, bool dissolveEffect)
@@ -82,19 +87,19 @@ namespace Arcade
             List<ModelConfigurationComponent> result = new List<ModelConfigurationComponent>();
             foreach (ModelConfiguration modelConfiguration in modelConfigurations)
             {
-                GameObject go = await SpawnPropAsync(modelConfiguration, _arcadeContext.Scenes.Entities.PropsNodeTransform, dissolveEffect);
-                result.Add(go.GetComponent<ModelConfigurationComponent>());
+                ModelConfigurationComponent modelConfigurationComponent = await SpawnPropAsync(modelConfiguration, _scenes.Entities.PropsNodeTransform, dissolveEffect);
+                result.Add(modelConfigurationComponent);
             }
             return result.ToArray();
         }
 
-        private async UniTask<GameObject> SpawnPropAsync(ModelConfiguration modelConfiguration, Transform parent, bool dissolveEffect)
+        private async UniTask<ModelConfigurationComponent> SpawnPropAsync(ModelConfiguration modelConfiguration, Transform parent, bool dissolveEffect)
         {
             AssetAddresses addressesToTry = _arcadeContext.AssetAddressesProviders.Prop.GetAddressesToTry(modelConfiguration);
             return await SpawnModelAsync(modelConfiguration, parent, EntitiesScene.PropsLayer, true, addressesToTry, dissolveEffect, false);
         }
 
-        private async UniTask<GameObject> SpawnModelAsync(ModelConfiguration modelConfiguration, Transform parent, int layer, bool spawnAtPositionWithRotation, AssetAddresses addressesToTry, bool dissolveEffect, bool applyArtworks)
+        private async UniTask<ModelConfigurationComponent> SpawnModelAsync(ModelConfiguration modelConfiguration, Transform parent, int layer, bool spawnAtPositionWithRotation, AssetAddresses addressesToTry, bool dissolveEffect, bool applyArtworks)
         {
             Vector3 position;
             Quaternion rotation;
@@ -113,16 +118,16 @@ namespace Arcade
             return await SpawnModelAsync(modelConfiguration, position, rotation, parent, layer, addressesToTry, dissolveEffect, applyArtworks);
         }
 
-        private async UniTask<GameObject> SpawnModelAsync(ModelConfiguration modelConfiguration, Vector3 position, Quaternion rotation, Transform parent, int layer, AssetAddresses addressesToTry, bool dissolveEffect, bool applyArtworks)
+        private async UniTask<ModelConfigurationComponent> SpawnModelAsync(ModelConfiguration modelConfiguration, Vector3 position, Quaternion rotation, Transform parent, int layer, AssetAddresses addressesToTry, bool dissolveEffect, bool applyArtworks)
         {
             GameObject go = await SpawnAsync(addressesToTry, position, rotation, parent, dissolveEffect);
             if (go == null)
                 return null;
 
-            go.AddComponent<ModelConfigurationComponent>()
-              .InitialSetup(modelConfiguration, layer);
+            ModelConfigurationComponent modelConfigurationComponent = go.AddComponent<ModelConfigurationComponent>();
+            modelConfigurationComponent.InitialSetup(modelConfiguration, layer);
 
-            if (_arcadeContext.GeneralConfiguration.Value.EnableVR)
+            if (_generalConfiguration.Value.EnableVR)
                 _ = go.AddComponent<XRSimpleInteractable>();
             else
             {
@@ -134,13 +139,13 @@ namespace Arcade
             if (applyArtworks)
                 ApplyArtworksAsync(go, modelConfiguration).Forget();
 
-            return go;
+            return modelConfigurationComponent;
         }
 
         private AssetAddresses ProcessGameConfigurationAndGetAddressesToTry(ModelConfiguration modelConfiguration)
         {
             GameConfiguration game = null;
-            if (_arcadeContext.Databases.Platforms.TryGet(modelConfiguration.Platform, out PlatformConfiguration platform))
+            if (_databases.Platforms.TryGet(modelConfiguration.Platform, out PlatformConfiguration platform))
             {
                 string[] returnFields = new string[]
                 {
@@ -160,7 +165,7 @@ namespace Arcade
                     "Available",
                 };
                 string[] searchFields = new string[] { "Name" };
-                _ = _arcadeContext.Databases.Games.TryGet(platform.MasterList, modelConfiguration.Id, returnFields, searchFields, out game);
+                _ = _databases.Games.TryGet(platform.MasterList, modelConfiguration.Id, returnFields, searchFields, out game);
             }
 
             modelConfiguration.PlatformConfiguration = platform;
@@ -176,7 +181,7 @@ namespace Arcade
             if (!Application.isPlaying)
                 return;
 
-            ArcadeController arcadeController = _arcadeContext.ArcadeController.Value;
+            ArcadeController arcadeController = _arcadeController.Value;
             NodeControllers nodeControllers   = _arcadeContext.NodeControllers;
 
             await nodeControllers.Marquee.Setup(arcadeController, gameObject, modelConfiguration, arcadeController.RenderSettings.MarqueeIntensity);
@@ -192,7 +197,7 @@ namespace Arcade
             if (game is null)
                 return 1f;
 
-            RenderSettings renderSettings = _arcadeContext.ArcadeController.Value.RenderSettings;
+            RenderSettings renderSettings = _arcadeController.Value.RenderSettings;
 
             return game.ScreenType switch
             {

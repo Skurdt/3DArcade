@@ -23,46 +23,60 @@
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using Zenject;
 
 namespace Arcade
 {
     [DisallowMultipleComponent, RequireComponent(typeof(TMP_Text))]
     public sealed class UISelectionText : MonoBehaviour
     {
-        [SerializeField] private FloatVariable _animationDuration;
-
+        private FloatVariable _animationDuration;
         private TMP_Text _text;
-        private Tween _tween;
+        private Color _hiddenColor = new Color(1f, 1f, 1f, 0f);
 
-        private void Awake() => _text = GetComponent<TMP_Text>();
-
-        public void SetVisibility(bool visible)
+        [Inject]
+        public void Construct(FloatVariable animationDuration)
         {
-            if (visible)
-                SetText(null);
-            else
-                ResetText();
+            _animationDuration = animationDuration;
+            _text              = GetComponent<TMP_Text>();
         }
 
-        public void SetText(ModelConfigurationComponent modelConfigurationComponent)
+        public void Enable()
         {
-            if (modelConfigurationComponent == null)
+            _text.color = _hiddenColor;
+            gameObject.SetActive(true);
+        }
+
+        public void Disable()
+        {
+            _text.color = _hiddenColor;
+            gameObject.SetActive(false);
+        }
+
+        public void Show(ModelConfiguration modelConfiguration)
+        {
+            if (modelConfiguration == null)
             {
-                ResetText();
+                Hide();
                 return;
             }
 
-            string description = modelConfigurationComponent.Configuration.GetDescription();
-            _tween?.Kill();
+            _ = _text.DOKill();
+
+            string description = modelConfiguration.GetDescription();
             _text.SetText(description);
-            _tween = _text.DOColor(Color.white, _animationDuration.Value);
+
+            _ = _text.DOFade(1f, _animationDuration.Value);
         }
 
-        public void ResetText()
+        public void Hide()
         {
-            _tween?.Kill();
-            _tween = _text.DOColor(Color.clear, _animationDuration.Value)
-                          .OnComplete(() => _text.Clear());
+            _ = _text.DOKill();
+            _ = _text.DOFade(0f, _animationDuration.Value)
+                     .OnComplete(() => ClearText());
+
         }
+
+        public void ClearText() => _text.Clear();
     }
 }

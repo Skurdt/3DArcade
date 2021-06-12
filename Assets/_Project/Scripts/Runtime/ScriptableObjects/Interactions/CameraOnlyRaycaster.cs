@@ -25,7 +25,7 @@ using UnityEngine;
 namespace Arcade
 {
     [CreateAssetMenu(menuName = "3DArcade/Interaction/CameraOnlyRaycaster", fileName = "CameraOnlyRaycaster")]
-    public sealed class CameraOnlyRaycaster : InteractionRaycaster
+    public sealed class CameraOnlyRaycaster : InteractionRaycasterBase
     {
         protected override Ray GetRay(Camera camera) => camera.ScreenPointToRay(new Vector2(Screen.width * 0.5f, Screen.height * 0.5f));
     }

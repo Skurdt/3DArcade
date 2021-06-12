@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca67a4ebef62e1c44ad8b89038253399, type: 3}
+  m_Name: NormalIteractions
+  m_EditorClassIdentifier: 
+  <ArcadeConfiguration>k__BackingField: {fileID: 11400000, guid: 66a0ee11fcdbf554aa5522e160d4c342,
+    type: 2}
+  <Raycaster>k__BackingField: {fileID: 11400000, guid: c00b68910d13c1949bfc74210add3f62,
+    type: 2}
+  _onCurrentTargetChanged: {fileID: 11400000, guid: 3d41d8f1dd8f98d49a53bea6e58e09b8,
+    type: 2}
+  _onPreviousTargetChanged: {fileID: 11400000, guid: 7a3a3bb6fb27258499e623b4cb667ffd,
+    type: 2}
+  _outlineColor: {r: 0, g: 0.23456703, b: 0.4339623, a: 1}
+  _arcadeContext: {fileID: 11400000, guid: 699a2679e60a772459b83c09413cf198, type: 2}
+  _selectionlayer: 10

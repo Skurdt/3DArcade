@@ -39,30 +39,27 @@ namespace Arcade
         {
             Debug.Log($">> <color=green>Entered</color> {GetType().Name}");
 
-            ArcadeContext arcadeContext = Context.ArcadeContext;
-
-            InteractionData interactionData = arcadeContext.InteractionControllers.EditModeEditPositionsController.InteractionData;
-            if (!interactionData.Current.InitAutoMove(_grabLayer))
+            ModelConfigurationComponent currentTarget = Context.Interactions.EditPositions.CurrentTarget;
+            if (!currentTarget.InitAutoMove(_grabLayer))
             {
                 Context.TransitionToPrevious();
                 return;
             }
-            _screenPoint = arcadeContext.Player.Value.Camera.WorldToScreenPoint(interactionData.Current.transform.position);
+            _screenPoint = Context.ArcadeContext.Player.Camera.WorldToScreenPoint(currentTarget.transform.position);
         }
 
         public override void OnExit()
         {
             Debug.Log($">> <color=orange>Exited</color> {GetType().Name}");
 
-            Context.ArcadeContext.InteractionControllers.EditModeEditPositionsController.InteractionData.Current.DeInitAutoMove();
+            Context.Interactions.EditPositions.CurrentTarget.DeInitAutoMove();
 
             _screenPoint = Vector2.zero;
         }
 
         public override void OnUpdate(float dt)
         {
-            ArcadeContext arcadeContext = Context.ArcadeContext;
-            InputActions inputActions   = arcadeContext.InputActions;
+            InputActions inputActions = Context.ArcadeContext.InputActions;
 
             bool mouseIsOverUI = EventSystem.current.IsPointerOverGameObject();
             if ((!mouseIsOverUI && inputActions.FpsEditPositions.Grab.triggered) || inputActions.Global.Quit.triggered)
@@ -71,14 +68,12 @@ namespace Arcade
                 return;
             }
 
-            EditModeEditPositionsInteractionController editModeController = arcadeContext.InteractionControllers.EditModeEditPositionsController;
-            Player player = arcadeContext.Player.Value;
-
+            Player player         = Context.ArcadeContext.Player;
             bool useMousePosition = !(Mouse.current is null) && Cursor.lockState != CursorLockMode.Locked;
             Vector2 rayPosition   = useMousePosition ? Mouse.current.position.ReadValue() : _screenPoint;
             Ray ray               = player.Camera.ScreenPointToRay(rayPosition);
 
-            editModeController.AutoMoveAndRotate(ray, player.ActiveTransform.forward, math.INFINITY, _worldRaycastLayerMask);
+            Context.Interactions.EditPositions.AutoMoveAndRotate(inputActions, ray, player.ActiveTransform.forward, math.INFINITY, _worldRaycastLayerMask);
         }
     }
 }

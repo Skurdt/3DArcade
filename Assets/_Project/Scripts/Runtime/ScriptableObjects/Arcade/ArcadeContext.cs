@@ -32,44 +32,55 @@ namespace Arcade
     [CreateAssetMenu(menuName = "3DArcade/StateMachine/ArcadeContext", fileName = "ArcadeContext")]
     public sealed class ArcadeContext : Context<ArcadeState>
     {
-        [field: SerializeField] public Databases Databases { get; private set; }
         [field: SerializeField] public Scenes Scenes { get; private set; }
-        [field: SerializeField] public PlayerVariable Player { get; private set; }
-        [field: SerializeField] public InteractionControllers InteractionControllers { get; private set; }
+        [field: SerializeField] public Databases Databases { get; private set; }
         [field: SerializeField] public GeneralConfigurationVariable GeneralConfiguration { get; private set; }
         [field: SerializeField] public ArcadeConfigurationVariable ArcadeConfiguration { get; private set; }
-        [field: SerializeField] public ModelSpawnerBase ModelSpawner { get; private set; }
         [field: SerializeField] public ArcadeControllerVariable ArcadeController { get; private set; }
+        [field: SerializeField] public Interactions Interactions { get; private set; }
+        [field: SerializeField] public ArcadeStateEvent OnArcadeStateChanged { get; private set; }
         [field: SerializeField] public VideoPlayerControllerVariable VideoPlayerController { get; private set; }
-        [field: SerializeField] public ArcadeStateEvent ArcadeStateChangeEvent { get; private set; }
+
+        [SerializeField] private ModelSpawnerBase _modelSpawner;
 
         [field: System.NonSerialized] public InputActions InputActions { get; private set; }
+        [field: System.NonSerialized] public Player Player { get; private set; }
         [field: System.NonSerialized] public AssetAddressesProviders AssetAddressesProviders { get; private set; }
         [field: System.NonSerialized] public NodeControllers NodeControllers { get; private set; }
         [field: System.NonSerialized] public GameControllers GameControllers { get; private set; }
 
         [Inject]
-        public void Construct(InputActions inputActions, Player player, AssetAddressesProviders assetAddressesProviders, NodeControllers nodeControllers = null, GameControllers gameControllers = null)
+        public void Construct(InputActions inputActions,
+                              Player player,
+                              AssetAddressesProviders assetAddressesProviders,
+                              NodeControllers nodeControllers,
+                              GameControllers gameControllers)
         {
             InputActions            = inputActions;
+            Player                  = player;
             AssetAddressesProviders = assetAddressesProviders;
             NodeControllers         = nodeControllers;
             GameControllers         = gameControllers;
-            Player.Value            = player;
+        }
+
+        public void Construct(Player player, AssetAddressesProviders assetAddressesProviders)
+        {
+            Player                  = player;
+            AssetAddressesProviders = assetAddressesProviders;
         }
 
         protected override void OnContextStart() => Restart();
 
         public void ReloadCurrentArcade()
-            => StartArcade(ArcadeConfiguration.Value.Id, ArcadeConfiguration.Value.ArcadeType, ArcadeConfiguration.Value.ArcadeMode).Forget();
+            => StartArcade(ArcadeConfiguration.Value.Id, ArcadeConfiguration.Value.ArcadeType).Forget();
 
         public void Restart()
         {
             GeneralConfiguration.Initialize();
-            StartArcade(GeneralConfiguration.Value.StartingArcade, GeneralConfiguration.Value.StartingArcadeType, ArcadeMode.Normal).Forget();
+            StartArcade(GeneralConfiguration.Value.StartingArcade, GeneralConfiguration.Value.StartingArcadeType).Forget();
         }
 
-        public async UniTaskVoid StartArcade(string id, ArcadeType arcadeType, ArcadeMode arcadeMode)
+        public async UniTaskVoid StartArcade(string id, ArcadeType arcadeType)
         {
             if (string.IsNullOrEmpty(id))
                 return;
@@ -83,23 +94,25 @@ namespace Arcade
             GeneralConfiguration.Initialize();
 
             arcadeConfiguration.ArcadeType = arcadeType;
-            arcadeConfiguration.ArcadeMode = arcadeMode;
 
             ArcadeConfiguration.Value = arcadeConfiguration;
 
             ArcadeController.Value = null;
 
-            VideoPlayerController.Value?.StopAllVideos();
-            VideoPlayerController.Value = null;
-
-            Player.Value.TransitionTo<PlayerDisabledState>();
+            if (VideoPlayerController != null)
+            {
+                VideoPlayerController.Value?.StopAllVideos();
+                VideoPlayerController.Value = null;
+            }
+            Player.TransitionTo<PlayerDisabledState>();
 
             switch (arcadeConfiguration.ArcadeType)
             {
                 case ArcadeType.Fps:
                 {
-                    VideoPlayerController.Value = new FpsArcadeVideoPlayerController(Player.Value, LayerMask.GetMask("Arcade/GameModels", "Arcade/PropModels", "Arcade/Selection"));
-                    ArcadeController.Value      = new FpsArcadeController(this);
+                    if (VideoPlayerController != null)
+                        VideoPlayerController.Value = new FpsArcadeVideoPlayerController(Player, LayerMask.GetMask("Arcade/GameModels", "Arcade/PropModels", "Arcade/Selection"));
+                    ArcadeController.Value = new FpsArcadeController(this);
                 }
                 break;
                 case ArcadeType.Cyl:
@@ -146,7 +159,7 @@ namespace Arcade
             if (!success)
                 return;
 
-            await ArcadeController.Value.Initialize(ModelSpawner);
+            await ArcadeController.Value.Initialize(_modelSpawner);
         }
 
         // TODO: save all arcade properties

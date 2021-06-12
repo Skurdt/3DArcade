@@ -1,5 +1,5 @@
 <emulator description="Libretro: Genesis Plus GX">
-  <interaction_type>GameInternal</interaction_type>
+  <interaction_type>LibretroCore</interaction_type>
   <directory />
   <working_directory />
   <executable>genesis_plus_gx</executable>

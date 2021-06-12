@@ -29,7 +29,7 @@ namespace Arcade
         public override void OnEnter()
         {
             Debug.Log($"> <color=green>Entered</color> {GetType().Name}");
-            Context.ArcadeStateChangeEvent.Raise(this);
+            Context.OnArcadeStateChanged.Raise(this);
         }
 
         public override void OnExit() => Debug.Log($"> <color=orange>Exited</color> {GetType().Name}");

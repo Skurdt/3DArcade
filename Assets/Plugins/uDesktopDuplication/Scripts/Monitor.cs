@@ -2,378 +2,275 @@
 
 namespace uDesktopDuplication
 {
-
-public class Monitor
-{
-    public Monitor(int id)
+    public class Monitor
     {
-        this.id = id;
-
-        switch (state)
+        public Monitor(int id)
         {
-            case DuplicatorState.Ready:
-                break;
-            case DuplicatorState.Running:
-                break;
-            case DuplicatorState.InvalidArg:
-                Debug.LogErrorFormat("[uDD] {0}:{1} => Invalid.", id, name);
-                break;
-            case DuplicatorState.AccessDenied:
-                Debug.LogWarningFormat("[uDD] {0}:{1} => Access Denied.", id, name);
-                break;
-            case DuplicatorState.Unsupported:
-                Debug.LogWarningFormat("[uDD] {0}:{1} => Unsupported.", id, name);
-                break;
-            case DuplicatorState.SessionDisconnected:
-                Debug.LogWarningFormat("[uDD] {0}:{1} => Disconnected.", id, name);
-                break;
-            case DuplicatorState.NotSet:
-                Debug.LogErrorFormat("[uDD] {0}:{1} => Something wrong.", id, name);
-                break;
-            default:
-                Debug.LogErrorFormat("[uDD] {0}:{1} => Unknown error.", id, name);
-                break;
+            Id = id;
+
+            switch (State)
+            {
+                case DuplicatorState.Ready:
+                case DuplicatorState.Running:
+                    break;
+                case DuplicatorState.InvalidArg:
+                    Debug.LogErrorFormat("[uDD] {0}:{1} => Invalid.", id, Name);
+                    break;
+                case DuplicatorState.AccessDenied:
+                    Debug.LogWarningFormat("[uDD] {0}:{1} => Access Denied.", id, Name);
+                    break;
+                case DuplicatorState.Unsupported:
+                    Debug.LogWarningFormat("[uDD] {0}:{1} => Unsupported.", id, Name);
+                    break;
+                case DuplicatorState.SessionDisconnected:
+                    Debug.LogWarningFormat("[uDD] {0}:{1} => Disconnected.", id, Name);
+                    break;
+                case DuplicatorState.NotSet:
+                    Debug.LogErrorFormat("[uDD] {0}:{1} => Something wrong.", id, Name);
+                    break;
+                default:
+                    Debug.LogErrorFormat("[uDD] {0}:{1} => Unknown error.", id, Name);
+                    break;
+            }
+
+            if (DpiX == 0 || DpiY == 0)
+                Debug.LogWarningFormat("[uDD] {0}:{1} => Could not get DPI", id, Name);
         }
 
-        if (dpiX == 0 || dpiY == 0) {
-            Debug.LogWarningFormat("[uDD] {0}:{1} => Could not get DPI", id, name);
-        }
-    }
-
-    ~Monitor()
-    {
-    }
-
-    public int id 
-    { 
-        get; 
-        private set; 
-    }
-
-    public bool exists
-    { 
-        get { return id < Manager.monitorCount; } 
-    }
-
-    public DuplicatorState state
-    {
-        get { return Lib.GetState(id); }
-    }
-
-    public bool available
-    {
-        get 
-        { 
-            return 
-                state == DuplicatorState.Ready || 
-                state == DuplicatorState.Running; 
-        }
-    }
-
-    public string name
-    { 
-        get { return Lib.GetName(id); }
-    }
-
-    public bool isPrimary
-    { 
-        get { return Lib.IsPrimary(id); }
-    }
-
-    public int left
-    { 
-        get { return Lib.GetLeft(id); }
-    }
-
-    public int right
-    { 
-        get { return Lib.GetRight(id); }
-    }
-
-    public int top
-    { 
-        get { return Lib.GetTop(id); }
-    }
-
-    public int bottom
-    { 
-        get { return Lib.GetBottom(id); }
-    }
-
-    public int width 
-    { 
-        get { return Lib.GetWidth(id); }
-    }
-
-    public int height
-    { 
-        get { return Lib.GetHeight(id); }
-    }
-
-    public int dpiX
-    { 
-        get 
+        public int Id
         {
-            var dpi = Lib.GetDpiX(id); 
-            if (dpi == 0) dpi = 100; // when monitors are duplicated
-            return dpi;
+            get;
+            private set;
         }
-    }
 
-    public int dpiY
-    { 
-        get 
+        public bool Exists => Id < Manager.MonitorCount;
+
+        public DuplicatorState State => Lib.GetState(Id);
+
+        public bool Available => State == DuplicatorState.Ready || State == DuplicatorState.Running;
+
+        public string Name => Lib.GetName(Id);
+
+        public bool IsPrimary => Lib.IsPrimary(Id);
+
+        public int Left => Lib.GetLeft(Id);
+
+        public int Right => Lib.GetRight(Id);
+
+        public int Top => Lib.GetTop(Id);
+
+        public int Bottom => Lib.GetBottom(Id);
+
+        public int Width => Lib.GetWidth(Id);
+
+        public int Height => Lib.GetHeight(Id);
+
+        public int DpiX
         {
-            var dpi = Lib.GetDpiY(id); 
-            if (dpi == 0) dpi = 100; // when monitors are duplicated
-            return dpi;
+            get
+            {
+                int dpi = Lib.GetDpiX(Id);
+                if (dpi == 0)
+                    dpi = 100; // when monitors are duplicated
+                return dpi;
+            }
         }
-    }
 
-    public float widthMeter
-    { 
-        get { return width / dpiX * 0.0254f; }
-    }
-
-    public float heightMeter
-    { 
-        get { return height / dpiY * 0.0254f; }
-    }
-
-    public MonitorRotation rotation
-    { 
-        get { return Lib.GetRotation(id); }
-    }
-
-    public float aspect
-    { 
-        get { return (float)width / height; }
-    }
-
-    public bool isHorizontal
-    { 
-        get 
+        public int DpiY
         {
-            return 
-                (rotation == MonitorRotation.Identity) || 
-                (rotation == MonitorRotation.Rotate180);
+            get
+            {
+                int dpi = Lib.GetDpiY(Id);
+                if (dpi == 0)
+                    dpi = 100; // when monitors are duplicated
+                return dpi;
+            }
         }
-    }
 
-    public bool isVertical 
-    { 
-        get 
+        public float WidthMeter => Width / DpiX * 0.0254f;
+
+        public float HeightMeter => Height / DpiY * 0.0254f;
+
+        public MonitorRotation Rotation => Lib.GetRotation(Id);
+
+        public float Aspect => (float)Width / Height;
+
+        public bool IsHorizontal => (Rotation == MonitorRotation.Identity) ||
+                    (Rotation == MonitorRotation.Rotate180);
+
+        public bool IsVertical => (Rotation == MonitorRotation.Rotate90) ||
+                    (Rotation == MonitorRotation.Rotate270);
+
+        public bool IsCursorVisible => Lib.IsCursorVisible();
+
+        public int CursorX => Lib.GetCursorMonitorId() == Id ? Lib.GetCursorX() : -1;
+
+        public int CursorY => Lib.GetCursorMonitorId() == Id ? Lib.GetCursorY() : -1;
+
+        public int SystemCursorX
         {
-            return 
-                (rotation == MonitorRotation.Rotate90) || 
-                (rotation == MonitorRotation.Rotate270);
+            get
+            {
+                MousePoint p = Utility.GetCursorPos();
+                return p.x - Left;
+            }
         }
-    }
 
-    public bool isCursorVisible
-    { 
-        get { return Lib.IsCursorVisible(); }
-    }
-
-    public int cursorX
-    { 
-        get { return Lib.GetCursorMonitorId() == id ? Lib.GetCursorX() : -1; }
-    }
-
-    public int cursorY
-    { 
-        get { return Lib.GetCursorMonitorId() == id ? Lib.GetCursorY() : -1; }
-    }
-
-    public int systemCursorX
-    { 
-        get 
-        { 
-            var p = Utility.GetCursorPos();
-            return p.x - left;
-        }
-    }
-
-    public int systemCursorY
-    { 
-        get 
-        { 
-            var p = Utility.GetCursorPos();
-            return p.y - top;
-        }
-    }
-
-    public int cursorShapeWidth
-    { 
-        get { return Lib.GetCursorShapeWidth(); }
-    }
-
-    public int cursorShapeHeight
-    { 
-        get { return Lib.GetCursorShapeHeight(); }
-    }
-
-    public CursorShapeType cursorShapeType
-    { 
-        get { return Lib.GetCursorShapeType(); }
-    }
-
-    public int moveRectCount
-    { 
-        get { return Lib.GetMoveRectCount(id); }
-    }
-
-    public DXGI_OUTDUPL_MOVE_RECT[] moveRects
-    {
-        get { return Lib.GetMoveRects(id); }
-    }
-
-    public int dirtyRectCount
-    { 
-        get { return Lib.GetDirtyRectCount(id); }
-    }
-
-    public RECT[] dirtyRects
-    {
-        get { return Lib.GetDirtyRects(id); }
-    }
-
-    public System.IntPtr buffer
-    {
-        get { return Lib.GetBuffer(id); }
-    }
-
-    public bool hasBeenUpdated
-    {
-        get { return Lib.HasBeenUpdated(id); }
-    }
-
-    bool useGetPixels_ = false;
-    public bool useGetPixels
-    {
-        get
+        public int SystemCursorY
         {
-            return useGetPixels_;
+            get
+            {
+                MousePoint p = Utility.GetCursorPos();
+                return p.y - Top;
+            }
         }
-        set
+
+        public int CursorShapeWidth => Lib.GetCursorShapeWidth();
+
+        public int CursorShapeHeight => Lib.GetCursorShapeHeight();
+
+        public CursorShapeType CursorShapeType => Lib.GetCursorShapeType();
+
+        public int MoveRectCount => Lib.GetMoveRectCount(Id);
+
+        public DXGI_OUTDUPL_MOVE_RECT[] MoveRects => Lib.GetMoveRects(Id);
+
+        public int DirtyRectCount => Lib.GetDirtyRectCount(Id);
+
+        public RECT[] DirtyRects => Lib.GetDirtyRects(Id);
+
+        public System.IntPtr Buffer => Lib.GetBuffer(Id);
+
+        public bool HasBeenUpdated => Lib.HasBeenUpdated(Id);
+
+        bool _useGetPixels = false;
+        public bool UseGetPixels
         {
-            useGetPixels_ = value;
-            Lib.UseGetPixels(id, value);
+            get => _useGetPixels;
+            set
+            {
+                _useGetPixels = value;
+                _ = Lib.UseGetPixels(Id, value);
+            }
         }
-    }
 
-    public bool shouldBeUpdated
-    {
-        get; 
-        set;
-    }
-
-    private static Texture2D errorTexture_;
-    private static readonly string errorTexturePath = "uDesktopDuplication/Textures/NotAvailable";
-    private Texture2D errorTexture
-    {
-        get 
+        public bool ShouldBeUpdated
         {
-            return errorTexture_ ?? 
-                (errorTexture_ = Resources.Load<Texture2D>(errorTexturePath));   
-        }
-    }
-
-    private Texture2D texture_;
-    private System.IntPtr texturePtr_;
-    public Texture2D texture 
-    {
-        get 
-        { 
-            if (!available) return errorTexture;
-            if (texture_ == null) CreateTextureIfNeeded();
-            return texture_;
-        }
-    }
-
-    public void Render()
-    {
-        if (texture_ && available && texturePtr_ != System.IntPtr.Zero) {
-            Lib.SetTexturePtr(id, texturePtr_);
-            GL.IssuePluginEvent(Lib.GetRenderEventFunc(), id);
-        }
-    }
-
-    public void GetCursorTexture(System.IntPtr ptr)
-    {
-        Lib.GetCursorTexture(ptr);
-    }
-
-    public void CreateTextureIfNeeded()
-    {
-        if (!available) return;
-
-        var w = isHorizontal ? width : height;
-        var h = isHorizontal ? height : width;
-        bool shouldCreate = true;
-
-        if (texture_ && texture_.width == w && texture_.height == h) {
-            shouldCreate = false;
+            get;
+            set;
         }
 
-        if (w <= 0 || h <= 0) {
-            shouldCreate = false;
+        private static Texture2D _errorTexture;
+        private static readonly string _errorTexturePath = "uDesktopDuplication/Textures/NotAvailable";
+        private Texture2D ErrorTexture
+        {
+            get
+            {
+                if (_errorTexture == null)
+                    _errorTexture = Resources.Load<Texture2D>(_errorTexturePath);
+                return _errorTexture;
+            }
         }
 
-        if (shouldCreate) {
-            CreateTexture();
+        private Texture2D _texture;
+        private System.IntPtr _texturePtr;
+        public Texture2D Texture
+        {
+            get
+            {
+                if (!Available)
+                    return ErrorTexture;
+                if (_texture == null)
+                    CreateTextureIfNeeded();
+                return _texture;
+            }
+        }
+
+        public void Render()
+        {
+            if (_texture && Available && _texturePtr != System.IntPtr.Zero)
+            {
+                _ = Lib.SetTexturePtr(Id, _texturePtr);
+                GL.IssuePluginEvent(Lib.GetRenderEventFunc(), Id);
+            }
+        }
+
+        public void GetCursorTexture(System.IntPtr ptr) => Lib.GetCursorTexture(ptr);
+
+        public void CreateTextureIfNeeded()
+        {
+            if (!Available)
+                return;
+
+            int w = IsHorizontal ? Width : Height;
+            int h = IsHorizontal ? Height : Width;
+            bool shouldCreate = true;
+
+            if (_texture && _texture.width == w && _texture.height == h)
+            {
+                shouldCreate = false;
+            }
+
+            if (w <= 0 || h <= 0)
+            {
+                shouldCreate = false;
+            }
+
+            if (shouldCreate)
+            {
+                CreateTexture();
+            }
+        }
+
+        void CreateTexture()
+        {
+            DestroyTexture();
+            int w = IsHorizontal ? Width : Height;
+            int h = IsHorizontal ? Height : Width;
+            _texture = new Texture2D(w, h, TextureFormat.BGRA32, false);
+            _texturePtr = _texture.GetNativeTexturePtr();
+        }
+
+        public void DestroyTexture()
+        {
+            if (_texture)
+            {
+                Object.Destroy(_texture);
+                _texture = null;
+                _texturePtr = System.IntPtr.Zero;
+            }
+        }
+
+        public void Reinitialize() => CreateTextureIfNeeded();
+
+        public Color32[] GetPixels(int x, int y, int width, int height)
+        {
+            if (!_useGetPixels)
+            {
+                Debug.LogErrorFormat("Please set Monitor[{0}].useGetPixels as true.", Id);
+                return null;
+            }
+            return Lib.GetPixels(Id, x, y, width, height);
+        }
+
+        public bool GetPixels(Color32[] colors, int x, int y, int width, int height)
+        {
+            if (!_useGetPixels)
+            {
+                Debug.LogErrorFormat("Please set Monitor[{0}].useGetPixels as true.", Id);
+                return false;
+            }
+            return Lib.GetPixels(Id, colors, x, y, width, height);
+        }
+
+        public Color32 GetPixel(int x, int y)
+        {
+            if (!_useGetPixels)
+            {
+                Debug.LogErrorFormat("Please set Monitor[{0}].useGetPixels as true.", Id);
+                return Color.black;
+            }
+            return Lib.GetPixel(Id, x, y);
         }
     }
-
-    void CreateTexture()
-    {
-        DestroyTexture();
-        var w = isHorizontal ? width : height;
-        var h = isHorizontal ? height : width;
-        texture_ = new Texture2D(w, h, TextureFormat.BGRA32, false);
-        texturePtr_ = texture_.GetNativeTexturePtr();
-    }
-
-    public void DestroyTexture()
-    {
-        if (texture_) {
-            Object.Destroy(texture_);
-            texture_ = null;
-            texturePtr_ = System.IntPtr.Zero;
-        }
-    }
-
-    public void Reinitialize()
-    {
-        CreateTextureIfNeeded();
-    }
-
-    public Color32[] GetPixels(int x, int y, int width, int height)
-    {
-        if (!useGetPixels_) {
-            Debug.LogErrorFormat("Please set Monitor[{0}].useGetPixels as true.", id);
-            return null;
-        }
-        return Lib.GetPixels(id, x, y, width, height);
-    }
-
-    public bool GetPixels(Color32[] colors, int x, int y, int width, int height)
-    {
-        if (!useGetPixels_) {
-            Debug.LogErrorFormat("Please set Monitor[{0}].useGetPixels as true.", id);
-            return false;
-        }
-        return Lib.GetPixels(id, colors, x, y, width, height);
-    }
-
-    public Color32 GetPixel(int x, int y)
-    {
-        if (!useGetPixels_) {
-            Debug.LogErrorFormat("Please set Monitor[{0}].useGetPixels as true.", id);
-            return Color.black;
-        }
-        return Lib.GetPixel(id, x, y);
-    }
-}
-
 }

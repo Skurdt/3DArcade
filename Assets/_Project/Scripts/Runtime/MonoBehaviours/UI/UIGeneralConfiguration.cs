@@ -21,49 +21,85 @@
  * SOFTWARE. */
 
 using DG.Tweening;
+using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace Arcade
 {
     [DisallowMultipleComponent]
-    public sealed class UIGeneralConfiguration : MonoBehaviour
+    public sealed class UIGeneralConfiguration : MonoBehaviour, IUIVisibility
     {
-        [SerializeField] private GeneralConfigurationVariable _generalConfiguration;
-        [SerializeField] private ArcadesDatabase _arcadeDatabase;
         [SerializeField] private TMP_Dropdown _startingArcadeDropdown;
         [SerializeField] private TMP_Dropdown _startingArcadeTypeDropdown;
         [SerializeField] private Toggle _mouseLookReverseToggle;
         [SerializeField] private Toggle _enableVRToggle;
-        [SerializeField] private FloatVariable _animationDuration;
+        [SerializeField] private Button _saveButton;
+        [SerializeField] private Button _cancelButton;
 
+        private ArcadesDatabase _arcadesDatabase;
+        private GeneralConfigurationVariable _generalConfigurationVariable;
+        private ArcadeStandardFpsNormalState _arcadeStandardFpsNormalState;
+        private FloatVariable _animationDuration;
         private RectTransform _transform;
         private float _animationStartPosition;
         private float _animationEndPosition;
+        private bool _visible;
 
-        private void Awake()
+        [Inject]
+        public void Construct(ArcadesDatabase arcadesDatabase,
+                              GeneralConfigurationVariable generalConfigurationVariable,
+                              ArcadeStandardFpsNormalState arcadeStandardFpsNormalState,
+                              FloatVariable animationDuration)
         {
-            _transform              = transform as RectTransform;
-            _animationStartPosition = -_transform.rect.width;
-            _animationEndPosition   = 0f;
+            _arcadesDatabase              = arcadesDatabase;
+            _generalConfigurationVariable = generalConfigurationVariable;
+            _arcadeStandardFpsNormalState = arcadeStandardFpsNormalState;
+            _animationDuration            = animationDuration;
+            _transform                    = transform! as RectTransform;
+            _animationStartPosition       = -_transform.rect.width;
+            _animationEndPosition         = 0f;
+
+            _saveButton.onClick.AddListener(() =>
+            {
+                Save();
+                _ = Hide();
+                _arcadeStandardFpsNormalState.EnableInput();
+            });
+            _cancelButton.onClick.AddListener(() =>
+            {
+                _ = Hide();
+                _arcadeStandardFpsNormalState.EnableInput();
+            });
         }
 
-        public void Show()
+        private void OnDestroy()
         {
-            if (gameObject.activeSelf)
-                return;
+            _saveButton.onClick.RemoveAllListeners();
+            _cancelButton.onClick.RemoveAllListeners();
+        }
+
+        public Tween SetVisibility(bool visible) => visible ? Show() : Hide();
+
+        public Tween Show()
+        {
+            if (_visible)
+                return null;
+
+            _visible = true;
 
             gameObject.SetActive(true);
 
-            _generalConfiguration.Initialize();
-            _arcadeDatabase.Initialize();
+            _generalConfigurationVariable.Initialize();
+            _arcadesDatabase.Initialize();
 
-            GeneralConfiguration generalConfiguration = _generalConfiguration.Value;
+            GeneralConfiguration generalConfiguration = _generalConfigurationVariable.Value;
 
             _startingArcadeDropdown.ClearOptions();
-            _startingArcadeDropdown.AddOptions(_arcadeDatabase.Names);
+            _startingArcadeDropdown.AddOptions(new List<string> { "" }.Concat(_arcadesDatabase.Names).ToList());
             _startingArcadeDropdown.value = _startingArcadeDropdown.options.FindIndex(x => x.text == generalConfiguration.StartingArcade);
 
             _startingArcadeTypeDropdown.ClearOptions();
@@ -73,27 +109,33 @@ namespace Arcade
             _mouseLookReverseToggle.isOn = generalConfiguration.MouseLookReverse;
             _enableVRToggle.isOn         = generalConfiguration.EnableVR;
 
-            _ = _transform.DOAnchorPosX(_animationEndPosition, _animationDuration.Value);
+            _ = _transform.DOKill();
+            return _transform.DOAnchorPosX(_animationEndPosition, _animationDuration.Value)
+                             .SetEase(Ease.InOutCubic);
         }
 
-        public void Hide()
+        public Tween Hide()
         {
-            if (!gameObject.activeSelf)
-                return;
+            if (!_visible)
+                return null;
 
-            _ = _transform.DOAnchorPosX(_animationStartPosition, _animationDuration.Value)
-                          .OnComplete(() => gameObject.SetActive(false));
+            _visible = false;
+
+            _ = _transform.DOKill();
+            return _transform.DOAnchorPosX(_animationStartPosition, _animationDuration.Value)
+                             .SetEase(Ease.InOutCubic)
+                             .OnComplete(() => gameObject.SetActive(false));
         }
 
-        public void Save()
+        private void Save()
         {
-            _generalConfiguration.Value.StartingArcade     = _startingArcadeDropdown.options[_startingArcadeDropdown.value].text;
-            _generalConfiguration.Value.StartingArcadeType = (ArcadeType)_startingArcadeTypeDropdown.value;
-            _generalConfiguration.Value.MouseLookReverse   = _mouseLookReverseToggle.isOn;
-            _generalConfiguration.Value.EnableVR           = _enableVRToggle.isOn;
+            _generalConfigurationVariable.Value.StartingArcade     = _startingArcadeDropdown.options[_startingArcadeDropdown.value].text;
+            _generalConfigurationVariable.Value.StartingArcadeType = (ArcadeType)_startingArcadeTypeDropdown.value;
+            _generalConfigurationVariable.Value.MouseLookReverse   = _mouseLookReverseToggle.isOn;
+            _generalConfigurationVariable.Value.EnableVR           = _enableVRToggle.isOn;
 
-            if (_generalConfiguration.Value.Save())
-                _generalConfiguration.Initialize();
+            if (_generalConfigurationVariable.Value.Save())
+                _generalConfigurationVariable.Initialize();
         }
     }
 }

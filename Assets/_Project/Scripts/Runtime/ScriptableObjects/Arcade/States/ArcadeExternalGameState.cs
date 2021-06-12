@@ -32,8 +32,7 @@ namespace Arcade
         {
             OnEnterState();
 
-            ExternalGameController gameController = Context.GameControllers.External;
-            EmulatorConfiguration emulator        = Context.InteractionControllers.NormalModeController.InteractionData.Current.Configuration.EmulatorConfiguration;
+            EmulatorConfiguration emulator = Context.Interactions.Normal.CurrentTarget.Configuration.EmulatorConfiguration;
             if (emulator is null)
             {
                 Context.TransitionToPrevious();
@@ -42,9 +41,10 @@ namespace Arcade
 
             Context.InputActions.Disable();
 
+            ExternalGameController gameController = Context.GameControllers.External;
             gameController.OnGameStarted += OnAppStarted;
             gameController.OnGameExited  += OnAppExited;
-            if (!gameController.StartGame(emulator, Context.InteractionControllers.NormalModeController.InteractionData.Current.Configuration.Id))
+            if (!gameController.StartGame(emulator, Context.Interactions.Normal.CurrentTarget.Configuration.Id))
             {
                 Context.TransitionToPrevious();
                 return;

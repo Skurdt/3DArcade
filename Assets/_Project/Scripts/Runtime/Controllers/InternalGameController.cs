@@ -23,6 +23,7 @@
 using SK.Libretro.Unity;
 using SK.Utilities.Unity;
 using UnityEngine;
+using Zenject;
 
 namespace Arcade
 {
@@ -35,7 +36,7 @@ namespace Arcade
         private LibretroBridge _libretroBridge;
         private ScreenNodeTag _screenNode;
 
-        public InternalGameController(Player player, Material screenMaterial)
+        public InternalGameController(Player player, [Inject(Id = "libretro")] Material screenMaterial)
         {
             _player        = player;
             ScreenMaterial = screenMaterial;
@@ -75,8 +76,6 @@ namespace Arcade
 
             return false;
         }
-
-        public void UpdateGame() => _libretroBridge?.Update();
 
         public void StopGame()
         {

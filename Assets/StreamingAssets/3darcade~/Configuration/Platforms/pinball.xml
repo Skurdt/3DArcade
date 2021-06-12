@@ -1,7 +1,7 @@
 <platform description="Pinball">
-  <master_list>pinball</master_list>
-  <emulator>pinball</emulator>
-  <model>pinball</model>
+  <master_list />
+  <emulator />
+  <model />
   <marquee_images_directories>
     <directory>@/3darcade~/Platforms/pinball/backglasses</directory>
   </marquee_images_directories>

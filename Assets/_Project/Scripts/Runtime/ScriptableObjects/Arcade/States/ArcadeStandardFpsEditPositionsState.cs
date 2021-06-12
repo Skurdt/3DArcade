@@ -37,11 +37,11 @@ namespace Arcade
 
             SetupInput();
 
-            Context.InteractionControllers.ResetControllers();
+            Context.Interactions.Reset();
 
             Context.ArcadeController.Value.SaveTransformStates();
 
-            Context.ArcadeStateChangeEvent.Raise(this);
+            Context.OnArcadeStateChanged.Raise(this);
 
             _editModeContext.TransitionTo<ArcadeEditModeManualMoveState>();
         }

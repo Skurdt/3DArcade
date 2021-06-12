@@ -4,264 +4,264 @@ using System.Collections.Generic;
 
 namespace uDesktopDuplication
 {
-
-public class Manager : MonoBehaviour
-{
-    private static Manager instance_;
-    public static Manager instance 
+    public class Manager : MonoBehaviour
     {
-        get { return CreateInstance(); }
-    }
+        private static Manager _instance;
+        public static Manager Instance => CreateInstance();
 
-    public static Manager CreateInstance()
-    {
-        if (instance_ != null) return instance_;
-
-        var manager = FindObjectOfType<Manager>();
-        if (manager) {
-            instance_ = manager;
-            return manager;
-        }
-
-        var go = new GameObject("uDesktopDuplicationManager");
-        instance_ = go.AddComponent<Manager>();
-        return instance_;
-    }
-
-    private List<Monitor> monitors_ = new List<Monitor>();
-    static public List<Monitor> monitors
-    {
-        get { return instance.monitors_; }
-    }
-
-    static public int monitorCount
-    {
-        get { return Lib.GetMonitorCount(); }
-    }
-
-    static public int cursorMonitorId 
-    {
-        get { return Lib.GetCursorMonitorId(); }
-    }
-
-    static public Monitor primary
-    {
-        get 
+        public static Manager CreateInstance()
         {
-            return instance.monitors_.Find(monitor => monitor.isPrimary);
-        }
-    }
+            if (_instance != null)
+                return _instance;
 
-    [Tooltip("Debug mode is not applied while running.")]
-    [SerializeField] DebugMode debugMode = DebugMode.File;
+            Manager manager = FindObjectOfType<Manager>();
+            if (manager)
+            {
+                _instance = manager;
+                return manager;
+            }
 
-    [SerializeField] float retryReinitializationDuration = 1f;
-
-    private Coroutine renderCoroutine_ = null;
-    private bool shouldReinitialize_ = false;
-    private float reinitializationTimer_ = 0f;
-    private bool isFirstFrame_ = true;
-
-    public static event Lib.DebugLogDelegate onDebugLog = OnDebugLog;
-    public static event Lib.DebugLogDelegate onDebugErr = OnDebugErr;
-
-    [AOT.MonoPInvokeCallback(typeof(Lib.DebugLogDelegate))]
-    private static void OnDebugLog(string msg) { Debug.Log(msg); }
-    [AOT.MonoPInvokeCallback(typeof(Lib.DebugLogDelegate))]
-    private static void OnDebugErr(string msg) { Debug.LogError(msg); }
-
-    public delegate void ReinitializeHandler();
-    public static event ReinitializeHandler onReinitialized;
-
-    public static Monitor GetMonitor(int id)
-    {
-        if (id < 0 || id >= Manager.monitors.Count) {
-            Debug.LogErrorFormat("[uDD::Error] there is no monitor whose id is {0}.", id);
-            return Manager.primary;
-        }
-        return monitors[Mathf.Clamp(id, 0, Manager.monitorCount - 1)];
-    }
-
-    void Awake()
-    {
-        // for simple singleton
-
-        if (instance_ == this) {
-            return;
+            GameObject go = new GameObject("uDesktopDuplicationManager");
+            _instance = go.AddComponent<Manager>();
+            return _instance;
         }
 
-        if (instance_ != null && instance_ != this) {
-            Destroy(gameObject);
-            return;
+        private readonly List<Monitor> _monitors = new List<Monitor>();
+        static public List<Monitor> Monitors => Instance._monitors;
+
+        static public int MonitorCount => Lib.GetMonitorCount();
+
+        static public int CursorMonitorId => Lib.GetCursorMonitorId();
+
+        static public Monitor Primary => Instance._monitors.Find(monitor => monitor.IsPrimary);
+
+        [Tooltip("Debug mode is not applied while running.")]
+        [SerializeField] private DebugMode _debugMode = DebugMode.File;
+
+        [SerializeField] private float _retryReinitializationDuration = 1f;
+
+        private Coroutine _renderCoroutine = null;
+        private bool _shouldReinitialize = false;
+        private float _reinitializationTimer = 0f;
+        private bool _isFirstFrame = true;
+
+        public static event Lib.DebugLogDelegate OnDebugLog = DebugLogCallback;
+        public static event Lib.DebugLogDelegate OnDebugErr = DebugErrCallback;
+
+        [AOT.MonoPInvokeCallback(typeof(Lib.DebugLogDelegate))]
+        private static void DebugLogCallback(string msg) => Debug.Log(msg);
+        [AOT.MonoPInvokeCallback(typeof(Lib.DebugLogDelegate))]
+        private static void DebugErrCallback(string msg) => Debug.LogError(msg);
+
+        public delegate void ReinitializeHandler();
+        public static event ReinitializeHandler OnReinitialized;
+
+        public static Monitor GetMonitor(int id)
+        {
+            if (id < 0 || id >= Monitors.Count)
+            {
+                Debug.LogErrorFormat("[uDD::Error] there is no monitor whose id is {0}.", id);
+                return Primary;
+            }
+            return Monitors[Mathf.Clamp(id, 0, MonitorCount - 1)];
         }
 
-        instance_ = this;
+        private void Awake()
+        {
+            // for simple singleton
+            if (_instance == this)
+                return;
 
-        Lib.SetDebugMode(debugMode);
-        Lib.SetLogFunc(onDebugLog);
-        Lib.SetErrorFunc(onDebugErr);
+            if (_instance != null && _instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
 
-        Lib.Initialize();
+            _instance = this;
 
-        CreateMonitors();
+            Lib.SetDebugMode(_debugMode);
+            Lib.SetLogFunc(OnDebugLog);
+            Lib.SetErrorFunc(OnDebugErr);
 
-        #if UNITY_2018_1_OR_NEWER
-        Shader.DisableKeyword("USE_GAMMA_TO_LINEAR_SPACE");
-        #else
+            Lib.Initialize();
+
+            CreateMonitors();
+
+#if UNITY_2018_1_OR_NEWER
+            Shader.DisableKeyword("USE_GAMMA_TO_LINEAR_SPACE");
+#else
         Shader.EnableKeyword("USE_GAMMA_TO_LINEAR_SPACE");
-        #endif
-    }
-
-    void OnApplicationQuit()
-    {
-        Lib.Finalize();
-        DestroyMonitors();
-    }
-
-    void OnEnable()
-    {
-        renderCoroutine_ = StartCoroutine(OnRender());
-        if (!isFirstFrame_) {
-            Reinitialize();
+#endif
         }
 
-        Lib.SetDebugMode(debugMode);
-        Lib.SetLogFunc(onDebugLog);
-    }
-
-    void OnDisable()
-    {
-        if (renderCoroutine_ != null) {
-            StopCoroutine(renderCoroutine_);
-            renderCoroutine_ = null;
+        private void OnApplicationQuit()
+        {
+            Lib.Finalize();
+            DestroyMonitors();
         }
 
-        Lib.SetLogFunc(null);
-        Lib.SetErrorFunc(null);
-    }
-
-    void Update()
-    {
-        Lib.Update();
-        ReinitializeIfNeeded();
-        UpdateMessage();
-        isFirstFrame_ = false;
-    }
-
-    [ContextMenu("Reinitialize")]
-    public void Reinitialize()
-    {
-        Debug.Log("[uDD] Reinitialize");
-        Lib.Reinitialize();
-        CreateMonitors();
-        if (onReinitialized != null) {
-            onReinitialized();
-        }
-    }
-
-    void ReinitializeIfNeeded()
-    {
-        bool reinitializeNeeded = false;
-
-        for (int i = 0; i < monitors.Count; ++i) {
-            var monitor = monitors[i];
-            var state = monitor.state;
-            if (
-                state == DuplicatorState.NotSet ||
-                state == DuplicatorState.AccessLost || 
-                state == DuplicatorState.AccessDenied ||
-                state == DuplicatorState.SessionDisconnected ||
-                state == DuplicatorState.Unknown
-            ) {
-                reinitializeNeeded = true;
-                break;
-            }
-        }
-
-        if (Lib.HasMonitorCountChanged()) {
-            reinitializeNeeded = true;
-        }
-
-        if (!shouldReinitialize_ && reinitializeNeeded) {
-            shouldReinitialize_ = true;
-            reinitializationTimer_ = 0f;
-        }
-
-        if (shouldReinitialize_) {
-            if (reinitializationTimer_ > retryReinitializationDuration) {
+        private void OnEnable()
+        {
+            _renderCoroutine = StartCoroutine(OnRender());
+            if (!_isFirstFrame)
+            {
                 Reinitialize();
-                shouldReinitialize_ = false;
             }
-            reinitializationTimer_ += Time.deltaTime;
-        }
-    }
 
-    void UpdateMessage()
-    {
-        var message = Lib.PopMessage();
-        while (message != Message.None) {
-            Debug.Log("[uDD] " + message);
-            switch (message) {
-                case Message.Reinitialized:
-                    ReinitializeMonitors();
-                    break;
-                case Message.TextureSizeChanged:
-                    RecreateTextures();
-                    break;
-                default:
-                    break;
+            Lib.SetDebugMode(_debugMode);
+            Lib.SetLogFunc(OnDebugLog);
+        }
+
+        private void OnDisable()
+        {
+            if (_renderCoroutine != null)
+            {
+                StopCoroutine(_renderCoroutine);
+                _renderCoroutine = null;
             }
-            message = Lib.PopMessage();
-        }
-    }
 
-    IEnumerator OnRender()
-    {
-        for (;;) {
-            yield return new WaitForEndOfFrame();
-            for (int i = 0; i < monitors.Count; ++i) {
-                var monitor = monitors[i];
-                if (monitor.shouldBeUpdated) {
-                    monitor.Render();
+            Lib.SetLogFunc(null);
+            Lib.SetErrorFunc(null);
+        }
+
+        private void Update()
+        {
+            Lib.Update();
+            ReinitializeIfNeeded();
+            UpdateMessage();
+            _isFirstFrame = false;
+        }
+
+        [ContextMenu("Reinitialize")]
+        public void Reinitialize()
+        {
+            Debug.Log("[uDD] Reinitialize");
+            Lib.Reinitialize();
+            CreateMonitors();
+            OnReinitialized?.Invoke();
+        }
+
+        private void ReinitializeIfNeeded()
+        {
+            bool reinitializeNeeded = false;
+
+            for (int i = 0; i < Monitors.Count; ++i)
+            {
+                Monitor monitor = Monitors[i];
+                DuplicatorState state = monitor.State;
+                if (
+                    state == DuplicatorState.NotSet ||
+                    state == DuplicatorState.AccessLost ||
+                    state == DuplicatorState.AccessDenied ||
+                    state == DuplicatorState.SessionDisconnected ||
+                    state == DuplicatorState.Unknown
+                )
+                {
+                    reinitializeNeeded = true;
+                    break;
                 }
-                monitor.shouldBeUpdated = false;
+            }
+
+            if (Lib.HasMonitorCountChanged())
+            {
+                reinitializeNeeded = true;
+            }
+
+            if (!_shouldReinitialize && reinitializeNeeded)
+            {
+                _shouldReinitialize = true;
+                _reinitializationTimer = 0f;
+            }
+
+            if (_shouldReinitialize)
+            {
+                if (_reinitializationTimer > _retryReinitializationDuration)
+                {
+                    Reinitialize();
+                    _shouldReinitialize = false;
+                }
+                _reinitializationTimer += Time.deltaTime;
+            }
+        }
+
+        private void UpdateMessage()
+        {
+            Message message = Lib.PopMessage();
+            while (message != Message.None)
+            {
+                Debug.Log("[uDD] " + message);
+                switch (message)
+                {
+                    case Message.Reinitialized:
+                        ReinitializeMonitors();
+                        break;
+                    case Message.TextureSizeChanged:
+                        RecreateTextures();
+                        break;
+                    default:
+                        break;
+                }
+                message = Lib.PopMessage();
+            }
+        }
+
+        private IEnumerator OnRender()
+        {
+            for (; ; )
+            {
+                yield return new WaitForEndOfFrame();
+                for (int i = 0; i < Monitors.Count; ++i)
+                {
+                    Monitor monitor = Monitors[i];
+                    if (monitor.ShouldBeUpdated)
+                    {
+                        monitor.Render();
+                    }
+                    monitor.ShouldBeUpdated = false;
+                }
+            }
+        }
+
+        private void CreateMonitors()
+        {
+            DestroyMonitors();
+            for (int i = 0; i < MonitorCount; ++i)
+            {
+                Monitors.Add(new Monitor(i));
+            }
+        }
+
+        private void DestroyMonitors()
+        {
+            for (int i = 0; i < Monitors.Count; ++i)
+            {
+                Monitors[i].DestroyTexture();
+            }
+            Monitors.Clear();
+        }
+
+        private void ReinitializeMonitors()
+        {
+            for (int i = 0; i < MonitorCount; ++i)
+            {
+                if (i == Monitors.Count)
+                {
+                    Monitors.Add(new Monitor(i));
+                }
+                else
+                {
+                    Monitors[i].Reinitialize();
+                }
+            }
+        }
+
+        private void RecreateTextures()
+        {
+            for (int i = 0; i < MonitorCount; ++i)
+            {
+                Monitors[i].CreateTextureIfNeeded();
             }
         }
     }
-
-    void CreateMonitors()
-    {
-        DestroyMonitors();
-        for (int i = 0; i < monitorCount; ++i) {
-            monitors.Add(new Monitor(i));
-        }
-    }
-
-    void DestroyMonitors()
-    {
-        for (int i = 0; i < monitors.Count; ++i) {
-            monitors[i].DestroyTexture();
-        }
-        monitors.Clear();
-    }
-
-    void ReinitializeMonitors()
-    {
-        for (int i = 0; i < monitorCount; ++i) {
-            if (i == monitors.Count) {
-                monitors.Add(new Monitor(i));
-            } else {
-                monitors[i].Reinitialize();
-            }
-        }
-    }
-
-    void RecreateTextures()
-    {
-        for (int i = 0; i < monitorCount; ++i) {
-            monitors[i].CreateTextureIfNeeded();
-        }
-    }
-}
-
 }

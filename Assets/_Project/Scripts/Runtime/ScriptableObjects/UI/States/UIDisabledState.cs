@@ -26,10 +26,10 @@ namespace Arcade
     {
         public override void OnEnter()
         {
-            if (Context.StandardUI != null)
+            if (Context.ValidStandardUI)
                 Context.StandardUI.Hide();
 
-            if (Context.VirtualRealityUI != null)
+            if (Context.ValidVirtualRealityUI)
                 Context.VirtualRealityUI.Hide();
         }
     }

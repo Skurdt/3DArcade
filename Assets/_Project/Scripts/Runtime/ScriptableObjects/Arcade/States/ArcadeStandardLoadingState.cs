@@ -30,7 +30,7 @@ namespace Arcade
         public override void OnEnter()
         {
             Debug.Log($"> <color=green>Entered</color> {GetType().Name}");
-            Context.ArcadeStateChangeEvent.Raise(this);
+            Context.OnArcadeStateChanged.Raise(this);
 
             Context.InputActions.Disable();
             CursorUtils.HideMouseCursor();

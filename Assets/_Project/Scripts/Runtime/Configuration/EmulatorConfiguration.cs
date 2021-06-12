@@ -27,7 +27,7 @@ namespace Arcade
     [System.Serializable, XmlRoot("emulator")]
     public sealed class EmulatorConfiguration : DatabaseEntry
     {
-        [XmlElement("interaction_type")]                           public InteractionType InteractionType = InteractionType.Default;
+        [XmlElement("interaction_type")]                           public InteractionType InteractionType = InteractionType.LibretroCore;
         [XmlElement("directory")]                                  public string Directory                = "";
         [XmlElement("working_directory")]                          public string WorkingDirectory         = "";
         [XmlElement("executable")]                                 public string Executable               = "";

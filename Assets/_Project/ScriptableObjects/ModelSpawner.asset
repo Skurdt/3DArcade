@@ -13,4 +13,11 @@ MonoBehaviour:
   m_Name: ModelSpawner
   m_EditorClassIdentifier: 
   _arcadeContext: {fileID: 11400000, guid: 699a2679e60a772459b83c09413cf198, type: 2}
+  _arcadeConfiguration: {fileID: 11400000, guid: 66a0ee11fcdbf554aa5522e160d4c342,
+    type: 2}
+  _scenes: {fileID: 11400000, guid: 047531b08b6756a44bf09e356e93b719, type: 2}
+  _arcadeController: {fileID: 11400000, guid: b50b6273569d084419687f9fc89cae03, type: 2}
+  _generalConfiguration: {fileID: 11400000, guid: e73c346bff35ea041864153f6973108b,
+    type: 2}
+  _databases: {fileID: 11400000, guid: e8c64f039a7454e4db81906a8ece05df, type: 2}
   _dissolveMaterial: {fileID: 2100000, guid: adee795607fa2b74f81f7b235cf00f99, type: 2}

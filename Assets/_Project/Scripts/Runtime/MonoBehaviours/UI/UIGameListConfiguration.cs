@@ -22,66 +22,60 @@
 
 using DG.Tweening;
 using SG;
-using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using Zenject;
 
 namespace Arcade
 {
     [DisallowMultipleComponent]
     public sealed class UIGameListConfiguration : MonoBehaviour
     {
-        [SerializeField] private GameListVariable _gameListVariable;
         [SerializeField] private TMP_Text _titleText;
         [SerializeField] private LoopScrollRect _scrollRect;
-        [SerializeField] private FloatVariable _animationDuration;
+        [SerializeField] private Button _cancelButton;
 
+        private FilterableGameListVariable _gameListVariable;
+        private UIGameListConfigurations _uiGameListConfigurations;
+        private FloatVariable _animationDuration;
         private RectTransform _transform;
         private float _animationStartPosition;
         private float _animationEndPosition;
+        private bool _visible;
 
         private UIGameConfigurationCellCallback _currentCell;
 
-        private void Awake()
+        [Inject]
+        public void Construct(UIGameListConfigurations uiGameListConfigurations,
+                              FilterableGameListVariable gameListVariable,
+                              FloatVariable animationDuration)
         {
-            _transform              = transform as RectTransform;
-            _animationStartPosition = -_transform.rect.width;
-            _animationEndPosition   = 0f;
-        }
+            _uiGameListConfigurations = uiGameListConfigurations;
+            _gameListVariable         = gameListVariable;
+            _animationDuration        = animationDuration;
+            _transform                = transform as RectTransform;
+            _animationStartPosition   = -_transform.rect.width;
+            _animationEndPosition     = 0f;
 
-        private void Update()
-        {
-            PointerEventData pointerEventData = new PointerEventData(EventSystem.current)
+            _cancelButton.onClick.AddListener(() =>
             {
-                position = Mouse.current.position.ReadValue()
-            };
-
-            List<RaycastResult> raycastResults = new List<RaycastResult>();
-            EventSystem.current.RaycastAll(pointerEventData, raycastResults);
-            if (raycastResults.Count == 0)
-                return;
-
-            UIGameConfigurationCellCallback cell = raycastResults[0].gameObject.GetComponentInParent<UIGameConfigurationCellCallback>();
-            if (_currentCell == cell)
-                return;
-
-            if (_currentCell != null)
-                _currentCell.StopHighlight();
-
-            _currentCell = cell;
-
-            if (_currentCell != null)
-                _currentCell.StartHighlight();
+                Hide();
+                _ = _uiGameListConfigurations.Show();
+            });
         }
+
+        private void OnDestroy() => _cancelButton.onClick.RemoveAllListeners();
+
+        private void Update() => UI.HandleCellHighlighting(ref _currentCell);
 
         public void Show(string gameListName, GameConfiguration[] configurations)
         {
-            if (gameObject.activeSelf)
+            if (_visible)
                 return;
+
+            _visible = true;
 
             gameObject.SetActive(true);
 
@@ -90,23 +84,33 @@ namespace Arcade
             _gameListVariable.GameListName = gameListName;
             _gameListVariable.Value        = configurations?.ToList();
 
-            RefreshList(configurations.Length);
+            RefreshList(!(configurations is null) ? configurations.Length : 0);
 
-            _ = _transform.DOAnchorPosX(_animationEndPosition, _animationDuration.Value);
+            _ = _transform.DOKill();
+            _ = _transform.DOAnchorPosX(_animationEndPosition, _animationDuration.Value)
+                          .SetEase(Ease.InOutCubic);
         }
 
         public void Hide()
         {
-            if (!gameObject.activeSelf)
+            if (!_visible)
                 return;
+
+            _visible = false;
 
             _gameListVariable.GameListName = null;
             _gameListVariable.Value        = null;
 
             _scrollRect.ClearCells();
 
+            _ = _transform.DOKill();
             _ = _transform.DOAnchorPosX(_animationStartPosition, _animationDuration.Value)
-                          .OnComplete(() => gameObject.SetActive(false));
+                          .SetEase(Ease.InOutCubic)
+                          .OnComplete(() =>
+                          {
+                              gameObject.SetActive(false);
+                              _currentCell = null;
+                          });
         }
 
         public void RemoveGame(GameConfiguration gameConfiguration)

@@ -20,33 +20,57 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE. */
 
+using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
+using Zenject;
 
 namespace Arcade
 {
     [DisallowMultipleComponent]
     public sealed class UILoading : MonoBehaviour
     {
-        [SerializeField] private ArcadeConfigurationVariable _arcadeConfigurationVariable;
-        [SerializeField] private UnityEvent<string> _onVisibilityChange;
+        [SerializeField] private TMP_Text _statusText;
 
+        private ArcadeConfigurationVariable _arcadeConfigurationVariable;
+        private UISelectionText _selectionText;
         private bool _visible;
+
+        [Inject]
+        public void Construct(ArcadeConfigurationVariable arcadeConfigurationVariable, UISelectionText selectionText)
+        {
+            _arcadeConfigurationVariable = arcadeConfigurationVariable;
+            _selectionText               = selectionText;
+        }
 
         public void SetVisibility(bool visible)
         {
-            if (_visible == visible)
-                return;
+            _selectionText.Disable();
 
-            _visible = visible;
+            if (visible)
+                Show();
+            else
+                Hide();
+        }
+
+        public void Show()
+        {
             if (_visible)
-            {
-                gameObject.SetActive(true);
-                _onVisibilityChange.Invoke(_arcadeConfigurationVariable.Value.ToString());
                 return;
-            }
 
-            _onVisibilityChange.Invoke("");
+            _visible = true;
+
+            _statusText.SetText($"{_arcadeConfigurationVariable.Value}");
+            gameObject.SetActive(true);
+        }
+
+        public void Hide()
+        {
+            if (!_visible)
+                return;
+
+            _visible = false;
+
+            _statusText.Clear();
             gameObject.SetActive(false);
         }
     }

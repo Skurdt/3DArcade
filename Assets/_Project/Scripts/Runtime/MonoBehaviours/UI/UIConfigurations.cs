@@ -22,72 +22,103 @@
 
 using DG.Tweening;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace Arcade
 {
     [DisallowMultipleComponent]
-    public abstract class UIConfigurations<TDatabase, TConfiguration, TUIConfiguration> : MonoBehaviour
+    public abstract class UIConfigurations<TDatabase, TConfiguration, TUIConfiguration> : MonoBehaviour, IUIVisibility
         where TDatabase : Database<TConfiguration>
         where TConfiguration : DatabaseEntry, new()
-        where TUIConfiguration : UIConfiguration<TDatabase, TConfiguration>
+        where TUIConfiguration : IUIConfiguration<TConfiguration>
     {
-        [SerializeField] private TDatabase _database;
-        [SerializeField] private Button _addButton;
-        [SerializeField] private TMP_InputField _addInputField;
+        [SerializeField] private UIAddEntryBox _addEntryBox;
         [SerializeField] private RectTransform _listContent;
-        [SerializeField] private UIListButton _listButtonPrefab;
-        [SerializeField] private TUIConfiguration _uiConfiguration;
-        [SerializeField] private FloatVariable _animationDuration;
+        [SerializeField] private Button _closeButton;
 
         private readonly List<UIListButton> _buttons = new List<UIListButton>();
 
+        private TDatabase _database;
+        private TUIConfiguration _uiConfiguration;
+        private UIListButton _listButtonPrefab;
+        private ArcadeStandardFpsNormalState _arcadeStandardFpsNormalState;
+        private FloatVariable _animationDuration;
         private RectTransform _transform;
         private float _animationStartPosition;
         private float _animationEndPosition;
+        private bool _visible;
 
-        private void Awake()
+        [Inject]
+        public void Construct(TDatabase database,
+                              TUIConfiguration uiConfiguration,
+                              UIListButton listButtonPrefab,
+                              ArcadeStandardFpsNormalState arcadeStandardFpsNormalState,
+                              FloatVariable animationDuration)
         {
-            _transform              = transform as RectTransform;
-            _animationStartPosition = -_transform.rect.width;
-            _animationEndPosition   = 0f;
+            _database                     = database;
+            _uiConfiguration              = uiConfiguration;
+            _listButtonPrefab             = listButtonPrefab;
+            _arcadeStandardFpsNormalState = arcadeStandardFpsNormalState;
+            _animationDuration            = animationDuration;
+            _transform                    = transform as RectTransform;
+            _animationStartPosition       = -_transform.rect.width;
+            _animationEndPosition         = 0f;
+
+            _closeButton.onClick.AddListener(() =>
+            {
+                _ = Hide();
+                _arcadeStandardFpsNormalState.EnableInput();
+            });
         }
 
-        public void Show()
+        private void OnDestroy() => _closeButton.onClick.RemoveAllListeners();
+
+        public Tween SetVisibility(bool visible) => visible ? Show() : Hide();
+
+        public Tween Show()
         {
-            if (gameObject.activeSelf)
-                return;
+            if (_visible)
+                return null;
+
+            _visible = true;
 
             gameObject.SetActive(true);
 
-            _addButton.onClick.AddListener(() =>
+            _addEntryBox.AddButton.onClick.AddListener(() =>
             {
-                if (string.IsNullOrEmpty(_addInputField.text))
+                if (string.IsNullOrEmpty(_addEntryBox.IdInputField.text))
                     return;
 
-                string text = _addInputField.text;
-                TConfiguration cfg = new TConfiguration { Id = text, Description = text };
+                TConfiguration cfg = new TConfiguration { Id = _addEntryBox.IdInputField.text, Description = _addEntryBox.DescriptionInputField.text };
                 if (_database.Add(cfg) is null)
                     return;
 
-                _addInputField.text = null;
+                _addEntryBox.DescriptionInputField.SetTextWithoutNotify("");
+                _addEntryBox.IdInputField.SetTextWithoutNotify("");
                 InitializeList();
             });
 
             InitializeList();
-            _ = _transform.DOAnchorPosX(_animationEndPosition, _animationDuration.Value);
+            _ = _transform.DOKill();
+            return _transform.DOAnchorPosX(_animationEndPosition, _animationDuration.Value)
+                             .SetEase(Ease.InOutCubic);
         }
 
-        public void Hide()
+        public Tween Hide()
         {
-            if (!gameObject.activeSelf)
-                return;
+            if (!_visible)
+                return null;
 
-            _addButton.onClick.RemoveAllListeners();
-            _ = _transform.DOAnchorPosX(_animationStartPosition, _animationDuration.Value)
-                          .OnComplete(() => gameObject.SetActive(false));
+            _visible = false;
+
+            _addEntryBox.AddButton.onClick.RemoveAllListeners();
+            _addEntryBox.ResetFields();
+            _ = _transform.DOKill();
+            return _transform.DOAnchorPosX(_animationStartPosition, _animationDuration.Value)
+                             .SetEase(Ease.InOutCubic)
+                             .OnComplete(() => gameObject.SetActive(false));
         }
 
         private void InitializeList()
@@ -111,7 +142,7 @@ namespace Arcade
                 buttonObject.SelectButton.onClick.RemoveAllListeners();
                 buttonObject.SelectButton.onClick.AddListener(() =>
                 {
-                    Hide();
+                    _ = Hide();
                     _uiConfiguration.TitleText.SetText(configuration.Id);
                     _uiConfiguration.Show(configuration);
                 });

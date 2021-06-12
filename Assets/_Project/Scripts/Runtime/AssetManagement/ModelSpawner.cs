@@ -32,10 +32,20 @@ namespace Arcade
     public sealed class ModelSpawner : ModelSpawnerBase
     {
         [SerializeField] private Material _dissolveMaterial;
-        
+
         protected override async UniTask<GameObject> SpawnAsync(AssetAddresses addressesToTry, Vector3 position, Quaternion orientation, Transform parent, bool dissolveEffect)
         {
-            IList<IResourceLocation> resourceLocations = await Addressables.LoadResourceLocationsAsync(addressesToTry, Addressables.MergeMode.UseFirst, typeof(GameObject));
+            IList<IResourceLocation> resourceLocations;
+            try
+            {
+                resourceLocations = await Addressables.LoadResourceLocationsAsync(addressesToTry, Addressables.MergeMode.UseFirst, typeof(GameObject));
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogException(e);
+                return null;
+            }
+
             if (resourceLocations.Count == 0)
                 return null;
 

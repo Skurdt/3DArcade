@@ -21,23 +21,19 @@
  * SOFTWARE. */
 
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using Zenject;
 
 namespace Arcade
 {
-    [DisallowMultipleComponent]
-    public sealed class UIActionBarButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    [DisallowMultipleComponent, RequireComponent(typeof(Button))]
+    public abstract class UIActionBarButton : MonoBehaviour
     {
-        private UITooltip _tooltip;
+        protected Button _button;
 
-        private void Awake() => _tooltip = GetComponentInChildren<UITooltip>();
+        [Inject]
+        public void Construct() => _button = GetComponent<Button>();
 
-        public void OnPointerEnter(PointerEventData eventData) => ShowTooltip();
-
-        public void OnPointerExit(PointerEventData eventData) => HideTooltip();
-
-        public void ShowTooltip() => _tooltip.Show();
-
-        public void HideTooltip() => _tooltip.Hide();
+        private void OnDestroy() => _button.onClick.RemoveAllListeners();
     }
 }

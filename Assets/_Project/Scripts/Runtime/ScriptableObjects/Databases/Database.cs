@@ -33,7 +33,7 @@ namespace Arcade
     {
         [SerializeField] private VirtualFileSystem _virtualFileSystem;
 
-        public List<string> Names => _entries.Keys.ToList();
+        public string[] Names => _entries.Keys.ToArray();
         public T[] Values => _entries.Values.ToArray();
 
         protected abstract string DirectoryAlias { get; }

@@ -26,12 +26,9 @@ namespace Arcade
     {
         Default,
         None,
-        GameInternal,
-        GameExternal,
-        URL,
+        LibretroCore,
+        ExternalApplication,
         FpsArcadeConfiguration,
-        CylArcadeConfiguration,
-        FpsMenuConfiguration,
-        CylMenuConfiguration
+        CylArcadeConfiguration
     }
 }

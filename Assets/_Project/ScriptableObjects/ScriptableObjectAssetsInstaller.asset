@@ -13,15 +13,48 @@ MonoBehaviour:
   m_Name: ScriptableObjectAssetsInstaller
   m_EditorClassIdentifier: 
   _virtualFileSystem: {fileID: 11400000, guid: f64f31db46bd5a44aba8c580ece02a1f, type: 2}
+  _arcadesDatabase: {fileID: 11400000, guid: 3a4859a0325fce240b39771ff63e5922, type: 2}
+  _emulatorsDatabase: {fileID: 11400000, guid: 831a767fe72b1e64eaabab29ed19bc99, type: 2}
+  _platformsDatabase: {fileID: 11400000, guid: f7505bb6d34833645b8b1977fb2cda6a, type: 2}
+  _gamesDatabase: {fileID: 11400000, guid: 83bea0e6cf65ff94b8471817a2c434db, type: 2}
   _databases: {fileID: 11400000, guid: e8c64f039a7454e4db81906a8ece05df, type: 2}
   _sceneCreator: {fileID: 11400000, guid: 12da2c96881d572479bc16820705614a, type: 2}
   _sceneLoader: {fileID: 11400000, guid: 92c4efd98176a9a43b020b0462045070, type: 2}
+  _arcadeScene: {fileID: 11400000, guid: b8ef1697ed3e3cc43991b8772aadab10, type: 2}
+  _entitiesScene: {fileID: 11400000, guid: b43223e84a9f1cb418420c81438edb18, type: 2}
+  _scenes: {fileID: 11400000, guid: 047531b08b6756a44bf09e356e93b719, type: 2}
   _libretroScreenMaterial: {fileID: 2100000, guid: dc3bd9336a0611a408bb58512aba394f,
     type: 2}
   _uddScreenMaterial: {fileID: 2100000, guid: 1882637da6cf2e342911093f399b38d8, type: 2}
+  _spawnerMaterial: {fileID: 2100000, guid: f890ccdce46e3ea48b12e2f532ee98e3, type: 2}
+  _dissolveMaterial: {fileID: 2100000, guid: adee795607fa2b74f81f7b235cf00f99, type: 2}
+  _spawnerMesh: {fileID: -5908799853881665459, guid: 5fa26ef7d69399f40a0de97d91d291dd,
+    type: 3}
+  _generalConfiguration: {fileID: 11400000, guid: e73c346bff35ea041864153f6973108b,
+    type: 2}
+  _arcadeConfiguration: {fileID: 11400000, guid: 66a0ee11fcdbf554aa5522e160d4c342,
+    type: 2}
+  _arcadeController: {fileID: 11400000, guid: b50b6273569d084419687f9fc89cae03, type: 2}
+  _videoPlayerController: {fileID: 11400000, guid: b7f7746e13bd6f14b8677b9b12ec7d5a,
+    type: 2}
+  _onArcadeStateChangeEvent: {fileID: 11400000, guid: 0110be78fa93dff4abf86fbed129b27e,
+    type: 2}
+  _onCurrentTargetChanged: {fileID: 11400000, guid: 3d41d8f1dd8f98d49a53bea6e58e09b8,
+    type: 2}
+  _onPreviousTargetChanged: {fileID: 11400000, guid: 7a3a3bb6fb27258499e623b4cb667ffd,
+    type: 2}
+  _onRequestUpdatedModelConfiguration: {fileID: 11400000, guid: c280b2f5286ce3c41a0d36b8b91561dd,
+    type: 2}
+  _onGamesGenerated: {fileID: 11400000, guid: cf07a3616361e3144a1af4ce80b3dd4f, type: 2}
+  _normalRaycaster: {fileID: 11400000, guid: c00b68910d13c1949bfc74210add3f62, type: 2}
+  _editPositionsRaycaster: {fileID: 11400000, guid: a0e4e56e7e5d4a84d8040906c1fb87e4,
+    type: 2}
+  _editContentRaycaster: {fileID: 11400000, guid: 935a7fe14c0cfd148b0c0a98b064d6ca,
+    type: 2}
+  _normalInteractions: {fileID: 11400000, guid: 831f186e2a6157646b5438454323f1c8,
+    type: 2}
+  _editPositions: {fileID: 11400000, guid: 992f1679a28b8b1419016d94935a02aa, type: 2}
+  _editContent: {fileID: 11400000, guid: 27e65619ac7fc024c90d51bcd7c82fa5, type: 2}
+  _interactions: {fileID: 11400000, guid: 7174b68e664731b459625626624ac374, type: 2}
   _gameControllers: {fileID: 11400000, guid: b6657db6b74f2bd4ba717f0e1f7ee5bc, type: 2}
   _arcadeContext: {fileID: 11400000, guid: 699a2679e60a772459b83c09413cf198, type: 2}
-  _mouseOverUIVariable: {fileID: 11400000, guid: 119e176c94a22d84b8ebbdc7831e3850,
-    type: 2}
-  _arcadeConfigurationVariable: {fileID: 11400000, guid: 66a0ee11fcdbf554aa5522e160d4c342,
-    type: 2}

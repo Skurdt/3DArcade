@@ -1,5 +1,5 @@
 <emulator description="M.A.M.E. 0.228">
-  <interaction_type>GameExternal</interaction_type>
+  <interaction_type>ExternalApplication</interaction_type>
   <directory>D:/__Emulators/mame</directory>
   <working_directory />
   <executable>mame64.exe</executable>

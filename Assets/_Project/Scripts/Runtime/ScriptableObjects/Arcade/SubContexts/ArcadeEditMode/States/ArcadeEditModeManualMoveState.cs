@@ -27,8 +27,7 @@ namespace Arcade
 {
     public sealed class ArcadeEditModeManualMoveState : ArcadeEditModeState
     {
-        [SerializeField] private float _movementSpeedMultiplier = 0.8f;
-        [SerializeField] private float _rotationSpeedMultiplier = 0.8f;
+        [SerializeField] private float _rotationScale = 240;
 
         [System.NonSerialized] private Vector2 _aimPosition;
         [System.NonSerialized] private float _aimRotation;
@@ -37,36 +36,32 @@ namespace Arcade
         {
             Debug.Log($">> <color=green>Entered</color> {GetType().Name}");
 
-            Context.ArcadeContext.InteractionControllers.EditModeEditPositionsController.ResetData();
+            Context.Interactions.EditPositions.Reset();
         }
 
         public override void OnExit() => Debug.Log($">> <color=orange>Exited</color> {GetType().Name}");
 
         public override void OnUpdate(float dt)
         {
-            ArcadeContext arcadeContext = Context.ArcadeContext;
-            InputActions inputActions   = arcadeContext.InputActions;
+            InputActions inputActions = Context.ArcadeContext.InputActions;
 
             if (inputActions.Global.Quit.triggered)
             {
-                arcadeContext.ArcadeController.RestoreModelPositions();
-                arcadeContext.TransitionToPrevious();
+                Context.ArcadeController.Value.RestoreModelPositions();
+                Context.ArcadeContext.TransitionToPrevious();
                 return;
             }
 
             if (inputActions.FpsNormal.EditPositions.triggered)
             {
-                arcadeContext.SaveCurrentArcade(true);
-                arcadeContext.TransitionToPrevious();
+                Context.ArcadeContext.SaveCurrentArcade(true);
+                Context.ArcadeContext.TransitionToPrevious();
                 return;
             }
 
-            InteractionControllers interactionControllers                 = arcadeContext.InteractionControllers;
-            EditModeEditPositionsInteractionController editModeController = interactionControllers.EditModeEditPositionsController;
-
-            editModeController.UpdateCurrentTarget(arcadeContext.Player.Value.Camera);
-
-            ModelConfigurationComponent currentTarget = editModeController.InteractionData.Current;
+            EditPositionsInteractions editPositions = Context.Interactions.EditPositions;
+            editPositions.UpdateCurrentTarget(Context.ArcadeContext.Player.Camera);
+            ModelConfigurationComponent currentTarget = editPositions.CurrentTarget;
             if (currentTarget == null || !currentTarget.MoveCabMovable)
             {
                 _aimPosition = Vector2.zero;
@@ -75,9 +70,10 @@ namespace Arcade
             }
 
             Vector2 positionInput = inputActions.FpsEditPositions.Move.ReadValue<Vector2>();
-            float rotationInput   = inputActions.FpsEditPositions.Rotate.ReadValue<float>();
-            _aimPosition          = positionInput * _movementSpeedMultiplier;
-            _aimRotation          = rotationInput * _rotationSpeedMultiplier;
+            _aimPosition = dt * positionInput;
+
+            float rotationInput = inputActions.FpsEditPositions.Rotate.ReadValue<float>() * _rotationScale;
+            _aimRotation = dt * rotationInput;
 
             bool mouseIsOverUI = EventSystem.current.IsPointerOverGameObject();
             if (mouseIsOverUI || !currentTarget.MoveCabGrabbable)
@@ -91,6 +87,6 @@ namespace Arcade
         }
 
         public override void OnFixedUpdate(float dt)
-            => Context.ArcadeContext.InteractionControllers.EditModeEditPositionsController.ManualMoveAndRotate(_aimPosition, _aimRotation);
+            => Context.Interactions.EditPositions.ManualMoveAndRotate(_aimPosition, _aimRotation);
     }
 }

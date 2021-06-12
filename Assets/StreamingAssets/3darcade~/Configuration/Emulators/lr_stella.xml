@@ -1,0 +1,11 @@
+<emulator description="Libretro: Stella">
+  <interaction_type>LibretroCore</interaction_type>
+  <directory />
+  <working_directory />
+  <executable>stella</executable>
+  <arguments />
+  <supported_extensions />
+  <games_directories>
+    <directory>W:/complete/roms/no-intro-rom-sets/Atari - 2600</directory>
+  </games_directories>
+</emulator>

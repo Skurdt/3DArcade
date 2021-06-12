@@ -24,51 +24,96 @@ using DG.Tweening;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace Arcade
 {
     [DisallowMultipleComponent]
-    public sealed class UIGameListConfigurations : MonoBehaviour
+    public sealed class UIGameListConfigurations : MonoBehaviour, IUIVisibility
     {
-        [SerializeField] private GamesDatabase _database;
         [SerializeField] private Button _addButton;
+        [SerializeField] private Button _closeButton;
         [SerializeField] private RectTransform _listContent;
-        [SerializeField] private UIListButton _listButtonPrefab;
-        [SerializeField] private UIGameListConfiguration _uiConfiguration;
-        [SerializeField] private FloatVariable _animationDuration;
 
         private readonly List<UIListButton> _buttons = new List<UIListButton>();
 
+        private GamesDatabase _database;
+        private UIListButton _listButtonPrefab;
+        private UIGameListConfiguration _uiConfiguration;
+        private UINewGameList _uiNewGameListPanel;
+        private ArcadeStandardFpsNormalState _arcadeStandardFpsNormalState;
+        private FloatVariable _animationDuration;
         private RectTransform _transform;
         private float _animationStartPosition;
         private float _animationEndPosition;
+        private bool _visible;
 
-        private void Awake()
+        [Inject]
+        public void Construct(GamesDatabase database,
+                              UIListButton listButtonPrefab,
+                              UIGameListConfiguration uiConfiguration,
+                              UINewGameList uiNewGameListPanel,
+                              ArcadeStandardFpsNormalState arcadeStandardFpsNormalState,
+                              FloatVariable animationDuration)
         {
-            _transform              = transform as RectTransform;
-            _animationStartPosition = -_transform.rect.width;
-            _animationEndPosition   = 0f;
+            _database                     = database;
+            _listButtonPrefab             = listButtonPrefab;
+            _uiConfiguration              = uiConfiguration;
+            _uiNewGameListPanel           = uiNewGameListPanel;
+            _arcadeStandardFpsNormalState = arcadeStandardFpsNormalState;
+            _animationDuration            = animationDuration;
+            _transform                    = transform as RectTransform;
+            _animationStartPosition       = -_transform.rect.width;
+            _animationEndPosition         = 0f;
+
+            _addButton.onClick.AddListener(() =>
+            {
+                _ = Hide();
+                _uiNewGameListPanel.Show();
+            });
+
+            _closeButton.onClick.AddListener(() =>
+            {
+                _ = Hide();
+                _arcadeStandardFpsNormalState.EnableInput();
+            });
         }
 
-        public void Show()
+        private void OnDestroy()
         {
-            if (gameObject.activeSelf)
-                return;
+            _addButton.onClick.RemoveAllListeners();
+            _closeButton.onClick.RemoveAllListeners();
+        }
+
+        public Tween SetVisibility(bool visible) => visible ? Show() : Hide();
+
+        public Tween Show()
+        {
+            if (_visible)
+                return null;
+
+            _visible = true;
 
             gameObject.SetActive(true);
 
             InitializeList();
 
-            _ = _transform.DOAnchorPosX(_animationEndPosition, _animationDuration.Value);
+            _ = _transform.DOKill();
+            return _transform.DOAnchorPosX(_animationEndPosition, _animationDuration.Value)
+                             .SetEase(Ease.InOutCubic);
         }
 
-        public void Hide()
+        public Tween Hide()
         {
-            if (!gameObject.activeSelf)
-                return;
+            if (!_visible)
+                return null;
 
-            _ = _transform.DOAnchorPosX(_animationStartPosition, _animationDuration.Value)
-                          .OnComplete(() => gameObject.SetActive(false));
+            _visible = false;
+
+            _ = _transform.DOKill();
+            return _transform.DOAnchorPosX(_animationStartPosition, _animationDuration.Value)
+                             .SetEase(Ease.InOutCubic)
+                             .OnComplete(() => gameObject.SetActive(false));
         }
 
         private void InitializeList()
@@ -91,7 +136,7 @@ namespace Arcade
 
                 buttonObject.SelectButton.onClick.AddListener(() =>
                 {
-                    Hide();
+                    _ = Hide();
                     _uiConfiguration.Show(gameListName, _database.GetGames(gameListName));
                 });
 

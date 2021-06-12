@@ -21,6 +21,7 @@
  * SOFTWARE. */
 
 using SK.Utilities.Unity;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Arcade
@@ -39,20 +40,28 @@ namespace Arcade
         [SerializeField] private ModelConfiguration _modelConfiguration;
 
         public ModelConfiguration Configuration => _modelConfiguration;
-        public Collider Collider   { get; private set; }
+        public Collider Collider { get; private set; }
         public Rigidbody Rigidbody { get; private set; }
-        public bool MoveCabMovable   => _modelConfiguration.MoveCabMovable && Collider != null && Rigidbody != null;
+
+        public bool MoveCabMovable => _modelConfiguration.MoveCabMovable && Collider != null && Rigidbody != null;
         public bool MoveCabGrabbable => _modelConfiguration.MoveCabGrabbable && Collider != null && Rigidbody != null;
+
+        private readonly Dictionary<Renderer, Material> _savedMaterials = new Dictionary<Renderer, Material>();
+
+        private MeshRenderer[] _renderers;
 
         private int _originalLayer;
         private int _previousLayer;
         private TransformState _savedTransformState;
         private PhysicsState _savedPhysicsState;
+        private MaterialPropertyBlock _block;
 
-        private void OnEnable()
+        private void Awake()
         {
-            Collider  = GetComponent<Collider>();
-            Rigidbody = GetComponent<Rigidbody>();
+            Collider   = GetComponent<Collider>();
+            Rigidbody  = GetComponent<Rigidbody>();
+            _renderers = GetComponentsInChildren<MeshRenderer>(true);
+            _block     = new MaterialPropertyBlock();
         }
 
         public void InitialSetup(ModelConfiguration modelConfiguration, int layer)
@@ -66,16 +75,61 @@ namespace Arcade
             transform.localScale = modelConfiguration.Scale;
         }
 
-        public void SetLayer(int layer) => gameObject.SetLayerRecursively(layer);
-
-        public void RestoreLayerToOriginal() => SetLayer(_originalLayer);
-
         public ModelConfiguration GetModelConfigurationWithUpdatedTransforms()
         {
             _modelConfiguration.Position = transform.localPosition;
             _modelConfiguration.Rotation = MathUtils.ClampEulerAngles(transform.localEulerAngles);
             _modelConfiguration.Scale    = transform.localScale;
             return _modelConfiguration;
+        }
+
+        public void SetLayer(int layer) => gameObject.SetLayerRecursively(layer);
+
+        public void RestoreLayerToOriginal() => SetLayer(_originalLayer);
+
+        public void SaveMaterials()
+        {
+            _savedMaterials.Clear();
+            Renderer[] renderers = GetComponentsInChildren<Renderer>();
+            foreach (Renderer renderer in renderers)
+                _savedMaterials[renderer] = renderer.material;
+        }
+
+        public void SetMaterials(Material material)
+        {
+            foreach (MeshRenderer renderer in _renderers)
+                renderer.material = material;
+        }
+
+        public void SetMaterialsValue(int id, float value)
+        {
+            foreach (MeshRenderer renderer in _renderers)
+            {
+                _block.SetFloat(id, value);
+                renderer.SetPropertyBlock(_block);
+            }
+        }
+
+        public void RestoreMaterials()
+        {
+            foreach (KeyValuePair<Renderer, Material> kvPair in _savedMaterials)
+                kvPair.Key.material = kvPair.Value;
+        }
+
+        public void AddOutline(Color color)
+        {
+            if (GetComponent<QuickOutline>() == null)
+            {
+                QuickOutline outlineComponent = gameObject.AddComponent<QuickOutline>();
+                outlineComponent.OutlineColor = color;
+                outlineComponent.OutlineWidth = 6f;
+            }
+        }
+
+        public void RemoveOutline()
+        {
+            if (gameObject.TryGetComponent(out QuickOutline quickOutlineComponent))
+                Destroy(quickOutlineComponent);
         }
 
         public bool InitAutoMove(int grabLayer)
@@ -124,6 +178,8 @@ namespace Arcade
             _savedTransformState = null;
         }
 
+        private void RestoreLayerToPrevious() => SetLayer(_previousLayer);
+
         private void SavePhysicsState() => _savedPhysicsState = new PhysicsState
         {
             IsTrigger              = Collider.isTrigger,
@@ -149,7 +205,5 @@ namespace Arcade
 
             _savedPhysicsState = null;
         }
-
-        private void RestoreLayerToPrevious() => SetLayer(_previousLayer);
     }
 }

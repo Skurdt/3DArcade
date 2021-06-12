@@ -26,28 +26,39 @@ using UnityEngine.UI;
 
 namespace Arcade
 {
-    public sealed class UIEditContentGameCellCallback : MonoBehaviour
+    public sealed class UIEditContentGameCellCallback : MonoBehaviour, IUICellHighlighting
     {
-        [SerializeField] private GameListVariable _gameListVariable;
-        [SerializeField] private EditModeEditContentInteractionController _interactionController;
+        [SerializeField] private FilterableGameListVariable _gamesList;
         [SerializeField] private StringEvent _onButtonClicked;
-        [SerializeField] private Button _button;
-        [SerializeField] private TMP_Text _description;
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "Called using SendMessage")]
-        private void ScrollCellIndex(int idx)
+        [SerializeField] private Image _background;
+        [SerializeField] private TMP_Text _description;
+        [SerializeField] private Button _button;
+
+        [SerializeField] private Color _evenColor;
+        [SerializeField] private Color _oddColor;
+        [SerializeField] private Color _highlightColor;
+
+        private Color _backgroundColor;
+
+        public void ScrollCellIndex(int index)
         {
-            GameConfiguration gameConfiguration = _gameListVariable.FilteredList[idx];
+            if (index >= _gamesList.Filtered.Count)
+                return;
+
+            GameConfiguration gameConfiguration = _gamesList.Filtered[index];
             string gameName                     = gameConfiguration.Name;
 		    gameObject.name                     = gameName;
 
-            _button.onClick.RemoveAllListeners();
-            _button.onClick.AddListener(() =>
-            {
-                _onButtonClicked.Raise(gameName);
-                _interactionController.ApplyChangesOrAddModel();
-            });
+            _backgroundColor  = index % 2 == 0 ? _evenColor : _oddColor;
+            _background.color = _backgroundColor;
 			_description.SetText(gameConfiguration.ToString());
+            _button.onClick.RemoveAllListeners();
+            _button.onClick.AddListener(() => _onButtonClicked.Raise(gameName));
 	    }
+
+        public void StartHighlight() => _background.color = _highlightColor;
+
+        public void StopHighlight() => _background.color = _backgroundColor;
     }
 }

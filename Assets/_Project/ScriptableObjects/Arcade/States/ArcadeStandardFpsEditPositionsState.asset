@@ -12,4 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d8d6f3e37a3291498815311f201300d, type: 3}
   m_Name: ArcadeStandardFpsEditPositionsState
   m_EditorClassIdentifier: 
+  <OnArcadeStateChanged>k__BackingField: {fileID: 11400000, guid: 0110be78fa93dff4abf86fbed129b27e,
+    type: 2}
+  <ArcadeConfiguration>k__BackingField: {fileID: 11400000, guid: 66a0ee11fcdbf554aa5522e160d4c342,
+    type: 2}
+  <ArcadeController>k__BackingField: {fileID: 11400000, guid: b50b6273569d084419687f9fc89cae03,
+    type: 2}
+  <Interactions>k__BackingField: {fileID: 11400000, guid: 7174b68e664731b459625626624ac374,
+    type: 2}
   _editModeContext: {fileID: 11400000, guid: bf5fd43b8e302b34fa3c660996896efe, type: 2}
+  _interactionControllers: {fileID: 11400000, guid: 7174b68e664731b459625626624ac374,
+    type: 2}
+  _arcadeController: {fileID: 11400000, guid: b50b6273569d084419687f9fc89cae03, type: 2}
+  _videoPlayerController: {fileID: 11400000, guid: b7f7746e13bd6f14b8677b9b12ec7d5a,
+    type: 2}

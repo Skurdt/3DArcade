@@ -68,7 +68,7 @@
   </cylarcade_properties>
   <games>
     <game id="vanguard" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -110,7 +110,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="tutankst" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -152,7 +152,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="tron" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -194,7 +194,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="smashtv" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -236,7 +236,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="scramble" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -278,7 +278,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="rtype" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -320,7 +320,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="pooyan" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -362,7 +362,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="polepos" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -404,7 +404,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="pacman" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -446,7 +446,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="marble" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -488,7 +488,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="mappy" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -530,7 +530,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="dotron" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -572,7 +572,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="commando" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -614,7 +614,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="ccastles" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -656,7 +656,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="arkanoid" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -698,7 +698,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="tempest" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -740,7 +740,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="starwarsc" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -782,7 +782,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="robotron" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -824,7 +824,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="qbert" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -866,7 +866,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="pengo" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -908,7 +908,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="mspacman" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -950,7 +950,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="mrdo" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -992,7 +992,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="mpatrol" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -1034,7 +1034,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="Space Invaders - The Original Game (J).smc" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -1076,7 +1076,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="galaga" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -1118,7 +1118,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="frogger" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -1160,7 +1160,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="digdug" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -1202,7 +1202,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="defender" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -1244,7 +1244,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="centiped" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -1286,7 +1286,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="bzone" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -1328,7 +1328,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="bombjack" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -1370,7 +1370,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="berzerk" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -1412,7 +1412,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="asteroid" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -1454,7 +1454,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="gyruss" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -1496,7 +1496,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="missile" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -1538,7 +1538,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="szaxxon" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -1580,7 +1580,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="timeplt" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -1622,7 +1622,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="zookeep" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -1664,7 +1664,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="joust" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -1706,7 +1706,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="mach3" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -1748,7 +1748,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="ssf2" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -1790,7 +1790,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="ssf2" platform="arcade">
-      <interaction_type>GameExternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
@@ -1832,7 +1832,7 @@
       <scale x="1" y="1" z="1" />
     </game>
     <game id="1942" platform="arcade">
-      <interaction_type>GameInternal</interaction_type>
+      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>

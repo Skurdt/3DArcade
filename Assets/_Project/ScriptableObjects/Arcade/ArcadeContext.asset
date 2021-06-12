@@ -13,37 +13,34 @@ MonoBehaviour:
   m_Name: ArcadeContext
   m_EditorClassIdentifier: 
   _states:
-  - {fileID: 11400000, guid: 5f6a17863bea3d142a3669a16b8a6088, type: 2}
-  - {fileID: 11400000, guid: cde82171d65abdb4e8d8bae00eb08a36, type: 2}
-  - {fileID: 11400000, guid: f75431d4ee55ee744b93d6763b39a9df, type: 2}
-  - {fileID: 11400000, guid: 748ac8e270a54b447b84021fe59202c0, type: 2}
-  - {fileID: 11400000, guid: 608becfba4ef90c4391b69470c77bddd, type: 2}
-  - {fileID: 11400000, guid: 7ced8212b1b2f434eb5f76f83ada7baf, type: 2}
-  - {fileID: 11400000, guid: 1630c3d676c673f40a3a069b2ce5e438, type: 2}
-  - {fileID: 11400000, guid: 548100eae7a95a64abd8897e563af7fb, type: 2}
-  - {fileID: 11400000, guid: c43f1ad2c2afbb84aa2e29dc9852787d, type: 2}
-  - {fileID: 11400000, guid: d9984507257362c4ab256544fbc8413f, type: 2}
-  - {fileID: 11400000, guid: b3a7fda5a8f272c43b1617ef1264ace1, type: 2}
-  - {fileID: 11400000, guid: 1d771c40d586b024289214eed2baa57a, type: 2}
-  - {fileID: 11400000, guid: 07850064a81e2cd42b1c2e19b1cab07e, type: 2}
-  - {fileID: 11400000, guid: 226273258fe93534d8ca8025d08c813f, type: 2}
-  <Databases>k__BackingField: {fileID: 11400000, guid: e8c64f039a7454e4db81906a8ece05df,
-    type: 2}
+  - {fileID: 11400000, guid: dc38de6cbe4eab44a8fcc7c3136d957b, type: 2}
+  - {fileID: 11400000, guid: 7a6827c26a53a4145972ab7d00c474b8, type: 2}
+  - {fileID: 11400000, guid: 3914bbb35ed90cf4bb6d02838a2d5fd7, type: 2}
+  - {fileID: 11400000, guid: d819dac170509334fb97162d56b04320, type: 2}
+  - {fileID: 11400000, guid: 735c261aaabd2f3479024ab89f0139b9, type: 2}
+  - {fileID: 11400000, guid: 7c2b51ceadb282b41a63333a597a51a8, type: 2}
+  - {fileID: 11400000, guid: b27c85c33e6648e4abafed1ee38fd40b, type: 2}
+  - {fileID: 11400000, guid: 80cd23a8126499f43aaf2288124ec885, type: 2}
+  - {fileID: 11400000, guid: fbc2708f69cb471439f1669acce6cd1b, type: 2}
+  - {fileID: 11400000, guid: fc5efa08a26baf14bb9fa9b117fad5fe, type: 2}
+  - {fileID: 11400000, guid: c12f1ceb35fffa74a8bd20aec4e95adc, type: 2}
+  - {fileID: 11400000, guid: 72cfbf51f6cf5004d9defbca8deba4b2, type: 2}
+  - {fileID: 11400000, guid: 40e76fdc6ca59f84c923afba06a1c620, type: 2}
+  - {fileID: 11400000, guid: 7f0c406e09bb1a24c96c700b3269e0ab, type: 2}
   <Scenes>k__BackingField: {fileID: 11400000, guid: 047531b08b6756a44bf09e356e93b719,
     type: 2}
-  <Player>k__BackingField: {fileID: 11400000, guid: c6ffbff9aa57ec24f99a3e7382c3a61d,
-    type: 2}
-  <InteractionControllers>k__BackingField: {fileID: 11400000, guid: 7174b68e664731b459625626624ac374,
+  <Databases>k__BackingField: {fileID: 11400000, guid: e8c64f039a7454e4db81906a8ece05df,
     type: 2}
   <GeneralConfiguration>k__BackingField: {fileID: 11400000, guid: e73c346bff35ea041864153f6973108b,
     type: 2}
   <ArcadeConfiguration>k__BackingField: {fileID: 11400000, guid: 66a0ee11fcdbf554aa5522e160d4c342,
     type: 2}
-  <ModelSpawner>k__BackingField: {fileID: 11400000, guid: f3a31bdb09893ba499470e5d8af76716,
-    type: 2}
   <ArcadeController>k__BackingField: {fileID: 11400000, guid: b50b6273569d084419687f9fc89cae03,
+    type: 2}
+  <Interactions>k__BackingField: {fileID: 11400000, guid: 7174b68e664731b459625626624ac374,
+    type: 2}
+  <OnArcadeStateChanged>k__BackingField: {fileID: 11400000, guid: 0110be78fa93dff4abf86fbed129b27e,
     type: 2}
   <VideoPlayerController>k__BackingField: {fileID: 11400000, guid: b7f7746e13bd6f14b8677b9b12ec7d5a,
     type: 2}
-  <ArcadeStateChangeEvent>k__BackingField: {fileID: 11400000, guid: 0110be78fa93dff4abf86fbed129b27e,
-    type: 2}
+  _modelSpawner: {fileID: 11400000, guid: f3a31bdb09893ba499470e5d8af76716, type: 2}

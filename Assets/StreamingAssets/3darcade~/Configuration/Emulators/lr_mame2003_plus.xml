@@ -1,5 +1,5 @@
 <emulator description="Libretro: M.A.M.E. 2003+">
-  <interaction_type>GameInternal</interaction_type>
+  <interaction_type>LibretroCore</interaction_type>
   <directory />
   <working_directory />
   <executable>mame2003_plus</executable>

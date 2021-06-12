@@ -27,13 +27,12 @@ namespace Arcade
     [CreateAssetMenu(menuName = "3DArcade/MasterListGenerator", fileName = "MasterListGenerator")]
     public sealed class MasterListGenerator : ScriptableObject
     {
-        [field: SerializeField] public GameConfigurationsEvent GameConfigurationsEvent { get; private set; }
         [SerializeField] private FileExplorer _fileExplorer;
 
         [field: System.NonSerialized] public IGameConfigurationListGenerator Generator { get; private set; }
 
         public void SetGenerator(IGameConfigurationListGenerator generator) => Generator = generator;
 
-        public void Generate() => Generator?.Generate(_fileExplorer, GameConfigurationsEvent);
+        public void Generate(params string[] extensions) => Generator?.Generate(_fileExplorer, extensions);
     }
 }

@@ -7,13 +7,32 @@ PresetManager:
   m_DefaultPresets:
   - first:
       m_NativeTypeID: 114
-      m_ManagedTypePPtr: {fileID: 11500000, guid: 2213c36610e3b1c4bbf886810ed9db12,
+      m_ManagedTypePPtr: {fileID: 11500000, guid: 919e39492806b334982b6b84c90dd927,
         type: 3}
       m_ManagedTypeFallback: 
     second:
-    - m_Preset: {fileID: 2655988077585873504, guid: 2aa476a4ceaa8084da980364d8fb70e9,
+    - m_Preset: {fileID: 2655988077585873504, guid: 028f417d0e68b18439763d6b96678e4d,
         type: 2}
       m_Filter: 
+      m_Disabled: 0
+  - first:
+      m_NativeTypeID: 114
+      m_ManagedTypePPtr: {fileID: 11500000, guid: 0bf296fc962d7184ab14ad1841598d5f,
+        type: 3}
+      m_ManagedTypeFallback: 
+    second:
+    - m_Preset: {fileID: 2655988077585873504, guid: 4226c21232233ec4fa5092d4846d8a24,
+        type: 2}
+      m_Filter: 
+      m_Disabled: 0
+  - first:
+      m_NativeTypeID: 1006
+      m_ManagedTypePPtr: {fileID: 0}
+      m_ManagedTypeFallback: 
+    second:
+    - m_Preset: {fileID: 2655988077585873504, guid: b02af71d8abfefb4284a01572187f0c8,
+        type: 2}
+      m_Filter: glob:"*_Project/Textures/UI**.png"
       m_Disabled: 0
   - first:
       m_NativeTypeID: 114
@@ -30,21 +49,12 @@ PresetManager:
       m_Filter: Left
       m_Disabled: 0
   - first:
-      m_NativeTypeID: 1006
-      m_ManagedTypePPtr: {fileID: 0}
-      m_ManagedTypeFallback: 
-    second:
-    - m_Preset: {fileID: 2655988077585873504, guid: b02af71d8abfefb4284a01572187f0c8,
-        type: 2}
-      m_Filter: glob:"*_Project/Textures/UI**.png"
-      m_Disabled: 0
-  - first:
       m_NativeTypeID: 114
-      m_ManagedTypePPtr: {fileID: 11500000, guid: 0bf296fc962d7184ab14ad1841598d5f,
+      m_ManagedTypePPtr: {fileID: 11500000, guid: 2213c36610e3b1c4bbf886810ed9db12,
         type: 3}
       m_ManagedTypeFallback: 
     second:
-    - m_Preset: {fileID: 2655988077585873504, guid: 4226c21232233ec4fa5092d4846d8a24,
+    - m_Preset: {fileID: 2655988077585873504, guid: 2aa476a4ceaa8084da980364d8fb70e9,
         type: 2}
       m_Filter: 
       m_Disabled: 0
@@ -76,14 +86,4 @@ PresetManager:
     - m_Preset: {fileID: 2655988077585873504, guid: 3e157b8fb4a9cb443a04daa592f11455,
         type: 2}
       m_Filter: glob:"*_Project/AddressableResources/Props**.blend"
-      m_Disabled: 0
-  - first:
-      m_NativeTypeID: 114
-      m_ManagedTypePPtr: {fileID: 11500000, guid: 919e39492806b334982b6b84c90dd927,
-        type: 3}
-      m_ManagedTypeFallback: 
-    second:
-    - m_Preset: {fileID: 2655988077585873504, guid: 028f417d0e68b18439763d6b96678e4d,
-        type: 2}
-      m_Filter: 
       m_Disabled: 0

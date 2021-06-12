@@ -22,27 +22,49 @@
 
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
+using Zenject;
 
 namespace Arcade
 {
     [DisallowMultipleComponent]
-    public sealed class UIInfo : MonoBehaviour
+    public sealed class UIInfo : MonoBehaviour, IUIVisibility
     {
         [SerializeField] private RectTransform _leftPanel;
         [SerializeField] private RectTransform _rightPanel;
         [SerializeField] private RectTransform _topPanel;
         [SerializeField] private RectTransform _bottomPanel;
-        [SerializeField] private RectTransform _closeButton;
-        [SerializeField] private FloatVariable _animationDuration;
+        [SerializeField] private Button _closeButton;
 
+        private ArcadeStandardFpsNormalState _arcadeState;
+        private FloatVariable _animationDuration;
         private RectTransform _transform;
+        private bool _visible;
 
-        private void Awake() => _transform = transform as RectTransform;
-
-        public void Show()
+        [Inject]
+        public void Construct(ArcadeStandardFpsNormalState arcadeState, FloatVariable animationDuration)
         {
-            if (gameObject.activeSelf)
-                return;
+            _arcadeState       = arcadeState;
+            _animationDuration = animationDuration;
+            _transform         = transform as RectTransform;
+
+            _closeButton.onClick.AddListener(() =>
+            {
+                _ = Hide();
+                _arcadeState.EnableInput();
+            });
+        }
+
+        private void OnDestroy() => _closeButton.onClick.RemoveAllListeners();
+
+        public Tween SetVisibility(bool visible) => visible ? Show() : Hide();
+
+        public Tween Show()
+        {
+            if (_visible)
+                return null;
+
+            _visible = true;
 
             gameObject.SetActive(true);
 
@@ -65,23 +87,27 @@ namespace Arcade
             _bottomPanel.anchoredPosition = new Vector2(0f, -height);
 
             float animationDuration = _animationDuration.Value;
-            _ = DOTween.Sequence().Join(_leftPanel.DOAnchorPosX(0f, animationDuration))
-                                  .Join(_rightPanel.DOAnchorPosX(0f, animationDuration))
-                                  .Join(_topPanel.DOAnchorPosY(0f, animationDuration))
-                                  .Join(_bottomPanel.DOAnchorPosY(0f, animationDuration));
+            return DOTween.Sequence().Join(_leftPanel.DOAnchorPosX(0f, animationDuration))
+                                     .Join(_rightPanel.DOAnchorPosX(0f, animationDuration))
+                                     .Join(_topPanel.DOAnchorPosY(0f, animationDuration))
+                                     .Join(_bottomPanel.DOAnchorPosY(0f, animationDuration))
+                                     .SetEase(Ease.InOutCubic);
         }
 
-        public void Hide()
+        public Tween Hide()
         {
-            if (!gameObject.activeSelf)
-                return;
+            if (!_visible)
+                return null;
+
+            _visible = false;
 
             float animationDuration = _animationDuration.Value;
-            _ = DOTween.Sequence().Join(_leftPanel.DOAnchorPosX(-_leftPanel.rect.width, animationDuration))
-                                  .Join(_rightPanel.DOAnchorPosX(_rightPanel.rect.width, animationDuration))
-                                  .Join(_topPanel.DOAnchorPosY(_topPanel.rect.height, animationDuration))
-                                  .Join(_bottomPanel.DOAnchorPosY(-_bottomPanel.rect.height, animationDuration))
-                                  .OnComplete(() => gameObject.SetActive(false));
+            return DOTween.Sequence().Join(_leftPanel.DOAnchorPosX(-_leftPanel.rect.width, animationDuration))
+                                     .Join(_rightPanel.DOAnchorPosX(_rightPanel.rect.width, animationDuration))
+                                     .Join(_topPanel.DOAnchorPosY(_topPanel.rect.height, animationDuration))
+                                     .Join(_bottomPanel.DOAnchorPosY(-_bottomPanel.rect.height, animationDuration))
+                                     .SetEase(Ease.InOutCubic)
+                                     .OnComplete(() => gameObject.SetActive(false));
         }
     }
 }

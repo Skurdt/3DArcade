@@ -24,15 +24,12 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using Zenject;
 
 namespace Arcade
 {
-    public sealed class UIPlatformConfiguration : UIConfiguration<PlatformsDatabase, PlatformConfiguration>
+    public sealed class UIPlatformConfiguration : UIConfiguration<PlatformsDatabase, PlatformConfiguration, UIPlatformConfigurations>
     {
-        [SerializeField] private EmulatorsDatabase _emulatorsDatabase;
-        [SerializeField] private GamesDatabase _gamesDatabase;
-        [SerializeField] private AvailableModels _availableModels;
-
         [SerializeField] private TMP_Dropdown _masterListDropdown;
         [SerializeField] private TMP_Dropdown _emulatorDropdown;
         [SerializeField] private TMP_Dropdown _modelDropdown;
@@ -45,31 +42,18 @@ namespace Arcade
         [SerializeField] private UIDirectories _genericVideosDirectories;
         [SerializeField] private UIDirectories _infoDirectories;
 
-        protected override void SetUIValues()
+        private EmulatorsDatabase _emulatorsDatabase;
+        private GamesDatabase _gamesDatabase;
+        private AvailableModels _availableModels;
+
+        [Inject]
+        public void Construct(EmulatorsDatabase emulatorsDatabase,
+                              GamesDatabase gamesDatabase,
+                              AvailableModels availableModels)
         {
-            _gamesDatabase.Initialize();
-            _masterListDropdown.ClearOptions();
-            _masterListDropdown.AddOptions(new List<string> { "" }.Concat(_gamesDatabase.GetGameLists()).ToList());
-            _masterListDropdown.value = _masterListDropdown.options.FindIndex(x => x.text == _configuration.MasterList);
-
-            _emulatorsDatabase.Initialize();
-            _emulatorDropdown.ClearOptions();
-            _emulatorDropdown.AddOptions(new List<string> { "" }.Concat(_emulatorsDatabase.Names).ToList());
-            _emulatorDropdown.value = _emulatorDropdown.options.FindIndex(x => x.text == _configuration.Emulator);
-
-            _availableModels.Refresh();
-            _modelDropdown.ClearOptions();
-            _modelDropdown.AddOptions(_availableModels.GameModels);
-            _modelDropdown.value = _modelDropdown.options.FindIndex(x => x.text == _configuration.Model);
-
-            _marqueeImagesDirectories.Init(_fileExplorer, _configuration.MarqueeImagesDirectories);
-            _marqueeVideosDirectories.Init(_fileExplorer, _configuration.MarqueeVideosDirectories);
-            _screenSnapsDirectories.Init(_fileExplorer, _configuration.ScreenSnapsDirectories);
-            _screenTitlesDirectories.Init(_fileExplorer, _configuration.ScreenTitlesDirectories);
-            _screenVideosDirectories.Init(_fileExplorer, _configuration.ScreenVideosDirectories);
-            _genericImagesDirectories.Init(_fileExplorer, _configuration.GenericImagesDirectories);
-            _genericVideosDirectories.Init(_fileExplorer, _configuration.GenericVideosDirectories);
-            _infoDirectories.Init(_fileExplorer, _configuration.InfoDirectories);
+            _emulatorsDatabase = emulatorsDatabase;
+            _gamesDatabase     = gamesDatabase;
+            _availableModels   = availableModels;
         }
 
         protected override void GetUIValues()
@@ -88,15 +72,42 @@ namespace Arcade
             _configuration.InfoDirectories          = _infoDirectories.GetValues();
         }
 
+        protected override void SetUIValues()
+        {
+            _gamesDatabase.Initialize();
+            _masterListDropdown.ClearOptions();
+            _masterListDropdown.AddOptions(new List<string> { "" }.Concat(_gamesDatabase.GetGameLists()).ToList());
+            _masterListDropdown.SetValueWithoutNotify(_masterListDropdown.options.FindIndex(x => x.text == _configuration.MasterList));
+
+            _emulatorsDatabase.Initialize();
+            _emulatorDropdown.ClearOptions();
+            _emulatorDropdown.AddOptions(new List<string> { "" }.Concat(_emulatorsDatabase.Names).ToList());
+            _emulatorDropdown.SetValueWithoutNotify(_emulatorDropdown.options.FindIndex(x => x.text == _configuration.Emulator));
+
+            _availableModels.Refresh();
+            _modelDropdown.ClearOptions();
+            _modelDropdown.AddOptions(new List<string> { "" }.Concat(_availableModels.GameModels).ToList());
+            _modelDropdown.SetValueWithoutNotify(_modelDropdown.options.FindIndex(x => x.text == _configuration.Model));
+
+            _marqueeImagesDirectories.Init(_fileExplorer, _configuration.MarqueeImagesDirectories);
+            _marqueeVideosDirectories.Init(_fileExplorer, _configuration.MarqueeVideosDirectories);
+            _screenSnapsDirectories.Init(_fileExplorer, _configuration.ScreenSnapsDirectories);
+            _screenTitlesDirectories.Init(_fileExplorer, _configuration.ScreenTitlesDirectories);
+            _screenVideosDirectories.Init(_fileExplorer, _configuration.ScreenVideosDirectories);
+            _genericImagesDirectories.Init(_fileExplorer, _configuration.GenericImagesDirectories);
+            _genericVideosDirectories.Init(_fileExplorer, _configuration.GenericVideosDirectories);
+            _infoDirectories.Init(_fileExplorer, _configuration.InfoDirectories);
+        }
+
         protected override void ClearUIValues()
         {
-            _masterListDropdown.value = 0;
+            _masterListDropdown.SetValueWithoutNotify(0);
             _masterListDropdown.ClearOptions();
 
-            _emulatorDropdown.value = 0;
+            _emulatorDropdown.SetValueWithoutNotify(0);
             _emulatorDropdown.ClearOptions();
 
-            _modelDropdown.value = 0;
+            _modelDropdown.SetValueWithoutNotify(0);
             _modelDropdown.ClearOptions();
 
             _marqueeImagesDirectories.Clear();

@@ -26,7 +26,7 @@ using UnityEngine.InputSystem;
 namespace Arcade
 {
     [CreateAssetMenu(menuName = "3DArcade/Interaction/MouseOnlyRaycaster", fileName = "MouseOnlyRaycaster")]
-    public sealed class MouseOnlyRaycaster : InteractionRaycaster
+    public sealed class MouseOnlyRaycaster : InteractionRaycasterBase
     {
         protected override Ray GetRay(Camera camera)
         {

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60b67558c2bf5a14c997622c3a18d6cb, type: 3}
+  m_Name: EditPositionsInteractions
+  m_EditorClassIdentifier: 
+  <ArcadeConfiguration>k__BackingField: {fileID: 11400000, guid: 66a0ee11fcdbf554aa5522e160d4c342,
+    type: 2}
+  <Raycaster>k__BackingField: {fileID: 11400000, guid: a0e4e56e7e5d4a84d8040906c1fb87e4,
+    type: 2}
+  _onCurrentTargetChanged: {fileID: 11400000, guid: 3d41d8f1dd8f98d49a53bea6e58e09b8,
+    type: 2}
+  _onPreviousTargetChanged: {fileID: 11400000, guid: 7a3a3bb6fb27258499e623b4cb667ffd,
+    type: 2}
+  _outlineColor: {r: 1, g: 0.61699814, b: 0, a: 1}
+  _highlightLayer: 11
+  _rotationScale: 100

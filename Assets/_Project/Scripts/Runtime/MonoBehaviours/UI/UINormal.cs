@@ -21,24 +21,56 @@
  * SOFTWARE. */
 
 using UnityEngine;
-using UnityEngine.Events;
+using Zenject;
 
 namespace Arcade
 {
     [DisallowMultipleComponent]
     public sealed class UINormal : MonoBehaviour
     {
-        [SerializeField] private UnityEvent<bool> _onVisibilityChange;
-
+        private UINormalMenuButton _menuButton;
+        private UISelectionText _selectionText;
         private bool _visible;
+
+        [Inject]
+        public void Construct(UINormalMenuButton menuButton, UISelectionText selectionText)
+        {
+            _menuButton    = menuButton;
+            _selectionText = selectionText;
+        }
 
         public void SetVisibility(bool visible)
         {
-            if (_visible == visible)
+            if (visible)
+                Show();
+            else
+                Hide();
+        }
+
+        private void Show()
+        {
+            if (_visible)
                 return;
 
-            _visible = visible;
-            _onVisibilityChange.Invoke(_visible);
+            _visible = true;
+
+            gameObject.SetActive(true);
+            _menuButton.Enable();
+            _selectionText.ClearText();
+            _selectionText.Enable();
+        }
+
+        private void Hide()
+        {
+            if (!_visible)
+                return;
+
+            _visible = false;
+
+            gameObject.SetActive(false);
+            _selectionText.ClearText();
+            _selectionText.Disable();
+            _menuButton.Disable();
         }
     }
 }

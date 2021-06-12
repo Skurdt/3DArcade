@@ -23,29 +23,33 @@
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace Arcade
 {
     [DisallowMultipleComponent]
     public sealed class UINormalMenu : MonoBehaviour
     {
-        [SerializeField] private FloatVariable _animationDuration;
-        [SerializeField] private Button _menuButton;
-
-        private RectTransform _transform;
+        private FloatVariable _animationDuration;
         private float _animationStartPosition;
         private float _animationEndPosition;
+        private bool _visible;
 
-        private void Awake()
+        private Button[] _buttons;
+
+        [Inject]
+        public void Construct(FloatVariable animationDuration)
         {
-            _transform              = transform as RectTransform;
-            _animationStartPosition = _transform.anchoredPosition.x;
-            _animationEndPosition   = _animationStartPosition + _transform.rect.width;
+            _animationDuration      = animationDuration;
+            _animationStartPosition = -85f;
+            _animationEndPosition   = 85f;
+
+            _buttons = GetComponentsInChildren<Button>();
         }
 
-        public void SetVisibility(bool visible)
+        public void Toggle()
         {
-            if (visible)
+            if (_visible)
                 Hide();
             else
                 Show();
@@ -53,27 +57,37 @@ namespace Arcade
 
         public void Show()
         {
-            if (gameObject.activeSelf)
+            if (_visible)
                 return;
 
+            _visible = true;
+
             gameObject.SetActive(true);
-            _menuButton.interactable = false;
-            _ = _transform.DOAnchorPosX(_animationEndPosition, _animationDuration.Value)
-                          .OnComplete(() => _menuButton.interactable = true);
+            for (int i = _buttons.Length - 1; i >= 0; --i)
+            {
+                RectTransform buttonTransform = _buttons[i].transform as RectTransform;
+                _ = buttonTransform.DOKill();
+                _ = buttonTransform.DOAnchorPosX(_animationEndPosition, _animationDuration.Value)
+                                   .SetEase(Ease.InOutCubic)
+                                   .SetDelay(0.05f * (_buttons.Length - 1 - i));
+            }
         }
 
         public void Hide()
         {
-            if (!gameObject.activeSelf)
+            if (!_visible)
                 return;
 
-            _menuButton.interactable = false;
-            _ = _transform.DOAnchorPosX(_animationStartPosition, _animationDuration.Value)
-                          .OnComplete(() =>
-                          {
-                              _menuButton.interactable = true;
-                              gameObject.SetActive(false);
-                          });
+            _visible = false;
+
+            for (int i = _buttons.Length - 1; i >= 0; --i)
+            {
+                RectTransform buttonTransform = _buttons[i].transform as RectTransform;
+                _ = buttonTransform.DOKill();
+                _ = buttonTransform.DOAnchorPosX(_animationStartPosition, _animationDuration.Value)
+                                   .SetEase(Ease.InOutCubic)
+                                   .SetDelay(0.05f * i);
+            }
         }
     }
 }

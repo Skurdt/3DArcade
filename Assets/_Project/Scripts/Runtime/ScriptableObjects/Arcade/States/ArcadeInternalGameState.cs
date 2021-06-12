@@ -36,7 +36,7 @@ namespace Arcade
         {
             Debug.Log($">> <color=green>Entered</color> {GetType().Name}");
 
-            ModelConfigurationComponent currentTarget = Context.InteractionControllers.NormalModeController.InteractionData.Current;
+            ModelConfigurationComponent currentTarget = Context.Interactions.Normal.CurrentTarget;
             if (currentTarget == null)
             {
                 Context.TransitionToPrevious();
@@ -97,8 +97,6 @@ namespace Arcade
                 Context.TransitionToPrevious();
                 return;
             }
-
-            Context.GameControllers.Internal.UpdateGame();
         }
 
         protected virtual void OnStateEnter()

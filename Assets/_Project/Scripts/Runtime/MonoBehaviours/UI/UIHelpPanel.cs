@@ -22,63 +22,63 @@
 
 using DG.Tweening;
 using UnityEngine;
+using Zenject;
 
 namespace Arcade
 {
     [DisallowMultipleComponent]
     public sealed class UIHelpPanel : MonoBehaviour
     {
-        [SerializeField] private FloatVariable _transitionDuration;
-
+        private FloatVariable _animationDuration;
         private RectTransform _transform;
-        private float _startPositionX;
-        private float _endPositionX;
+        private float _animationStartPosition;
+        private float _animationEndPosition;
         private bool _visible;
+        private bool _cachedVisibility;
 
-        private void Awake()
+        [Inject]
+        public void Construct(FloatVariable animationDuration)
         {
-            _transform      = transform as RectTransform;
-            _startPositionX = _transform.rect.width;
-            _endPositionX   = 0f;
+            _animationDuration      = animationDuration;
+            _transform              = transform! as RectTransform;
+            _animationStartPosition = _transform.rect.width;
+            _animationEndPosition   = 0f;
         }
 
-        public void Toggle()
+        public Tween SetVisibility(bool visible) => _cachedVisibility && visible ? Show() : Hide();
+
+        public Tween Toggle()
+        {
+            Tween result      = _visible ? Hide() : Show();
+            _cachedVisibility = !_cachedVisibility;
+            return result;
+        }
+
+        private Tween Show()
         {
             if (_visible)
-            {
-                Hide();
-                _visible = false;
-                return;
-            }
+                return null;
 
-            Show();
             _visible = true;
-        }
-
-        public void SetVisibility(bool visible)
-        {
-            if (_visible && visible)
-                Show();
-            else
-                Hide();
-        }
-
-        public void Show()
-        {
-            if (gameObject.activeSelf)
-                return;
 
             gameObject.SetActive(true);
-            _ = _transform.DOAnchorPosX(_endPositionX, _transitionDuration.Value);
+
+            _ = _transform.DOKill();
+            return _transform.DOAnchorPosX(_animationEndPosition, _animationDuration.Value)
+                             .SetEase(Ease.InOutCubic);
         }
 
-        public void Hide()
+        private Tween Hide()
         {
-            if (!gameObject.activeSelf)
-                return;
+            if (!_visible)
+                return null;
 
-            _ = _transform.DOAnchorPosX(_startPositionX, _transitionDuration.Value)
-                          .OnComplete(() => gameObject.SetActive(false));
+            _visible = false;
+
+            _ = _transform.DOKill();
+            return _transform.DOAnchorPosX(_animationStartPosition, _animationDuration.Value)
+                             .SetEase(Ease.InOutCubic)
+                             .OnComplete(() => gameObject.SetActive(false));
         }
     }
 }

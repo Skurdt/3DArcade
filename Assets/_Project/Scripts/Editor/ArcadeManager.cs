@@ -70,7 +70,7 @@ namespace Arcade.UnityEditor
                                                                                                     propPrefabAddressesProvider);
 
             ArcadeContext = AssetDatabase.LoadAssetAtPath<ArcadeContext>(ARCADE_CONTEXT_SO_PATH);
-            ArcadeContext.Construct(null, player, addressesProviders);
+            ArcadeContext.Construct(player, addressesProviders);
         }
 
         public void LoadArcade(string name, ArcadeType arcadeType)
@@ -81,7 +81,7 @@ namespace Arcade.UnityEditor
             SceneUtilities.OpenMainScene();
             SceneUtilities.CloseAllScenes();
 
-            ArcadeContext.StartArcade(name, arcadeType, ArcadeMode.Normal).Forget();
+            ArcadeContext.StartArcade(name, arcadeType).Forget();
             SetCurrentArcadeStateInEditorPrefs(name, arcadeType);
         }
 

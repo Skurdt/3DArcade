@@ -30,7 +30,7 @@ namespace Arcade
         public override void OnEnter()
         {
             Debug.Log($"> <color=green>Entered</color> {GetType().Name}");
-            Context.ArcadeStateChangeEvent.Raise(this);
+            Context.OnArcadeStateChanged.Raise(this);
 
             Context.InputActions.Disable();
             Context.InputActions.Global.Enable();
@@ -38,7 +38,7 @@ namespace Arcade
             if (Cursor.lockState != CursorLockMode.Locked)
                 Context.InputActions.FpsNormal.Look.Disable();
 
-            Context.InteractionControllers.ResetControllers();
+            Context.Interactions.Reset();
         }
 
         public override void OnExit() => Debug.Log($"> <color=orange>Exited</color> {GetType().Name}");
@@ -50,11 +50,11 @@ namespace Arcade
 
             Context.VideoPlayerController.Value.UpdateVideosState();
 
-            Context.InteractionControllers.NormalModeController.UpdateCurrentTarget(Context.Player.Value.Camera);
+            Context.Interactions.Normal.UpdateCurrentTarget(Context.Player.Camera);
 
             if (Cursor.lockState == CursorLockMode.Locked && Context.InputActions.FpsNormal.Interact.triggered)
             {
-                Context.InteractionControllers.NormalModeController.HandleInteraction();
+                Context.Interactions.Normal.HandleInteraction();
                 return;
             }
 
@@ -89,7 +89,7 @@ namespace Arcade
             }
         }
 
-        public void EnableInput()
+        public override void EnableInput()
         {
             Context.InputActions.Global.Enable();
             Context.InputActions.FpsNormal.Enable();

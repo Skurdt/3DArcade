@@ -32,12 +32,32 @@ namespace Arcade
     {
         [SerializeField] private TMP_Text _tooltipText;
 
+        private bool _visible;
+
         public void OnPointerEnter(PointerEventData eventData) => ShowTooltip();
 
         public void OnPointerExit(PointerEventData eventData) => HideTooltip();
 
-        public void ShowTooltip() => _tooltipText.DOColor(Color.white, 0.3f);
+        public void ShowTooltip()
+        {
+            if (_visible)
+                return;
 
-        public void HideTooltip() => _tooltipText.DOColor(Color.clear, 0.3f);
+            _visible = true;
+
+            _ = _tooltipText.DOKill();
+            _ = _tooltipText.DOColor(Color.white, 0.3f);
+        }
+
+        public void HideTooltip()
+        {
+            if (!_visible)
+                return;
+
+            _visible = false;
+
+            _ = _tooltipText.DOKill();
+            _ = _tooltipText.DOColor(Color.clear, 0.3f);
+        }
     }
 }

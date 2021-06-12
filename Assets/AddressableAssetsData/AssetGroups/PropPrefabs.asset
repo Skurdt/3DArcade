@@ -20,15 +20,18 @@ MonoBehaviour:
   - m_GUID: 42f0f4fd09ddc7d4783e8b55ebc5d55b
     m_Address: Props/_pink_cube
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PropModels
   - m_GUID: 47c7e736a745547bb84d8f7c68b1b955
     m_Address: Props/_plane
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PropModels
   - m_GUID: 0edce053b8b684879b6d1aa64bfda02f
     m_Address: Props/_text
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - PropModels
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a791319076b3e034bb0f17c6bf81a76f, type: 2}
   m_SchemaSet:

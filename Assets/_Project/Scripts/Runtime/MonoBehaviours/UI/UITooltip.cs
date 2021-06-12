@@ -20,54 +20,61 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE. */
 
-using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Arcade
 {
-    [DisallowMultipleComponent, RequireComponent(typeof(Image))]
+    [ExecuteAlways, DisallowMultipleComponent, RequireComponent(typeof(Image))]
     public sealed class UITooltip : MonoBehaviour
     {
-        [SerializeField] private FloatVariable _animationDuration;
-        [SerializeField] private Color _backgroundColor = new Color32(40, 40, 40, 180);
+        [SerializeField] private TMP_Text _header;
+        [SerializeField] private TMP_Text _content;
+        [SerializeField] private LayoutElement _layoutElement;
+        [SerializeField] private int _characterWrapLimit;
 
-        private Image _background;
-        private TMP_Text _text;
+        private RectTransform _transform;
 
-        private void Awake()
+        private void Awake() => _transform = transform as RectTransform;
+
+        private void Update()
         {
-            _background = GetComponent<Image>();
-            _text       = GetComponentInChildren<TMP_Text>();
+            if (Application.isEditor)
+                AdjustLayout();
+
+            if (!Application.isPlaying)
+                return;
+
+            Vector2 position = UITooltipSystem.GetMousePosition();
+
+            float pivotX = position.x / Screen.width;
+            float pivotY = position.y / Screen.height;
+
+            _transform.pivot   = new Vector2(pivotX, pivotY);
+            transform.position = position;
         }
 
-        public void Show()
+        public void SetText(string content, string header = "")
         {
-            _ = _background.DOColor(_backgroundColor, _animationDuration.Value);
-            _ = _text.DOColor(Color.white, _animationDuration.Value);
+            if (string.IsNullOrEmpty(header))
+                _header.gameObject.SetActive(false);
+            else
+            {
+                _header.gameObject.SetActive(true);
+                _header.SetText(header);
+            }
+
+            _content.SetText(content);
+
+            AdjustLayout();
         }
 
-        public void Hide()
+        private void AdjustLayout()
         {
-            _ = _background.DOColor(Color.clear, _animationDuration.Value);
-            _ = _text.DOColor(Color.clear, _animationDuration.Value);
+            int headerLenght  = _header.text.Length;
+            int contentLenght = _content.text.Length;
+            _layoutElement.enabled = headerLenght > _characterWrapLimit || contentLenght > _characterWrapLimit;
         }
-
-#if UNITY_EDITOR
-        [ContextMenu("Show")]
-        public void Editor_Show()
-        {
-            GetComponent<Image>().color              = _backgroundColor;
-            GetComponentInChildren<TMP_Text>().color = Color.white;
-        }
-
-        [ContextMenu("Hide")]
-        public void Editor_Hide()
-        {
-            GetComponent<Image>().color              = Color.clear;
-            GetComponentInChildren<TMP_Text>().color = Color.clear;
-        }
-#endif
     }
 }

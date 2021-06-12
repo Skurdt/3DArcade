@@ -62,9 +62,9 @@ namespace Arcade
         protected sealed override void SetupPlayer()
         {
             if (_arcadeContext.GeneralConfiguration.Value.EnableVR)
-                _arcadeContext.Player.Value.TransitionTo<PlayerVirtualRealityCylState>();
+                _arcadeContext.Player.TransitionTo<PlayerVirtualRealityCylState>();
             else
-                _arcadeContext.Player.Value.TransitionTo<PlayerStandardCylState>();
+                _arcadeContext.Player.TransitionTo<PlayerStandardCylState>();
 
             //_main.PlayerCylControls.gameObject.SetActive(false);
             //_main.PlayerCylControls.gameObject.SetActive(true);

@@ -21,7 +21,6 @@
  * SOFTWARE. */
 
 using Cinemachine;
-using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 using Zenject;
 
@@ -48,11 +47,10 @@ namespace Arcade
         protected Vector3 _moveVelocity;
         protected float _lookVertical;
 
-        [Inject, SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "DI")]
-        private void Construct(InputActions inputActions) => _inputActions = inputActions;
-
-        private void Awake()
+        [Inject]
+        public void Construct(InputActions inputActions)
         {
+            _inputActions          = inputActions;
             _characterController   = GetComponent<CharacterController>();
             _cinemachineTransposer = _virtualCamera.GetCinemachineComponent<CinemachineTransposer>();
         }

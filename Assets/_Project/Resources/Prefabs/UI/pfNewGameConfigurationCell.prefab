@@ -139,15 +139,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e77e32d48ddc7d4f810f968bf23b10a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameListVariable: {fileID: 11400000, guid: afd7a498f208f02459f8ed42cc06de92, type: 2}
-  _gameRemovedEvent: {fileID: 11400000, guid: 4a62f71382e3b2a4da296b6862a70275, type: 2}
-  _evenColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  _oddColor: {r: 0.23529412, g: 0.23529412, b: 0.23529412, a: 1}
-  _highlightColor: {r: 0.4627451, g: 0.18039216, b: 0, a: 1}
+  _gamesList: {fileID: 11400000, guid: fc49e71f87e1a7b49b8d28a8582d1b77, type: 2}
+  _onGameRemoved: {fileID: 11400000, guid: 4a62f71382e3b2a4da296b6862a70275, type: 2}
   _background: {fileID: 8601271734501212327}
   _description: {fileID: 5194236091805353594}
   _name: {fileID: 5194236093735610855}
   _removeButton: {fileID: 1120637435657433281}
+  _evenColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  _oddColor: {r: 0.23529412, g: 0.23529412, b: 0.23529412, a: 1}
+  _highlightColor: {r: 0.4627451, g: 0.18039216, b: 0, a: 1}
 --- !u!1 &5194236091805353596
 GameObject:
   m_ObjectHideFlags: 0

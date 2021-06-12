@@ -1,5 +1,5 @@
 <emulator description="Libretro: Snes9x">
-  <interaction_type>GameInternal</interaction_type>
+  <interaction_type>LibretroCore</interaction_type>
   <directory />
   <working_directory />
   <executable>snes9x</executable>

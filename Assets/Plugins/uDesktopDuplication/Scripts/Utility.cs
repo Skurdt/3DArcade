@@ -29,7 +29,7 @@ public static class Utility
 
     public static void WaitThenDo(System.Action func, float sec)
     {
-        Manager.instance.StartCoroutine(_WaitThenDo(func, sec));
+        Manager.Instance.StartCoroutine(_WaitThenDo(func, sec));
     }
 
     public static IEnumerator _WaitThenDo(System.Action func, float sec)

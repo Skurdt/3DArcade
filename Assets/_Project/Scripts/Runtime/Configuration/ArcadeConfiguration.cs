@@ -33,6 +33,5 @@ namespace Arcade
         [XmlArray("games"), XmlArrayItem("game"), HideInInspector] public ModelConfiguration[] Games              = new ModelConfiguration[0];
 
         [XmlIgnore, HideInInspector] public ArcadeType ArcadeType;
-        [XmlIgnore, HideInInspector] public ArcadeMode ArcadeMode;
     }
 }

@@ -4,116 +4,100 @@ using System.Linq;
 
 namespace uDesktopDuplication
 {
-
-[CustomEditor(typeof(Texture))]
-public class TextureEditor : Editor
-{
-    Texture texture
+    [CustomEditor(typeof(Texture))]
+    public class TextureEditor : Editor
     {
-        get { return target as Texture; }
-    }
+        private Texture Texture => target as Texture;
 
-    Monitor monitor
-    {
-        get { return texture.monitor; }
-    }
+        private Monitor Monitor => Texture.Monitor;
 
-    bool isAvailable
-    {
-        get { return monitor == null || !Application.isPlaying; }
-    }
+        private bool IsAvailable => Monitor == null || !Application.isPlaying;
 
-    bool basicsFolded_ = true;
-    bool invertFolded_ = true;
-    bool clipFolded_ = true;
-    bool matFolded_ = true;
+        private bool _basicsFolded = true;
+        private bool _invertFolded = true;
+        private bool _clipFolded = true;
+        private bool _matFolded = true;
+        private SerializedProperty _invertX;
+        private SerializedProperty _invertY;
+        private SerializedProperty _useClip;
+        private SerializedProperty _clipPos;
+        private SerializedProperty _clipScale;
 
-    SerializedProperty invertX_;
-    SerializedProperty invertY_;
-    SerializedProperty useClip_;
-    SerializedProperty clipPos_;
-    SerializedProperty clipScale_;
-
-    void OnEnable()
-    {
-        invertX_ = serializedObject.FindProperty("invertX_");
-        invertY_ = serializedObject.FindProperty("invertY_");
-        useClip_ = serializedObject.FindProperty("useClip_");
-        clipPos_ = serializedObject.FindProperty("clipPos");
-        clipScale_ = serializedObject.FindProperty("clipScale");
-    }
-
-    public override void OnInspectorGUI()
-    {
-        serializedObject.Update();
-
-        EditorGUILayout.Space();
-        DrawMonitor();
-        DrawInvert();
-        DrawClip();
-        DrawMaterial();
-
-        serializedObject.ApplyModifiedProperties();
-    }
-
-    void Fold(string name, ref bool folded, System.Action func)
-    {
-        folded = Utils.Foldout(name, folded);
-        if (folded) {
-            ++EditorGUI.indentLevel;
-            func();
-            --EditorGUI.indentLevel;
+        private void OnEnable()
+        {
+            _invertX = serializedObject.FindProperty("_invertX");
+            _invertY = serializedObject.FindProperty("_invertY");
+            _useClip = serializedObject.FindProperty("_useClip");
+            _clipPos = serializedObject.FindProperty("ClipPos");
+            _clipScale = serializedObject.FindProperty("ClipScale");
         }
-    }
 
-    void DrawMonitor()
-    {
-        Fold("Monitor", ref basicsFolded_, () => {
-            if (isAvailable) {
+        public override void OnInspectorGUI()
+        {
+            serializedObject.Update();
+
+            EditorGUILayout.Space();
+            DrawMonitor();
+            DrawInvert();
+            DrawClip();
+            DrawMaterial();
+
+            _ = serializedObject.ApplyModifiedProperties();
+        }
+
+        private void Fold(string name, ref bool folded, System.Action func)
+        {
+            folded = Utils.Foldout(name, folded);
+            if (folded)
+            {
+                ++EditorGUI.indentLevel;
+                func();
+                --EditorGUI.indentLevel;
+            }
+        }
+
+        private void DrawMonitor() => Fold("Monitor", ref _basicsFolded, () =>
+        {
+            if (IsAvailable)
+            {
                 EditorGUILayout.HelpBox("Monitor information is available only in runtime.", MessageType.Info);
                 return;
             }
-            var id = EditorGUILayout.Popup("Monitor", monitor.id, Manager.monitors.Select(x => x.name).ToArray());
-            if (id != monitor.id) { texture.monitorId = id; }
-            EditorGUILayout.IntField("ID", monitor.id);
-            EditorGUILayout.Toggle("Is Primary", monitor.isPrimary);
-            EditorGUILayout.EnumPopup("Rotation", monitor.rotation);
-            EditorGUILayout.Vector2Field("Resolution", new Vector2(monitor.width, monitor.height));
-            EditorGUILayout.Vector2Field("DPI", new Vector2(monitor.dpiX, monitor.dpiY));
-        });
-    }
 
-    void DrawInvert()
-    {
-        Fold("Invert", ref invertFolded_, () => {
-            texture.invertX = EditorGUILayout.Toggle("Invert X", invertX_.boolValue);
-            texture.invertY = EditorGUILayout.Toggle("Invert Y", invertY_.boolValue);
-        });
-    }
+            int id = EditorGUILayout.Popup("Monitor", Monitor.Id, Manager.Monitors.Select(x => x.Name).ToArray());
+            if (id != Monitor.Id)
+                Texture.MonitorId = id;
 
-    void DrawClip()
-    {
-        Fold("Clip", ref clipFolded_, () => {
-            texture.useClip = EditorGUILayout.Toggle("Use Clip", useClip_.boolValue);
-            EditorGUILayout.PropertyField(clipPos_);
-            EditorGUILayout.PropertyField(clipScale_);
+            _ = EditorGUILayout.IntField("ID", Monitor.Id);
+            _ = EditorGUILayout.Toggle("Is Primary", Monitor.IsPrimary);
+            _ = EditorGUILayout.EnumPopup("Rotation", Monitor.Rotation);
+            _ = EditorGUILayout.Vector2Field("Resolution", new Vector2(Monitor.Width, Monitor.Height));
+            _ = EditorGUILayout.Vector2Field("DPI", new Vector2(Monitor.DpiX, Monitor.DpiY));
         });
-    }
 
-    void DrawMaterial()
-    {
-        Fold("Material", ref matFolded_, () => {
-            if (!Application.isPlaying) {
+        private void DrawInvert() => Fold("Invert", ref _invertFolded, () =>
+        {
+            Texture.InvertX = EditorGUILayout.Toggle("Invert X", _invertX.boolValue);
+            Texture.InvertY = EditorGUILayout.Toggle("Invert Y", _invertY.boolValue);
+        });
+
+        private void DrawClip() => Fold("Clip", ref _clipFolded, () =>
+        {
+            Texture.UseClip = EditorGUILayout.Toggle("Use Clip", _useClip.boolValue);
+            _ = EditorGUILayout.PropertyField(_clipPos);
+            _ = EditorGUILayout.PropertyField(_clipScale);
+        });
+
+        private void DrawMaterial() => Fold("Material", ref _matFolded, () =>
+        {
+            if (!Application.isPlaying)
                 EditorGUILayout.HelpBox("These parameters are applied to the shared material when not playing.", MessageType.Info);
-            }
-            texture.meshForwardDirection = (Texture.MeshForwardDirection)EditorGUILayout.EnumPopup("Mesh Forward Direction", texture.meshForwardDirection);
-            texture.bend = EditorGUILayout.Toggle("Use Bend", texture.bend);
-            texture.width = EditorGUILayout.FloatField("Bend Width", texture.width);
-            texture.radius = EditorGUILayout.Slider("Bend Radius", texture.radius, texture.worldWidth / (2 * Mathf.PI), 100f);
-            texture.thickness = EditorGUILayout.Slider("Thickness", texture.thickness, 0f, 30f);
-            texture.culling = (Texture.Culling)EditorGUILayout.EnumPopup("Culling", texture.culling);
+            Texture.MeshForwardDirection = (MeshForwardDirection)EditorGUILayout.EnumPopup("Mesh Forward Direction", Texture.MeshForwardDirection);
+            Texture.Bend = EditorGUILayout.Toggle("Use Bend", Texture.Bend);
+            Texture.Width = EditorGUILayout.FloatField("Bend Width", Texture.Width);
+            Texture.Radius = EditorGUILayout.Slider("Bend Radius", Texture.Radius, Texture.WorldWidth / (2 * Mathf.PI), 100f);
+            Texture.Thickness = EditorGUILayout.Slider("Thickness", Texture.Thickness, 0f, 30f);
+            Texture.Culling = (Culling)EditorGUILayout.EnumPopup("Culling", Texture.Culling);
         });
     }
-}
-
 }

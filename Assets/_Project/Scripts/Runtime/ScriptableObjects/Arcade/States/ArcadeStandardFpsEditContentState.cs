@@ -35,11 +35,11 @@ namespace Arcade
 
             SetupInput();
 
-            Context.InteractionControllers.ResetControllers();
+            Context.Interactions.Reset();
 
-            Context.InteractionControllers.EditModeEditContentController.Initialize(Context.Player.Value.Camera);
+            Context.Interactions.EditContent.Initialize(Context.Player.Camera);
 
-            Context.ArcadeStateChangeEvent.Raise(this);
+            Context.OnArcadeStateChanged.Raise(this);
         }
 
         public override void OnExit() => Debug.Log($"> <color=orange>Exited</color> {GetType().Name}");
@@ -51,35 +51,34 @@ namespace Arcade
             if (inputActions.Global.ToggleCursor.triggered)
                 HandleCursorToggle();
 
-            InteractionControllers interactionControllers               = Context.InteractionControllers;
-            EditModeEditContentInteractionController editModeController = interactionControllers.EditModeEditContentController;
+            EditContentInteractions editContent = Context.Interactions.EditContent;
 
-            editModeController.UpdateCurrentTarget(Context.Player.Value.Camera);
+            editContent.UpdateCurrentTarget(Context.Player.Camera);
 
             if (inputActions.FpsEditContent.ApplyOrAdd.triggered)
-                editModeController.ApplyChangesOrAddModel();
+                editContent.ApplyChangesOrAddModel();
 
             if (inputActions.FpsEditContent.Remove.triggered)
-                editModeController.RemoveModel();
+                editContent.RemoveModel();
 
             if (inputActions.Global.Quit.triggered)
             {
-                editModeController.DestroyAddedItems();
-                editModeController.RestoreRemovedItems();
+                editContent.DestroyAddedItems();
+                editContent.RestoreRemovedItems();
                 Context.TransitionToPrevious();
                 return;
             }
 
             if (inputActions.FpsNormal.EditContent.triggered)
             {
-                editModeController.DestroyRemovedItems();
+                editContent.DestroyRemovedItems();
                 Context.SaveCurrentArcade(true);
                 Context.TransitionToPrevious();
                 return;
             }
         }
 
-        public void EnableInput()
+        public override void EnableInput()
         {
             Context.InputActions.Global.Enable();
             Context.InputActions.Global.Reload.Disable();

@@ -50,9 +50,9 @@ namespace Arcade
         protected override void SetupPlayer()
         {
             if (_arcadeContext.GeneralConfiguration.Value.EnableVR)
-                _arcadeContext.Player.Value.TransitionTo<PlayerVirtualRealityFpsState>();
+                _arcadeContext.Player.TransitionTo<PlayerVirtualRealityFpsState>();
             else
-                _arcadeContext.Player.Value.TransitionTo<PlayerStandardFpsState>();
+                _arcadeContext.Player.TransitionTo<PlayerStandardFpsState>();
         }
     }
 }

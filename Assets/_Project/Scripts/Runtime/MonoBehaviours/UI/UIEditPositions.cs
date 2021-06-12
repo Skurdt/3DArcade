@@ -20,25 +20,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE. */
 
-using UnityEngine;
-using UnityEngine.Events;
-
 namespace Arcade
 {
-    [DisallowMultipleComponent]
-    public sealed class UIEditPositions : MonoBehaviour
+    public sealed class UIEditPositions : UIEditBase
     {
-        [SerializeField] private UnityEvent<bool> _onVisibilityChange;
+        protected override void OnShow() => _selectionText.Enable();
 
-        private bool _visible;
-
-        public void SetVisibility(bool visible)
-        {
-            if (_visible == visible)
-                return;
-
-            _visible = visible;
-            _onVisibilityChange.Invoke(_visible);
-        }
+        protected override void OnHide() => _selectionText.Disable();
     }
 }

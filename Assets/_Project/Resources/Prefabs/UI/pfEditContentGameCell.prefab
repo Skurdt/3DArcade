@@ -305,9 +305,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82efda5359d91cf4f94f2df89caccf63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameListVariable: {fileID: 11400000, guid: afd7a498f208f02459f8ed42cc06de92, type: 2}
-  _interactionController: {fileID: 11400000, guid: 27e65619ac7fc024c90d51bcd7c82fa5,
-    type: 2}
+  _gamesList: {fileID: 11400000, guid: fc49e71f87e1a7b49b8d28a8582d1b77, type: 2}
   _onButtonClicked: {fileID: 11400000, guid: cd98a40003465df4eb78b854d0208df0, type: 2}
-  _button: {fileID: 4980805408429394430}
+  _background: {fileID: 2797561662460738196}
   _description: {fileID: 1176783488571197486}
+  _button: {fileID: 4980805408429394430}
+  _evenColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  _oddColor: {r: 0.23529412, g: 0.23529412, b: 0.23529412, a: 1}
+  _highlightColor: {r: 0.4627451, g: 0.18039216, b: 0, a: 1}

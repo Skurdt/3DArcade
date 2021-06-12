@@ -29,5 +29,7 @@ namespace Arcade
     public sealed class ArcadeEditModeContext : Context<ArcadeEditModeState>
     {
         [field: SerializeField] public ArcadeContext ArcadeContext { get; private set; }
+        [field: SerializeField] public ArcadeControllerVariable ArcadeController { get; private set; }
+        [field: SerializeField] public Interactions Interactions { get; private set; }
     }
 }

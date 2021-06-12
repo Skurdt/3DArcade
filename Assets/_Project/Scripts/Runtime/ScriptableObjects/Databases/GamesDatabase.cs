@@ -69,9 +69,10 @@ namespace Arcade
             };
         }
 
+        [SerializeField] private VirtualFileSystem _virtualFileSystem;
+
         private const string INTERNAL_TABLE_NAME_STATS = "_stats_";
 
-        [SerializeField] private VirtualFileSystem _virtualFileSystem;
         [System.NonSerialized] private SQLiteDatabase _database;
 
         public void Initialize()

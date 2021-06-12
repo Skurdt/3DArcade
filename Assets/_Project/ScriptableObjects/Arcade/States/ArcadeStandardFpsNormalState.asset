@@ -12,3 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d8d3560d82ce864987d152e2e7fdac1, type: 3}
   m_Name: ArcadeStandardFpsNormalState
   m_EditorClassIdentifier: 
+  <OnArcadeStateChanged>k__BackingField: {fileID: 11400000, guid: 0110be78fa93dff4abf86fbed129b27e,
+    type: 2}
+  <ArcadeConfiguration>k__BackingField: {fileID: 11400000, guid: 66a0ee11fcdbf554aa5522e160d4c342,
+    type: 2}
+  <ArcadeController>k__BackingField: {fileID: 11400000, guid: b50b6273569d084419687f9fc89cae03,
+    type: 2}
+  <Interactions>k__BackingField: {fileID: 11400000, guid: 7174b68e664731b459625626624ac374,
+    type: 2}

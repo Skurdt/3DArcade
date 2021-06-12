@@ -21,158 +21,278 @@
  * SOFTWARE. */
 
 using DG.Tweening;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace Arcade
 {
     [DisallowMultipleComponent]
     public sealed class UIModelConfiguration: MonoBehaviour
     {
-        [SerializeField] private FloatVariable _animationDuration;
+        [Header("Assets")]
         [SerializeField] private Databases _databases;
         [SerializeField] private AvailableModels _availableModels;
+        [SerializeField] private ArcadeState _arcadeState;
+        [SerializeField] private EditContentInteractions _interactions;
 
+        [Header("Scene References")]
+        [SerializeField] private UISelectionText _selectionText;
+        [SerializeField] private UIEditContentSearchableGameList _gamesList;
+        [SerializeField] private UIEditContentSearchableArcadeList _arcadesList;
+
+        [Header("Object References")]
         [SerializeField] private TMP_Text _title;
         [SerializeField] private TMP_InputField _idInputField;
         [SerializeField] private TMP_Dropdown _interactionTypeDropdown;
+        [SerializeField] private GameObject _platformObject;
         [SerializeField] private TMP_Dropdown _platformDropdown;
         [SerializeField] private Toggle _grabbableToggle;
         [SerializeField] private Toggle _editMovableToggle;
         [SerializeField] private Toggle _editGrabbableToggle;
-        [SerializeField] private TMP_Dropdown _modelOverrideDropdown;
-        [SerializeField] private TMP_Dropdown _emulatorOverrideDropdown;
-        [SerializeField] private Button _applyButton;
+        [SerializeField] private TMP_Dropdown _modelDropdown;
+        [SerializeField] private GameObject _emulatorObject;
+        [SerializeField] private TMP_Dropdown _emulatorDropdown;
         [SerializeField] private Button _actionBarApplyButton;
         [SerializeField] private Button _actionBarAddButton;
         [SerializeField] private Button _actionBarRemoveButton;
 
+        private FloatVariable _animationDuration;
         private RectTransform _transform;
-        private float _startPositionX;
-        private float _endPositionX;
+        private float _animationStartPosition;
+        private float _animationEndPosition;
+        private bool _visible;
 
-        private void Awake()
+        [Inject]
+        public void Construct(FloatVariable animationDuration)
         {
-            _transform      = transform as RectTransform;
-            _startPositionX = -_transform.rect.width;
-            _endPositionX   = 0f;
+            _animationDuration      = animationDuration;
+            _transform              = transform as RectTransform;
+            _animationStartPosition = -_transform.rect.width;
+            _animationEndPosition   = 0f;
+
+            _idInputField.onSelect.AddListener((str) => _arcadeState.DisableInput());
+            _idInputField.onDeselect.AddListener((str) => _arcadeState.EnableInput());
+
+            _interactionTypeDropdown.AddOptions(new List<string>
+                {
+                    $"{InteractionType.Default}",
+                    $"{InteractionType.FpsArcadeConfiguration}",
+                    $"{InteractionType.CylArcadeConfiguration}"
+                });
+            _interactionTypeDropdown.onValueChanged.AddListener((index) =>
+            {
+                _idInputField.DeactivateInputField(true);
+                _idInputField.SetTextWithoutNotify("");
+                SetConfigurationMode(index);
+            });
+
+            _platformDropdown.onValueChanged.AddListener((index) =>
+            {
+                _idInputField.DeactivateInputField(true);
+                _idInputField.SetTextWithoutNotify("");
+                _gamesList.Refresh(index);
+            });
         }
 
-        private void Start()
+        private void OnDestroy()
         {
+            _idInputField.onSelect.RemoveAllListeners();
+            _idInputField.onDeselect.RemoveAllListeners();
+            _interactionTypeDropdown.onValueChanged.RemoveAllListeners();
             _interactionTypeDropdown.ClearOptions();
-            _interactionTypeDropdown.AddOptions(System.Enum.GetNames(typeof(InteractionType)).ToList());
+            _platformDropdown.onValueChanged.RemoveAllListeners();
         }
 
-        public void SetVisibility(bool visible)
-        {
-            _idInputField.DeactivateInputField();
+        public Tween SetVisibility(bool visible) => visible ? Show() : Hide();
 
-            if (visible)
-                Show();
+        public void Refresh(ModelConfiguration modelConfiguration)
+        {
+            SetButtonsState(modelConfiguration != null);
+
+            if (modelConfiguration == null)
+            {
+                ClearUIValues();
+                SetConfigurationMode(0);
+                return;
+            }
+
+            _title.SetText(modelConfiguration.GetDescription());
+
+            _idInputField.DeactivateInputField(true);
+            _idInputField.SetTextWithoutNotify(modelConfiguration.Id);
+
+            int interactionTypeIndex = modelConfiguration.InteractionType switch
+            {
+                InteractionType.Default                => 0,
+                InteractionType.FpsArcadeConfiguration => 1,
+                InteractionType.CylArcadeConfiguration => 2,
+                _ => throw new NotImplementedException(),
+            };
+            _interactionTypeDropdown.SetValueWithoutNotify(interactionTypeIndex);
+
+            SetConfigurationMode(interactionTypeIndex);
+
+            _grabbableToggle.SetIsOnWithoutNotify(modelConfiguration.Grabbable);
+            _editMovableToggle.SetIsOnWithoutNotify(modelConfiguration.MoveCabMovable);
+            _editGrabbableToggle.SetIsOnWithoutNotify(modelConfiguration.MoveCabGrabbable);
+
+            int modelIndex = !string.IsNullOrEmpty(modelConfiguration.Overrides.Model)
+                           ? _modelDropdown.options.FindIndex(x => x.text == modelConfiguration.Overrides.Model)
+                           : 0;
+            _modelDropdown.SetValueWithoutNotify(modelIndex);
+
+            bool isForGames = interactionTypeIndex == 0;
+            if (isForGames)
+            {
+                _arcadesList.Hide();
+                int platformIndex = !(modelConfiguration.PlatformConfiguration is null)
+                                    ? _platformDropdown.options.FindIndex(x => x.text == modelConfiguration.PlatformConfiguration.Id)
+                                    : 0;
+                int emulatorIndex = !string.IsNullOrEmpty(modelConfiguration.Overrides.Emulator)
+                                  ? _emulatorDropdown.options.FindIndex(x => x.text == modelConfiguration.Overrides.Emulator)
+                                  : 0;
+                _platformDropdown.SetValueWithoutNotify(platformIndex);
+                _emulatorDropdown.SetValueWithoutNotify(emulatorIndex);
+                _gamesList.Refresh(platformIndex);
+                return;
+            }
+
+            _gamesList.Hide();
+            _platformDropdown.SetValueWithoutNotify(0);
+            _emulatorDropdown.SetValueWithoutNotify(0);
+
+            if (_arcadesList.Count > 0)
+                _arcadesList.Show();
             else
-                Hide();
+                _arcadesList.Hide();
         }
 
-        public void Show()
+        public void ApplyChangesOrAddModel(string text)
         {
-            if (gameObject.activeSelf)
-                return;
-
-            gameObject.SetActive(true);
-
-            _databases.Initialize();
-
-            _platformDropdown.ClearOptions();
-            _platformDropdown.AddOptions(new List<string> { "" }.Concat(_databases.Platforms.Names).ToList());
-
-            _availableModels.Refresh();
-            _modelOverrideDropdown.ClearOptions();
-            _modelOverrideDropdown.AddOptions(_availableModels.GameModels);
-
-            _emulatorOverrideDropdown.ClearOptions();
-            _emulatorOverrideDropdown.AddOptions(new List<string> { "" }.Concat(_databases.Emulators.Names).ToList());
-
-            _ = _transform.DOAnchorPosX(_endPositionX, _animationDuration.Value);
-        }
-
-        public void Hide()
-        {
-            if (!gameObject.activeSelf)
-                return;
-
-            ResetUIData();
-            _ = _transform.DOAnchorPosX(_startPositionX, _animationDuration.Value)
-                          .OnComplete(() => gameObject.SetActive(false));
-        }
-
-        public void SetUIData(ModelConfigurationComponent modelConfigurationComponent)
-        {
-            if (modelConfigurationComponent == null)
-                return;
-
-            ModelConfiguration modelConfiguration = modelConfigurationComponent.Configuration;
-
-            _title.text = modelConfiguration.GetDescription();
-
-            _idInputField.text = modelConfiguration.Id;
-            _idInputField.DeactivateInputField();
-
-            _interactionTypeDropdown.value  = (int)modelConfiguration.InteractionType;
-            _platformDropdown.value         = !(modelConfiguration.PlatformConfiguration is null)
-                                            ? _platformDropdown.options.FindIndex(x => x.text == modelConfiguration.PlatformConfiguration.Id)
-                                            : 0;
-            _grabbableToggle.isOn           = modelConfiguration.Grabbable;
-            _editMovableToggle.isOn         = modelConfiguration.MoveCabMovable;
-            _editGrabbableToggle.isOn       = modelConfiguration.MoveCabGrabbable;
-            _modelOverrideDropdown.value    = !string.IsNullOrEmpty(modelConfiguration.Overrides.Model)
-                                            ? _modelOverrideDropdown.options.FindIndex(x => x.text == modelConfiguration.Overrides.Model)
-                                            : 0;
-            _emulatorOverrideDropdown.value = !string.IsNullOrEmpty(modelConfiguration.Overrides.Emulator)
-                                            ? _emulatorOverrideDropdown.options.FindIndex(x => x.text == modelConfiguration.Overrides.Emulator)
-                                            : 0;
-        }
-
-        public void SetupButtonsStates(ModelConfigurationComponent modelConfigurationComponent)
-        {
-            bool state = modelConfigurationComponent != null;
-
-            _applyButton.interactable = state;
-
-            _actionBarApplyButton.gameObject.SetActive(state);
-            _actionBarAddButton.gameObject.SetActive(!state);
-            _actionBarRemoveButton.interactable = state;
+            _idInputField.SetTextWithoutNotify(text);
+            _interactions.ApplyChangesOrAddModel();
         }
 
         public void UpdateModelConfigurationValues(ModelConfiguration modelConfiguration)
         {
-            modelConfiguration.Id = _idInputField.text;
             _idInputField.DeactivateInputField();
 
-            modelConfiguration.InteractionType    = (InteractionType)_interactionTypeDropdown.value;
-            modelConfiguration.Platform           = _platformDropdown.options[_platformDropdown.value].text;
+            modelConfiguration.Id              = _idInputField.text;
+            modelConfiguration.InteractionType = _interactionTypeDropdown.value switch
+            {
+                0 => InteractionType.Default,
+                1 => InteractionType.FpsArcadeConfiguration,
+                2 => InteractionType.CylArcadeConfiguration,
+                _ => throw new NotImplementedException(),
+            };
+
+            modelConfiguration.Platform           =  _platformDropdown.options[_platformDropdown.value].text;
             modelConfiguration.Grabbable          = _grabbableToggle.isOn;
             modelConfiguration.MoveCabMovable     = _editMovableToggle.isOn;
             modelConfiguration.MoveCabGrabbable   = _editGrabbableToggle.isOn;
-            modelConfiguration.Overrides.Model    = _modelOverrideDropdown.options[_modelOverrideDropdown.value].text;
-            modelConfiguration.Overrides.Emulator = _emulatorOverrideDropdown.options[_emulatorOverrideDropdown.value].text;
+            modelConfiguration.Overrides.Model    = _modelDropdown.options[_modelDropdown.value].text;
+            modelConfiguration.Overrides.Emulator = _emulatorDropdown.options[_emulatorDropdown.value].text;
         }
 
-        private void ResetUIData()
+        private Tween Show()
         {
-            _idInputField.text = null;
-            _idInputField.DeactivateInputField();
+            if (_visible)
+                return null;
 
-            _interactionTypeDropdown.value  = 0;
-            _platformDropdown.value         = 0;
-            _grabbableToggle.isOn           = false;
-            _editMovableToggle.isOn         = false;
-            _editGrabbableToggle.isOn       = false;
-            _modelOverrideDropdown.value    = 0;
-            _emulatorOverrideDropdown.value = 0;
+            _visible = true;
+
+            gameObject.SetActive(true);
+
+            _selectionText.Disable();
+
+            _databases.Arcades.Initialize();
+            _databases.Games.Initialize();
+
+            _databases.Platforms.Initialize();
+            _platformDropdown.AddOptions(new List<string> { "" }.Concat(_databases.Platforms.Names).ToList());
+
+            _availableModels.Refresh();
+            _modelDropdown.AddOptions(new List<string> { "" }.Concat(_availableModels.GameModels).ToList());
+
+            _databases.Emulators.Initialize();
+            _emulatorDropdown.AddOptions(new List<string> { "" }.Concat(_databases.Emulators.Names).ToList());
+
+            _gamesList.Init();
+            _arcadesList.Init();
+
+            Refresh(_interactions.CurrentTarget != null ? _interactions.CurrentTarget.Configuration : null);
+
+            _ = _transform.DOKill();
+            return _transform.DOAnchorPosX(_animationEndPosition, _animationDuration.Value)
+                             .SetEase(Ease.InOutCubic);
+        }
+
+        private Tween Hide()
+        {
+            if (!_visible)
+                return null;
+
+            _visible = false;
+
+            _gamesList.DeInit();
+            _arcadesList.DeInit();
+
+            _ = _transform.DOKill();
+            return _transform.DOAnchorPosX(_animationStartPosition, _animationDuration.Value)
+                             .SetEase(Ease.InOutCubic)
+                             .OnComplete(() =>
+                             {
+                                 gameObject.SetActive(false);
+                                 ClearUIValues();
+                                 _interactionTypeDropdown.SetValueWithoutNotify(0);
+                                 _platformDropdown.ClearOptions();
+                                 _modelDropdown.ClearOptions();
+                                 _emulatorDropdown.ClearOptions();
+                             });
+        }
+
+        private void SetButtonsState(bool applyRemove)
+        {
+            _actionBarApplyButton.gameObject.SetActive(applyRemove);
+            _actionBarRemoveButton.interactable = applyRemove;
+            _actionBarAddButton.gameObject.SetActive(!applyRemove);
+        }
+
+        private void SetConfigurationMode(int index)
+        {
+            bool isForGames = index == 0;
+
+            _platformObject.SetActive(isForGames);
+            _emulatorObject.SetActive(isForGames);
+
+            if (isForGames)
+            {
+                _arcadesList.Hide();
+                _gamesList.Refresh(_platformDropdown.value);
+            }
+            else
+            {
+                _arcadesList.Show();
+                _gamesList.Hide();
+            }
+        }
+
+        private void ClearUIValues()
+        {
+            _idInputField.DeactivateInputField(true);
+            _idInputField.SetTextWithoutNotify("");
+            _interactionTypeDropdown.SetValueWithoutNotify(0);
+            _platformDropdown.SetValueWithoutNotify(0);
+            _grabbableToggle.SetIsOnWithoutNotify(true);
+            _editMovableToggle.SetIsOnWithoutNotify(true);
+            _editGrabbableToggle.SetIsOnWithoutNotify(true);
+            _modelDropdown.SetValueWithoutNotify(0);
+            _emulatorDropdown.SetValueWithoutNotify(0);
         }
     }
 }

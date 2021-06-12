@@ -23,69 +23,115 @@
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+using Zenject;
 
 namespace Arcade
 {
     [DisallowMultipleComponent]
-    public abstract class UIConfiguration<TDatabase, TConfiguration> : MonoBehaviour
+    public abstract class UIConfiguration<TDatabase, TConfiguration, TUIConfigurations> : MonoBehaviour, IUIConfiguration<TConfiguration>
         where TDatabase : Database<TConfiguration>
         where TConfiguration : DatabaseEntry
+        where TUIConfigurations : IUIVisibility
     {
         [field: SerializeField] public TMP_Text TitleText { get; private set; }
-
-        [SerializeField] protected FileExplorer _fileExplorer;
         [SerializeField] protected TMP_InputField _descriptionInputField;
-        [SerializeField] protected TDatabase _database;
-        [SerializeField] private FloatVariable _animationDuration;
+        [SerializeField] private Button _saveButton;
+        [SerializeField] private Button _cancelButton;
 
+        protected FileExplorer _fileExplorer;
+        protected TDatabase _database;
+        protected TUIConfigurations _uiConfigurations;
         protected TConfiguration _configuration;
+        protected bool _initialized;
 
+        private FloatVariable _animationDuration;
         private RectTransform _transform;
         private float _animationStartPosition;
         private float _animationEndPosition;
+        private bool _visible;
 
-        private void Awake()
+        [Inject]
+        public void Construct(FileExplorer fileExplorer,
+                              TDatabase database,
+                              TUIConfigurations uiConfigurations,
+                              FloatVariable animationDuration)
         {
+            _fileExplorer           = fileExplorer;
+            _database               = database;
+            _uiConfigurations       = uiConfigurations;
+            _animationDuration      = animationDuration;
             _transform              = transform as RectTransform;
             _animationStartPosition = -_transform.rect.width;
             _animationEndPosition   = 0f;
+
+            _saveButton.onClick.AddListener(() =>
+            {
+                SaveAndHide();
+                _ = _uiConfigurations.Show();
+            });
+
+            _cancelButton.onClick.AddListener(() =>
+            {
+                Hide();
+                _ = _uiConfigurations.Show();
+            });
+        }
+
+        private void OnDestroy()
+        {
+            _saveButton.onClick.RemoveAllListeners();
+            _cancelButton.onClick.RemoveAllListeners();
         }
 
         public void Show(TConfiguration configuration)
         {
-            if (gameObject.activeSelf)
+            if (_visible)
                 return;
+
+            _visible = true;
 
             gameObject.SetActive(true);
 
             _configuration = configuration;
+            _descriptionInputField.DeactivateInputField(true);
             _descriptionInputField.SetTextWithoutNotify(configuration.Description);
+            _descriptionInputField.caretPosition = 0;
             SetUIValues();
-            _ = _transform.DOAnchorPosX(_animationEndPosition, _animationDuration.Value);
+            _ = _transform.DOKill();
+            _ = _transform.DOAnchorPosX(_animationEndPosition, _animationDuration.Value)
+                          .SetEase(Ease.InOutCubic);
         }
 
-        public void SaveAndHide()
+        private void Hide()
+        {
+            if (!_visible)
+                return;
+
+            _visible = false;
+
+            _descriptionInputField.DeactivateInputField(true);
+            _descriptionInputField.SetTextWithoutNotify("");
+            _descriptionInputField.caretPosition = 0;
+            ClearUIValues();
+            _configuration = null;
+            _initialized   = false;
+            _ = _transform.DOKill();
+            _ = _transform.DOAnchorPosX(_animationStartPosition, _animationDuration.Value)
+                          .SetEase(Ease.InOutCubic)
+                          .OnComplete(() => gameObject.SetActive(false));
+        }
+
+        private void SaveAndHide()
         {
             GetUIValues();
             _ = _database.Save(_configuration);
             Hide();
         }
 
-        public void Hide()
-        {
-            if (!gameObject.activeSelf)
-                return;
-
-            _descriptionInputField.SetTextWithoutNotify("");
-            ClearUIValues();
-            _configuration = null;
-            _ = _transform.DOAnchorPosX(_animationStartPosition, _animationDuration.Value)
-                          .OnComplete(() => gameObject.SetActive(false));
-        }
+        protected abstract void GetUIValues();
 
         protected abstract void SetUIValues();
-
-        protected abstract void GetUIValues();
 
         protected abstract void ClearUIValues();
     }

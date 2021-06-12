@@ -27,20 +27,8 @@ namespace Arcade
     [CreateAssetMenu(menuName = "3DArcade/Database/EmulatorsDatabase", fileName = "EmulatorsDatabase")]
     public sealed class EmulatorsDatabase : MultiFileDatabase<EmulatorConfiguration>
     {
-        public static readonly EmulatorConfiguration FpsArcadeLauncher = MakeInternalEmulator("_fps_arcade_launcher", "InternalFpsArcadeLauncher", InteractionType.FpsArcadeConfiguration);
-        public static readonly EmulatorConfiguration CylArcadeLauncher = MakeInternalEmulator("_cyl_arcade_launcher", "InternalCylArcadeLauncher", InteractionType.CylArcadeConfiguration);
-        public static readonly EmulatorConfiguration FpsMenuLauncher   = MakeInternalEmulator("_fps_menu_launcher", "InternalFpsMenuLauncher", InteractionType.FpsMenuConfiguration);
-        public static readonly EmulatorConfiguration CylMenuLauncher   = MakeInternalEmulator("_cyl_menu_launcher", "InternalCylMenuLauncher", InteractionType.CylMenuConfiguration);
-
         [field: System.NonSerialized] protected override string DirectoryAlias { get; } = "emulator_cfgs";
 
         protected override void PostInitialize() => LoadAll();
-
-        private static EmulatorConfiguration MakeInternalEmulator(string id, string description, InteractionType interactionType) => new EmulatorConfiguration
-        {
-            Id              = id,
-            Description     = description,
-            InteractionType = interactionType
-        };
     }
 }

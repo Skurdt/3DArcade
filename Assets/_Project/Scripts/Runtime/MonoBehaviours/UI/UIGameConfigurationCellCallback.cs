@@ -26,32 +26,29 @@ using UnityEngine.UI;
 
 namespace Arcade
 {
-    public sealed class UIGameConfigurationCellCallback : MonoBehaviour
+    public sealed class UIGameConfigurationCellCallback : MonoBehaviour, IUICellHighlighting
     {
         [SerializeField] private GamesDatabase _gamesDatabase;
-        [SerializeField] private GameListVariable _gameListVariable;
-        [SerializeField] private GameConfigurationEvent _gameRemovedEvent;
-        [SerializeField] private Color _evenColor;
-        [SerializeField] private Color _oddColor;
-        [SerializeField] private Color _highlightColor;
+        [SerializeField] private FilterableGameListVariable _gamesList;
+        [SerializeField] private GameConfigurationEvent _onGameRemoved;
+
         [SerializeField] private Image _background;
         [SerializeField] private TMP_Text _description;
         [SerializeField] private TMP_Text _name;
         [SerializeField] private Button _removeButton;
 
+        [SerializeField] private Color _evenColor;
+        [SerializeField] private Color _oddColor;
+        [SerializeField] private Color _highlightColor;
+
         private Color _backgroundColor;
 
-        public void StartHighlight() => _background.color = _highlightColor;
-
-        public void StopHighlight() => _background.color = _backgroundColor;
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "Called using SendMessage")]
-        private void ScrollCellIndex(int index)
+        public void ScrollCellIndex(int index)
         {
-            if (index >= _gameListVariable.Value.Count)
+            if (index >= _gamesList.Value.Count)
                 return;
 
-            GameConfiguration gameConfiguration = _gameListVariable.Value[index];
+            GameConfiguration gameConfiguration = _gamesList.Value[index];
             string gameName                     = gameConfiguration.Name;
 		    gameObject.name                     = gameName;
 
@@ -62,9 +59,13 @@ namespace Arcade
             _removeButton.onClick.RemoveAllListeners();
             _removeButton.onClick.AddListener(() =>
             {
-                _gamesDatabase.RemoveGame(_gameListVariable.GameListName, gameConfiguration);
-                _gameRemovedEvent.Raise(gameConfiguration);
+                _gamesDatabase.RemoveGame(_gamesList.GameListName, gameConfiguration);
+                _onGameRemoved.Raise(gameConfiguration);
             });
 	    }
+
+        public void StartHighlight() => _background.color = _highlightColor;
+
+        public void StopHighlight() => _background.color = _backgroundColor;
     }
 }

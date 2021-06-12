@@ -29,12 +29,8 @@ namespace Arcade
     {
         private readonly List<IEventListener<T>> _eventListeners = new List<IEventListener<T>>();
 
-        [field: System.NonSerialized] public T Value { get; private set; }
-
         public void Raise(T item)
         {
-            Value = item;
-
             for (int i = _eventListeners.Count - 1; i >= 0; --i)
                 _eventListeners[i].OnEventRaised(item);
         }

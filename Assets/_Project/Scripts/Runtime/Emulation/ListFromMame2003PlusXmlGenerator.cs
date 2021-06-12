@@ -29,9 +29,14 @@ namespace Arcade
 {
     public sealed class ListFromMame2003PlusXmlGenerator : IGameConfigurationListGenerator
     {
+        private readonly GameConfigurationsEvent _gamesGeneratedEvent;
+
         private Dictionary<string, string> _gameGenreDictionary;
 
-        public void Generate(FileExplorer fileExplorer, GameConfigurationsEvent gameConfigurationsEvent)
+        public ListFromMame2003PlusXmlGenerator(GameConfigurationsEvent gamesGeneratedEvent)
+            => _gamesGeneratedEvent = gamesGeneratedEvent;
+
+        public void Generate(FileExplorer fileExplorer, params string[] extensions)
             => fileExplorer.OpenFileDialog("Select MAME Xml", filePaths =>
             {
                 if (filePaths is null || filePaths.Length == 0)
@@ -45,7 +50,7 @@ namespace Arcade
                 try
                 {
                     GameConfiguration[] games = ParseMameXML(xmlPath, iniGenrePath, iniMaturePath);
-                    gameConfigurationsEvent.Raise(games);
+                    _gamesGeneratedEvent.Raise(games);
                 }
                 catch (System.Exception e)
                 {

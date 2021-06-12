@@ -26,13 +26,13 @@ namespace Arcade
     {
         public override void OnEnter()
         {
-            if (Context.VirtualRealityUI != null)
+            if (Context.ValidVirtualRealityUI)
                 Context.VirtualRealityUI.SetEditPositionsUIVisibility(true);
         }
 
         public override void OnExit()
         {
-            if (Context.VirtualRealityUI != null)
+            if (Context.ValidVirtualRealityUI)
                 Context.VirtualRealityUI.SetEditPositionsUIVisibility(false);
         }
     }

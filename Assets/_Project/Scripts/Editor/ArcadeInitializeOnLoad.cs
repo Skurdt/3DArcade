@@ -21,6 +21,7 @@
  * SOFTWARE. */
 
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 namespace Arcade.UnityEditor
@@ -48,11 +49,14 @@ namespace Arcade.UnityEditor
             switch (state)
             {
                 case PlayModeStateChange.EnteredEditMode:
+                    //SceneUtilities.OpenMainScene();
                     new ArcadeManager().ReloadCurrentArcade();
                     break;
                 case PlayModeStateChange.ExitingEditMode:
-                    ArcadeManager.SaveCurrentArcadeStateInEditorPrefs();
                     SceneUtilities.CloseAllScenes();
+                    _ = EditorSceneManager.SaveOpenScenes();
+                    ArcadeManager.SaveCurrentArcadeStateInEditorPrefs();
+                    //SceneUtilities.OpenBootScene();
                     break;
             }
         }

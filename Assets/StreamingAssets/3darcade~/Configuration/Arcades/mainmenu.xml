@@ -190,8 +190,8 @@
           <Manufacturer />
         </game>
       </overrides>
-      <position x="-5.25" y="0" z="2.63" />
-      <rotation x="-0" y="118.12" z="-0" />
+      <position x="-5.25" y="-0" z="2.63" />
+      <rotation x="0" y="118.12" z="-0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="demo_twogames" platform="">
@@ -232,7 +232,7 @@
           <Manufacturer />
         </game>
       </overrides>
-      <position x="-4.69" y="0" z="3.51" />
+      <position x="-4.69" y="-0" z="3.51" />
       <rotation x="-0" y="129.38" z="-0" />
       <scale x="1" y="1" z="1" />
     </game>
@@ -274,8 +274,8 @@
           <Manufacturer />
         </game>
       </overrides>
-      <position x="-3.98" y="0" z="4.31" />
-      <rotation x="-0" y="140.62" z="-0" />
+      <position x="-3.98" y="-0" z="4.31" />
+      <rotation x="-0" y="140.62" z="0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="cyl_demo_hor_flat_right" platform="">
@@ -316,7 +316,7 @@
           <Manufacturer />
         </game>
       </overrides>
-      <position x="-3.03" y="0" z="5.04" />
+      <position x="-3.03" y="-0" z="5.04" />
       <rotation x="-0" y="151.88" z="-0" />
       <scale x="1" y="1" z="1" />
     </game>
@@ -358,8 +358,8 @@
           <Manufacturer />
         </game>
       </overrides>
-      <position x="-1.99" y="0" z="5.56" />
-      <rotation x="-0" y="163.13" z="-0" />
+      <position x="-1.99" y="-0" z="5.56" />
+      <rotation x="-0" y="163.13" z="0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="cyl_demo_vert_flat_down" platform="">
@@ -400,8 +400,8 @@
           <Manufacturer />
         </game>
       </overrides>
-      <position x="-0.86" y="0" z="5.9" />
-      <rotation x="-0" y="174.37" z="-0" />
+      <position x="-0.86" y="-0" z="5.9" />
+      <rotation x="-0" y="174.37" z="0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="cyl_demo_vert_flat_up" platform="">
@@ -442,8 +442,8 @@
           <Manufacturer />
         </game>
       </overrides>
-      <position x="0.37" y="0" z="5.95" />
-      <rotation x="-0" y="-174.37" z="0" />
+      <position x="0.37" y="-0" z="5.95" />
+      <rotation x="0" y="-174.37" z="-0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="cyl_demo_hor_inside_right" platform="">
@@ -484,8 +484,8 @@
           <Manufacturer />
         </game>
       </overrides>
-      <position x="1.64" y="0" z="5.67" />
-      <rotation x="-0" y="-163.12" z="0" />
+      <position x="1.64" y="-0" z="5.67" />
+      <rotation x="0" y="-163.12" z="0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="cyl_demo_hor_inside_left" platform="">
@@ -526,8 +526,8 @@
           <Manufacturer />
         </game>
       </overrides>
-      <position x="2.7" y="0" z="5.21" />
-      <rotation x="-0" y="-151.88" z="0" />
+      <position x="2.7" y="-0" z="5.21" />
+      <rotation x="0" y="-151.88" z="0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="cyl_demo_vert_inside_down" platform="">
@@ -568,8 +568,8 @@
           <Manufacturer />
         </game>
       </overrides>
-      <position x="3.65" y="0" z="4.58" />
-      <rotation x="-0" y="-140.62" z="0" />
+      <position x="3.65" y="-0" z="4.58" />
+      <rotation x="0" y="-140.62" z="0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="cyl_demo_vert_inside_up" platform="">
@@ -610,7 +610,7 @@
           <Manufacturer />
         </game>
       </overrides>
-      <position x="4.53" y="0" z="3.71" />
+      <position x="4.53" y="-0" z="3.71" />
       <rotation x="-0" y="-129.38" z="0" />
       <scale x="1" y="1" z="1" />
     </game>
@@ -652,7 +652,7 @@
           <Manufacturer />
         </game>
       </overrides>
-      <position x="5.17" y="0" z="2.78" />
+      <position x="5.17" y="-0" z="2.78" />
       <rotation x="-0" y="-118.12" z="0" />
       <scale x="1" y="1" z="1" />
     </game>
@@ -694,7 +694,7 @@
           <Manufacturer />
         </game>
       </overrides>
-      <position x="5.63" y="0" z="1.76" />
+      <position x="5.63" y="-0" z="1.76" />
       <rotation x="-0" y="-106.88" z="0" />
       <scale x="1" y="1" z="1" />
     </game>
@@ -736,7 +736,7 @@
           <Manufacturer />
         </game>
       </overrides>
-      <position x="5.92" y="0" z="0.69" />
+      <position x="5.92" y="-0" z="0.69" />
       <rotation x="-0" y="-95.62" z="0" />
       <scale x="1" y="1" z="1" />
     </game>
@@ -778,8 +778,24 @@
           <Manufacturer />
         </game>
       </overrides>
-      <position x="5.94" y="0" z="-0.45" />
-      <rotation x="-0" y="-84.38" z="0" />
+      <position x="5.94" y="-0" z="-0.45" />
+      <rotation x="0" y="-84.38" z="-0" />
+      <scale x="1" y="1" z="1" />
+    </game>
+    <game id="spaceport" platform="">
+      <interaction_type>FpsArcadeConfiguration</interaction_type>
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <overrides>
+        <model />
+        <emulator />
+        <artwork_files />
+        <artwork_directories />
+        <game />
+      </overrides>
+      <position x="-5.65" y="-0" z="1.74" />
+      <rotation x="0" y="108.56" z="-0" />
       <scale x="1" y="1" z="1" />
     </game>
   </games>

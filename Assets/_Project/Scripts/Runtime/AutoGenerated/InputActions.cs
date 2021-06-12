@@ -586,7 +586,7 @@ namespace Arcade
                     ""type"": ""Value"",
                     ""id"": ""3c404557-4b9e-4d5c-b5ef-b2e19649b1d5"",
                     ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
+                    ""processors"": ""ScaleVector2(x=100,y=100)"",
                     ""interactions"": """"
                 },
                 {
@@ -705,6 +705,17 @@ namespace Arcade
                     ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a52f2f24-5033-46a0-95cd-ecdab9348098"",
+                    ""path"": ""<Mouse>/scroll/y"",
+                    ""interactions"": """",
+                    ""processors"": ""Clamp(min=-2,max=2),Invert"",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": ""Shoulders"",
