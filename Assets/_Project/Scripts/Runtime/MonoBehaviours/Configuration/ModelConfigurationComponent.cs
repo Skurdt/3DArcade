@@ -54,14 +54,12 @@ namespace Arcade
         private int _previousLayer;
         private TransformState _savedTransformState;
         private PhysicsState _savedPhysicsState;
-        private MaterialPropertyBlock _block;
 
         private void Awake()
         {
             Collider   = GetComponent<Collider>();
             Rigidbody  = GetComponent<Rigidbody>();
             _renderers = GetComponentsInChildren<MeshRenderer>(true);
-            _block     = new MaterialPropertyBlock();
         }
 
         public void InitialSetup(ModelConfiguration modelConfiguration, int layer)
@@ -97,16 +95,41 @@ namespace Arcade
 
         public void SetMaterials(Material material)
         {
-            foreach (MeshRenderer renderer in _renderers)
+            for (int i = 0; i < _renderers.Length; ++i)
+            {
+                Renderer renderer = _renderers[i];
+
+                Color color = renderer.materials[0].GetColor(ArtworkController.ShaderBaseColorId);
+                Texture texture = renderer.materials[0].GetTexture(ArtworkController.ShaderBaseMapId);
+                if (texture == null)
+                {
+                    texture = renderer.materials[0].GetTexture(ArtworkController.ShaderEmissionMapId);
+                    if (texture == null)
+                    {
+                        MaterialPropertyBlock blockRead = new MaterialPropertyBlock();
+                        renderer.GetPropertyBlock(blockRead, 0);
+                        texture = blockRead.GetTexture(ArtworkController.ShaderEmissionMapId);
+                    }
+                }
+
                 renderer.material = material;
+
+                MaterialPropertyBlock blockWrite = new MaterialPropertyBlock();
+                blockWrite.SetColor(ArtworkController.ShaderBaseColorId, color);
+                if (texture != null)
+                    blockWrite.SetTexture(ArtworkController.ShaderBaseMapId, texture);
+                renderer.SetPropertyBlock(blockWrite, 0);
+            }
         }
 
         public void SetMaterialsValue(int id, float value)
         {
             foreach (MeshRenderer renderer in _renderers)
             {
-                _block.SetFloat(id, value);
-                renderer.SetPropertyBlock(_block);
+                MaterialPropertyBlock blockRead = new MaterialPropertyBlock();
+                renderer.GetPropertyBlock(blockRead, 0);
+                blockRead.SetFloat(id, value);
+                renderer.SetPropertyBlock(blockRead, 0);
             }
         }
 

@@ -245,11 +245,11 @@ namespace Arcade
             modelConfigurationComponent.SaveMaterials();
             modelConfigurationComponent.SetMaterials(_dissolveMaterial);
 
-            float dissolve = 0f;
-            while (dissolve < 1f)
+            float dissolveValue = 0f;
+            while (dissolveValue < 1f)
             {
-                modelConfigurationComponent.SetMaterialsValue(_dissolvePropertyId, dissolve);
-                dissolve += Time.deltaTime;
+                modelConfigurationComponent.SetMaterialsValue(_dissolvePropertyId, dissolveValue);
+                dissolveValue += Time.deltaTime;
                 await UniTask.Yield(PlayerLoopTiming.Update);
             }
 

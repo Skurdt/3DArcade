@@ -36,6 +36,7 @@ namespace Arcade
         [SerializeField] private ArcadeControllerVariable _arcadeController;
         [SerializeField] private GeneralConfigurationVariable _generalConfiguration;
         [SerializeField] private Databases _databases;
+        [SerializeField] private Material _dissolveMaterial;
 
         public async UniTask<ModelConfigurationComponent[]> SpawnGamesAsync(bool dissolveEffect)
         {
@@ -74,7 +75,7 @@ namespace Arcade
             return await SpawnModelAsync(modelConfiguration, position, rotation, _scenes.Entities.GamesNodeTransform, EntitiesScene.GamesLayer, addressesToTry, dissolveEffect, true);
         }
 
-        protected abstract UniTask<GameObject> SpawnAsync(AssetAddresses addressesToTry, Vector3 position, Quaternion orientation, Transform parent, bool dissolveEffect);
+        protected abstract UniTask<GameObject> SpawnAsync(AssetAddresses addressesToTry, Vector3 position, Quaternion orientation, Transform parent);
 
         private async UniTask<ModelConfigurationComponent> SpawnGameAsync(ModelConfiguration modelConfiguration, Transform parent, bool dissolveEffect)
         {
@@ -120,7 +121,7 @@ namespace Arcade
 
         private async UniTask<ModelConfigurationComponent> SpawnModelAsync(ModelConfiguration modelConfiguration, Vector3 position, Quaternion rotation, Transform parent, int layer, AssetAddresses addressesToTry, bool dissolveEffect, bool applyArtworks)
         {
-            GameObject go = await SpawnAsync(addressesToTry, position, rotation, parent, dissolveEffect);
+            GameObject go = await SpawnAsync(addressesToTry, position, rotation, parent);
             if (go == null)
                 return null;
 
@@ -137,7 +138,23 @@ namespace Arcade
             }
 
             if (applyArtworks)
-                ApplyArtworksAsync(go, modelConfiguration).Forget();
+                await ApplyArtworksAsync(go, modelConfiguration);
+
+            if (dissolveEffect)
+            {
+                modelConfigurationComponent.SaveMaterials();
+                modelConfigurationComponent.SetMaterials(_dissolveMaterial);
+
+                float dissolveValue = 1f;
+                while (dissolveValue > 0f)
+                {
+                    modelConfigurationComponent.SetMaterialsValue(Shader.PropertyToID("_Dissolve"), dissolveValue);
+                    dissolveValue -= Time.deltaTime;
+                    await UniTask.Yield(PlayerLoopTiming.Update);
+                }
+
+                modelConfigurationComponent.RestoreMaterials();
+            }
 
             return modelConfigurationComponent;
         }
@@ -175,7 +192,7 @@ namespace Arcade
             return addressesToTry;
         }
 
-        private async UniTaskVoid ApplyArtworksAsync(GameObject gameObject, ModelConfiguration modelConfiguration)
+        private async UniTask ApplyArtworksAsync(GameObject gameObject, ModelConfiguration modelConfiguration)
         {
             // Look for artworks only in play mode / runtime
             if (!Application.isPlaying)

@@ -20,4 +20,4 @@ MonoBehaviour:
   _generalConfiguration: {fileID: 11400000, guid: e73c346bff35ea041864153f6973108b,
     type: 2}
   _databases: {fileID: 11400000, guid: e8c64f039a7454e4db81906a8ece05df, type: 2}
-  _dissolveMaterial: {fileID: 2100000, guid: adee795607fa2b74f81f7b235cf00f99, type: 2}
+  _dissolveMaterial: {fileID: 2100000, guid: 27da82994c6a933409e6b433c9be1030, type: 2}

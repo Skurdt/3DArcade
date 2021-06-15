@@ -29,7 +29,7 @@ namespace Arcade
     [CreateAssetMenu(menuName = "3DArcade/Editor/ModelSpawner", fileName = "EditorModelSpawner")]
     public sealed class EditorModelSpawner : ModelSpawnerBase
     {
-        protected override async UniTask<GameObject> SpawnAsync(AssetAddresses addressesToTry, Vector3 position, Quaternion orientation, Transform parent, bool dissolveEffect)
+        protected override async UniTask<GameObject> SpawnAsync(AssetAddresses addressesToTry, Vector3 position, Quaternion orientation, Transform parent)
         {
             foreach (string addressToTry in addressesToTry)
             {
