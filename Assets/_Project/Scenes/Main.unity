@@ -10737,7 +10737,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.2968085, y: 1}
+    m_SensorSize: {x: 1.8088642, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -11212,8 +11212,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: 1a8211929a995f146b5e90cdc50a6ae9, type: 2}
-        m_TargetAssemblyTypeName: Arcade.InteractionData, Arcade.Runtime
+      - m_Target: {fileID: 11400000, guid: 831f186e2a6157646b5438454323f1c8, type: 2}
+        m_TargetAssemblyTypeName: Arcade.NormalInteractions, Arcade.Runtime
         m_MethodName: HoverEnteredCallback
         m_Mode: 0
         m_Arguments:
@@ -11251,8 +11251,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: 1a8211929a995f146b5e90cdc50a6ae9, type: 2}
-        m_TargetAssemblyTypeName: Arcade.InteractionData, Arcade.Runtime
+      - m_Target: {fileID: 11400000, guid: 831f186e2a6157646b5438454323f1c8, type: 2}
+        m_TargetAssemblyTypeName: Arcade.NormalInteractions, Arcade.Runtime
         m_MethodName: HoverExitedCallback
         m_Mode: 0
         m_Arguments:
