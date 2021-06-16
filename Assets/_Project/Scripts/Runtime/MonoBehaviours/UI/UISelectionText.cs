@@ -53,9 +53,9 @@ namespace Arcade
             gameObject.SetActive(false);
         }
 
-        public void Show(ModelConfiguration modelConfiguration)
+        public void Show(ModelConfigurationComponent modelConfigurationComponent)
         {
-            if (modelConfiguration == null)
+            if (modelConfigurationComponent == null)
             {
                 Hide();
                 return;
@@ -63,7 +63,7 @@ namespace Arcade
 
             _ = _text.DOKill();
 
-            string description = modelConfiguration.GetDescription();
+            string description = modelConfigurationComponent.Configuration.GetDescription();
             _text.SetText(description);
 
             _ = _text.DOFade(1f, _animationDuration.Value);

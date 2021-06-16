@@ -23,13 +23,15 @@ MonoBehaviour:
   _arcadeController: {fileID: 11400000, guid: b50b6273569d084419687f9fc89cae03, type: 2}
   _onRequestUpdatedModelConfiguration: {fileID: 11400000, guid: c280b2f5286ce3c41a0d36b8b91561dd,
     type: 2}
+  _spawnIndicatorPrefab: {fileID: 3304316353240699695, guid: f88486dbd6b46224eb35e0534c99f4e7,
+    type: 3}
   _spawnerMesh: {fileID: -5908799853881665459, guid: 5fa26ef7d69399f40a0de97d91d291dd,
     type: 3}
   _spawnerMaterial: {fileID: 2100000, guid: f890ccdce46e3ea48b12e2f532ee98e3, type: 2}
   _dissolveMaterial: {fileID: 2100000, guid: 27da82994c6a933409e6b433c9be1030, type: 2}
   _hightlightLayer: 11
   _spawnDistance: 2
-  _verticalOffset: 0.4
+  _verticalOffset: 0
   _worldLayerMask:
     serializedVersion: 2
     m_Bits: 128

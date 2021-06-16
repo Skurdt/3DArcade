@@ -79,8 +79,8 @@
         <artwork_directories />
         <game />
       </overrides>
-      <position x="1.55" y="-0.01" z="2.12" />
-      <rotation x="-0" y="-167.44" z="-0" />
+      <position x="1.62" y="-0.01" z="2.14" />
+      <rotation x="-0" y="-159.53" z="-0" />
       <scale x="1" y="1" z="1" />
     </game>
     <game id="ssf2" platform="arcade">
@@ -121,8 +121,8 @@
           <Manufacturer />
         </game>
       </overrides>
-      <position x="-0.35" y="-0" z="2.14" />
-      <rotation x="-0" y="153.36" z="0" />
+      <position x="-0.39" y="-0" z="2.14" />
+      <rotation x="0" y="153.36" z="0" />
       <scale x="1" y="1" z="1" />
     </game>
   </games>

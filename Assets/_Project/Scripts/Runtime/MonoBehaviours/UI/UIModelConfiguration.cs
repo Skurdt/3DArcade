@@ -79,15 +79,17 @@ namespace Arcade
             _idInputField.onDeselect.AddListener((str) => _arcadeState.EnableInput());
 
             _interactionTypeDropdown.AddOptions(new List<string>
-                {
-                    $"{InteractionType.Default}",
-                    $"{InteractionType.FpsArcadeConfiguration}",
-                    $"{InteractionType.CylArcadeConfiguration}"
-                });
+            {
+                $"{InteractionType.Default}",
+                $"{InteractionType.FpsArcadeConfiguration}",
+                $"{InteractionType.CylArcadeConfiguration}"
+            });
             _interactionTypeDropdown.onValueChanged.AddListener((index) =>
             {
                 _idInputField.DeactivateInputField(true);
                 _idInputField.SetTextWithoutNotify("");
+                _platformDropdown.SetValueWithoutNotify(0);
+                _emulatorDropdown.SetValueWithoutNotify(0);
                 SetConfigurationMode(index);
             });
 
@@ -110,66 +112,27 @@ namespace Arcade
 
         public Tween SetVisibility(bool visible) => visible ? Show() : Hide();
 
-        public void Refresh(ModelConfiguration modelConfiguration)
+        public void TargetChangedCallback(ModelConfigurationComponent modelConfigurationComponent)
         {
-            SetButtonsState(modelConfiguration != null);
-
-            if (modelConfiguration == null)
+            if (modelConfigurationComponent != null)
             {
-                ClearUIValues();
-                SetConfigurationMode(0);
+                SetButtonsState(true);
+                SetConfigurationMode(modelConfigurationComponent.Configuration.InteractionType == InteractionType.Default ? 0 : 1);
+                SetUIValues(modelConfigurationComponent.Configuration);
                 return;
             }
 
-            _title.SetText(modelConfiguration.GetDescription());
+            SetButtonsState(false);
 
-            _idInputField.DeactivateInputField(true);
-            _idInputField.SetTextWithoutNotify(modelConfiguration.Id);
-
-            int interactionTypeIndex = modelConfiguration.InteractionType switch
+            if (_interactions.ReferenceTarget != null)
             {
-                InteractionType.Default                => 0,
-                InteractionType.FpsArcadeConfiguration => 1,
-                InteractionType.CylArcadeConfiguration => 2,
-                _ => throw new NotImplementedException(),
-            };
-            _interactionTypeDropdown.SetValueWithoutNotify(interactionTypeIndex);
-
-            SetConfigurationMode(interactionTypeIndex);
-
-            _grabbableToggle.SetIsOnWithoutNotify(modelConfiguration.Grabbable);
-            _editMovableToggle.SetIsOnWithoutNotify(modelConfiguration.MoveCabMovable);
-            _editGrabbableToggle.SetIsOnWithoutNotify(modelConfiguration.MoveCabGrabbable);
-
-            int modelIndex = !string.IsNullOrEmpty(modelConfiguration.Overrides.Model)
-                           ? _modelDropdown.options.FindIndex(x => x.text == modelConfiguration.Overrides.Model)
-                           : 0;
-            _modelDropdown.SetValueWithoutNotify(modelIndex);
-
-            bool isForGames = interactionTypeIndex == 0;
-            if (isForGames)
-            {
-                _arcadesList.Hide();
-                int platformIndex = !(modelConfiguration.PlatformConfiguration is null)
-                                    ? _platformDropdown.options.FindIndex(x => x.text == modelConfiguration.PlatformConfiguration.Id)
-                                    : 0;
-                int emulatorIndex = !string.IsNullOrEmpty(modelConfiguration.Overrides.Emulator)
-                                  ? _emulatorDropdown.options.FindIndex(x => x.text == modelConfiguration.Overrides.Emulator)
-                                  : 0;
-                _platformDropdown.SetValueWithoutNotify(platformIndex);
-                _emulatorDropdown.SetValueWithoutNotify(emulatorIndex);
-                _gamesList.Refresh(platformIndex);
+                SetConfigurationMode(_interactions.ReferenceTarget.Configuration.InteractionType == InteractionType.Default ? 0 : 1);
+                SetUIValues(_interactions.ReferenceTarget.Configuration);
                 return;
             }
 
-            _gamesList.Hide();
-            _platformDropdown.SetValueWithoutNotify(0);
-            _emulatorDropdown.SetValueWithoutNotify(0);
-
-            if (_arcadesList.Count > 0)
-                _arcadesList.Show();
-            else
-                _arcadesList.Hide();
+            SetConfigurationMode(0);
+            _interactionTypeDropdown.SetValueWithoutNotify(0);
         }
 
         public void ApplyChangesOrAddModel(string text)
@@ -225,7 +188,20 @@ namespace Arcade
             _gamesList.Init();
             _arcadesList.Init();
 
-            Refresh(_interactions.CurrentTarget != null ? _interactions.CurrentTarget.Configuration : null);
+            ModelConfigurationComponent currentTarget = _interactions.CurrentTarget;
+            if (currentTarget == null)
+            {
+                SetButtonsState(false);
+                SetConfigurationMode(0);
+                ClearUIValues();
+            }
+            else
+            {
+                SetButtonsState(true);
+                ModelConfiguration currentConfiguration = currentTarget.Configuration;
+                SetConfigurationMode(currentConfiguration.InteractionType == InteractionType.Default ? 0 : 1);
+                SetUIValues(currentConfiguration);
+            }
 
             _ = _transform.DOKill();
             return _transform.DOAnchorPosX(_animationEndPosition, _animationDuration.Value)
@@ -280,6 +256,59 @@ namespace Arcade
                 _arcadesList.Show();
                 _gamesList.Hide();
             }
+        }
+
+        private void SetUIValues(ModelConfiguration modelConfiguration)
+        {
+            _title.SetText(modelConfiguration.GetDescription());
+
+            _idInputField.DeactivateInputField(true);
+            _idInputField.SetTextWithoutNotify(modelConfiguration.Id);
+
+            int interactionTypeIndex = modelConfiguration.InteractionType switch
+            {
+                InteractionType.Default                => 0,
+                InteractionType.FpsArcadeConfiguration => 1,
+                InteractionType.CylArcadeConfiguration => 2,
+                _ => throw new NotImplementedException(),
+            };
+            _interactionTypeDropdown.SetValueWithoutNotify(interactionTypeIndex);
+
+            SetConfigurationMode(interactionTypeIndex);
+
+            _grabbableToggle.SetIsOnWithoutNotify(modelConfiguration.Grabbable);
+            _editMovableToggle.SetIsOnWithoutNotify(modelConfiguration.MoveCabMovable);
+            _editGrabbableToggle.SetIsOnWithoutNotify(modelConfiguration.MoveCabGrabbable);
+
+            int modelIndex = !string.IsNullOrEmpty(modelConfiguration.Overrides.Model)
+                           ? _modelDropdown.options.FindIndex(x => x.text == modelConfiguration.Overrides.Model)
+                           : 0;
+            _modelDropdown.SetValueWithoutNotify(modelIndex);
+
+            bool isForGames = interactionTypeIndex == 0;
+            if (isForGames)
+            {
+                _arcadesList.Hide();
+                int platformIndex = !(modelConfiguration.PlatformConfiguration is null)
+                                    ? _platformDropdown.options.FindIndex(x => x.text == modelConfiguration.PlatformConfiguration.Id)
+                                    : 0;
+                int emulatorIndex = !string.IsNullOrEmpty(modelConfiguration.Overrides.Emulator)
+                                  ? _emulatorDropdown.options.FindIndex(x => x.text == modelConfiguration.Overrides.Emulator)
+                                  : 0;
+                _platformDropdown.SetValueWithoutNotify(platformIndex);
+                _emulatorDropdown.SetValueWithoutNotify(emulatorIndex);
+                _gamesList.Refresh(platformIndex);
+                return;
+            }
+
+            _gamesList.Hide();
+            _platformDropdown.SetValueWithoutNotify(0);
+            _emulatorDropdown.SetValueWithoutNotify(0);
+
+            if (_arcadesList.Count > 0)
+                _arcadesList.Show();
+            else
+                _arcadesList.Hide();
         }
 
         private void ClearUIValues()

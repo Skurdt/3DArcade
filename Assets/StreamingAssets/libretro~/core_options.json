@@ -99,6 +99,7 @@
                 "mame2003-plus_machine_timing;enabled;enabled|disabled;",
                 "mame2003-plus_mame_remapping;enabled;enabled|disabled;",
                 "mame2003-plus_mouse_device;mouse;mouse|pointer|disabled;",
+                "mame2003-plus_nvram_bootstraps;enabled;enabled|disabled;",
                 "mame2003-plus_sample_rate;48000;48000|8000|11025|22050|30000|44100|;",
                 "mame2003-plus_skip_disclaimer;enabled;disabled|enabled;",
                 "mame2003-plus_skip_warnings;enabled;disabled|enabled;",
@@ -230,6 +231,21 @@
                 "snes9x_superscope_crosshair;2;2|0|1|3|4|5|6|7|8|9|10|11|12|13|14|15|16;",
                 "snes9x_superscope_reverse_buttons;disabled;disabled|enabled;",
                 "snes9x_up_down_allowed;disabled;disabled|enabled;"
+            ]
+        },
+        {
+            "CoreName": "stella",
+            "Options": [
+                "stella_console;auto;auto|ntsc|pal|secam|ntsc50|pal60|secam60;",
+                "stella_crop_hoverscan;disabled;disabled|enabled;",
+                "stella_filter;disabled;disabled|composite|s-video|rgb|badly adjusted;",
+                "stella_ntsc_aspect;par;par|100|101|102|103|104|105|106|107|108|109|110|111|112|113|114|115|116|117|118|119|120|121|122|123|124|125|50|75|76|77|78|79|80|81|82|83|84|85|86|87|88|89|90|91|92|93|94|95|96|97|98|99;",
+                "stella_paddle_joypad_sensitivity;3;3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|1|2;",
+                "stella_pal_aspect;par;par|100|101|102|103|104|105|106|107|108|109|110|111|112|113|114|115|116|117|118|119|120|121|122|123|124|125|50|75|76|77|78|79|80|81|82|83|84|85|86|87|88|89|90|91|92|93|94|95|96|97|98|99;",
+                "stella_palette;standard;standard|z26|user|custom;",
+                "stella_phosphor;auto;auto|off|on;",
+                "stella_phosphor_blend;60;60|65|70|75|80|85|90|95|100|0|5|10|15|20|25|30|35|40|45|50|55;",
+                "stella_stereo;auto;auto|off|on;"
             ]
         }
     ]

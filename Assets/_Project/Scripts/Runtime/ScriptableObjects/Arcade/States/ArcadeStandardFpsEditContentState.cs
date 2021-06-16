@@ -42,7 +42,12 @@ namespace Arcade
             Context.OnArcadeStateChanged.Raise(this);
         }
 
-        public override void OnExit() => Debug.Log($"> <color=orange>Exited</color> {GetType().Name}");
+        public override void OnExit()
+        {
+            Debug.Log($"> <color=orange>Exited</color> {GetType().Name}");
+
+            Context.Interactions.EditContent.DeInitialize();
+        }
 
         public override void OnUpdate(float dt)
         {

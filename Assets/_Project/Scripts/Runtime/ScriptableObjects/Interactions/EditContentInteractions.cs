@@ -34,14 +34,15 @@ namespace Arcade
         [SerializeField] private ArcadeContext _arcadeContext;
         [SerializeField] private ArcadeControllerVariable _arcadeController;
         [SerializeField] private ModelConfigurationEvent _onRequestUpdatedModelConfiguration;
-        [SerializeField] private Mesh _spawnerMesh;
-        [SerializeField] private Material _spawnerMaterial;
+        [SerializeField] private GameObject _spawnIndicatorPrefab;
         [SerializeField] private Material _dissolveMaterial;
 
         [SerializeField, Layer] private int _hightlightLayer;
         [SerializeField] private float _spawnDistance  = 2f;
-        [SerializeField] private float _verticalOffset = 0.4f;
+        [SerializeField] private float _verticalOffset = 0.05f;
         [SerializeField] private LayerMask _worldLayerMask;
+
+        [field: System.NonSerialized] public ModelConfigurationComponent ReferenceTarget { get; private set; }
 
         private readonly List<ModelConfigurationComponent> _addedItems   = new List<ModelConfigurationComponent>();
         private readonly List<ModelConfigurationComponent> _removedItems = new List<ModelConfigurationComponent>();
@@ -49,11 +50,15 @@ namespace Arcade
         [System.NonSerialized] private Transform _player;
         [System.NonSerialized] private Camera _camera;
         [System.NonSerialized] private int _dissolvePropertyId;
-        [System.NonSerialized] private bool _drawDummyMesh = true;
+        [System.NonSerialized] private GameObject _spawnIndicator;
+
+        [System.NonSerialized] private bool _drawSpawnIndicator = true;
+        [System.NonSerialized] private bool _spawning;
 
         public void Initialize(Camera camera)
         {
             _dissolvePropertyId = Shader.PropertyToID("_Dissolve");
+            _spawnIndicator     = Instantiate(_spawnIndicatorPrefab);
 
             _arcadeContext.Databases.Initialize();
 
@@ -66,76 +71,85 @@ namespace Arcade
             UpdateCurrentTarget(camera);
         }
 
+        public void DeInitialize()
+        {
+            if (_spawnIndicator != null)
+                Destroy(_spawnIndicator);
+        }
+
         public override void UpdateCurrentTarget(Camera camera)
         {
             ModelConfigurationComponent target = Raycaster.GetCurrentTarget(camera);
             if (target == null)
             {
-                if (CurrentTarget != null)
+                if (!_spawning)
+                    EnableSpawnIndicator();
+
+                if (ReferenceTarget != null && ReferenceTarget != CurrentTarget)
                 {
-                    CurrentTarget.RestoreLayerToOriginal();
-                    CurrentTarget.RemoveOutline();
-                    CurrentTarget = null;
+                    ReferenceTarget.RestoreLayerToOriginal();
+                    ReferenceTarget.RemoveOutline();
                 }
 
-                if (_drawDummyMesh)
+                Reset();
+
+                if (_drawSpawnIndicator)
                 {
                     Vector3 playerPosition   = _player.position;
                     Vector3 playerDirection  = _player.forward;
                     Vector3 spawnPosition    = playerPosition + (playerDirection * _spawnDistance);
-                    Quaternion spawnRotation = Quaternion.LookRotation(-playerDirection);
 
                     Ray ray = _camera.ScreenPointToRay(_camera.WorldToScreenPoint(spawnPosition));
-                    if (Physics.Raycast(ray, out RaycastHit hitInfo, math.INFINITY, _worldLayerMask))
-                        Graphics.DrawMesh(_spawnerMesh, hitInfo.point, spawnRotation, _spawnerMaterial, 0);
+                    if (Physics.Raycast(ray, out RaycastHit _, math.INFINITY, _worldLayerMask))
+                    {
+                        Quaternion spawnRotation = Quaternion.LookRotation(playerDirection);
+                        _spawnIndicator.transform.SetPositionAndRotation(spawnPosition, spawnRotation);
+                    }
                 }
-
                 return;
             }
 
-            if (CurrentTarget == target)
+            DisableSpawnIndicator();
+
+            if (target == CurrentTarget)
                 return;
 
-            if (CurrentTarget != null)
+            if (CurrentTarget != null && target != CurrentTarget)
             {
                 CurrentTarget.RestoreLayerToOriginal();
                 CurrentTarget.RemoveOutline();
             }
 
-            CurrentTarget = target;
+            if (ReferenceTarget != null && target != ReferenceTarget)
+            {
+                ReferenceTarget.RestoreLayerToOriginal();
+                ReferenceTarget.RemoveOutline();
+            }
 
-            CurrentTarget.SetLayer(_hightlightLayer);
-            CurrentTarget.AddOutline(_outlineColor);
-            _onCurrentTargetChanged.Raise(CurrentTarget != null ? CurrentTarget.Configuration : null);
+            target.SetLayer(_hightlightLayer);
+            target.AddOutline(_outlineColor);
+
+            CurrentTarget = ReferenceTarget = target;
+
+            _onCurrentTargetChanged.Raise(target);
+        }
+
+        public void ApplyChangesOrAddModel()
+        {
+            if (CurrentTarget != null)
+            {
+                CurrentTarget.RemoveOutline();
+                ApplyChanges();
+            }
+            else
+                AddModel();
         }
 
         public void ApplyChanges() => ApplyChangesAsync().Forget();
 
         public void AddModel() => SpawnGameAsync().Forget();
 
-        public void ApplyChangesOrAddModel()
-        {
-            if (CurrentTarget != null)
-                ApplyChanges();
-            else
-                AddModel();
-        }
-
-        public void RemoveModel()
-        {
-            if (CurrentTarget == null)
-                return;
-
-            if (_addedItems.Contains(CurrentTarget))
-            {
-                _ = _addedItems.Remove(CurrentTarget);
-                DissolveObject(CurrentTarget, true).Forget();
-                return;
-            }
-
-            _removedItems.Add(CurrentTarget);
-            DissolveObject(CurrentTarget, false).Forget();
-        }
+        public void RemoveModel() => RemoveGameAsync().Forget();
 
         public void DestroyAddedItems()
         {
@@ -169,45 +183,44 @@ namespace Arcade
 
         private async UniTaskVoid ApplyChangesAsync()
         {
-            if (CurrentTarget == null)
+            if (_drawSpawnIndicator || CurrentTarget == null)
                 return;
 
-            _drawDummyMesh = false;
-
             ModelConfiguration modelConfiguration = ClassUtils.DeepCopy(CurrentTarget.Configuration);
-            Vector3 spawnPosition                 = CurrentTarget.transform.position;
+            Vector3 spawnPosition                 = CurrentTarget.transform.position + (Vector3.up * _verticalOffset);
             Quaternion spawnRotation              = CurrentTarget.transform.localRotation;
 
             _onRequestUpdatedModelConfiguration.Raise(modelConfiguration);
             if (string.IsNullOrEmpty(modelConfiguration.Id))
-            {
-                _drawDummyMesh = true;
                 return;
-            }
+
+            _spawning = true;
+            DisableSpawnIndicator();
 
             if (_addedItems.Contains(CurrentTarget))
             {
                 _ = _addedItems.Remove(CurrentTarget);
-                await DissolveObject(CurrentTarget, true, false);
+                await DissolveObject(CurrentTarget, true);
             }
             else
             {
                 _removedItems.Add(CurrentTarget);
-                await DissolveObject(CurrentTarget, false, false);
+                await DissolveObject(CurrentTarget, false);
             }
 
             ModelConfigurationComponent modelConfigurationComponent = await _arcadeController.Value.ModelSpawner.SpawnGameAsync(modelConfiguration, spawnPosition, spawnRotation, true);
             _addedItems.Add(modelConfigurationComponent);
 
-            _drawDummyMesh = true;
+            _spawning = false;
         }
 
         private async UniTaskVoid SpawnGameAsync()
         {
-            if (!_drawDummyMesh || CurrentTarget != null)
+            if (!_drawSpawnIndicator || CurrentTarget != null)
                 return;
 
-            _drawDummyMesh = false;
+            _spawning = true;
+            DisableSpawnIndicator();
 
             ModelConfiguration modelConfiguration = new ModelConfiguration();
 
@@ -219,20 +232,45 @@ namespace Arcade
             _onRequestUpdatedModelConfiguration.Raise(modelConfiguration);
             if (string.IsNullOrEmpty(modelConfiguration.Id))
             {
-                _drawDummyMesh = true;
+                _spawning = false;
+                EnableSpawnIndicator();
                 return;
             }
 
             ModelConfigurationComponent modelConfigurationComponent = await _arcadeController.Value.ModelSpawner.SpawnGameAsync(modelConfiguration, spawnPosition, spawnRotation, true);
             _addedItems.Add(modelConfigurationComponent);
 
-            _drawDummyMesh = true;
+            _spawning = false;
+            EnableSpawnIndicator();
         }
 
-        private async UniTask DissolveObject(ModelConfigurationComponent modelConfigurationComponent, bool destroy, bool reEnableDummy = true)
+        private async UniTask RemoveGameAsync()
         {
-            _drawDummyMesh = false;
+            if (_drawSpawnIndicator || CurrentTarget == null)
+                return;
 
+            _spawning = true;
+            DisableSpawnIndicator();
+
+            CurrentTarget.RemoveOutline();
+
+            if (_addedItems.Contains(CurrentTarget))
+            {
+                _ = _addedItems.Remove(CurrentTarget);
+                await DissolveObject(CurrentTarget, true);
+            }
+            else
+            {
+                _removedItems.Add(CurrentTarget);
+                await DissolveObject(CurrentTarget, false);
+            }
+
+            _spawning = false;
+            EnableSpawnIndicator();
+        }
+
+        private async UniTask DissolveObject(ModelConfigurationComponent modelConfigurationComponent, bool destroy)
+        {
             GameObject obj = modelConfigurationComponent.gameObject;
 
             DynamicArtworkComponent[] dynamicArtworkComponents = obj.GetComponentsInChildren<DynamicArtworkComponent>();
@@ -259,9 +297,18 @@ namespace Arcade
                 obj.SetActive(false);
 
             modelConfigurationComponent.RestoreMaterials();
+        }
 
-            if (reEnableDummy)
-                _drawDummyMesh = true;
+        private void EnableSpawnIndicator()
+        {
+            _spawnIndicator.SetActive(true);
+            _drawSpawnIndicator = true;
+        }
+
+        private void DisableSpawnIndicator()
+        {
+            _spawnIndicator.SetActive(false);
+            _drawSpawnIndicator = false;
         }
     }
 }

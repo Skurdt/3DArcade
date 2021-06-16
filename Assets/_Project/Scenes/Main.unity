@@ -10737,7 +10737,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 0.94813025, y: 1}
+    m_SensorSize: {x: 1.2968085, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -19171,7 +19171,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4923811461110649392}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91bab0021059bf24086f9e09b62a7914, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c3615b38bbbaeb41b07f8defd1a9b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _event: {fileID: 11400000, guid: 3d41d8f1dd8f98d49a53bea6e58e09b8, type: 2}
@@ -19180,7 +19180,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4923811461110649406}
         m_TargetAssemblyTypeName: Arcade.UIModelConfiguration, Arcade.Runtime
-        m_MethodName: Refresh
+        m_MethodName: TargetChangedCallback
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -21311,7 +21311,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4923811461950024869}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91bab0021059bf24086f9e09b62a7914, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c3615b38bbbaeb41b07f8defd1a9b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _event: {fileID: 11400000, guid: 3d41d8f1dd8f98d49a53bea6e58e09b8, type: 2}
@@ -22045,7 +22045,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4923811462244768839}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91bab0021059bf24086f9e09b62a7914, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c3615b38bbbaeb41b07f8defd1a9b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _event: {fileID: 11400000, guid: 3d41d8f1dd8f98d49a53bea6e58e09b8, type: 2}

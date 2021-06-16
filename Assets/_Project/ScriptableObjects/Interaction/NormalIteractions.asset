@@ -18,8 +18,6 @@ MonoBehaviour:
     type: 2}
   _onCurrentTargetChanged: {fileID: 11400000, guid: 3d41d8f1dd8f98d49a53bea6e58e09b8,
     type: 2}
-  _onPreviousTargetChanged: {fileID: 11400000, guid: 7a3a3bb6fb27258499e623b4cb667ffd,
-    type: 2}
   _outlineColor: {r: 0, g: 0.23456703, b: 0.4339623, a: 1}
   _arcadeContext: {fileID: 11400000, guid: 699a2679e60a772459b83c09413cf198, type: 2}
   _selectionlayer: 10

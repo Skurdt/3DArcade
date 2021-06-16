@@ -83,7 +83,7 @@ namespace Arcade
             if (CurrentTarget != null)
                 CurrentTarget.SetLayer(_selectionlayer);
 
-            _onCurrentTargetChanged.Raise(CurrentTarget != null ? CurrentTarget.Configuration : null);
+            _onCurrentTargetChanged.Raise(CurrentTarget);
         }
 
         private void HandleEmulatorInteraction(ModelConfiguration modelConfiguration)

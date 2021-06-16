@@ -49,7 +49,7 @@ namespace Arcade
 
             CurrentTarget.AddOutline(_outlineColor);
 
-            _onCurrentTargetChanged.Raise(CurrentTarget != null ? CurrentTarget.Configuration : null);
+            _onCurrentTargetChanged.Raise(CurrentTarget);
         }
 
         public void ManualMoveAndRotate(Vector2 directionInput, float rotationInput)

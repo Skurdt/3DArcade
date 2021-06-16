@@ -125,6 +125,15 @@ namespace Arcade
             if (go == null)
                 return null;
 
+            bool hasRigidbody = go.TryGetComponent(out Rigidbody rigidbody);
+            bool hasCollider  = go.TryGetComponent(out Collider collider);
+
+            if (hasRigidbody && hasCollider)
+            {
+                rigidbody.isKinematic = true;
+                collider.enabled      = false;
+            }
+
             ModelConfigurationComponent modelConfigurationComponent = go.AddComponent<ModelConfigurationComponent>();
             modelConfigurationComponent.InitialSetup(modelConfiguration, layer);
 
@@ -155,6 +164,12 @@ namespace Arcade
 
                 modelConfigurationComponent.RestoreMaterials();
             }
+
+            if (hasCollider)
+                collider.enabled = true;
+
+            if (hasRigidbody)
+                rigidbody.isKinematic = false;
 
             return modelConfigurationComponent;
         }

@@ -81,7 +81,11 @@ namespace Arcade
             return _modelConfiguration;
         }
 
-        public void SetLayer(int layer) => gameObject.SetLayerRecursively(layer);
+        public void SetLayer(int layer)
+        {
+            if (gameObject.layer != layer)
+                gameObject.SetLayerRecursively(layer);
+        }
 
         public void RestoreLayerToOriginal() => SetLayer(_originalLayer);
 
@@ -107,7 +111,7 @@ namespace Arcade
                     if (texture == null)
                     {
                         MaterialPropertyBlock blockRead = new MaterialPropertyBlock();
-                        renderer.GetPropertyBlock(blockRead, 0);
+                        renderer.GetPropertyBlock(blockRead);
                         texture = blockRead.GetTexture(ArtworkController.ShaderEmissionMapId);
                     }
                 }
@@ -118,7 +122,7 @@ namespace Arcade
                 blockWrite.SetColor(ArtworkController.ShaderBaseColorId, color);
                 if (texture != null)
                     blockWrite.SetTexture(ArtworkController.ShaderBaseMapId, texture);
-                renderer.SetPropertyBlock(blockWrite, 0);
+                renderer.SetPropertyBlock(blockWrite);
             }
         }
 
@@ -127,9 +131,9 @@ namespace Arcade
             foreach (MeshRenderer renderer in _renderers)
             {
                 MaterialPropertyBlock blockRead = new MaterialPropertyBlock();
-                renderer.GetPropertyBlock(blockRead, 0);
+                renderer.GetPropertyBlock(blockRead);
                 blockRead.SetFloat(id, value);
-                renderer.SetPropertyBlock(blockRead, 0);
+                renderer.SetPropertyBlock(blockRead);
             }
         }
 

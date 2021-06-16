@@ -819,6 +819,8 @@
         "m_GuidSerialized": "d50b916f-1761-4b5a-8c0e-11378a22df6b"
     },
     "m_Name": "Texture",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Texture2D_3b3bcf4766d34ad4bc4fae9885ff8ffa",
     "m_OverrideReferenceName": "_Texture",
     "m_GeneratePropertyBlock": true,
@@ -1089,9 +1091,9 @@
     "m_ShaderOutputName": "Emission",
     "m_StageCapability": 2,
     "m_Value": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
     },
     "m_DefaultValue": {
         "x": 0.0,
@@ -1367,6 +1369,8 @@
         "m_GuidSerialized": "9b4e5cf7-d2c3-4994-8ac9-cf13506ff801"
     },
     "m_Name": "Intensity",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Vector1_88972b0c20074c40a6c661d917853d3d",
     "m_OverrideReferenceName": "_Intensity",
     "m_GeneratePropertyBlock": true,
@@ -1374,7 +1378,7 @@
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 2,
     "m_Hidden": false,
-    "m_Value": 1.0,
+    "m_Value": 1.2000000476837159,
     "m_FloatType": 0,
     "m_RangeValues": {
         "x": 0.0,
@@ -2267,8 +2271,10 @@
         "m_GuidSerialized": "704832e0-7d67-4d5a-acdd-12748066f05a"
     },
     "m_Name": "MaskScale",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Vector1_fe8231eb0e7c4f94bdfd1ed5ca66583d",
-    "m_OverrideReferenceName": "",
+    "m_OverrideReferenceName": "_MaskScale",
     "m_GeneratePropertyBlock": true,
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,

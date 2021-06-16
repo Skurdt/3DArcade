@@ -109,7 +109,7 @@ namespace Arcade
             _imageCyclingIndex %= _imageCyclingTextures.Length;
 
             MaterialPropertyBlock block = new MaterialPropertyBlock();
-            _renderer.GetPropertyBlock(block, 0);
+            _renderer.GetPropertyBlock(block);
             if (_renderer.material.IsKeywordEnabled(ArtworkController.ShaderEmissionKeyword))
             {
                 block.SetColor(ArtworkController.ShaderBaseColorId, Color.black);
@@ -121,7 +121,7 @@ namespace Arcade
                 block.SetColor(ArtworkController.ShaderBaseColorId, Color.white);
                 block.SetTexture(ArtworkController.ShaderBaseMapId, _imageCyclingTextures[_imageCyclingIndex]);
             }
-            _renderer.SetPropertyBlock(block, 0);
+            _renderer.SetPropertyBlock(block);
         }
 
         private void RandomizeDelay() => _imageCyclingDelay = Random.Range(DEFAULT_MIN_DELAY, DEFAULT_MAX_DELAY);

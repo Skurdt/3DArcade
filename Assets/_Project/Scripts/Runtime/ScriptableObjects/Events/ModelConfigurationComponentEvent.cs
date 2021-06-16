@@ -24,27 +24,8 @@ using UnityEngine;
 
 namespace Arcade
 {
-    public abstract class InteractionsBase : ScriptableObject
+    [CreateAssetMenu(menuName = "3DArcade/Event/ModelConfigurationComponent", fileName = "NewModelConfigurationComponentEvent")]
+    public sealed class ModelConfigurationComponentEvent : EventBase<ModelConfigurationComponent>
     {
-        [field: SerializeField] protected ArcadeConfigurationVariable ArcadeConfiguration { get; private set; }
-        [field: SerializeField] protected InteractionRaycasterBase Raycaster { get; private set; }
-
-        [SerializeField] protected ModelConfigurationComponentEvent _onCurrentTargetChanged;
-        [SerializeField] protected Color _outlineColor;
-
-        [field: System.NonSerialized] public ModelConfigurationComponent CurrentTarget { get; protected set; }
-
-        public abstract void UpdateCurrentTarget(Camera camera);
-
-        public void Reset()
-        {
-            if (CurrentTarget != null)
-            {
-                CurrentTarget.RestoreLayerToOriginal();
-                CurrentTarget.RemoveOutline();
-                CurrentTarget = null;
-                _onCurrentTargetChanged.Raise(null);
-            }
-        }
     }
 }
