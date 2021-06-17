@@ -22,9 +22,7 @@
 
 using Cysharp.Threading.Tasks;
 using SK.Utilities.Unity.StateMachine;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.XR;
 using Zenject;
 
 namespace Arcade
@@ -137,14 +135,6 @@ namespace Arcade
 
             if (Application.isPlaying)
             {
-                if (GeneralConfiguration.Value.EnableVR)
-                {
-                    List<InputDevice> devices = new List<InputDevice>();
-                    InputDevices.GetDevices(devices);
-                    if (devices.Count == 0)
-                        GeneralConfiguration.Value.EnableVR = false;
-                }
-
                 if (GeneralConfiguration.Value.EnableVR)
                     TransitionTo<ArcadeVirtualRealityLoadingState>();
                 else

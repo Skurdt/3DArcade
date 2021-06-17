@@ -20,9 +20,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE. */
 
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.XR;
+using UnityEngine.InputSystem;
 
 namespace Arcade
 {
@@ -41,28 +40,29 @@ namespace Arcade
         [SerializeField] private GameObject _modelOculusTouchRiftRightController;
         [SerializeField] private GameObject _modelOculusTouchQuest2LeftController;
         [SerializeField] private GameObject _modelOculusTouchQuest2RightController;
-        [SerializeField] private InputDeviceCharacteristics _controllerCharacteristics;
 
-        private const InputDeviceCharacteristics HMD_CHARACTERISTICS = InputDeviceCharacteristics.HeadMounted;
-        private const string ANIMATOR_BUTTON_1_STRING                = "Button 1";
-        private const string ANIMATOR_BUTTON_2_STRING                = "Button 2";
-        private const string ANIMATOR_BUTTON_3_STRING                = "Button 3";
-        private const string ANIMATOR_JOYSTICK_X_STRING              = "Joy X";
-        private const string ANIMATOR_JOYSTICK_Y_STRING              = "Joy Y";
-        private const string ANIMATOR_TRIGGER_STRING                 = "Trigger";
-        private const string ANIMATOR_GRIP_STRING                    = "Grip";
+        [SerializeField] private InputAction _button1;
+        [SerializeField] private InputAction _button2;
+        [SerializeField] private InputAction _joystick;
+        [SerializeField] private InputAction _trigger;
+        [SerializeField] private InputAction _grip;
+
+        private const string ANIMATOR_BUTTON_1_STRING   = "Button 1";
+        private const string ANIMATOR_BUTTON_2_STRING   = "Button 2";
+        private const string ANIMATOR_JOYSTICK_X_STRING = "Joy X";
+        private const string ANIMATOR_JOYSTICK_Y_STRING = "Joy Y";
+        private const string ANIMATOR_TRIGGER_STRING    = "Trigger";
+        private const string ANIMATOR_GRIP_STRING       = "Grip";
 
         private static int _animatorButton1Id = int.MinValue;
         private static int _animatorButton2Id;
-        private static int _animatorButton3Id;
         private static int _animatorJoystickXId;
         private static int _animatorJoystickYId;
         private static int _animatorTriggerId;
         private static int _animatorGripId;
 
-        private ControllerType _activeControllerType = ControllerType.Rift;
-        private InputDevice? _controllerDevice       = null;
-        private Animator _animator                   = null;
+        private InputDevice _device = null;
+        private Animator _animator  = null;
 
         private void Awake()
         {
@@ -70,7 +70,6 @@ namespace Arcade
             {
                 _animatorButton1Id   = Animator.StringToHash(ANIMATOR_BUTTON_1_STRING);
                 _animatorButton2Id   = Animator.StringToHash(ANIMATOR_BUTTON_2_STRING);
-                _animatorButton3Id   = Animator.StringToHash(ANIMATOR_BUTTON_3_STRING);
                 _animatorJoystickXId = Animator.StringToHash(ANIMATOR_JOYSTICK_X_STRING);
                 _animatorJoystickYId = Animator.StringToHash(ANIMATOR_JOYSTICK_Y_STRING);
                 _animatorTriggerId   = Animator.StringToHash(ANIMATOR_TRIGGER_STRING);
@@ -87,45 +86,33 @@ namespace Arcade
 
         private void OnEnable()
         {
-            InputDevices.deviceConnected    += InitDevice;
-            InputDevices.deviceDisconnected += DeinitDevice;
-
-            List<InputDevice> inputDevices = new List<InputDevice>();
-
-            InputDevices.GetDevicesWithCharacteristics(HMD_CHARACTERISTICS, inputDevices);
-            if (inputDevices.Count > 0)
-                InitDevice(inputDevices[0]);
-
-            InputDevices.GetDevicesWithCharacteristics(_controllerCharacteristics, inputDevices);
-            if (inputDevices.Count > 0)
-                InitDevice(inputDevices[0]);
+            _button1.Enable();
+            _button2.Enable();
+            _joystick.Enable();
+            _trigger.Enable();
+            _grip.Enable();
         }
 
         private void OnDisable()
         {
-            InputDevices.deviceConnected    -= InitDevice;
-            InputDevices.deviceDisconnected -= DeinitDevice;
+            _button1.Disable();
+            _button2.Disable();
+            _joystick.Disable();
+            _trigger.Disable();
+            _grip.Disable();
         }
 
         private void Update()
         {
-            if (!_controllerDevice.HasValue || _animator == null)
-                return;
-
-            _animator.SetFloat(_animatorButton1Id, _controllerDevice.Value.TryGetFeatureValue(CommonUsages.primaryButton, out bool boolValue) && boolValue ? 1.0f : 0f);
-            _animator.SetFloat(_animatorButton2Id, _controllerDevice.Value.TryGetFeatureValue(CommonUsages.secondaryButton, out boolValue) && boolValue ? 1.0f : 0f);
-            _animator.SetFloat(_animatorButton3Id, _controllerDevice.Value.TryGetFeatureValue(CommonUsages.primary2DAxisClick, out boolValue) && boolValue ? 1.0f : 0f);
-
-            _animator.SetFloat(_animatorTriggerId, _controllerDevice.Value.TryGetFeatureValue(CommonUsages.trigger, out float floatValue) ? floatValue : 0f);
-            _animator.SetFloat(_animatorGripId, _controllerDevice.Value.TryGetFeatureValue(CommonUsages.grip, out floatValue) ? floatValue : 0f);
-
-            Vector2 axis = _controllerDevice.Value.TryGetFeatureValue(CommonUsages.primary2DAxis, out Vector2 axisValue) ? axisValue : Vector2.zero;
-            _animator.SetFloat(_animatorJoystickXId, axis.x);
-            _animator.SetFloat(_animatorJoystickYId, axis.y);
+            TryInitDevice();
+            AnimateControllers();
         }
 
-        private void InitDevice(InputDevice inputDevice)
+        private void TryInitDevice()
         {
+            if (!(_device is null) || _button1.controls.Count == 0)
+                return;
+
             _modelOculusTouchQuestAndRiftSLeftController.SetActive(false);
             _modelOculusTouchQuestAndRiftSRightController.SetActive(false);
             _modelOculusTouchRiftLeftController.SetActive(false);
@@ -133,26 +120,12 @@ namespace Arcade
             _modelOculusTouchQuest2LeftController.SetActive(false);
             _modelOculusTouchQuest2RightController.SetActive(false);
 
-            if ((inputDevice.characteristics & HMD_CHARACTERISTICS) == HMD_CHARACTERISTICS)
+            _device = _button1.controls[0].device;
+
+            ControllerType type = _device.name.StartsWith("OculusTouchControllerOpenXR") ? ControllerType.Quest2 : ControllerType.Rift;
+            if (_device.name.Equals("OculusTouchControllerOpenXR"))
             {
-                _activeControllerType = inputDevice.name switch
-                {
-                    "Oculus Quest2" => ControllerType.Quest2,
-                    _               => ControllerType.Rift
-                };
-
-                Debug.Log($"Active HMD: {_activeControllerType}");
-                return;
-            }
-
-            if ((inputDevice.characteristics & InputDeviceCharacteristics.Controller) != InputDeviceCharacteristics.Controller)
-                return;
-
-            _controllerDevice = inputDevice;
-
-            if ((inputDevice.characteristics & InputDeviceCharacteristics.Left) == InputDeviceCharacteristics.Left)
-            {
-                switch (_activeControllerType)
+                switch (type)
                 {
                     case ControllerType.QuestAndRiftS:
                         _modelOculusTouchQuestAndRiftSLeftController.SetActive(true);
@@ -172,9 +145,9 @@ namespace Arcade
                 return;
             }
 
-            if ((inputDevice.characteristics & InputDeviceCharacteristics.Right) == InputDeviceCharacteristics.Right)
+            if (_device.name.Equals("OculusTouchControllerOpenXR1"))
             {
-                switch (_activeControllerType)
+                switch (type)
                 {
                     case ControllerType.QuestAndRiftS:
                         _modelOculusTouchQuestAndRiftSRightController.SetActive(true);
@@ -195,43 +168,20 @@ namespace Arcade
             }
         }
 
-        private void DeinitDevice(InputDevice inputDevice)
+        private void AnimateControllers()
         {
-            if ((inputDevice.characteristics & HMD_CHARACTERISTICS) == HMD_CHARACTERISTICS)
-            {
-                _modelOculusTouchQuestAndRiftSLeftController.SetActive(false);
-                _modelOculusTouchQuestAndRiftSRightController.SetActive(false);
-                _modelOculusTouchRiftLeftController.SetActive(false);
-                _modelOculusTouchRiftRightController.SetActive(false);
-                _modelOculusTouchQuest2LeftController.SetActive(false);
-                _modelOculusTouchQuest2RightController.SetActive(false);
-
-                _controllerDevice = null;
-                _animator         = null;
+            if (_device is null || _animator == null)
                 return;
-            }
 
-            if ((inputDevice.characteristics & (InputDeviceCharacteristics.Left | InputDeviceCharacteristics.Controller)) == (InputDeviceCharacteristics.Left | InputDeviceCharacteristics.Controller))
-            {
-                _modelOculusTouchQuestAndRiftSLeftController.SetActive(false);
-                _modelOculusTouchRiftLeftController.SetActive(false);
-                _modelOculusTouchQuest2LeftController.SetActive(false);
+            _animator.SetFloat(_animatorButton1Id, _button1.ReadValue<float>());
+            _animator.SetFloat(_animatorButton2Id, _button2.ReadValue<float>());
 
-                _controllerDevice = null;
-                _animator         = null;
-                return;
-            }
+            Vector2 axis = _joystick.ReadValue<Vector2>();
+            _animator.SetFloat(_animatorJoystickXId, axis.x);
+            _animator.SetFloat(_animatorJoystickYId, axis.y);
 
-            if ((inputDevice.characteristics & (InputDeviceCharacteristics.Right | InputDeviceCharacteristics.Controller)) == (InputDeviceCharacteristics.Right | InputDeviceCharacteristics.Controller))
-            {
-                _modelOculusTouchQuestAndRiftSRightController.SetActive(false);
-                _modelOculusTouchRiftRightController.SetActive(false);
-                _modelOculusTouchQuest2RightController.SetActive(false);
-
-                _controllerDevice = null;
-                _animator         = null;
-                return;
-            }
+            _animator.SetFloat(_animatorTriggerId, _trigger.ReadValue<float>());
+            _animator.SetFloat(_animatorGripId, _grip.ReadValue<float>());
         }
     }
 }

@@ -2,14 +2,15 @@
   "scopedRegistries": [
     {
       "name": "npmjs",
-      "url": "https://registry.npmjs.org/",
       "scopes": [
         "com.unity.uiextensions"
-      ]
+      ],
+      "url": "https://registry.npmjs.org/"
     }
   ],
   "dependencies": {
     "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
+    "com.microsoft.mixedreality.openxr": "file:MixedReality/com.microsoft.mixedreality.openxr-1.0.0-preview.2.tgz",
     "com.sk.libretro": "https://github.com/Skurdt/SK.Libretro.git",
     "com.sk.utilities": "https://github.com/Skurdt/SK.Utilities.git",
     "com.sk.utilities.unity": "https://github.com/Skurdt/SK.Utilities.Unity.git",
@@ -28,9 +29,7 @@
     "com.unity.visualeffectgraph": "11.0.0",
     "com.unity.xr.interaction.toolkit": "1.0.0-pre.4",
     "com.unity.xr.management": "4.0.6",
-    "com.unity.xr.oculus": "1.9.1",
     "com.unity.xr.openxr": "1.2.2",
-    "com.unity.xr.windowsmr": "5.3.0",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
