@@ -23,31 +23,30 @@
 using SK.Utilities.Unity;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 namespace Arcade
 {
     [SelectionBase, DisallowMultipleComponent]
-    public sealed class ModelConfigurationComponent : MonoBehaviour
+    public abstract class EntityBase<T> : MonoBehaviour, ITransformState, IEntity
+        where T : EntityConfigurationBase
     {
         private sealed class PhysicsState
         {
-            public bool IsTrigger                                = false;
+            public bool IsTrigger = false;
             public CollisionDetectionMode CollisionDetectionMode = CollisionDetectionMode.Discrete;
-            public RigidbodyInterpolation Interpolation          = RigidbodyInterpolation.None;
-            public bool IsKinematic                              = false;
+            public RigidbodyInterpolation Interpolation = RigidbodyInterpolation.None;
+            public bool IsKinematic = false;
         }
 
-        [SerializeField] private ModelConfiguration _modelConfiguration;
-
-        public ModelConfiguration Configuration => _modelConfiguration;
+        public T Configuration { get; set; }
         public Collider Collider { get; private set; }
         public Rigidbody Rigidbody { get; private set; }
 
-        public bool MoveCabMovable => _modelConfiguration.MoveCabMovable && Collider != null && Rigidbody != null;
-        public bool MoveCabGrabbable => _modelConfiguration.MoveCabGrabbable && Collider != null && Rigidbody != null;
+        public bool MoveCabMovable => Configuration.MoveCabMovable && Collider != null && Rigidbody != null;
+        public bool MoveCabGrabbable => Configuration.MoveCabGrabbable && Collider != null && Rigidbody != null;
 
         private readonly Dictionary<Renderer, Material> _savedMaterials = new Dictionary<Renderer, Material>();
-
         private MeshRenderer[] _renderers;
 
         private int _originalLayer;
@@ -62,23 +61,28 @@ namespace Arcade
             _renderers = GetComponentsInChildren<MeshRenderer>(true);
         }
 
-        public void InitialSetup(ModelConfiguration modelConfiguration, int layer)
+        public void InitialSetup(T configuration, int layer, bool vr)
         {
-            _modelConfiguration = modelConfiguration;
-            _originalLayer      = layer;
+            Configuration = configuration;
+            _originalLayer = layer;
 
-            gameObject.name = modelConfiguration.Id;
+            gameObject.name = configuration.Id;
             SetLayer(layer);
 
-            transform.localScale = modelConfiguration.Scale;
+            transform.localScale = configuration.Scale;
+
+            if (vr)
+                _ = gameObject.AddComponent<XRSimpleInteractable>();
+
+            OnInitialSetup(vr);
         }
 
-        public ModelConfiguration GetModelConfigurationWithUpdatedTransforms()
+        public T GetConfigurationWithUpdatedTransforms()
         {
-            _modelConfiguration.Position = transform.localPosition;
-            _modelConfiguration.Rotation = MathUtils.ClampEulerAngles(transform.localEulerAngles);
-            _modelConfiguration.Scale    = transform.localScale;
-            return _modelConfiguration;
+            Configuration.Position = transform.localPosition;
+            Configuration.Rotation = MathUtils.ClampEulerAngles(transform.localEulerAngles);
+            Configuration.Scale = transform.localScale;
+            return Configuration;
         }
 
         public void SetLayer(int layer)
@@ -103,25 +107,25 @@ namespace Arcade
             {
                 Renderer renderer = _renderers[i];
 
-                Color color = renderer.materials[0].GetColor(ArtworkController.ShaderBaseColorId);
-                Texture texture = renderer.materials[0].GetTexture(ArtworkController.ShaderBaseMapId);
+                Color color = renderer.materials[0].GetColor(ArtworksController.ShaderBaseColorId);
+                Texture texture = renderer.materials[0].GetTexture(ArtworksController.ShaderBaseMapId);
                 if (texture == null)
                 {
-                    texture = renderer.materials[0].GetTexture(ArtworkController.ShaderEmissionMapId);
+                    texture = renderer.materials[0].GetTexture(ArtworksController.ShaderEmissionMapId);
                     if (texture == null)
                     {
                         MaterialPropertyBlock blockRead = new MaterialPropertyBlock();
                         renderer.GetPropertyBlock(blockRead);
-                        texture = blockRead.GetTexture(ArtworkController.ShaderEmissionMapId);
+                        texture = blockRead.GetTexture(ArtworksController.ShaderEmissionMapId);
                     }
                 }
 
                 renderer.material = material;
 
                 MaterialPropertyBlock blockWrite = new MaterialPropertyBlock();
-                blockWrite.SetColor(ArtworkController.ShaderBaseColorId, color);
+                blockWrite.SetColor(ArtworksController.ShaderBaseColorId, color);
                 if (texture != null)
-                    blockWrite.SetTexture(ArtworkController.ShaderBaseMapId, texture);
+                    blockWrite.SetTexture(ArtworksController.ShaderBaseMapId, texture);
                 renderer.SetPropertyBlock(blockWrite);
             }
         }
@@ -171,11 +175,11 @@ namespace Arcade
 
             Collider.isTrigger = true;
 
-            Rigidbody.velocity               = Vector3.zero;
-            Rigidbody.angularVelocity        = Vector3.zero;
-            Rigidbody.interpolation          = RigidbodyInterpolation.None;
+            Rigidbody.velocity = Vector3.zero;
+            Rigidbody.angularVelocity = Vector3.zero;
+            Rigidbody.interpolation = RigidbodyInterpolation.None;
             Rigidbody.collisionDetectionMode = CollisionDetectionMode.Discrete;
-            Rigidbody.isKinematic            = true;
+            Rigidbody.isKinematic = true;
 
             return true;
         }
@@ -190,7 +194,7 @@ namespace Arcade
         {
             Position = transform.position,
             Rotation = transform.localEulerAngles,
-            Scale    = transform.localScale
+            Scale = transform.localScale
         };
 
         public void RestoreTransformState()
@@ -198,21 +202,23 @@ namespace Arcade
             if (_savedTransformState is null)
                 return;
 
-            transform.position         = _savedTransformState.Position;
+            transform.position = _savedTransformState.Position;
             transform.localEulerAngles = _savedTransformState.Rotation;
-            transform.localScale       = _savedTransformState.Scale;
+            transform.localScale = _savedTransformState.Scale;
 
             _savedTransformState = null;
         }
+
+        protected abstract void OnInitialSetup(bool vr);
 
         private void RestoreLayerToPrevious() => SetLayer(_previousLayer);
 
         private void SavePhysicsState() => _savedPhysicsState = new PhysicsState
         {
-            IsTrigger              = Collider.isTrigger,
+            IsTrigger = Collider.isTrigger,
             CollisionDetectionMode = Rigidbody.collisionDetectionMode,
-            Interpolation          = Rigidbody.interpolation,
-            IsKinematic            = Rigidbody.isKinematic
+            Interpolation = Rigidbody.interpolation,
+            IsKinematic = Rigidbody.isKinematic
         };
 
         private void RestorePhysicsState()
@@ -226,8 +232,8 @@ namespace Arcade
             if (Rigidbody != null)
             {
                 Rigidbody.collisionDetectionMode = _savedPhysicsState.CollisionDetectionMode;
-                Rigidbody.interpolation          = _savedPhysicsState.Interpolation;
-                Rigidbody.isKinematic            = _savedPhysicsState.IsKinematic;
+                Rigidbody.interpolation = _savedPhysicsState.Interpolation;
+                Rigidbody.isKinematic = _savedPhysicsState.IsKinematic;
             }
 
             _savedPhysicsState = null;

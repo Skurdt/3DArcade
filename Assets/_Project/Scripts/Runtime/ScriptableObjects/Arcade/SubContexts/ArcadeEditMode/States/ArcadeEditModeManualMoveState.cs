@@ -61,7 +61,7 @@ namespace Arcade
 
             EditPositionsInteractions editPositions = Context.Interactions.EditPositions;
             editPositions.UpdateCurrentTarget(Context.ArcadeContext.Player.Camera);
-            ModelConfigurationComponent currentTarget = editPositions.CurrentTarget;
+            GameEntity currentTarget = editPositions.CurrentTarget;
             if (currentTarget == null || !currentTarget.MoveCabMovable)
             {
                 _aimPosition = Vector2.zero;

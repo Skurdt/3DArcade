@@ -37,19 +37,19 @@ namespace Arcade
             GamesNodeTag gamesRoot = FindObjectOfType<GamesNodeTag>();
             if (gamesRoot != null)
             {
-                ModelConfigurationComponent[] components = gamesRoot.GetComponentsInChildren<ModelConfigurationComponent>(false);
-                _arcadeConfiguration.Games = components.Select(x => x.GetModelConfigurationWithUpdatedTransforms()).ToArray();
+                GameEntity[] components = gamesRoot.GetComponentsInChildren<GameEntity>(false);
+                _arcadeConfiguration.Games = components.Select(x => x.GetConfigurationWithUpdatedTransforms()).ToArray();
             }
 
             PropsNodeTag propsRoot = FindObjectOfType<PropsNodeTag>();
             if (propsRoot != null)
             {
-                ModelConfigurationComponent[] components = propsRoot.GetComponentsInChildren<ModelConfigurationComponent>();
+                PropEntity[] components = propsRoot.GetComponentsInChildren<PropEntity>();
                 if (_arcadeConfiguration.ArcadeType == ArcadeType.Fps)
-                    _arcadeConfiguration.FpsArcadeProperties.Props = components.Select(x => x.GetModelConfigurationWithUpdatedTransforms())
+                    _arcadeConfiguration.FpsArcadeProperties.Props = components.Select(x => x.GetConfigurationWithUpdatedTransforms())
                                                                                .ToArray();
                 else if (_arcadeConfiguration.ArcadeType == ArcadeType.Cyl)
-                    _arcadeConfiguration.CylArcadeProperties.Props = components.Select(x => x.GetModelConfigurationWithUpdatedTransforms())
+                    _arcadeConfiguration.CylArcadeProperties.Props = components.Select(x => x.GetConfigurationWithUpdatedTransforms())
                                                                                .ToArray();
             }
 

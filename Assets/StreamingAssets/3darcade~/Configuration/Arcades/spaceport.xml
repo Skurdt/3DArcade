@@ -72,1890 +72,900 @@
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="-4.5" y="-0.01" z="17.03" />
       <rotation x="-0" y="90" z="-0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="tutankst" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="1.35" y="0" z="8.76" />
       <rotation x="-0" y="-90" z="0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="tron" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="0.93" y="-0.03" z="7.75" />
       <rotation x="-0" y="-45" z="0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="smashtv" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="-4.5" y="-0.03" z="14.94" />
       <rotation x="-0" y="90" z="-0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="scramble" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="-4.5" y="0" z="14.08" />
       <rotation x="-0" y="90" z="-0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="rtype" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="1.21" y="-0.01" z="4.7" />
       <rotation x="-0" y="-90" z="0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="pooyan" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="-1.55" y="0" z="14.42" />
       <rotation x="-0" y="0" z="0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="polepos" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="1.35" y="-0.01" z="18.03" />
       <rotation x="-0" y="-90" z="0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="pacman" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="-4.21" y="0" z="4.93" />
       <rotation x="-0" y="90" z="-0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="marble" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="-1.56" y="0" z="12.88" />
       <rotation x="0" y="180" z="0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="mappy" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="-1.54" y="0" z="17.18" />
       <rotation x="0" y="180" z="0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="dotron" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="1.35" y="0" z="12.33" />
       <rotation x="-0" y="-90" z="0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="commando" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="-1.96" y="0" z="13.64" />
       <rotation x="-0" y="-90" z="0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="ccastles" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="-4.5" y="0" z="8.74" />
       <rotation x="-0" y="90" z="-0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="arkanoid" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="-1.1" y="-0.01" z="13.64" />
       <rotation x="-0" y="90" z="-0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="tempest" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="-3.09" y="0" z="7.4" />
       <rotation x="-0" y="0" z="0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="starwarsc" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="-1.52" y="-0.04" z="18.75" />
       <rotation x="-0" y="0" z="0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="robotron" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="1.35" y="0" z="17" />
       <rotation x="-0" y="-90" z="0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="qbert" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="-1" y="-0.01" z="20.6" />
       <rotation x="0" y="180" z="0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="pengo" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="1.35" y="0" z="14.04" />
       <rotation x="-0" y="-90" z="0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="mspacman" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="1.05" y="-0.01" z="20.17" />
       <rotation x="-0" y="-135" z="0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="mrdo" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="1.35" y="0" z="13.18" />
       <rotation x="-0" y="-90" z="0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="mpatrol" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="-2.04" y="-0.02" z="20.6" />
       <rotation x="0" y="180" z="0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="Space Invaders - The Original Game (J).smc" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="-4.5" y="0" z="15.86" />
       <rotation x="-0" y="90" z="-0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="galaga" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="1.35" y="-0.01" z="9.58" />
       <rotation x="-0" y="-90" z="0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="frogger" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="1.35" y="-0.01" z="11.5" />
       <rotation x="-0" y="-90" z="0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="digdug" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="1.35" y="0" z="10.37" />
       <rotation x="-0" y="-90" z="0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="defender" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="-4.5" y="0" z="9.58" />
       <rotation x="-0" y="90" z="-0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="centiped" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="-4.5" y="-0.01" z="10.42" />
       <rotation x="-0" y="90" z="-0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="bzone" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="-4.5" y="0" z="11.4" />
       <rotation x="-0" y="90" z="-0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="bombjack" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="-4.13" y="-0.01" z="20.19" />
       <rotation x="-0" y="135" z="-0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="berzerk" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="-4.5" y="0" z="18" />
       <rotation x="-0" y="90" z="-0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="asteroid" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="-3.03" y="0" z="20.58" />
       <rotation x="0" y="180" z="0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="gyruss" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="1.35" y="-0.01" z="15.84" />
       <rotation x="-0" y="-90" z="0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="missile" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="-4.5" y="0" z="13.16" />
       <rotation x="-0" y="90" z="-0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="szaxxon" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="1.35" y="0.01" z="14.94" />
       <rotation x="-0" y="-90" z="0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="timeplt" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="-4.5" y="-0.01" z="19.02" />
       <rotation x="-0" y="90" z="-0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="zookeep" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="-4.15" y="0" z="7.75" />
       <rotation x="-0" y="45" z="-0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="joust" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="-4.5" y="-0.02" z="12.25" />
       <rotation x="-0" y="90" z="-0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="mach3" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="-4.2" y="0" z="6.05" />
       <rotation x="-0" y="90" z="-0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="ssf2" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="-1.11" y="0" z="17.99" />
       <rotation x="-0" y="90" z="-0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="ssf2" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator>mame_0228</emulator>
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="-1.9" y="0" z="17.98" />
       <rotation x="-0" y="-90" z="0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="1942" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="1.18" y="-0.01" z="5.8" />
       <rotation x="-0" y="-90" z="0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="id" platform="arcade">
       <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="0" y="0" z="20.59" />
       <rotation x="0" y="180" z="0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
     <game id="mainmenu" platform="">
       <interaction_type>FpsArcadeConfiguration</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="1.35" y="0" z="19.1" />
       <rotation x="-0" y="-90" z="0" />
       <scale x="1" y="1" z="1" />
+      <name_override />
+      <emulator_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
   </games>
 </arcade>

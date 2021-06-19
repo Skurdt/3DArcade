@@ -64,9 +64,9 @@ namespace Arcade
 
         private void Awake() => _renderer = GetComponent<Renderer>();
 
-        private void OnEnable() => ArtworkController.OnVideoPlayerAdded += VideoPlayerAddedCallback;
+        private void OnEnable() => ArtworksController.OnVideoPlayerAdded += VideoPlayerAddedCallback;
 
-        private void OnDisable() => ArtworkController.OnVideoPlayerAdded -= VideoPlayerAddedCallback;
+        private void OnDisable() => ArtworksController.OnVideoPlayerAdded -= VideoPlayerAddedCallback;
 
         private void Update()
         {
@@ -110,16 +110,16 @@ namespace Arcade
 
             MaterialPropertyBlock block = new MaterialPropertyBlock();
             _renderer.GetPropertyBlock(block);
-            if (_renderer.material.IsKeywordEnabled(ArtworkController.ShaderEmissionKeyword))
+            //if (_renderer.material.IsKeywordEnabled(ArtworksController.SHADER_EMISSION_KEYWORD))
+            //{
+            //    block.SetColor(ArtworksController.ShaderBaseColorId, Color.black);
+            //    block.SetColor(ArtworksController.ShaderEmissionColorId, Color.white * _emissionIntensity);
+            //    block.SetTexture(ArtworksController.ShaderEmissionMapId, _imageCyclingTextures[_imageCyclingIndex]);
+            //}
+            //else
             {
-                block.SetColor(ArtworkController.ShaderBaseColorId, Color.black);
-                block.SetColor(ArtworkController.ShaderEmissionColorId, Color.white * _emissionIntensity);
-                block.SetTexture(ArtworkController.ShaderEmissionMapId, _imageCyclingTextures[_imageCyclingIndex]);
-            }
-            else
-            {
-                block.SetColor(ArtworkController.ShaderBaseColorId, Color.white);
-                block.SetTexture(ArtworkController.ShaderBaseMapId, _imageCyclingTextures[_imageCyclingIndex]);
+                block.SetColor(ArtworksController.ShaderBaseColorId, Color.white);
+                block.SetTexture(ArtworksController.ShaderBaseMapId, _imageCyclingTextures[_imageCyclingIndex]);
             }
             _renderer.SetPropertyBlock(block);
         }

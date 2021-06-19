@@ -16,7 +16,7 @@ MonoBehaviour:
     type: 2}
   <Raycaster>k__BackingField: {fileID: 11400000, guid: a0e4e56e7e5d4a84d8040906c1fb87e4,
     type: 2}
-  _onCurrentTargetChanged: {fileID: 11400000, guid: 3d41d8f1dd8f98d49a53bea6e58e09b8,
+  _onCurrentGameTargetChange: {fileID: 11400000, guid: 3d41d8f1dd8f98d49a53bea6e58e09b8,
     type: 2}
   _outlineColor: {r: 1, g: 0.61699814, b: 0, a: 1}
   _highlightLayer: 11

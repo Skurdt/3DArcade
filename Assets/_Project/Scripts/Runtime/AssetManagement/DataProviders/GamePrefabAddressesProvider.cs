@@ -22,7 +22,7 @@
 
 namespace Arcade
 {
-    public sealed class GamePrefabAddressesProvider : PrefabAddressesProvider
+    public sealed class GamePrefabAddressesProvider : PrefabAddressesProvider<GameEntityConfiguration>
     {
         protected override string AddressablesPrefix { get; } = "Games/";
 
@@ -35,13 +35,13 @@ namespace Arcade
         private const string DEFAULT_HOR_PREFAB_NAME    = DEFAULT_80_HOR_PREFAB_NAME;
         private const string DEFAULT_VER_PREFAB_NAME    = DEFAULT_80_VER_PREFAB_NAME;
 
-        protected override void AddValues(AssetAddresses addresses, ModelConfiguration cfg)
+        protected override void AddValues(AssetAddresses addresses, GameEntityConfiguration cfg)
         {
-            addresses.TryAdd(cfg.Overrides.Model);
+            addresses.TryAdd(cfg.Model);
 
-            addresses.TryAdd(cfg.Overrides.Game.Name);
-            addresses.TryAdd(cfg.Overrides.Game.CloneOf);
-            addresses.TryAdd(cfg.Overrides.Game.RomOf);
+            addresses.TryAdd(cfg.Name);
+            addresses.TryAdd(cfg.CloneOf);
+            addresses.TryAdd(cfg.RomOf);
 
             addresses.TryAdd(cfg.GameConfiguration?.Name);
             addresses.TryAdd(cfg.GameConfiguration?.CloneOf);

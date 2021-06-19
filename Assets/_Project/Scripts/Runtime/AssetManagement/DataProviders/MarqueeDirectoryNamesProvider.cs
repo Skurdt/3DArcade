@@ -36,7 +36,7 @@ namespace Arcade
             {
                 _defaultImageDirectories ??= new string[]
                 {
-                    $"{ArtworkController.DefaultMediaDirectory}/{IMAGES_DIRECTORY_NAME}"
+                    $"{ArtworksController.DefaultMediaDirectory}/{IMAGES_DIRECTORY_NAME}"
                 };
                 return _defaultImageDirectories;
             }
@@ -48,20 +48,20 @@ namespace Arcade
             {
                 _defaultVideoDirectories ??= new string[]
                 {
-                    $"{ArtworkController.DefaultMediaDirectory}/{VIDEOS_DIRECTORY_NAME}"
+                    $"{ArtworksController.DefaultMediaDirectory}/{VIDEOS_DIRECTORY_NAME}"
                 };
                 return _defaultVideoDirectories;
             }
         }
 
-        public string[] GetModelImageDirectories(ModelConfiguration modelConfiguration)
-            => modelConfiguration.Overrides.ArtworkDirectories.MarqueeImageDirectories;
+        public string[] GetModelImageDirectories(EntityConfigurationBase modelConfiguration)
+            => modelConfiguration.ArtworkDirectories.MarqueeImageDirectories;
 
         public string[] GetPlatformImageDirectories(PlatformConfiguration platform)
             => platform?.MarqueeImagesDirectories;
 
-        public string[] GetModelVideoDirectories(ModelConfiguration modelConfiguration)
-            => modelConfiguration.Overrides.ArtworkDirectories.MarqueeVideoDirectories;
+        public string[] GetModelVideoDirectories(EntityConfigurationBase modelConfiguration)
+            => modelConfiguration.ArtworkDirectories.MarqueeVideoDirectories;
 
         public string[] GetPlatformVideoDirectories(PlatformConfiguration platform)
             => platform?.MarqueeVideosDirectories;

@@ -29,10 +29,10 @@ namespace Arcade
         [field: SerializeField] protected ArcadeConfigurationVariable ArcadeConfiguration { get; private set; }
         [field: SerializeField] protected InteractionRaycasterBase Raycaster { get; private set; }
 
-        [SerializeField] protected ModelConfigurationComponentEvent _onCurrentTargetChanged;
+        [SerializeField] protected GameEntityEvent _onCurrentGameTargetChange;
         [SerializeField] protected Color _outlineColor;
 
-        [field: System.NonSerialized] public ModelConfigurationComponent CurrentTarget { get; protected set; }
+        [field: System.NonSerialized] public GameEntity CurrentTarget { get; protected set; }
 
         public abstract void UpdateCurrentTarget(Camera camera);
 
@@ -43,7 +43,7 @@ namespace Arcade
                 CurrentTarget.RestoreLayerToOriginal();
                 CurrentTarget.RemoveOutline();
                 CurrentTarget = null;
-                _onCurrentTargetChanged.Raise(null);
+                _onCurrentGameTargetChange.Raise(null);
             }
         }
     }

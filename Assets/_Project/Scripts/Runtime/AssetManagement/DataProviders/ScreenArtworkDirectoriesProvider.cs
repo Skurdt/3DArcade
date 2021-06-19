@@ -39,8 +39,8 @@ namespace Arcade
             {
                 _defaultImageDirectories ??= new string[]
                 {
-                    $"{ArtworkController.DefaultMediaDirectory}/{SNAPS_DIRECTORY_NAME}",
-                    $"{ArtworkController.DefaultMediaDirectory}/{TITLES_DIRECTORY_NAME}"
+                    $"{ArtworksController.DefaultMediaDirectory}/{SNAPS_DIRECTORY_NAME}",
+                    $"{ArtworksController.DefaultMediaDirectory}/{TITLES_DIRECTORY_NAME}"
                 };
                 return _defaultImageDirectories;
             }
@@ -52,16 +52,16 @@ namespace Arcade
             {
                 _defaultVideoDirectories ??= new string[]
                 {
-                    $"{ArtworkController.DefaultMediaDirectory}/{VIDEOS_DIRECTORY_NAME}"
+                    $"{ArtworksController.DefaultMediaDirectory}/{VIDEOS_DIRECTORY_NAME}"
                 };
                 return _defaultVideoDirectories;
             }
         }
 
-        public string[] GetModelImageDirectories(ModelConfiguration modelConfiguration)
+        public string[] GetModelImageDirectories(EntityConfigurationBase configuration)
         {
-            string[] screenSnapDirectories  = modelConfiguration.Overrides.ArtworkDirectories.ScreenSnapDirectories;
-            string[] screenTitleDirectories = modelConfiguration.Overrides.ArtworkDirectories.ScreenTitleDirectories;
+            string[] screenSnapDirectories  = configuration.ArtworkDirectories.ScreenSnapDirectories;
+            string[] screenTitleDirectories = configuration.ArtworkDirectories.ScreenTitleDirectories;
 
             if (screenSnapDirectories is null && screenTitleDirectories is null)
                 return null;
@@ -85,8 +85,8 @@ namespace Arcade
             return screenSnapsDirectories.Concat(screenTitlesDirectories).ToArray();
         }
 
-        public string[] GetModelVideoDirectories(ModelConfiguration modelConfiguration)
-            => modelConfiguration.Overrides.ArtworkDirectories.ScreenVideoDirectories;
+        public string[] GetModelVideoDirectories(EntityConfigurationBase configuration)
+            => configuration.ArtworkDirectories.ScreenVideoDirectories;
 
         public string[] GetPlatformVideoDirectories(PlatformConfiguration platform)
             => platform?.ScreenVideosDirectories;

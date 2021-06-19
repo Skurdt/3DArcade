@@ -30,11 +30,11 @@ namespace Arcade
         [SerializeField] private float _raycastMaxDistance = math.INFINITY;
         [SerializeField] private LayerMask _raycastMask;
 
-        public ModelConfigurationComponent GetCurrentTarget(Camera camera)
+        public GameEntity GetCurrentTarget(Camera camera)
         {
             Ray ray = GetRay(camera);
-            if (Physics.Raycast(ray, out RaycastHit hitInfo, _raycastMaxDistance, _raycastMask) && hitInfo.transform.TryGetComponent(out ModelConfigurationComponent modelConfigurationComponent))
-                return modelConfigurationComponent;
+            if (Physics.Raycast(ray, out RaycastHit hitInfo, _raycastMaxDistance, _raycastMask) && hitInfo.transform.TryGetComponent(out GameEntity component))
+                return component;
             return null;
         }
 

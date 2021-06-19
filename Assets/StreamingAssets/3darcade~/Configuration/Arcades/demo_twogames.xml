@@ -68,62 +68,64 @@
   </cylarcade_properties>
   <games>
     <game id="1942" platform="arcade">
-      <interaction_type>Default</interaction_type>
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files />
-        <artwork_directories />
-        <game />
-      </overrides>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
       <position x="1.62" y="-0.01" z="2.14" />
       <rotation x="-0" y="-159.53" z="-0" />
       <scale x="1" y="1" z="1" />
-    </game>
-    <game id="ssf2" platform="arcade">
       <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="19xx" platform="arcade">
       <grabbable>true</grabbable>
       <movecab_movable>true</movecab_movable>
       <movecab_grabbable>true</movecab_grabbable>
-      <overrides>
-        <model />
-        <emulator />
-        <artwork_files>
-          <marquee_image_files />
-          <marquee_video_files />
-          <screen_snap_files />
-          <screen_title_files />
-          <screen_video_files />
-          <generic_image_files />
-          <generic_video_files />
-          <info_files />
-        </artwork_files>
-        <artwork_directories>
-          <marquee_image_directories />
-          <marquee_video_directories />
-          <screen_snap_directories />
-          <screen_title_directories />
-          <screen_video_directories />
-          <generic_image_directories />
-          <generic_video_directories />
-          <info_directories />
-        </artwork_directories>
-        <game>
-          <Name />
-          <Description />
-          <CloneOf />
-          <RomOf />
-          <Genre />
-          <Year />
-          <Manufacturer />
-        </game>
-      </overrides>
-      <position x="-0.39" y="-0" z="2.14" />
-      <rotation x="0" y="153.36" z="0" />
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-1.78" y="-0" z="-0.01" />
+      <rotation x="0" y="90.64" z="-0" />
       <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="ssf2" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-0.39" y="-0" z="2.14" />
+      <rotation x="-0" y="153.36" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
     </game>
   </games>
 </arcade>

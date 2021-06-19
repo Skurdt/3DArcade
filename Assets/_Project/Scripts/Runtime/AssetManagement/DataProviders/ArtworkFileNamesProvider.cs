@@ -22,7 +22,7 @@
 
 namespace Arcade
 {
-    public sealed class ArtworkFileNamesProvider : IArtworkFileNamesProvider
+    public sealed class ArtworkFileNamesProvider
     {
         private readonly MultiFileDatabase<PlatformConfiguration> _platformDatabase;
         private readonly MultiFileDatabase<EmulatorConfiguration> _emulatorDatabase;
@@ -35,34 +35,34 @@ namespace Arcade
             _gameDatabase     = databases.Games;
         }
 
-        public string[] GetNamesToTry(ModelConfiguration cfg)
+        public string[] GetNamesToTry(GameEntityConfiguration configuration)
         {
-            if (cfg is null)
+            if (configuration is null)
                 return null;
 
-            _ = _platformDatabase.TryGet(cfg.Platform, out PlatformConfiguration platform);
-            _ = _emulatorDatabase.TryGet(cfg.Overrides.Emulator, out EmulatorConfiguration overrideEmulator);
+            _ = _platformDatabase.TryGet(configuration.Platform, out PlatformConfiguration platform);
+            _ = _emulatorDatabase.TryGet(configuration.Emulator, out EmulatorConfiguration overrideEmulator);
             _ = _emulatorDatabase.TryGet(platform?.Emulator, out EmulatorConfiguration platformEmulator);
 
             string[] gameReturnFields = new string[] { "CloneOf", "RomOf" };
             string[] gameSearchFields = new string[] { "Name" };
-            if (!_gameDatabase.TryGet(platform?.MasterList, cfg.Overrides.Game.Name, gameReturnFields, gameSearchFields, out GameConfiguration game))
-                _ = _gameDatabase.TryGet(platform?.MasterList, cfg.Id, gameReturnFields, gameSearchFields, out game);
+            if (!_gameDatabase.TryGet(platform?.MasterList, configuration.Name, gameReturnFields, gameSearchFields, out GameConfiguration game))
+                _ = _gameDatabase.TryGet(platform?.MasterList, configuration.Id, gameReturnFields, gameSearchFields, out game);
 
             ImageSequence imageSequence = new ImageSequence();
 
             // TODO: From files overrides
             // TODO: From directories overrides
 
-            imageSequence.Add(cfg.Overrides.Game.Name);
-            imageSequence.Add(cfg.Overrides.Game.CloneOf);
-            imageSequence.Add(cfg.Overrides.Game.RomOf);
+            imageSequence.Add(configuration.Name);
+            imageSequence.Add(configuration.CloneOf);
+            imageSequence.Add(configuration.RomOf);
 
             imageSequence.Add(game?.Name);
             imageSequence.Add(game?.CloneOf);
             imageSequence.Add(game?.RomOf);
 
-            imageSequence.Add(cfg.Id);
+            imageSequence.Add(configuration.Id);
 
             imageSequence.Add(overrideEmulator?.Id);
 

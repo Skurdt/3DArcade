@@ -25,9 +25,11 @@ using System.Xml.Serialization;
 namespace Arcade
 {
     [System.Serializable]
-    public abstract class DatabaseEntry : ArcadeObject
+    public abstract class DatabaseEntry : IArcadeObject
     {
         [XmlAttribute("description")] public string Description = "";
+
+        [XmlIgnore] public string Id { get; set; }
 
         public override string ToString() => $"{Description} ({Id})";
     }

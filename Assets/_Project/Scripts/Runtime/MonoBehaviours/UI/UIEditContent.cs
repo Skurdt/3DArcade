@@ -24,9 +24,9 @@ namespace Arcade
 {
     public sealed class UIEditContent : UIEditBase
     {
-        private UIModelConfiguration _uiModelConfiguration;
+        private UIGameEntityConfiguration _uiModelConfiguration;
 
-        protected override void OnConstruct() => _uiModelConfiguration = GetComponentInChildren<UIModelConfiguration>(true);
+        protected override void OnConstruct() => _uiModelConfiguration = GetComponentInChildren<UIGameEntityConfiguration>(true);
 
         protected override void OnShow() => _uiModelConfiguration.SetVisibility(true);
 

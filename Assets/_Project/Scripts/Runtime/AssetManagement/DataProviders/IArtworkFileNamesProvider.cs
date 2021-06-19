@@ -22,8 +22,9 @@
 
 namespace Arcade
 {
-    public interface IArtworkFileNamesProvider
+    public interface IArtworkFileNamesProvider<T>
+        where T : EntityConfigurationBase
     {
-        string[] GetNamesToTry(ModelConfiguration cfg);
+        public string[] GetNamesToTry(T configuration);
     }
 }

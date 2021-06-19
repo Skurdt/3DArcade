@@ -24,7 +24,7 @@ using UnityEngine;
 
 namespace Arcade
 {
-    [CreateAssetMenu(menuName = "3DArcade/Event/GameConfigurationsEvent", fileName = "GameConfigurationsEvent")]
+    [CreateAssetMenu(menuName = "3DArcade/Event/GameConfigurations", fileName = "NewGameConfigurationsEvent")]
     public sealed class GameConfigurationsEvent : EventBase<GameConfiguration[]>
     {
     }

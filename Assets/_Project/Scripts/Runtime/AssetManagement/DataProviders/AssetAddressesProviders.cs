@@ -27,12 +27,12 @@ namespace Arcade
     public sealed class AssetAddressesProviders
     {
         public readonly IAssetAddressesProvider<ArcadeConfiguration> Arcade;
-        public readonly IAssetAddressesProvider<ModelConfiguration> Game;
-        public readonly IAssetAddressesProvider<ModelConfiguration> Prop;
+        public readonly IAssetAddressesProvider<GameEntityConfiguration> Game;
+        public readonly IAssetAddressesProvider<PropEntityConfiguration> Prop;
 
         public AssetAddressesProviders(IAssetAddressesProvider<ArcadeConfiguration> arcadeSceneAddressesProvider,
-                 [Inject(Id = "game")] IAssetAddressesProvider<ModelConfiguration> gamePrefabAddressesProvider,
-                 [Inject(Id = "prop")] IAssetAddressesProvider<ModelConfiguration> propPrefabAddressesProvider)
+                                       IAssetAddressesProvider<GameEntityConfiguration> gamePrefabAddressesProvider,
+                                       IAssetAddressesProvider<PropEntityConfiguration> propPrefabAddressesProvider)
         {
             Arcade = arcadeSceneAddressesProvider;
             Game   = gamePrefabAddressesProvider;

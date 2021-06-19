@@ -22,15 +22,16 @@
 
 namespace Arcade
 {
-    public sealed class PropPrefabAddressesProvider : PrefabAddressesProvider
+    public sealed class PropPrefabAddressesProvider : PrefabAddressesProvider<PropEntityConfiguration>
     {
         protected override string AddressablesPrefix { get; } = "Props/";
 
         private const string DEFAULT_PREFAB_NAME = "_pink_cube";
 
-        protected override void AddValues(AssetAddresses addresses, ModelConfiguration cfg)
+        protected override void AddValues(AssetAddresses addresses, PropEntityConfiguration cfg)
         {
-            addresses.TryAdd(cfg.Overrides?.Model);
+            addresses.TryAdd(cfg.Model);
+            addresses.TryAdd(cfg.Name);
             addresses.TryAdd(cfg.Id);
             addresses.TryAdd(DEFAULT_PREFAB_NAME);
         }

@@ -36,7 +36,7 @@ namespace Arcade
         {
             Debug.Log($">> <color=green>Entered</color> {GetType().Name}");
 
-            ModelConfigurationComponent currentTarget = Context.Interactions.Normal.CurrentTarget;
+            GameEntity currentTarget = Context.Interactions.Normal.CurrentTarget;
             if (currentTarget == null)
             {
                 Context.TransitionToPrevious();

@@ -30,7 +30,7 @@ namespace Arcade
     {
         [XmlElement("fpsarcade_properties")]                       public FpsArcadeProperties FpsArcadeProperties = new FpsArcadeProperties();
         [XmlElement("cylarcade_properties")]                       public CylArcadeProperties CylArcadeProperties = new CylArcadeProperties();
-        [XmlArray("games"), XmlArrayItem("game"), HideInInspector] public ModelConfiguration[] Games              = new ModelConfiguration[0];
+        [XmlArray("games"), XmlArrayItem("game"), HideInInspector] public GameEntityConfiguration[] Games         = new GameEntityConfiguration[0];
 
         [XmlIgnore, HideInInspector] public ArcadeType ArcadeType;
     }

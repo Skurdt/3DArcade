@@ -33,23 +33,23 @@ namespace Arcade
     {
         [SerializeField] private ArcadeContext _arcadeContext;
         [SerializeField] private ArcadeControllerVariable _arcadeController;
-        [SerializeField] private ModelConfigurationEvent _onRequestUpdatedModelConfiguration;
+        [SerializeField] private GameEntityConfigurationEvent _onRequestUpdatedModelConfiguration;
         [SerializeField] private GameObject _spawnIndicatorPrefab;
-        [SerializeField] private Material _dissolveMaterial;
+        [SerializeField] private EntityController _entityController;
+        [SerializeField] private ArtworksController _artworksController;
 
         [SerializeField, Layer] private int _hightlightLayer;
         [SerializeField] private float _spawnDistance  = 2f;
         [SerializeField] private float _verticalOffset = 0.05f;
         [SerializeField] private LayerMask _worldLayerMask;
 
-        [field: System.NonSerialized] public ModelConfigurationComponent ReferenceTarget { get; private set; }
+        [field: System.NonSerialized] public GameEntity ReferenceTarget { get; private set; }
 
-        private readonly List<ModelConfigurationComponent> _addedItems   = new List<ModelConfigurationComponent>();
-        private readonly List<ModelConfigurationComponent> _removedItems = new List<ModelConfigurationComponent>();
+        private readonly List<GameEntity> _addedItems   = new List<GameEntity>();
+        private readonly List<GameEntity> _removedItems = new List<GameEntity>();
 
         [System.NonSerialized] private Transform _player;
         [System.NonSerialized] private Camera _camera;
-        [System.NonSerialized] private int _dissolvePropertyId;
         [System.NonSerialized] private GameObject _spawnIndicator;
 
         [System.NonSerialized] private bool _drawSpawnIndicator = true;
@@ -57,8 +57,7 @@ namespace Arcade
 
         public void Initialize(Camera camera)
         {
-            _dissolvePropertyId = Shader.PropertyToID("_Dissolve");
-            _spawnIndicator     = Instantiate(_spawnIndicatorPrefab);
+            _spawnIndicator = Instantiate(_spawnIndicatorPrefab);
 
             _arcadeContext.Databases.Initialize();
 
@@ -79,7 +78,7 @@ namespace Arcade
 
         public override void UpdateCurrentTarget(Camera camera)
         {
-            ModelConfigurationComponent target = Raycaster.GetCurrentTarget(camera);
+            GameEntity target = Raycaster.GetCurrentTarget(camera);
             if (target == null)
             {
                 if (!_spawning)
@@ -95,9 +94,9 @@ namespace Arcade
 
                 if (_drawSpawnIndicator)
                 {
-                    Vector3 playerPosition   = _player.position;
-                    Vector3 playerDirection  = _player.forward;
-                    Vector3 spawnPosition    = playerPosition + (playerDirection * _spawnDistance);
+                    Vector3 playerPosition  = _player.position;
+                    Vector3 playerDirection = _player.forward;
+                    Vector3 spawnPosition   = playerPosition + (playerDirection * _spawnDistance);
 
                     Ray ray = _camera.ScreenPointToRay(_camera.WorldToScreenPoint(spawnPosition));
                     if (Physics.Raycast(ray, out RaycastHit _, math.INFINITY, _worldLayerMask))
@@ -131,7 +130,7 @@ namespace Arcade
 
             CurrentTarget = ReferenceTarget = target;
 
-            _onCurrentTargetChanged.Raise(target);
+            _onCurrentGameTargetChange.Raise(target);
         }
 
         public void ApplyChangesOrAddModel()
@@ -153,21 +152,21 @@ namespace Arcade
 
         public void DestroyAddedItems()
         {
-            foreach (ModelConfigurationComponent item in _addedItems)
+            foreach (GameEntity item in _addedItems)
                 Destroy(item.gameObject);
             _addedItems.Clear();
         }
 
         public void DestroyRemovedItems()
         {
-            foreach (ModelConfigurationComponent item in _removedItems)
+            foreach (GameEntity item in _removedItems)
                 Destroy(item.gameObject);
             _removedItems.Clear();
         }
 
         public void RestoreRemovedItems()
         {
-            foreach (ModelConfigurationComponent item in _removedItems)
+            foreach (GameEntity item in _removedItems)
             {
                 item.gameObject.SetActive(true);
 
@@ -186,12 +185,12 @@ namespace Arcade
             if (_drawSpawnIndicator || CurrentTarget == null)
                 return;
 
-            ModelConfiguration modelConfiguration = ClassUtils.DeepCopy(CurrentTarget.Configuration);
+            GameEntityConfiguration configuration = ClassUtils.DeepCopy(CurrentTarget.Configuration);
             Vector3 spawnPosition                 = CurrentTarget.transform.position + (Vector3.up * _verticalOffset);
             Quaternion spawnRotation              = CurrentTarget.transform.localRotation;
 
-            _onRequestUpdatedModelConfiguration.Raise(modelConfiguration);
-            if (string.IsNullOrEmpty(modelConfiguration.Id))
+            _onRequestUpdatedModelConfiguration.Raise(configuration);
+            if (string.IsNullOrEmpty(configuration.Id))
                 return;
 
             _spawning = true;
@@ -200,16 +199,19 @@ namespace Arcade
             if (_addedItems.Contains(CurrentTarget))
             {
                 _ = _addedItems.Remove(CurrentTarget);
-                await DissolveObject(CurrentTarget, true);
+                await _entityController.HideObject(CurrentTarget, true);
             }
             else
             {
                 _removedItems.Add(CurrentTarget);
-                await DissolveObject(CurrentTarget, false);
+                await _entityController.HideObject(CurrentTarget, false);
             }
 
-            ModelConfigurationComponent modelConfigurationComponent = await _arcadeController.Value.ModelSpawner.SpawnGameAsync(modelConfiguration, spawnPosition, spawnRotation, true);
-            _addedItems.Add(modelConfigurationComponent);
+            GameEntity entity = await _arcadeController.Value.ModelSpawner.SpawnGameAsync(configuration, spawnPosition, spawnRotation);
+            entity.Configuration = configuration;
+            _addedItems.Add(entity);
+            await _entityController.ShowObject(entity);
+            _artworksController.SetupArtworksAsync(entity).Forget();
 
             _spawning = false;
         }
@@ -222,23 +224,26 @@ namespace Arcade
             _spawning = true;
             DisableSpawnIndicator();
 
-            ModelConfiguration modelConfiguration = new ModelConfiguration();
+            GameEntityConfiguration configuration = new GameEntityConfiguration();
 
             Vector3 playerPosition   = _player.position;
             Vector3 playerDirection  = _player.forward;
             Vector3 spawnPosition    = playerPosition + (Vector3.up * _verticalOffset) + (playerDirection * _spawnDistance);
             Quaternion spawnRotation = Quaternion.LookRotation(-playerDirection);
 
-            _onRequestUpdatedModelConfiguration.Raise(modelConfiguration);
-            if (string.IsNullOrEmpty(modelConfiguration.Id))
+            _onRequestUpdatedModelConfiguration.Raise(configuration);
+            if (string.IsNullOrEmpty(configuration.Id))
             {
                 _spawning = false;
                 EnableSpawnIndicator();
                 return;
             }
 
-            ModelConfigurationComponent modelConfigurationComponent = await _arcadeController.Value.ModelSpawner.SpawnGameAsync(modelConfiguration, spawnPosition, spawnRotation, true);
-            _addedItems.Add(modelConfigurationComponent);
+            GameEntity entity = await _arcadeController.Value.ModelSpawner.SpawnGameAsync(configuration, spawnPosition, spawnRotation);
+            entity.Configuration = configuration;
+            _addedItems.Add(entity);
+            await _entityController.ShowObject(entity);
+            _artworksController.SetupArtworksAsync(entity).Forget();
 
             _spawning = false;
             EnableSpawnIndicator();
@@ -257,46 +262,16 @@ namespace Arcade
             if (_addedItems.Contains(CurrentTarget))
             {
                 _ = _addedItems.Remove(CurrentTarget);
-                await DissolveObject(CurrentTarget, true);
+                await _entityController.HideObject(CurrentTarget, true);
             }
             else
             {
                 _removedItems.Add(CurrentTarget);
-                await DissolveObject(CurrentTarget, false);
+                await _entityController.HideObject(CurrentTarget, false);
             }
 
             _spawning = false;
             EnableSpawnIndicator();
-        }
-
-        private async UniTask DissolveObject(ModelConfigurationComponent modelConfigurationComponent, bool destroy)
-        {
-            GameObject obj = modelConfigurationComponent.gameObject;
-
-            DynamicArtworkComponent[] dynamicArtworkComponents = obj.GetComponentsInChildren<DynamicArtworkComponent>();
-            foreach (DynamicArtworkComponent dynamicArtworkComponent in dynamicArtworkComponents)
-                dynamicArtworkComponent.enabled = false;
-
-            modelConfigurationComponent.Rigidbody.isKinematic = true;
-            modelConfigurationComponent.Collider.enabled      = false;
-
-            modelConfigurationComponent.SaveMaterials();
-            modelConfigurationComponent.SetMaterials(_dissolveMaterial);
-
-            float dissolveValue = 0f;
-            while (dissolveValue < 1f)
-            {
-                modelConfigurationComponent.SetMaterialsValue(_dissolvePropertyId, dissolveValue);
-                dissolveValue += Time.deltaTime;
-                await UniTask.Yield(PlayerLoopTiming.Update);
-            }
-
-            if (destroy)
-                Destroy(obj);
-            else
-                obj.SetActive(false);
-
-            modelConfigurationComponent.RestoreMaterials();
         }
 
         private void EnableSpawnIndicator()

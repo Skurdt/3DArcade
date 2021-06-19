@@ -40,8 +40,8 @@ namespace Arcade
 
         protected readonly ArcadeContext _arcadeContext;
 
-        private ModelConfigurationComponent[] _gameModels;
-        private ModelConfigurationComponent[] _propModels;
+        private GameEntity[] _games;
+        private PropEntity[] _props;
 
         public ArcadeController(ArcadeContext arcadeContext) => _arcadeContext = arcadeContext;
 
@@ -54,8 +54,23 @@ namespace Arcade
             SetupPlayer();
             _arcadeContext.Player.SaveTransformState();
 
-            _gameModels = await ModelSpawner.SpawnGamesAsync(false);
-            _propModels = await ModelSpawner.SpawPropsAsync(false);
+            _games = await ModelSpawner.SpawnGamesAsync();
+            _props = await ModelSpawner.SpawPropsAsync();
+
+            // Look for artworks only in play mode / runtime
+            if (Application.isPlaying)
+            {
+                foreach (GameEntity game in _games)
+                    _arcadeContext.ArtworksController.SetupArtworksAsync(game).Forget();
+            }
+
+            if (!(_games is null))
+                foreach (GameEntity game in _games)
+                    game.gameObject.SetActive(true);
+
+            if (!(_props is null))
+                foreach (PropEntity prop in _props)
+                    prop.gameObject.SetActive(true);
 
             ReflectionProbe[] probes = Object.FindObjectsOfType<ReflectionProbe>();
             foreach (ReflectionProbe probe in probes)
@@ -66,39 +81,41 @@ namespace Arcade
 
         public void UpdateLists()
         {
-            _gameModels = _arcadeContext.Scenes.Entities.GamesNodeTransform.GetComponentsInChildren<ModelConfigurationComponent>(false);
-            _propModels = _arcadeContext.Scenes.Entities.PropsNodeTransform.GetComponentsInChildren<ModelConfigurationComponent>(false);
+            _games = _arcadeContext.Scenes.Entities.GamesNodeTransform.GetComponentsInChildren<GameEntity>(false);
+            _props = _arcadeContext.Scenes.Entities.PropsNodeTransform.GetComponentsInChildren<PropEntity>(false);
         }
 
         public void SaveTransformStates()
         {
-            SaveTransformState(_gameModels);
-            SaveTransformState(_propModels);
+            SaveTransformState(_games);
+            SaveTransformState(_props);
         }
 
         public void RestoreModelPositions()
         {
-            RestoreTransformState(_gameModels);
-            RestoreTransformState(_propModels);
+            RestoreTransformState(_games);
+            RestoreTransformState(_props);
         }
 
         protected abstract void SetupPlayer();
 
-        private static void SaveTransformState(ModelConfigurationComponent[] models)
+        private static void SaveTransformState<T>(T[] models)
+            where T : ITransformState
         {
             if (models is null)
                 return;
 
-            foreach (ModelConfigurationComponent model in models)
+            foreach (T model in models)
                 model.SaveTransformState();
         }
 
-        private static void RestoreTransformState(ModelConfigurationComponent[] models)
+        private static void RestoreTransformState<T>(T[] models)
+            where T : ITransformState
         {
             if (models is null)
                 return;
 
-            foreach (ModelConfigurationComponent model in models)
+            foreach (T model in models)
                 model.RestoreTransformState();
         }
     }

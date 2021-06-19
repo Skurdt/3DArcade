@@ -1,4 +1,4 @@
-/* MIT License
+﻿/* MIT License
 
  * Copyright (c) 2020 Skurdt
  *
@@ -25,12 +25,8 @@ using System.Xml.Serialization;
 namespace Arcade
 {
     [System.Serializable]
-    public sealed class ModelConfigurationOverrides
+    public sealed class PropEntityConfiguration : EntityConfigurationBase
     {
-        [XmlElement("model")]               public string Model                            = "";
-        [XmlElement("emulator")]            public string Emulator                         = "";
-        [XmlElement("artwork_files")]       public FilesOverrides ArtworkFiles             = new FilesOverrides();
-        [XmlElement("artwork_directories")] public DirectoriesOverrides ArtworkDirectories = new DirectoriesOverrides();
-        [XmlElement("game")]                public GameOverrides Game                      = new GameOverrides();
+        [XmlElement("name_override")] public string Name = "";
     }
 }

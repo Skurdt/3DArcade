@@ -20,17 +20,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE. */
 
+using UnityEngine;
+
 namespace Arcade
 {
-    [System.Serializable]
-    public sealed class GameOverrides
+    [CreateAssetMenu(menuName = "3DArcade/Event/GameEntity", fileName = "NewGameEntityEvent")]
+    public sealed class GameEntityEvent : EventBase<GameEntity>
     {
-        public string Name         = null;
-        public string Description  = null;
-        public string CloneOf      = null;
-        public string RomOf        = null;
-        public string Genre        = null;
-        public string Year         = null;
-        public string Manufacturer = null;
     }
 }

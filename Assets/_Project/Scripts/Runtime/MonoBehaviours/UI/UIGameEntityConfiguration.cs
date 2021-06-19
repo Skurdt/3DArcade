@@ -32,7 +32,7 @@ using Zenject;
 namespace Arcade
 {
     [DisallowMultipleComponent]
-    public sealed class UIModelConfiguration: MonoBehaviour
+    public sealed class UIGameEntityConfiguration: MonoBehaviour
     {
         [Header("Assets")]
         [SerializeField] private Databases _databases;
@@ -112,13 +112,13 @@ namespace Arcade
 
         public Tween SetVisibility(bool visible) => visible ? Show() : Hide();
 
-        public void TargetChangedCallback(ModelConfigurationComponent modelConfigurationComponent)
+        public void TargetChangedCallback(GameEntity component)
         {
-            if (modelConfigurationComponent != null)
+            if (component != null)
             {
                 SetButtonsState(true);
-                SetConfigurationMode(modelConfigurationComponent.Configuration.InteractionType == InteractionType.Default ? 0 : 1);
-                SetUIValues(modelConfigurationComponent.Configuration);
+                SetConfigurationMode(component.Configuration.InteractionType == InteractionType.Default ? 0 : 1);
+                SetUIValues(component.Configuration);
                 return;
             }
 
@@ -141,12 +141,12 @@ namespace Arcade
             _interactions.ApplyChangesOrAddModel();
         }
 
-        public void UpdateModelConfigurationValues(ModelConfiguration modelConfiguration)
+        public void UpdateModelConfigurationValues(GameEntityConfiguration configuration)
         {
             _idInputField.DeactivateInputField();
 
-            modelConfiguration.Id              = _idInputField.text;
-            modelConfiguration.InteractionType = _interactionTypeDropdown.value switch
+            configuration.Id              = _idInputField.text;
+            configuration.InteractionType = _interactionTypeDropdown.value switch
             {
                 0 => InteractionType.Default,
                 1 => InteractionType.FpsArcadeConfiguration,
@@ -154,12 +154,12 @@ namespace Arcade
                 _ => throw new NotImplementedException(),
             };
 
-            modelConfiguration.Platform           =  _platformDropdown.options[_platformDropdown.value].text;
-            modelConfiguration.Grabbable          = _grabbableToggle.isOn;
-            modelConfiguration.MoveCabMovable     = _editMovableToggle.isOn;
-            modelConfiguration.MoveCabGrabbable   = _editGrabbableToggle.isOn;
-            modelConfiguration.Overrides.Model    = _modelDropdown.options[_modelDropdown.value].text;
-            modelConfiguration.Overrides.Emulator = _emulatorDropdown.options[_emulatorDropdown.value].text;
+            configuration.Platform         =  _platformDropdown.options[_platformDropdown.value].text;
+            configuration.Grabbable        = _grabbableToggle.isOn;
+            configuration.MoveCabMovable   = _editMovableToggle.isOn;
+            configuration.MoveCabGrabbable = _editGrabbableToggle.isOn;
+            configuration.Model            = _modelDropdown.options[_modelDropdown.value].text;
+            configuration.Emulator         = _emulatorDropdown.options[_emulatorDropdown.value].text;
         }
 
         private Tween Show()
@@ -188,8 +188,8 @@ namespace Arcade
             _gamesList.Init();
             _arcadesList.Init();
 
-            ModelConfigurationComponent currentTarget = _interactions.CurrentTarget;
-            if (currentTarget == null)
+            GameEntity currentTargetComponent = _interactions.CurrentTarget;
+            if (currentTargetComponent == null)
             {
                 SetButtonsState(false);
                 SetConfigurationMode(0);
@@ -198,9 +198,9 @@ namespace Arcade
             else
             {
                 SetButtonsState(true);
-                ModelConfiguration currentConfiguration = currentTarget.Configuration;
-                SetConfigurationMode(currentConfiguration.InteractionType == InteractionType.Default ? 0 : 1);
-                SetUIValues(currentConfiguration);
+                GameEntityConfiguration currentTargetConfiguration = currentTargetComponent.Configuration;
+                SetConfigurationMode(currentTargetConfiguration.InteractionType == InteractionType.Default ? 0 : 1);
+                SetUIValues(currentTargetConfiguration);
             }
 
             _ = _transform.DOKill();
@@ -258,14 +258,14 @@ namespace Arcade
             }
         }
 
-        private void SetUIValues(ModelConfiguration modelConfiguration)
+        private void SetUIValues(GameEntityConfiguration configuration)
         {
-            _title.SetText(modelConfiguration.GetDescription());
+            _title.SetText(configuration.GetDescription());
 
             _idInputField.DeactivateInputField(true);
-            _idInputField.SetTextWithoutNotify(modelConfiguration.Id);
+            _idInputField.SetTextWithoutNotify(configuration.Id);
 
-            int interactionTypeIndex = modelConfiguration.InteractionType switch
+            int interactionTypeIndex = configuration.InteractionType switch
             {
                 InteractionType.Default                => 0,
                 InteractionType.FpsArcadeConfiguration => 1,
@@ -276,12 +276,12 @@ namespace Arcade
 
             SetConfigurationMode(interactionTypeIndex);
 
-            _grabbableToggle.SetIsOnWithoutNotify(modelConfiguration.Grabbable);
-            _editMovableToggle.SetIsOnWithoutNotify(modelConfiguration.MoveCabMovable);
-            _editGrabbableToggle.SetIsOnWithoutNotify(modelConfiguration.MoveCabGrabbable);
+            _grabbableToggle.SetIsOnWithoutNotify(configuration.Grabbable);
+            _editMovableToggle.SetIsOnWithoutNotify(configuration.MoveCabMovable);
+            _editGrabbableToggle.SetIsOnWithoutNotify(configuration.MoveCabGrabbable);
 
-            int modelIndex = !string.IsNullOrEmpty(modelConfiguration.Overrides.Model)
-                           ? _modelDropdown.options.FindIndex(x => x.text == modelConfiguration.Overrides.Model)
+            int modelIndex = !string.IsNullOrEmpty(configuration.Model)
+                           ? _modelDropdown.options.FindIndex(x => x.text == configuration.Model)
                            : 0;
             _modelDropdown.SetValueWithoutNotify(modelIndex);
 
@@ -289,11 +289,11 @@ namespace Arcade
             if (isForGames)
             {
                 _arcadesList.Hide();
-                int platformIndex = !(modelConfiguration.PlatformConfiguration is null)
-                                    ? _platformDropdown.options.FindIndex(x => x.text == modelConfiguration.PlatformConfiguration.Id)
+                int platformIndex = !(configuration.PlatformConfiguration is null)
+                                    ? _platformDropdown.options.FindIndex(x => x.text == configuration.PlatformConfiguration.Id)
                                     : 0;
-                int emulatorIndex = !string.IsNullOrEmpty(modelConfiguration.Overrides.Emulator)
-                                  ? _emulatorDropdown.options.FindIndex(x => x.text == modelConfiguration.Overrides.Emulator)
+                int emulatorIndex = !string.IsNullOrEmpty(configuration.Emulator)
+                                  ? _emulatorDropdown.options.FindIndex(x => x.text == configuration.Emulator)
                                   : 0;
                 _platformDropdown.SetValueWithoutNotify(platformIndex);
                 _emulatorDropdown.SetValueWithoutNotify(emulatorIndex);

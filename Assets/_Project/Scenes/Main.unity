@@ -10840,7 +10840,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.3248882, y: 1}
+    m_SensorSize: {x: 1.9532609, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -19284,9 +19284,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4923811461110649393}
   - component: {fileID: 4923811461110649406}
-  - component: {fileID: 4923811461110649395}
+  - component: {fileID: 4923811461110649396}
   - component: {fileID: 4923811461110649394}
-  - component: {fileID: 4923811461110649407}
+  - component: {fileID: 4923811461110649395}
   m_Layer: 5
   m_Name: ModelConfiguration
   m_TagString: Untagged
@@ -19353,6 +19353,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 4923811461110649392}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f459e4fe734bd7d46a29971dcce3a916, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event: {fileID: 11400000, guid: 8e4f4e10ab5768a468a2056d50668328, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4923811461110649406}
+        m_TargetAssemblyTypeName: Arcade.UIGameEntityConfiguration, Arcade.Runtime
+        m_MethodName: UpdateModelConfigurationValues
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4923811461110649396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4923811461110649392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4c3615b38bbbaeb41b07f8defd1a9b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -19361,7 +19389,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4923811461110649406}
-        m_TargetAssemblyTypeName: Arcade.UIModelConfiguration, Arcade.Runtime
+        m_TargetAssemblyTypeName: Arcade.UIGameEntityConfiguration, Arcade.Runtime
         m_MethodName: TargetChangedCallback
         m_Mode: 0
         m_Arguments:
@@ -19405,34 +19433,6 @@ MonoBehaviour:
   _actionBarApplyButton: {fileID: 728817424}
   _actionBarAddButton: {fileID: 1849442075}
   _actionBarRemoveButton: {fileID: 780271539}
---- !u!114 &4923811461110649407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4923811461110649392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91bab0021059bf24086f9e09b62a7914, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: c280b2f5286ce3c41a0d36b8b91561dd, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4923811461110649406}
-        m_TargetAssemblyTypeName: Arcade.UIModelConfiguration, Arcade.Runtime
-        m_MethodName: UpdateModelConfigurationValues
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!224 &4923811461158324004 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2843821627088849923, guid: 959c7a4101a38a94f80009b97eb957b4,

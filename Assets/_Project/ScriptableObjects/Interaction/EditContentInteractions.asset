@@ -16,19 +16,18 @@ MonoBehaviour:
     type: 2}
   <Raycaster>k__BackingField: {fileID: 11400000, guid: 935a7fe14c0cfd148b0c0a98b064d6ca,
     type: 2}
-  _onCurrentTargetChanged: {fileID: 11400000, guid: 3d41d8f1dd8f98d49a53bea6e58e09b8,
+  _onCurrentGameTargetChange: {fileID: 11400000, guid: 3d41d8f1dd8f98d49a53bea6e58e09b8,
     type: 2}
   _outlineColor: {r: 1, g: 0.6156863, b: 0, a: 1}
   _arcadeContext: {fileID: 11400000, guid: 699a2679e60a772459b83c09413cf198, type: 2}
   _arcadeController: {fileID: 11400000, guid: b50b6273569d084419687f9fc89cae03, type: 2}
-  _onRequestUpdatedModelConfiguration: {fileID: 11400000, guid: c280b2f5286ce3c41a0d36b8b91561dd,
+  _onRequestUpdatedModelConfiguration: {fileID: 11400000, guid: 8e4f4e10ab5768a468a2056d50668328,
     type: 2}
   _spawnIndicatorPrefab: {fileID: 3304316353240699695, guid: f88486dbd6b46224eb35e0534c99f4e7,
     type: 3}
-  _spawnerMesh: {fileID: -5908799853881665459, guid: 5fa26ef7d69399f40a0de97d91d291dd,
-    type: 3}
-  _spawnerMaterial: {fileID: 2100000, guid: f890ccdce46e3ea48b12e2f532ee98e3, type: 2}
-  _dissolveMaterial: {fileID: 2100000, guid: 27da82994c6a933409e6b433c9be1030, type: 2}
+  _entityController: {fileID: 11400000, guid: e89f3e80be301874484dab91058111e2, type: 2}
+  _artworksController: {fileID: 11400000, guid: 4407a537e3f7919468f1423a1b032488,
+    type: 2}
   _hightlightLayer: 11
   _spawnDistance: 2
   _verticalOffset: 0

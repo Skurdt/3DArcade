@@ -35,7 +35,7 @@ namespace Arcade
 
         public override void UpdateCurrentTarget(Camera camera)
         {
-            ModelConfigurationComponent target = Raycaster.GetCurrentTarget(camera);
+            GameEntity target = Raycaster.GetCurrentTarget(camera);
             if (CurrentTarget == target || target == null)
                 return;
 
@@ -49,7 +49,7 @@ namespace Arcade
 
             CurrentTarget.AddOutline(_outlineColor);
 
-            _onCurrentTargetChanged.Raise(CurrentTarget);
+            _onCurrentGameTargetChange.Raise(CurrentTarget);
         }
 
         public void ManualMoveAndRotate(Vector2 directionInput, float rotationInput)

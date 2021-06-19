@@ -33,14 +33,14 @@ namespace Arcade
         [SerializeField, Layer] private int _selectionlayer;
 
         public void HoverEnteredCallback(HoverEnterEventArgs args)
-            => Set(args.interactable.GetComponent<ModelConfigurationComponent>());
+            => Set(args.interactable.GetComponent<GameEntity>());
 
         public void HoverExitedCallback(HoverExitEventArgs _)
             => Reset();
 
         public override void UpdateCurrentTarget(Camera camera)
         {
-            ModelConfigurationComponent target = Raycaster.GetCurrentTarget(camera);
+            GameEntity target = Raycaster.GetCurrentTarget(camera);
             Set(target);
         }
 
@@ -49,28 +49,28 @@ namespace Arcade
             if (CurrentTarget == null)
                 return;
 
-            ModelConfiguration modelConfiguration = CurrentTarget.Configuration;
-            InteractionType interactionType       = modelConfiguration.InteractionType;
+            GameEntityConfiguration configuration = CurrentTarget.Configuration;
+            InteractionType interactionType       = configuration.InteractionType;
 
             switch (interactionType)
             {
                 case InteractionType.Default:
                 case InteractionType.LibretroCore:
                 case InteractionType.ExternalApplication:
-                    HandleEmulatorInteraction(modelConfiguration);
+                    HandleEmulatorInteraction(configuration);
                     break;
                 case InteractionType.FpsArcadeConfiguration:
                 case InteractionType.CylArcadeConfiguration:
-                    HandleArcadeTransition(modelConfiguration);
+                    HandleArcadeTransition(configuration);
                     break;
                 case InteractionType.None:
                     break;
                 default:
-                    throw new System.Exception($"Unhandled switch case for InteractionType: {modelConfiguration.InteractionType}");
+                    throw new System.Exception($"Unhandled switch case for InteractionType: {configuration.InteractionType}");
             }
         }
 
-        private void Set(ModelConfigurationComponent target)
+        private void Set(GameEntity target)
         {
             if (CurrentTarget == target)
                 return;
@@ -83,21 +83,15 @@ namespace Arcade
             if (CurrentTarget != null)
                 CurrentTarget.SetLayer(_selectionlayer);
 
-            _onCurrentTargetChanged.Raise(CurrentTarget);
+            _onCurrentGameTargetChange.Raise(CurrentTarget);
         }
 
-        private void HandleEmulatorInteraction(ModelConfiguration modelConfiguration)
+        private void HandleEmulatorInteraction(GameEntityConfiguration configuration)
         {
-            bool foundPlatform         = _arcadeContext.Databases.Platforms.TryGet(modelConfiguration.Platform, out PlatformConfiguration platform);
-            bool foundEmulatorOverride = _arcadeContext.Databases.Emulators.TryGet(modelConfiguration.Overrides.Emulator, out EmulatorConfiguration emulator);
-            if (foundPlatform && !foundEmulatorOverride)
-                _ = _arcadeContext.Databases.Emulators.TryGet(platform.Emulator, out emulator);
-
-            modelConfiguration.EmulatorConfiguration = emulator;
-            if (modelConfiguration.EmulatorConfiguration is null)
+            if (configuration.EmulatorConfiguration is null)
                 return;
 
-            InteractionType interactionType = modelConfiguration.EmulatorConfiguration.InteractionType;
+            InteractionType interactionType = configuration.EmulatorConfiguration.InteractionType;
 
             switch (interactionType)
             {
@@ -119,7 +113,7 @@ namespace Arcade
                 break;
                 case InteractionType.FpsArcadeConfiguration:
                 case InteractionType.CylArcadeConfiguration:
-                    HandleArcadeTransition(modelConfiguration);
+                    HandleArcadeTransition(configuration);
                     break;
                 case InteractionType.Default:
                 case InteractionType.None:
@@ -130,17 +124,17 @@ namespace Arcade
             }
         }
 
-        private void HandleArcadeTransition(ModelConfiguration modelConfiguration)
+        private void HandleArcadeTransition(GameEntityConfiguration configuration)
         {
-            InteractionType interactionType = modelConfiguration.InteractionType;
+            InteractionType interactionType = configuration.InteractionType;
 
             switch (interactionType)
             {
                 case InteractionType.FpsArcadeConfiguration:
-                    _arcadeContext.StartArcade(modelConfiguration.Id, ArcadeType.Fps).Forget();
+                    _arcadeContext.StartArcade(configuration.Id, ArcadeType.Fps).Forget();
                     break;
                 case InteractionType.CylArcadeConfiguration:
-                    _arcadeContext.StartArcade(modelConfiguration.Id, ArcadeType.Cyl).Forget();
+                    _arcadeContext.StartArcade(configuration.Id, ArcadeType.Cyl).Forget();
                     break;
                 case InteractionType.Default:
                 case InteractionType.None:

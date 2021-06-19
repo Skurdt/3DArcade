@@ -39,7 +39,7 @@ namespace Arcade
         {
             Debug.Log($">> <color=green>Entered</color> {GetType().Name}");
 
-            ModelConfigurationComponent currentTarget = Context.Interactions.EditPositions.CurrentTarget;
+            GameEntity currentTarget = Context.Interactions.EditPositions.CurrentTarget;
             if (!currentTarget.InitAutoMove(_grabLayer))
             {
                 Context.TransitionToPrevious();

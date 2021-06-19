@@ -20,13 +20,21 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE. */
 
-using System.Xml.Serialization;
+using UnityEngine;
 
 namespace Arcade
 {
-    [System.Serializable]
-    public abstract class ArcadeObject
+    public interface IEntity
     {
-        [System.NonSerialized, XmlIgnore] public string Id = "";
+        GameObject gameObject { get; }
+        Collider Collider { get; }
+        Rigidbody Rigidbody { get; }
+
+        void SaveMaterials();
+        void RestoreMaterials();
+        void AddOutline(Color color);
+        void RemoveOutline();
+        void SetMaterials(Material dissolveMaterial);
+        void SetMaterialsValue(int dissolvePropertyId, float dissolveValue);
     }
 }

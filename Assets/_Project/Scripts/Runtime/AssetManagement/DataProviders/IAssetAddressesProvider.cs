@@ -22,7 +22,8 @@
 
 namespace Arcade
 {
-    public interface IAssetAddressesProvider<T> where T : ArcadeObject
+    public interface IAssetAddressesProvider<T>
+        where T : IArcadeObject
     {
         AssetAddresses GetAddressesToTry(T cfg);
     }

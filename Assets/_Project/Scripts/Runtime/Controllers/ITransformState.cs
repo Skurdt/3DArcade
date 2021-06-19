@@ -22,7 +22,9 @@
 
 namespace Arcade
 {
-    public sealed class ModelConfigurationComponentEventListener : EventListenerBase<ModelConfigurationComponent, ModelConfigurationComponentEvent>
+    public interface ITransformState
     {
+        void SaveTransformState();
+        void RestoreTransformState();
     }
 }

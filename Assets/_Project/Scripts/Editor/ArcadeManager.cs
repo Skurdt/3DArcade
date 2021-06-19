@@ -160,9 +160,9 @@ namespace Arcade.UnityEditor
 
             GameObject gameObject = Object.Instantiate(prefab, parent);
 
-            ModelConfiguration modelConfiguration = new ModelConfiguration { Id = "default_id" };
-            gameObject.AddComponent<ModelConfigurationComponent>()
-                      .InitialSetup(modelConfiguration, layer);
+            GameEntityConfiguration modelConfiguration = new GameEntityConfiguration { Id = "default_id" };
+            gameObject.AddComponent<GameEntity>()
+                      .InitialSetup(modelConfiguration, layer, false);
 
             Scene entititesScene = SceneManager.GetSceneByName(EntitiesScene.ARCADE_SETUP_SCENE_NAME);
             _ = EditorSceneManager.MarkSceneDirty(entititesScene);

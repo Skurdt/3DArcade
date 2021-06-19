@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: _dissolve
-  m_Shader: {fileID: -6465566751694194690, guid: 9c1b3cbc0f7f1e947aa358501c446950,
+  m_Shader: {fileID: -6465566751694194690, guid: 0755d09b112db814bbe8afac7afc24c4,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 2
@@ -59,7 +59,7 @@ Material:
     m_Ints: []
     m_Floats:
     - Dissolve: 0
-    - EdgeWidth: 0.05
+    - EdgeWidth: 0.03
     - FromTop: 1
     - _Dissolve: 0
     - _EdgeColorIntensity: 2

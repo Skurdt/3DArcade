@@ -35,9 +35,10 @@ namespace Arcade
         [field: SerializeField] public GeneralConfigurationVariable GeneralConfiguration { get; private set; }
         [field: SerializeField] public ArcadeConfigurationVariable ArcadeConfiguration { get; private set; }
         [field: SerializeField] public ArcadeControllerVariable ArcadeController { get; private set; }
+        [field: SerializeField] public ArtworksController ArtworksController { get; private set; }
         [field: SerializeField] public Interactions Interactions { get; private set; }
-        [field: SerializeField] public ArcadeStateEvent OnArcadeStateChanged { get; private set; }
         [field: SerializeField] public VideoPlayerControllerVariable VideoPlayerController { get; private set; }
+        [field: SerializeField] public ArcadeStateEvent OnArcadeStateChanged { get; private set; }
 
         [SerializeField] private ModelSpawnerBase _modelSpawner;
 
@@ -46,6 +47,8 @@ namespace Arcade
         [field: System.NonSerialized] public AssetAddressesProviders AssetAddressesProviders { get; private set; }
         [field: System.NonSerialized] public NodeControllers NodeControllers { get; private set; }
         [field: System.NonSerialized] public GameControllers GameControllers { get; private set; }
+        [field: System.NonSerialized] public AssetCache<Texture> TextureCache { get; private set; }
+        [field: System.NonSerialized] public ArtworkFileNamesProvider FileNamesProvider { get; private set; }
 
         [Inject]
         public void Construct(InputActions inputActions,
@@ -67,7 +70,12 @@ namespace Arcade
             AssetAddressesProviders = assetAddressesProviders;
         }
 
-        protected override void OnContextStart() => Restart();
+        protected override void OnContextStart()
+        {
+            TextureCache      ??= new TextureCache();
+            FileNamesProvider ??= new ArtworkFileNamesProvider(Databases);
+            Restart();
+        }
 
         public void ReloadCurrentArcade()
             => StartArcade(ArcadeConfiguration.Value.Id, ArcadeConfiguration.Value.ArcadeType).Forget();
@@ -159,7 +167,7 @@ namespace Arcade
                 return;
 
             ArcadeConfiguration arcadeConfiguration = arcadeConfigurationComponent.GetArcadeConfigurationWithUpdatedEntries();
-            foreach (ModelConfiguration game in arcadeConfiguration.Games)
+            foreach (EntityConfigurationBase game in arcadeConfiguration.Games)
             {
                 game.Position.RoundValues();
                 game.Rotation.RoundValues();

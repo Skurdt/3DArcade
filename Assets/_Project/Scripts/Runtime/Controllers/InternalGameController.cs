@@ -42,14 +42,14 @@ namespace Arcade
             ScreenMaterial = screenMaterial;
         }
 
-        public bool StartGame(ScreenNodeTag screenNodeTag, ModelConfiguration modelConfiguration)
+        public bool StartGame(ScreenNodeTag screenNodeTag, GameEntityConfiguration configuration)
         {
             StopGame();
 
-            if (screenNodeTag == null || modelConfiguration is null)
+            if (screenNodeTag == null || configuration is null)
                 return false;
 
-            EmulatorConfiguration emulator = modelConfiguration.EmulatorConfiguration;
+            EmulatorConfiguration emulator = configuration.EmulatorConfiguration;
             if (emulator is null)
                 return false;
 
@@ -61,7 +61,7 @@ namespace Arcade
             foreach (string gameDirectory in emulator.GamesDirectories)
             {
                 string coreName = !string.IsNullOrEmpty(emulator.Executable) ? emulator.Executable : emulator.Id;
-                if (!_libretroBridge.Start(coreName, gameDirectory, modelConfiguration.Id))
+                if (!_libretroBridge.Start(coreName, gameDirectory, configuration.Id))
                 {
                     _libretroBridge.Stop();
                     continue;

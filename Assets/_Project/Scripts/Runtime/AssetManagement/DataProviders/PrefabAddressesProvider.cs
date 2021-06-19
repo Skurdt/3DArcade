@@ -22,13 +22,14 @@
 
 namespace Arcade
 {
-    public abstract class PrefabAddressesProvider : IAssetAddressesProvider<ModelConfiguration>
+    public abstract class PrefabAddressesProvider<T> : IAssetAddressesProvider<T>
+        where T : IArcadeObject
     {
         protected const string FILE_EXTENSION = "prefab";
 
         protected abstract string AddressablesPrefix { get; }
 
-        public AssetAddresses GetAddressesToTry(ModelConfiguration cfg)
+        public AssetAddresses GetAddressesToTry(T cfg)
         {
             if (cfg is null || string.IsNullOrEmpty(cfg.Id))
                 return null;
@@ -38,6 +39,6 @@ namespace Arcade
             return addresses;
         }
 
-        protected abstract void AddValues(AssetAddresses addresses, ModelConfiguration cfg);
+        protected abstract void AddValues(AssetAddresses addresses, T cfg);
     }
 }

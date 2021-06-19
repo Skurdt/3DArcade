@@ -37,10 +37,12 @@ MonoBehaviour:
     type: 2}
   <ArcadeController>k__BackingField: {fileID: 11400000, guid: b50b6273569d084419687f9fc89cae03,
     type: 2}
+  <ArtworksController>k__BackingField: {fileID: 11400000, guid: 4407a537e3f7919468f1423a1b032488,
+    type: 2}
   <Interactions>k__BackingField: {fileID: 11400000, guid: 7174b68e664731b459625626624ac374,
     type: 2}
-  <OnArcadeStateChanged>k__BackingField: {fileID: 11400000, guid: 0110be78fa93dff4abf86fbed129b27e,
-    type: 2}
   <VideoPlayerController>k__BackingField: {fileID: 11400000, guid: b7f7746e13bd6f14b8677b9b12ec7d5a,
+    type: 2}
+  <OnArcadeStateChanged>k__BackingField: {fileID: 11400000, guid: 0110be78fa93dff4abf86fbed129b27e,
     type: 2}
   _modelSpawner: {fileID: 11400000, guid: f3a31bdb09893ba499470e5d8af76716, type: 2}
