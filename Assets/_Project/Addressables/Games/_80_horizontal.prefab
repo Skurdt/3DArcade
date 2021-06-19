@@ -598,6 +598,7 @@ GameObject:
   - component: {fileID: 3006833641707492734}
   - component: {fileID: 5025413511605449713}
   - component: {fileID: 7406401148124218588}
+  - component: {fileID: 3222003061174658177}
   m_Layer: 0
   m_Name: default_80_h_43_2p_marquee
   m_TagString: Untagged
@@ -669,6 +670,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3222003061174658177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6557233822267672101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aa47212c50c2e74481929b830685047, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8671095874180856316
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,6 +693,7 @@ GameObject:
   - component: {fileID: 4225523484743273937}
   - component: {fileID: 8893712022903209021}
   - component: {fileID: 8215774742777072135}
+  - component: {fileID: 1596554402904853528}
   m_Layer: 0
   m_Name: default_80_h_43_2p_screen
   m_TagString: Untagged
@@ -751,3 +765,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1596554402904853528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8671095874180856316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2500d90d07ed1a0469e7eddaa7ba519d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

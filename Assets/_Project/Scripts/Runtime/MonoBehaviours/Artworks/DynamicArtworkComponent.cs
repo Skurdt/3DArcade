@@ -110,13 +110,13 @@ namespace Arcade
 
             MaterialPropertyBlock block = new MaterialPropertyBlock();
             _renderer.GetPropertyBlock(block);
-            //if (_renderer.material.IsKeywordEnabled(ArtworksController.SHADER_EMISSION_KEYWORD))
-            //{
-            //    block.SetColor(ArtworksController.ShaderBaseColorId, Color.black);
-            //    block.SetColor(ArtworksController.ShaderEmissionColorId, Color.white * _emissionIntensity);
-            //    block.SetTexture(ArtworksController.ShaderEmissionMapId, _imageCyclingTextures[_imageCyclingIndex]);
-            //}
-            //else
+            if (_renderer.material.IsKeywordEnabled(ArtworksController.SHADER_EMISSION_KEYWORD))
+            {
+                block.SetColor(ArtworksController.ShaderBaseColorId, Color.black);
+                block.SetColor(ArtworksController.ShaderEmissionColorId, Color.white * _emissionIntensity);
+                block.SetTexture(ArtworksController.ShaderEmissionMapId, _imageCyclingTextures[_imageCyclingIndex]);
+            }
+            else
             {
                 block.SetColor(ArtworksController.ShaderBaseColorId, Color.white);
                 block.SetTexture(ArtworksController.ShaderBaseMapId, _imageCyclingTextures[_imageCyclingIndex]);
