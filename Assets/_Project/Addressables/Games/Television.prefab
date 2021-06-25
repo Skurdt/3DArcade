@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 198565168630248177}
   - component: {fileID: 9090487527209667784}
   m_Layer: 0
-  m_Name: Television
+  m_Name: television
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

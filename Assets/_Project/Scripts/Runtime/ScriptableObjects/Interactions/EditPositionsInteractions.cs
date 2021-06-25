@@ -22,6 +22,7 @@
 
 using SK.Utilities.Unity;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Arcade
 {
@@ -29,13 +30,12 @@ namespace Arcade
     public sealed class EditPositionsInteractions : InteractionsBase
     {
         [SerializeField, Layer] private int _highlightLayer;
-        [SerializeField] private float _rotationScale = 100f;
 
         [System.NonSerialized] private float _rotationOffset = 0f;
 
         public override void UpdateCurrentTarget(Camera camera)
         {
-            GameEntity target = Raycaster.GetCurrentTarget(camera);
+            GameEntity target = Raycaster.GetCurrentTarget(camera, Vector2.zero);
             if (CurrentTarget == target || target == null)
                 return;
 
@@ -109,7 +109,11 @@ namespace Arcade
             Vector3 normal      = hitInfo.normal;
             float dot           = Vector3.Dot(Vector3.up, normal);
 
-            _rotationOffset += inputActions.FpsEditPositions.Rotate.ReadValue<float>() * _rotationScale * Time.deltaTime;
+            InputAction rotateAction = inputActions.FpsEditPositions.Rotate;
+            if (!(rotateAction.activeControl is null) && !(rotateAction.activeControl.device is Mouse))
+                _rotationOffset += rotateAction.ReadValue<float>() * Time.deltaTime * 100f;
+            else
+                _rotationOffset += rotateAction.ReadValue<float>();
 
             // Floor
             if (dot > 0.05f)
@@ -132,8 +136,8 @@ namespace Arcade
             _rotationOffset = 0f;
 
             // Vertical surface
-            Collider collider       = CurrentTarget.Collider;
-            Vector3 positionOffset  = normal * Mathf.Max(collider.bounds.extents.x + 0.05f, collider.bounds.extents.z + 0.05f);
+            Bounds bounds           = CurrentTarget.Bounds;
+            Vector3 positionOffset  = normal * Mathf.Max(bounds.extents.x + 0.05f, bounds.extents.z + 0.05f);
             newPosition             = new Vector3(position.x, transform.position.y, position.z) + positionOffset;
             transform.position      = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * 12f);
             transform.localRotation = Quaternion.LookRotation(normal);

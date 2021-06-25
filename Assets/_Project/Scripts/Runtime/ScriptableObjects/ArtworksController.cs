@@ -69,9 +69,8 @@ namespace Arcade
 
             UniTask marqueeSetupTask = SetupNodeAsync(nodeControllers.Marquee, arcadeController, gameObject, configuration, (float)marqueeIntensity);
             UniTask screenSetupTask  = SetupNodeAsync(nodeControllers.Screen, arcadeController, gameObject, configuration, screenIntensity);
-            UniTask genericNodeTask  = SetupNodeAsync(nodeControllers.Generic, arcadeController, gameObject, configuration, genericIntensity);
-
-            await UniTask.WhenAll(marqueeSetupTask, screenSetupTask, genericNodeTask);
+            await UniTask.WhenAll(marqueeSetupTask, screenSetupTask);
+            await SetupNodeAsync(nodeControllers.Generic, arcadeController, gameObject, configuration, genericIntensity);
 
             float GetScreenIntensity(GameEntityConfiguration gameEntityConfiguration)
             {
@@ -122,14 +121,30 @@ namespace Arcade
                 files       = new Files(directories, fileNamesToTry, _imageExtensions);
             }
 
-            if (files.Count == 0)
-                return;
+            Texture[] textures;
 
-            Texture[] textures = await _arcadeContext.TextureCache.LoadMultipleAsync(files);
+            if (files.Count == 0)
+            {
+                if (nodeController.DirectoryNamesProvider is GenericArtworkDirectoriesProvider)
+                    SetMagicPixels(renderers);
+                else
+                {
+                    textures = await _arcadeContext.TextureCache.LoadMultipleAsync(new Files(directories, new[] { "dummy" }, new[] { "png" }));
+                    SetupDynamicArtworkComponents(renderers, textures, emissionIntensity);
+                }
+                return;
+            }
+
+            textures = await _arcadeContext.TextureCache.LoadMultipleAsync(files);
             if (textures is null || textures.Length == 0)
             {
                 if (nodeController.DirectoryNamesProvider is GenericArtworkDirectoriesProvider)
-                    SetRandomColors(renderers);
+                    SetMagicPixels(renderers);
+                else
+                {
+                    textures = await _arcadeContext.TextureCache.LoadMultipleAsync(new Files(directories, new[] { "dummy" }, new[] { "png" }));
+                    SetupDynamicArtworkComponents(renderers, textures, emissionIntensity);
+                }
                 return;
             }
 
@@ -200,6 +215,36 @@ namespace Arcade
             {
                 MaterialPropertyBlock block = new MaterialPropertyBlock();
                 block.SetColor(ShaderBaseColorId, color);
+                renderer.SetPropertyBlock(block);
+            }
+        }
+
+        private static void SetMagicPixels(Renderer[] renderers)
+        {
+            MarqueeNodeTag marqueeNode = renderers[0].transform.parent.GetComponentInChildren<MarqueeNodeTag>();
+            if (marqueeNode == null)
+            {
+                SetRandomColors(renderers);
+                return;
+            }
+
+            if (!marqueeNode.TryGetComponent(out DynamicArtworkComponent dynamicArtworkComponent))
+            {
+                SetRandomColors(renderers);
+                return;
+            }
+
+            Texture marqueeTexture = dynamicArtworkComponent.FirstTexture;
+            if (marqueeTexture == null)
+            {
+                SetRandomColors(renderers);
+                return;
+            }
+
+            foreach (Renderer renderer in renderers)
+            {
+                MaterialPropertyBlock block = new MaterialPropertyBlock();
+                block.SetTexture(ShaderBaseMapId, marqueeTexture);
                 renderer.SetPropertyBlock(block);
             }
         }

@@ -1,0 +1,262 @@
+fileFormatVersion: 2
+guid: 686b93be5d1d58f45b6d8306d00656d7
+ModelImporter:
+  serializedVersion: 21100
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SincCockpitSide
+    second: {fileID: 2100000, guid: a41de3acecb9ea442af15751c6bef5c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SincYellowTrianglesBlinn
+    second: {fileID: 2100000, guid: 0c6b08f18e1dd794b8900eca0035448e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: StuffArondScreenLambert
+    second: {fileID: 2100000, guid: 9b035e41a93c9fc4a988a03900e403ac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sinShockPhong
+    second: {fileID: 2100000, guid: ad94675045337424aa1684d8b7f65e41, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sincBlackBodyPhong1
+    second: {fileID: 2100000, guid: 4393a59000d9c4c488ccdce842db6cdc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sincBlackBodyPhong2
+    second: {fileID: 2100000, guid: f99771ee61e72a348a335440083291a5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sincBlackPipeBlinn
+    second: {fileID: 2100000, guid: 94ed8fdf3d944fa40a506830ede37362, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sincBlueButtonPhong
+    second: {fileID: 2100000, guid: 612b22feadd4ef548b970b554688e8f7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sincCoinbox
+    second: {fileID: 2100000, guid: c5063f03bf7505542ab2f0287ee25001, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sincCoinboxBKLambert
+    second: {fileID: 2100000, guid: 3dcf284267c3fdb408b187c4b373b138, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sincControlPanelPhong
+    second: {fileID: 2100000, guid: f94c8f2905f40fa4db3bec4997b8b989, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sincGripHereBlinn
+    second: {fileID: 2100000, guid: 43ee249ff4930c74eba78ededec1c89a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sincInnerSidesPhong
+    second: {fileID: 2100000, guid: cee438e63ca5b3b4c8b73cdecb6ce69c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sincInnerSpeek
+    second: {fileID: 2100000, guid: 652ca400aa24ba949b7c68085c6df4ac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sincInsertCoinLambert
+    second: {fileID: 2100000, guid: ba2c365f6ae337f45ae1e2810594a8f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sincInstructionLambert
+    second: {fileID: 2100000, guid: 9e124277c02206b46a89868822b6a1c9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sincJetFirePhong
+    second: {fileID: 2100000, guid: 6b665a93e7094e2408cbe85082562799, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sincJoystickKnobPhong
+    second: {fileID: 2100000, guid: 635171380d1b1a44fa48841c8d4f97da, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sincJoystickMetalBlinn
+    second: {fileID: 2100000, guid: 1f8c34b0d8e56534aae1d7746b0c945a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sincLittleRedReflectorBlinn
+    second: {fileID: 2100000, guid: a90204a503a26b3478540d5b4d854636, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sincNewWarningPhong
+    second: {fileID: 2100000, guid: 1cdc9004a9a23c74686606caf15d4147, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sincOrangeButtonPhong
+    second: {fileID: 2100000, guid: 08a1168db05d25f4982315184c3e55b7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sincOverHeadDecalBlinn
+    second: {fileID: 2100000, guid: 98c3dbb0f3be65643886918c7fa6ef46, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sincPlasticPhong
+    second: {fileID: 2100000, guid: 752662983f9619644b8673e6115b08e7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sincRedButtonPhong
+    second: {fileID: 2100000, guid: f89aec5409fcde243bea123b82e0ff00, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sincShockStripedPhong
+    second: {fileID: 2100000, guid: 5806ccaf81477574d98ccfb0709316cd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sincSpikerGridGrill1
+    second: {fileID: 2100000, guid: 37720083900d8e84bad7cd157708bc3c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sincTopMarqueePhong
+    second: {fileID: 2100000, guid: 61a7822c7f628b84999a138bde41b381, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sincUnderCoinboxPhone
+    second: {fileID: 2100000, guid: 4d00469b97cdee149b94752bfe79a617, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sincWilliamsPanelBlinn
+    second: {fileID: 2100000, guid: 2407088c378d18148beaa030675e6e31, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sincmarquee
+    second: {fileID: 2100000, guid: 1c9581df1ab7bf84183a8e737236619e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sincmonitor
+    second: {fileID: 2100000, guid: 09d0f66495c3e46488082e862a5cf864, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 1
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 1
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 0
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 0
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 12
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

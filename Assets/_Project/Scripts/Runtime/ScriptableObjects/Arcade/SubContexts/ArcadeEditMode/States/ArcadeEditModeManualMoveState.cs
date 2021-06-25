@@ -27,8 +27,6 @@ namespace Arcade
 {
     public sealed class ArcadeEditModeManualMoveState : ArcadeEditModeState
     {
-        [SerializeField] private float _rotationScale = 240;
-
         [System.NonSerialized] private Vector2 _aimPosition;
         [System.NonSerialized] private float _aimRotation;
 
@@ -69,11 +67,8 @@ namespace Arcade
                 return;
             }
 
-            Vector2 positionInput = inputActions.FpsEditPositions.Move.ReadValue<Vector2>();
-            _aimPosition = dt * positionInput;
-
-            float rotationInput = inputActions.FpsEditPositions.Rotate.ReadValue<float>() * _rotationScale;
-            _aimRotation = dt * rotationInput;
+            _aimPosition = inputActions.FpsEditPositions.Move.ReadValue<Vector2>();
+            _aimRotation = inputActions.FpsEditPositions.Rotate.ReadValue<float>() * 160f;
 
             bool mouseIsOverUI = EventSystem.current.IsPointerOverGameObject();
             if (mouseIsOverUI || !currentTarget.MoveCabGrabbable)
@@ -87,6 +82,6 @@ namespace Arcade
         }
 
         public override void OnFixedUpdate(float dt)
-            => Context.Interactions.EditPositions.ManualMoveAndRotate(_aimPosition, _aimRotation);
+            => Context.Interactions.EditPositions.ManualMoveAndRotate(_aimPosition * dt, _aimRotation * dt);
     }
 }

@@ -1,0 +1,232 @@
+fileFormatVersion: 2
+guid: ea806f3b04ffa69418c598a4e5ef3498
+ModelImporter:
+  serializedVersion: 21100
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: appleII_Mat00
+    second: {fileID: 2100000, guid: 7d4dd30ea69f2ae409ff8dae3e8070bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: appleII_Mat01
+    second: {fileID: 2100000, guid: b6415dfdce77c634ca6e7d020a81ad24, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: appleII_Mat02
+    second: {fileID: 2100000, guid: b4a5d0b090a302743bc53c2c14cc2071, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: appleII_Mat03
+    second: {fileID: 2100000, guid: 2cf5bc411e8d3c6499fa76722ee035a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: appleII_Mat04
+    second: {fileID: 2100000, guid: d3e2f77d5686886409dcc9343a6b3254, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: appleII_Mat05
+    second: {fileID: 2100000, guid: c14f08cf3945991468ba2ec7eb027909, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: appleII_Mat06
+    second: {fileID: 2100000, guid: f57fe1a3a79d6ae458a9e4fa899bb489, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: appleII_Mat07
+    second: {fileID: 2100000, guid: e047563bea30e8942ac6306dd85ae0cc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: appleII_Mat08
+    second: {fileID: 2100000, guid: 7d59341f5fce92e43b612792be064461, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: appleII_Mat09
+    second: {fileID: 2100000, guid: baf731ab4696aa043a30ab979f74bb3e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: appleII_Mat10
+    second: {fileID: 2100000, guid: 47daa4e0722eb4c4187b4507f253c3ab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: appleII_Mat11
+    second: {fileID: 2100000, guid: 3730736bbdcb0b64d9122929c369123f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: appleII_Mat12
+    second: {fileID: 2100000, guid: fc9c0e184066fad49bcf8a6cdfdae619, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: appleII_Mat13
+    second: {fileID: 2100000, guid: 4ab45e8e7c08f104b80d3e784521cd5b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: appleII_Mat14
+    second: {fileID: 2100000, guid: 9b2535a7ab0657d4b90bfc5beeb8c166, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: appleII_Mat15
+    second: {fileID: 2100000, guid: d26bebf184c616e4ba58845fc83b7f20, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: appleII_Mat16
+    second: {fileID: 2100000, guid: 4bba3fb719a549f4cb0ddb5c7a88db17, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: appleII_Mat17
+    second: {fileID: 2100000, guid: 55206fd17fd952e4ca40459a983c494a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: appleII_Mat18
+    second: {fileID: 2100000, guid: 8457961f73915d748ac653d57fe4f43c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: appleII_Mat19
+    second: {fileID: 2100000, guid: 216c3f15104fe0040b3dd06ccff1948b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: appleII_Mat20
+    second: {fileID: 2100000, guid: 629a4689aab093342ad21ca6e07a45a6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: appleII_Mat21
+    second: {fileID: 2100000, guid: 20f81c2f4a5917240ac060bfea94cc7d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: appleII_Mat22
+    second: {fileID: 2100000, guid: fb3762dcdc9d33e499954b8a41c2b5dc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: appleII_Mat23
+    second: {fileID: 2100000, guid: 3db85ac2eb42c9740aa7da97a4200659, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: appleII_Mat24
+    second: {fileID: 2100000, guid: 101e69559616a9c4caed7743b6ebb8c6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: appleII_Mat25
+    second: {fileID: 2100000, guid: 6c892a39a71775e48b9860699fdce9be, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 1
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 1
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 0
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 0
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 12
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

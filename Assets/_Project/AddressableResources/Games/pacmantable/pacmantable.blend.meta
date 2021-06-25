@@ -1,0 +1,252 @@
+fileFormatVersion: 2
+guid: 0c60a3226ee3f8441abd382344107a95
+ModelImporter:
+  serializedVersion: 21100
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PacManTAAMonitorP
+    second: {fileID: 2100000, guid: e4786c3f0b94d724dadd73270751d300, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PacManTAAmarquee
+    second: {fileID: 2100000, guid: b4c9a48d9addbd54391f8802fad3d393, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PacManTBackP
+    second: {fileID: 2100000, guid: 97e9864c53013614a98d79ffa02c251a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PacManTBracketPh
+    second: {fileID: 2100000, guid: 52ba37d27c98fd249a6ad9a2fc005daa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PacManTButBaseP
+    second: {fileID: 2100000, guid: d40d9ed1f666f9c44af5a2b85c955ea1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PacManTButPlayerP
+    second: {fileID: 2100000, guid: daccda8636236cb4fb4b7e496cd808bd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PacManTCoinAreaP
+    second: {fileID: 2100000, guid: 3971c22ea4ee654499e2c95d72d29633, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PacManTCoinPlungerP
+    second: {fileID: 2100000, guid: c67b2c8f278ab5a47b729daeb74847f9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PacManTConPlay1P
+    second: {fileID: 2100000, guid: 9b9db05bc22899146b4d6db4e7f81d91, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PacManTConPlay2P
+    second: {fileID: 2100000, guid: 54d0eeb8f86a67e4299c633b76759a54, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PacManTConWoodP1
+    second: {fileID: 2100000, guid: 2a0ee3235da6e8840aeb735386984ebb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PacManTConWoodP2
+    second: {fileID: 2100000, guid: f0c4a8dc0fb92e4409af97c0e514c2f3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PacManTGlassSurfP
+    second: {fileID: 2100000, guid: f78e2e8448e07b342b9e6ba543e3d330, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PacManTGreenRimP
+    second: {fileID: 2100000, guid: 964c318cf3b93cd4e88721a13a836676, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PacManTGrillP
+    second: {fileID: 2100000, guid: a9743b0037398e7408709ec595b7515c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PacManTInConWallsP
+    second: {fileID: 2100000, guid: 5a17ffab622b38e45a14794e994ca075, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PacManTInstructP
+    second: {fileID: 2100000, guid: f5455fab6b2d9d243a495646b32ee902, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PacManTJoyKnobs
+    second: {fileID: 2100000, guid: 85b1ae1df13bb1f458c8188a34b9723f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PacManTJoyRodBli
+    second: {fileID: 2100000, guid: 2c6b4a4ac1e4c544494f5c7b4a7fa8cf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PacManTKeyP
+    second: {fileID: 2100000, guid: 5ae86a793057c174ea7d962fa30e5c73, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PacManTLightWinP
+    second: {fileID: 2100000, guid: d454f3647315d324f897932f983b68ab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PacManTMetalRimP
+    second: {fileID: 2100000, guid: dd53f938f1446be448f4e65b5dac975c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PacManTMonFrameP
+    second: {fileID: 2100000, guid: 8e00401a3475aaa4f9c66d0a91da8705, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PacManTMonRimLam
+    second: {fileID: 2100000, guid: b35f498e092d18740a7dd1cc2979757c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PacManTNoBabyP
+    second: {fileID: 2100000, guid: 51d1da587034bbb48b56ad7f8bf7a588, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PacManTRimsP
+    second: {fileID: 2100000, guid: ee6108a781f6581488ee364fbc30b7c8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PacManTSidesP
+    second: {fileID: 2100000, guid: 29eb87205d7e5724b9694ce1c844e7b5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PacManTTabRimP
+    second: {fileID: 2100000, guid: 9fafca79f5df35c4cb7ecde682b22a1a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PacManTTabRimP1
+    second: {fileID: 2100000, guid: 6b78bbeeb106f814291c945deff749bf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PacManTTableTopCP
+    second: {fileID: 2100000, guid: 817a7aaaf9cff604091082f6db94b653, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 1
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 1
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 0
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 0
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 12
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

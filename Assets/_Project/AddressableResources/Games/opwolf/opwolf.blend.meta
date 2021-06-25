@@ -1,0 +1,237 @@
+fileFormatVersion: 2
+guid: 8fdcd0be4187d4e448a2c26a2f0a83a4
+ModelImporter:
+  serializedVersion: 21100
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: opwolfbezel
+    second: {fileID: 2100000, guid: 282391af80d85a9468f0b17862f8be7a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: opwolfbuttonred
+    second: {fileID: 2100000, guid: 923d5d7c85369dc4b9455d1b027898d8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: opwolfcoinblack1
+    second: {fileID: 2100000, guid: 3853e34229ea4d3459c8245c808348c7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: opwolfcoinblack2
+    second: {fileID: 2100000, guid: a82e296d518cfee43bbae5ab2cb1a77c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: opwolfcoinblack3
+    second: {fileID: 2100000, guid: 9a483999eaf731b4fa68aa5c37953a22, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: opwolfcoinblack4
+    second: {fileID: 2100000, guid: dc0c6c7c4bead0f4182bfa364befc40a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: opwolfcoinblack5
+    second: {fileID: 2100000, guid: ec165d8bad732e543bed3ed8a6273a8a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: opwolfcointexture
+    second: {fileID: 2100000, guid: 1b764d5a6e155f7498c3dde3927d2f3f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: opwolfcoptmold
+    second: {fileID: 2100000, guid: 80e142a9b2cc29f4bb20c2749cd975e5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: opwolfcpoblack
+    second: {fileID: 2100000, guid: 3a4a55bedcc6d244d9d77ca5a25d3f59, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: opwolfcpotex
+    second: {fileID: 2100000, guid: 64409949bf041d84694ecab0e3ad216e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: opwolfflatblack
+    second: {fileID: 2100000, guid: 8943b8c55cf114d4196688843040f9f9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: opwolfgun
+    second: {fileID: 2100000, guid: a2cfc381723341a4e980a7cd80a532c4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: opwolfgunbaseblack
+    second: {fileID: 2100000, guid: 025e69026cfbeff4ca918a34b2f67f01, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: opwolfgunbasestart
+    second: {fileID: 2100000, guid: 46f193be4a2e4db449b8e09e12fccb13, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: opwolfmarquee
+    second: {fileID: 2100000, guid: 434e3993f0281ab42b32f387f60e2212, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: opwolfmonitor
+    second: {fileID: 2100000, guid: 80a8735cde1503948b0624e220af5e86, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: opwolfsideleftblack
+    second: {fileID: 2100000, guid: 66377cba4e54481418a095b19f171048, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: opwolfsideleftinnerblack
+    second: {fileID: 2100000, guid: add33c69529bb204dbb850e5984089a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: opwolfsideleftinnertexture
+    second: {fileID: 2100000, guid: 250205f64c9cf4d4fae966887efd512a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: opwolfsideleftinnertmold
+    second: {fileID: 2100000, guid: 305da31ca574e5c47a8cf3994efe2a18, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: opwolfsidelefttexture
+    second: {fileID: 2100000, guid: 203a7785df353ad4c84be24670b41190, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: opwolfsidelefttmold
+    second: {fileID: 2100000, guid: b8f8b5fb4cfa06c41bb4fff5525312be, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: opwolfsiderightblack
+    second: {fileID: 2100000, guid: b34612a42ff275e48bbc05102766a0e9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: opwolfsiderighttexture
+    second: {fileID: 2100000, guid: 371cd17f40561b5418dfe18224332203, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: opwolfsiderighttmold
+    second: {fileID: 2100000, guid: 67e654b9b6898dc4f883fea7d21a9254, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: qbertblack
+    second: {fileID: 2100000, guid: decbc6cf3844d5a43bd8e01202161943, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 1
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 1
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 0
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 0
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 12
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

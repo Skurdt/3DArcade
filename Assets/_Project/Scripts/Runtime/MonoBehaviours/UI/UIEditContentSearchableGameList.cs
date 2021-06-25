@@ -85,7 +85,7 @@ namespace Arcade
                 _searchInputField.SetTextWithoutNotify("");
                 _filterableList.Filtered.Clear();
             }
-            else
+            else if (_filterableList.Filtered.Count == 0)
                 _filterableList.Filtered = _allGames[_platformIndex].ToList();
 
             _scrollRect.totalCount = _filterableList.Filtered.Count;
@@ -187,6 +187,14 @@ namespace Arcade
         {
             _searchInputField.DeactivateInputField(true);
             _searchInputField.SetTextWithoutNotify("");
+
+            if (_cancellationTokenSource == null || _cancellationTokenSource.IsCancellationRequested)
+            {
+                if (_allGames.ContainsKey(_platformIndex))
+                    _= _allGames.Remove(_platformIndex);
+                return;
+            }
+
             _ = await UniTask.Run(() =>
             {
                 lock (_lock)

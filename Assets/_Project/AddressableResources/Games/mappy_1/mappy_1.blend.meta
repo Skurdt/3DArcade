@@ -1,0 +1,237 @@
+fileFormatVersion: 2
+guid: 285cfd31f05f64b42864e53ca6e31444
+ModelImporter:
+  serializedVersion: 21100
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DefaultMaterial11
+    second: {fileID: 2100000, guid: 0c0da5c4c0e684f4d8d4f7e16bd77d51, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DefaultMaterial12
+    second: {fileID: 2100000, guid: f90baf45a07ac3b4ea40ec896c301c53, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mappybezel
+    second: {fileID: 2100000, guid: 80bb2a35c49991d4db99b6460b677706, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mappyblack
+    second: {fileID: 2100000, guid: 6fca90c09a7575e4cbfaf7762868613a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mappycoindoor
+    second: {fileID: 2100000, guid: f69aa31014b6c9441a818ca28adb7303, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mappycpo
+    second: {fileID: 2100000, guid: 6a11290ecb468b84ba83514ccf5a7a7c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mappyinstructioncardleft
+    second: {fileID: 2100000, guid: eb15ee18ad37c4c428e52e15cd100eff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mappyinstructioncardright
+    second: {fileID: 2100000, guid: 74dd7739a8606414396bf0afefbac46b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mappymarquee
+    second: {fileID: 2100000, guid: 1270a05d14c80b6478e2369b8a53d903, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mappymarqueesideleftblack
+    second: {fileID: 2100000, guid: af1cdf86d6df08647be717a5f7fa5056, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mappymarqueesideleftwhite
+    second: {fileID: 2100000, guid: 9c515d12ee0f02241b9b50cb44eec90f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mappymarqueesiderightblack
+    second: {fileID: 2100000, guid: ff7664b0f6696a9438468b56bfea247a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mappymarqueesiderightwhite
+    second: {fileID: 2100000, guid: 130c0df780b8ec34b895065b8906f894, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mappymarqueetopbackerblack
+    second: {fileID: 2100000, guid: 759b18db80f2187469e37db35cd87a1c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mappymarqueetopbackerwhite
+    second: {fileID: 2100000, guid: 3905cf5912c4e41419a71a4aa24c98e8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mappymonitor
+    second: {fileID: 2100000, guid: 6d70a79c19333db4db8040ede6b5d4c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mappyredblackblack
+    second: {fileID: 2100000, guid: 3b886d1058a5ae8419f0e87f09854b17, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mappyredblackred
+    second: {fileID: 2100000, guid: 9f01e002afef4094eab3c56fe7c9cce8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mappysideleft
+    second: {fileID: 2100000, guid: 6e3fe054662284e4d918bcdc1d1e9e12, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mappysideleftblack
+    second: {fileID: 2100000, guid: ae4f775a35dae544b9fc7cef6298c1c7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mappysidelefttmolding
+    second: {fileID: 2100000, guid: 77c95037f45456b46a9610d897a69b01, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mappysideright
+    second: {fileID: 2100000, guid: 059bd94a78c66ab4da3a8da294825094, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mappysiderightblack
+    second: {fileID: 2100000, guid: 7edb53be969f2ab40b25d6d8a202176d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mappysiderighttmolding
+    second: {fileID: 2100000, guid: af14cd1c858a2f1439461097b9251831, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mappyspeaker
+    second: {fileID: 2100000, guid: c8d07d972aac0b549be5b6fd3971cda1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mappywhitebuttons
+    second: {fileID: 2100000, guid: d6a6a819ab3846e4e8ca49c776c6e3c2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mappyyellowbuttons
+    second: {fileID: 2100000, guid: 334e9d52bdfd08c448d4bc7f95679058, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 1
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 1
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 0
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 0
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 12
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

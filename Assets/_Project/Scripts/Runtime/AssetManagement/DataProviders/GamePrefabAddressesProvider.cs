@@ -26,12 +26,12 @@ namespace Arcade
     {
         protected override string AddressablesPrefix { get; } = "Games/";
 
-        private const string DEFAULT_70_HOR_PREFAB_NAME = "_70_horizontal";
-        private const string DEFAULT_80_HOR_PREFAB_NAME = "_80_horizontal";
-        private const string DEFAULT_90_HOR_PREFAB_NAME = "_90_horizontal";
-        private const string DEFAULT_70_VER_PREFAB_NAME = "_70_vertical";
-        private const string DEFAULT_80_VER_PREFAB_NAME = "_80_vertical";
-        private const string DEFAULT_90_VER_PREFAB_NAME = "_90_vertical";
+        private const string DEFAULT_70_HOR_PREFAB_NAME = "magic-deniro-70-hor";
+        private const string DEFAULT_80_HOR_PREFAB_NAME = "magic-deniro-80-hor";
+        private const string DEFAULT_90_HOR_PREFAB_NAME = "magic-deniro-90-hor";
+        private const string DEFAULT_70_VER_PREFAB_NAME = "magic-deniro-70-vert";
+        private const string DEFAULT_80_VER_PREFAB_NAME = "magic-deniro-80-vert";
+        private const string DEFAULT_90_VER_PREFAB_NAME = "magic-deniro-90-vert";
         private const string DEFAULT_HOR_PREFAB_NAME    = DEFAULT_80_HOR_PREFAB_NAME;
         private const string DEFAULT_VER_PREFAB_NAME    = DEFAULT_80_VER_PREFAB_NAME;
 
@@ -65,10 +65,8 @@ namespace Arcade
             {
                 case GameScreenOrientation.Default:
                 case GameScreenOrientation.Horizontal:
-                case GameScreenOrientation.FlippedHorizontal:
                     return GetGenericHorizontalNameForYear(game.Year);
                 case GameScreenOrientation.Vertical:
-                case GameScreenOrientation.FlippedVertical:
                     return GetGenericVerticalNameForYear(game.Year);
                 default:
                     throw new System.NotImplementedException($"Unhandled switch case for GameScreenOrientation: {game.ScreenOrientation}");

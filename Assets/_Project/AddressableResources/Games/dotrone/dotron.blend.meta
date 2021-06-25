@@ -1,0 +1,237 @@
+fileFormatVersion: 2
+guid: 8ac2cdf6b6172784ebc08e316ba1dc75
+ModelImporter:
+  serializedVersion: 21100
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dotronbezel
+    second: {fileID: 2100000, guid: 228f3619bf3a87e4db2c40204cd90471, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dotronblack
+    second: {fileID: 2100000, guid: 320c22259168bb84594fe33913e788ef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dotronblacklight
+    second: {fileID: 2100000, guid: 4d5bfe606ca75454fbfe9f4312d6688c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dotronblacklightcover
+    second: {fileID: 2100000, guid: baeb466ca40e1b244b6520b48d7c8c33, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dotronblackspinner
+    second: {fileID: 2100000, guid: 942b94c1132d48a4baf7c31d41143261, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dotronchrome
+    second: {fileID: 2100000, guid: 873f7359bc75bf9408d280c614e1e332, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dotroncoindoor
+    second: {fileID: 2100000, guid: c6c7501836656464c9dbb503c0f68a81, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dotroncpo
+    second: {fileID: 2100000, guid: 2d30ada65c8376340a6b46dbf1c2db3d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dotroncpotopper
+    second: {fileID: 2100000, guid: 6b0cda162157cf54f8a7eb5fb45aaad8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dotronglass
+    second: {fileID: 2100000, guid: 55980d9569e1cf6479d850bad11a7773, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dotroninnerbezelmulti
+    second: {fileID: 2100000, guid: 4cd5f1d65cc951a40860a3aa5d3fab34, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dotroninnerbezelred
+    second: {fileID: 2100000, guid: d2a3e534bff003a4d853cbcb4770e5bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dotronjoystick
+    second: {fileID: 2100000, guid: 85a8fa74ed089094291c6f27f0ed8810, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dotronjoystickbuttonchrome
+    second: {fileID: 2100000, guid: 1f6f97c4d2ffad4489fd3d11d19fc804, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dotronjoystickinsert
+    second: {fileID: 2100000, guid: 64051896fd8c2f745a2ad9123f636309, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dotronmarquee
+    second: {fileID: 2100000, guid: 57df7d695c7e2cf43aeb352e9b94bb50, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dotronmonitor
+    second: {fileID: 2100000, guid: 2d68c229149981c49aaa8c34d9bf4258, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dotronred
+    second: {fileID: 2100000, guid: 7c49acd23dbb0c644be2b0960e541d1c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dotronredjoystickbutton
+    second: {fileID: 2100000, guid: 5a8aa8a316523a846be316d75f01c4dc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dotronsideleftblack
+    second: {fileID: 2100000, guid: ee21353ca7986504b8e606a3b68c1da0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dotronsideleftmulti
+    second: {fileID: 2100000, guid: 2713ea38268d0444c8fb129f5f321bf8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dotronsidelefttmold
+    second: {fileID: 2100000, guid: 7ddd19f4249b6e747a2e2713a1966b0a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dotronsiderightblack
+    second: {fileID: 2100000, guid: 50ad99f6d46bd3e43a11be39128ebcf5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dotronsiderightmulti
+    second: {fileID: 2100000, guid: b49a1c74d4ed9044f93771e36aabda8a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dotronsiderighttmold
+    second: {fileID: 2100000, guid: c533fa743f962fc47998307821f1ae10, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dotronspeaker
+    second: {fileID: 2100000, guid: 4774f9e664f47e749afb731666372137, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dotronwhite
+    second: {fileID: 2100000, guid: 0eb5728fa344ed049957c23519b201ff, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 1
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 1
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 0
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 0
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 12
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

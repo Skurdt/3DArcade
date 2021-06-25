@@ -33,4 +33,4 @@ MonoBehaviour:
   _verticalOffset: 0
   _worldLayerMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 8064

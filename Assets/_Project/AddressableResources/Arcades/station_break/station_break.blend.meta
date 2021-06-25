@@ -1,0 +1,227 @@
+fileFormatVersion: 2
+guid: 7085bbe282f20d146874f509499c43dd
+ModelImporter:
+  serializedVersion: 21100
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sbreakceiling
+    second: {fileID: 2100000, guid: 0fc5615fc361e3649a8241b6a3277269, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sbreakclockface
+    second: {fileID: 2100000, guid: 55b5a495cacab8d4b968f85f2e31d5e6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sbreakdarkness
+    second: {fileID: 2100000, guid: dd9a1e0d89102874dbec83bbb49b4a4b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sbreakexit
+    second: {fileID: 2100000, guid: 212fb556e2ac1354283c1a3be422e522, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sbreakexitlight
+    second: {fileID: 2100000, guid: 063272d0807c2ab4286d61907b1359fa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sbreakfac
+    second: {fileID: 2100000, guid: 7f68ea47ddf742449a071322364c2dee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sbreakfloorsocket
+    second: {fileID: 2100000, guid: 35647ad9094ec3741954638496262090, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sbreakinsidelogo
+    second: {fileID: 2100000, guid: 59fb1472a86e76e4584583a3c33bd97a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sbreakinvisibarrier
+    second: {fileID: 2100000, guid: 06675ab55ee33284d8109fbcd10932f7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sbreaklogo
+    second: {fileID: 2100000, guid: 671f10da22c4a044c91e7d441f1be49e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sbreakoccupancy
+    second: {fileID: 2100000, guid: b521ad25eeb9a434d8cb38b3bb02dda8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sbreakoutsidetile
+    second: {fileID: 2100000, guid: 625f73bc41372f846b863a5be2d9f576, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sbreakrubbermat
+    second: {fileID: 2100000, guid: 226d5fd81f6fddb4c8ae514d8a25740f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sbreakrug
+    second: {fileID: 2100000, guid: 83f919b243b15544ea578674639b120b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sbreakshiny
+    second: {fileID: 2100000, guid: e1e2ee77b0a42f248bd9d64c15d48d39, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sbreakshiny2
+    second: {fileID: 2100000, guid: 355b186911602da4691c12cafef2104d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sbreakshop1
+    second: {fileID: 2100000, guid: bd7f268c37f35de4cbbb0b116959a231, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sbreaksign
+    second: {fileID: 2100000, guid: ccf7e43812b80b54db068beabe2cf514, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sbreaksocket
+    second: {fileID: 2100000, guid: 6ff946a6cb4474d498f23339ff35eb1c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sbreakstone
+    second: {fileID: 2100000, guid: 0543eef7886635f45927740889971054, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sbreakuhfvhf
+    second: {fileID: 2100000, guid: 27bb722177d120344afc1f7cecc0499d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sbreakvidscreen
+    second: {fileID: 2100000, guid: 48e0a9e759af8c645af251489c8941f3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sbreakwall
+    second: {fileID: 2100000, guid: 031e7883d2846a7499b4b7dad3cf071b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sbreakwindow
+    second: {fileID: 2100000, guid: 8dded1b6d5bd95640bf3005c6baf9908, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sbreakyellowbrick
+    second: {fileID: 2100000, guid: da4cb1a2d53b08549bed0a56d7d642cd, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 1
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 1
+    useSRGBMaterialColor: 0
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 0
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 12
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 0
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 0
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

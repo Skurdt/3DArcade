@@ -1,0 +1,217 @@
+fileFormatVersion: 2
+guid: 32caecd140e8a4d48ba78df880f56950
+ModelImporter:
+  serializedVersion: 21100
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: starwarsBackKeyPho
+    second: {fileID: 2100000, guid: 4e82a020af0cb8b4c9780d93d6ce55b8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: starwarsBezColor
+    second: {fileID: 2100000, guid: 69beed37a3623094dbdd7a437dc1374e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: starwarsBodyPhong
+    second: {fileID: 2100000, guid: 4893f249378b3bc43b0aa79db384f9e6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: starwarsCSlotBli
+    second: {fileID: 2100000, guid: acb6522338c17fe48901cef8eae01169, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: starwarsCSlotBli1
+    second: {fileID: 2100000, guid: e4beda69ed59406438b8c2428f48a4af, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: starwarsControlPho
+    second: {fileID: 2100000, guid: ccb206dd59a41b448b587346d836aa46, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: starwarsCoolCABpho
+    second: {fileID: 2100000, guid: d67c5d4eaffcd6b43884a471c40f9c98, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: starwarsCornDecalPho
+    second: {fileID: 2100000, guid: b63e22d589805d54fa92bb3d1fc6b7a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: starwarsHandStrip
+    second: {fileID: 2100000, guid: a646c6593e966f84bb09027b754a8640, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: starwarsHandleCol
+    second: {fileID: 2100000, guid: 22a45b8f3a18f994d909d3eb26def8ec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: starwarsInCoinLam
+    second: {fileID: 2100000, guid: 779cd1816eb59644d88f726c9ef178b4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: starwarsInRimPho
+    second: {fileID: 2100000, guid: e1803c9ff7b9c1c489cdc56fb42de82d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: starwarsMonFramePho
+    second: {fileID: 2100000, guid: d67a7a65d2a550547b2db515233a1ad6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: starwarsPlasticPhong
+    second: {fileID: 2100000, guid: a5328199d9e52214595257c03d17eb69, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: starwarsRimShinepho
+    second: {fileID: 2100000, guid: 28d75a85133f6fd44bbb143a12149a2f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: starwarsSpeakerPho
+    second: {fileID: 2100000, guid: 94e373102fd4746409c6f345b878a926, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: starwarsUpperDecalPho
+    second: {fileID: 2100000, guid: 8d06c5664813cb640815ed177bd4fa63, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: starwarsWarningPho
+    second: {fileID: 2100000, guid: 77ab01a264353414fb120c7ad79ea8a2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: starwarsaMarquee
+    second: {fileID: 2100000, guid: 8a7ff8f47b58d5843b72ce6c273fc53e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: starwarsaaMonPho
+    second: {fileID: 2100000, guid: 896c16599239d6b44806efc907a534a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: starwarsmetalblin
+    second: {fileID: 2100000, guid: c76ed120e9996a64c85659f487700413, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: starwarssideart
+    second: {fileID: 2100000, guid: 8037dcefc21bcaf4f8ba18edae9227cf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: starwarsyolkpho
+    second: {fileID: 2100000, guid: 7f41a2e70763afc41b6b057de3267556, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 1
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 1
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 0
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 0
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 12
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

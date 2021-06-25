@@ -92,6 +92,7 @@ namespace Arcade
             if (Cursor.lockState != CursorLockMode.Locked)
                 Context.InputActions.FpsNormal.Look.Disable();
             Context.InputActions.FpsEditContent.Enable();
+            Context.InputActions.FpsEditPositions.Rotate.Enable();
         }
 
         private void SetupInput()

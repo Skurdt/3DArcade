@@ -47,6 +47,8 @@ namespace Arcade
             set => _changeRandomDelayAfterTimerEnds = value;
         }
 
+        public Texture FirstTexture => _imageCyclingTextures.Length > 0 ? _imageCyclingTextures[0] : null;
+
         private const float DEFAULT_MIN_DELAY = 0.4f;
         private const float DEFAULT_MAX_DELAY = 1.6f;
 
@@ -102,7 +104,7 @@ namespace Arcade
 
         private void SwapTexture()
         {
-            if (!_renderer.enabled)
+            if (_renderer == null || !_renderer.enabled)
                 return;
 
             _imageCyclingIndex++;

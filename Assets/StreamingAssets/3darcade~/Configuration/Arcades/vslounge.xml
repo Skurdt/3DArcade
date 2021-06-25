@@ -1,0 +1,1931 @@
+<arcade description="VoodooScience Lounge">
+  <fpsarcade_properties>
+    <scene>vslounge</scene>
+    <camera_settings orthographic="false">
+      <position x="0" y="0" z="0" />
+      <rotation x="0" y="0" z="0" />
+      <height>0.6</height>
+      <field_of_view>60</field_of_view>
+      <aspect_ratio>1</aspect_ratio>
+      <near_clip>0.1</near_clip>
+      <far_clip>300</far_clip>
+      <viewport_rect x="0" y="0" width="0" height="0" />
+    </camera_settings>
+    <render_settings>
+      <marquee_intensity>1.1</marquee_intensity>
+      <screen_lcd_intensity>1.1</screen_lcd_intensity>
+      <screen_raster_intensity>1.1</screen_raster_intensity>
+      <screen_svg_intensity>1.1</screen_svg_intensity>
+      <screen_vector_intenstity>2.1</screen_vector_intenstity>
+    </render_settings>
+    <audio_settings>
+      <main_volume>1</main_volume>
+      <music_volume>0.6</music_volume>
+      <ambient_volume>0.4</ambient_volume>
+      <minimum_distance>1</minimum_distance>
+      <maximum_distance>3</maximum_distance>
+    </audio_settings>
+    <model />
+    <props />
+  </fpsarcade_properties>
+  <cylarcade_properties wheel_variant="LineHorizontal" wheel_radius="5" sprockets="5">
+    <scene>_empty</scene>
+    <camera_settings orthographic="false">
+      <position x="0" y="0" z="0" />
+      <rotation x="0" y="0" z="0" />
+      <height>0.6</height>
+      <field_of_view>60</field_of_view>
+      <aspect_ratio>1</aspect_ratio>
+      <near_clip>0.1</near_clip>
+      <far_clip>300</far_clip>
+      <viewport_rect x="0" y="0" width="0" height="0" />
+    </camera_settings>
+    <render_settings>
+      <marquee_intensity>1.4</marquee_intensity>
+      <screen_lcd_intensity>1.4</screen_lcd_intensity>
+      <screen_raster_intensity>1.4</screen_raster_intensity>
+      <screen_svg_intensity>1.4</screen_svg_intensity>
+      <screen_vector_intenstity>2.1</screen_vector_intenstity>
+    </render_settings>
+    <audio_settings>
+      <main_volume>1</main_volume>
+      <music_volume>0.6</music_volume>
+      <ambient_volume>0.4</ambient_volume>
+      <minimum_distance>1</minimum_distance>
+      <maximum_distance>3</maximum_distance>
+    </audio_settings>
+    <model />
+    <props />
+    <mouse_look>false</mouse_look>
+    <selected_sprocket>-1</selected_sprocket>
+    <selected_position_z>5</selected_position_z>
+    <sprocket_rotation x="0" y="180" z="0" />
+    <model_spacing>0.2</model_spacing>
+    <horizontal_navigation>true</horizontal_navigation>
+    <inverse_navigation>false</inverse_navigation>
+    <inverse_list>false</inverse_list>
+    <line_angle>-5</line_angle>
+  </cylarcade_properties>
+  <games>
+    <game id="1942" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="3.62" y="-0.01" z="-12.93" />
+      <rotation x="-0" y="-90" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="Super Mario All-Stars (USA)" platform="snes">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="5.55" y="4.85" z="-24.51" />
+      <rotation x="0" y="-91.52" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="Mario Bros. (World)" platform="nes">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-5.57" y="4.85" z="-24.21" />
+      <rotation x="-0" y="91.27" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="19xx" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="3.54" y="-0" z="-13.96" />
+      <rotation x="-0" y="-88.64" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="1943" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="3.52" y="0" z="-15" />
+      <rotation x="0" y="-89.2" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="1941" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="3.5" y="-0" z="-16.01" />
+      <rotation x="-0" y="-88.88" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="aliensu" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="3.48" y="-0" z="-17.03" />
+      <rotation x="0" y="-88.88" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="blkbustr" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="3.46" y="-0" z="-18.19" />
+      <rotation x="-0" y="-88.88" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="dino" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-3.64" y="-0" z="-18.62" />
+      <rotation x="0" y="90.05" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="aliensu" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-2.14" y="-0" z="-37.61" />
+      <rotation x="-0" y="38.08" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="aliensu" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-2.36" y="-0" z="-35.33" />
+      <rotation x="0" y="86.16" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="aliensu" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-2.26" y="-0" z="-33.68" />
+      <rotation x="0" y="96" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="aliensu" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-2.24" y="-0" z="-32.01" />
+      <rotation x="-0" y="89.84" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="aliensu" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-2.38" y="-0" z="-30.35" />
+      <rotation x="0" y="85.92" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="aliensu" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-2.13" y="-0" z="-28.66" />
+      <rotation x="0" y="114.96" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="aliensu" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-3.03" y="-0" z="-25.57" />
+      <rotation x="0" y="-179.36" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="aliensu" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-2.01" y="-0" z="-25.57" />
+      <rotation x="0" y="179.52" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="aliensu" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-0.98" y="-0" z="-25.56" />
+      <rotation x="0" y="179.52" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="aliensu" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="0.06" y="-0" z="-25.56" />
+      <rotation x="0" y="179.52" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="aliensu" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="1.17" y="-0" z="-25.55" />
+      <rotation x="0" y="179.6" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="aliensu" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="2.18" y="-0" z="-25.54" />
+      <rotation x="0" y="179.68" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="pacman" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-5.65" y="-0" z="-22.72" />
+      <rotation x="0" y="124.43" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="joust" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-5.73" y="-0" z="-23.92" />
+      <rotation x="-0" y="88" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="arkanoid" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-5.63" y="-0" z="-25.27" />
+      <rotation x="0" y="90.08" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="asteroid" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-5.63" y="0" z="-26.49" />
+      <rotation x="-0" y="90.24" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="berzerk" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-5.64" y="-0" z="-27.65" />
+      <rotation x="-0" y="90.24" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="bombjack" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-5.64" y="-0" z="-28.77" />
+      <rotation x="0" y="90.24" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="bzone" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-5.65" y="-0" z="-30.04" />
+      <rotation x="0" y="90.24" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="ccastles" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-5.65" y="-0" z="-31.42" />
+      <rotation x="0" y="89.84" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="centiped" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-5.65" y="-0" z="-32.63" />
+      <rotation x="0" y="89.84" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="commando" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-5.64" y="-0" z="-33.91" />
+      <rotation x="0" y="89.84" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="defender" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-5.64" y="-0" z="-35.16" />
+      <rotation x="0" y="89.84" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="digdug" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-5.64" y="-0" z="-36.51" />
+      <rotation x="0" y="89.84" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="frogger" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-5.63" y="-0" z="-37.73" />
+      <rotation x="0" y="89.84" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="galaga" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-5.63" y="-0" z="-39.28" />
+      <rotation x="-0" y="90" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="gyruss" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-5.55" y="-0" z="-40.26" />
+      <rotation x="0" y="91.44" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="invaders" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-4.41" y="0" z="-41.13" />
+      <rotation x="0" y="-1.04" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="mach3" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-3.23" y="-0" z="-41.1" />
+      <rotation x="-0" y="0.24" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="mappy" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-1.81" y="-0" z="-41.11" />
+      <rotation x="-0" y="0.4" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="marble" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-0.68" y="-0" z="-41.12" />
+      <rotation x="-0" y="0.4" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="missile" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="0.29" y="-0" z="-41.13" />
+      <rotation x="-0" y="0.4" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="mpatrol" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="1.26" y="-0" z="-41.13" />
+      <rotation x="-0" y="0.4" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="mrdo" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="2.13" y="-0" z="-41.14" />
+      <rotation x="-0" y="0.4" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="mspacman" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="3.13" y="-0" z="-41.15" />
+      <rotation x="-0" y="0.4" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="pengo" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="4.15" y="-0" z="-41.15" />
+      <rotation x="-0" y="0.4" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="polepos" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="5.35" y="-0" z="-41.16" />
+      <rotation x="-0" y="0.4" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="pooyan" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="5.65" y="-0" z="-38.92" />
+      <rotation x="-0" y="-90.24" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="qbert" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="5.68" y="-0" z="-37.51" />
+      <rotation x="0" y="-90.56" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="robotron" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="5.67" y="-0" z="-36.62" />
+      <rotation x="0" y="-90.56" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="rtype" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="5.65" y="-0" z="-35.37" />
+      <rotation x="0" y="-90.64" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="scramble" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="5.65" y="-0" z="-34.15" />
+      <rotation x="0" y="-91.28" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="smashtv" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="5.65" y="-0" z="-32.74" />
+      <rotation x="0" y="-92.24" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="ssf2" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="5.65" y="-0" z="-31.36" />
+      <rotation x="0" y="-92.08" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="starwars" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="5.65" y="-0" z="-30.14" />
+      <rotation x="0" y="-92.08" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="szaxxon" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="5.65" y="-0" z="-28.77" />
+      <rotation x="0" y="-92.08" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="tempest" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="5.65" y="-0" z="-27.4" />
+      <rotation x="0" y="-92.08" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="timeplt" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="5.6" y="-0" z="-26.03" />
+      <rotation x="0" y="-92.08" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="tron" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="5.65" y="-0" z="-24.71" />
+      <rotation x="0" y="-91.6" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="vanguard" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="5.58" y="-0" z="-23.2" />
+      <rotation x="-0" y="-91.6" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="zookeep" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="3.03" y="-0" z="-25.54" />
+      <rotation x="0" y="179.68" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="mk" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-3.54" y="-0" z="-12.96" />
+      <rotation x="0" y="89.44" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="mk2" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-3.52" y="-0" z="-14.1" />
+      <rotation x="-0" y="89.44" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="mk3" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-3.53" y="-0" z="-15.21" />
+      <rotation x="0" y="92.08" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="umk3" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-3.57" y="-0" z="-16.26" />
+      <rotation x="-0" y="92.4" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="shinobi" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-3.63" y="-0" z="-17.42" />
+      <rotation x="0" y="91.84" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="Black Knight 2000" platform="pinball">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-1.23" y="-4.15" z="-1.53" />
+      <rotation x="0" y="179.88" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="Addams Family" platform="pinball">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-3.14" y="-4.15" z="-1.53" />
+      <rotation x="-0" y="179.87" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="Adventures Of Rocky And Bullwinkle And Friends" platform="pinball">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-4.14" y="-4.15" z="-1.53" />
+      <rotation x="0" y="179.88" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="Agents 777" platform="pinball">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-5.35" y="-4.15" z="-1.82" />
+      <rotation x="0" y="141.18" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="Airborne" platform="pinball">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-5.69" y="-4.15" z="-3.15" />
+      <rotation x="0" y="89.91" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="Comet" platform="pinball">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-2.2" y="-4.15" z="-1.53" />
+      <rotation x="-0" y="179.89" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="Air Aces" platform="pinball">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="2.76" y="0" z="-38.06" />
+      <rotation x="0" y="-90" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="Airborne" platform="pinball">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="2.76" y="0" z="-36.53" />
+      <rotation x="0" y="-90" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="Iron Maiden" platform="pinball">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="2.76" y="0" z="-33.8" />
+      <rotation x="0" y="-90.01" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="Bad Cats" platform="pinball">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="2.75" y="-0" z="-32.63" />
+      <rotation x="-0" y="-90" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="Twilight Zone" platform="pinball">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="2.75" y="0" z="-31.56" />
+      <rotation x="0" y="-89.99" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="Back to the Future" platform="pinball">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="2.76" y="0" z="-30.45" />
+      <rotation x="0" y="-90" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="Truck Stop" platform="pinball">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="2.76" y="0" z="-29.37" />
+      <rotation x="0" y="-90" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="kiss" platform="pinball">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="2.76" y="0" z="-28.24" />
+      <rotation x="0" y="-89.99" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="Asteroid Annie &amp; the Aliens" platform="pinball">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="2.76" y="0" z="-35.14" />
+      <rotation x="0" y="-90" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="Defender II (USA)" platform="nes">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-4.59" y="5.15" z="-36.37" />
+      <rotation x="-0" y="121" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="Desert Commander (USA)" platform="nes">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-4.25" y="5.15" z="-35.43" />
+      <rotation x="-0" y="99.97" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="Dragon Power (USA)" platform="nes">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-4.28" y="5.15" z="-34.34" />
+      <rotation x="-0" y="84.43" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="Final Fantasy (USA)" platform="nes">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-5.3" y="5.15" z="-37.12" />
+      <rotation x="-0" y="143.11" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="abaseb" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="5.87" y="-0" z="-6.69" />
+      <rotation x="-0" y="-90" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="aburner" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="5.83" y="0" z="-7.85" />
+      <rotation x="0.24" y="-89.99" z="0.03" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="aliens" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-5.72" y="-0" z="-6.58" />
+      <rotation x="-0" y="90" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="alpine" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-5.84" y="0" z="-7.73" />
+      <rotation x="0" y="90" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="altbeast" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-5.81" y="0" z="-8.84" />
+      <rotation x="0" y="90.01" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="apb" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="5.72" y="0" z="-9.81" />
+      <rotation x="-0" y="-90" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="arabian" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="5.81" y="0" z="-8.85" />
+      <rotation x="-0" y="-90" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="aburner" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override>aburnerdx</model_override>
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="2.67" y="0" z="-4.61" />
+      <rotation x="0" y="-111.67" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="amidar" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-5.81" y="0" z="-9.87" />
+      <rotation x="0" y="90.35" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+  </games>
+</arcade>

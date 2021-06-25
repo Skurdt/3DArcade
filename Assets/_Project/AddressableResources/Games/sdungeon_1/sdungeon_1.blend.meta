@@ -1,0 +1,222 @@
+fileFormatVersion: 2
+guid: 7188fe23b1be5c544bf4fd05bcce586c
+ModelImporter:
+  serializedVersion: 21100
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spacedunAMonitor
+    second: {fileID: 2100000, guid: 06cd04ce460ee724cbb6d44e6c518960, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spacedunBackKeyPho
+    second: {fileID: 2100000, guid: c442daf6f820070439ec6259d384d622, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spacedunBezelRimP
+    second: {fileID: 2100000, guid: 9c80559158d7fda4596cd89b167fde2e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spacedunBezelRimP1
+    second: {fileID: 2100000, guid: 1144d149562f33143a1df635271e7dc5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spacedunCoinPho
+    second: {fileID: 2100000, guid: f16c26a3ae88bba45bf6b8fe73cd2b9c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spacedunControl
+    second: {fileID: 2100000, guid: 199b290dcd7afd64c86150affa871592, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spacedunInCoinLam
+    second: {fileID: 2100000, guid: 31e2300482e3ea84aa316e6dfa931ab5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spacedunInPanelPho
+    second: {fileID: 2100000, guid: 7fc680ffd88600441bc0beb43c46c48e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spacedunJoyMetalBli
+    second: {fileID: 2100000, guid: 5734f737d29c7764ba54cb21b2ef09a9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spacedunJoyRings
+    second: {fileID: 2100000, guid: 427898b2f9906ff46b2d8841c2b6c69f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spacedunJoyknobs
+    second: {fileID: 2100000, guid: 60344693f5d4cb14083b2e617df4d38f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spacedunMonFrameP
+    second: {fileID: 2100000, guid: a2a0e5eec76b7944c9377277b1aee074, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spacedunMostBody
+    second: {fileID: 2100000, guid: e1fcffb2fc292714e8e21207f8b70ac8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spacedunMostSpeak
+    second: {fileID: 2100000, guid: 095252fd34d400644abf54007e6f6d5c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spacedunPlasticP
+    second: {fileID: 2100000, guid: 7c49689c6b05ca943ad0e013d6b60d0a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spacedunRimPho
+    second: {fileID: 2100000, guid: ecf9b1ca5856a834db0dd6cb0d2f8289, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spacedunRivitBli
+    second: {fileID: 2100000, guid: 68fa2d12b30213840bfef919576983f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spacedunSideLFPho
+    second: {fileID: 2100000, guid: b0bde29db74518b4f8fde81f93bf210b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spacedunSideRTPho
+    second: {fileID: 2100000, guid: 56313f1d49fae834d99b96444ac0d832, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spacedunSpeakerGP
+    second: {fileID: 2100000, guid: 221e4a2320e72ae43b38bef279dc934e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spacedunaamarqueeP
+    second: {fileID: 2100000, guid: 58364c2721a9b9e4f86e9607d265762e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spacedunbezelpho
+    second: {fileID: 2100000, guid: 886ddae88d875434e90db7b25e3a43c3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spacedunbuttons
+    second: {fileID: 2100000, guid: fd3713e71a74ec34e8d752f9c3664a60, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spacedunwarning
+    second: {fileID: 2100000, guid: 6b2a89a44dd5b2e479ae11bfec9f3cf8, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 1
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 1
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 0
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 0
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 12
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

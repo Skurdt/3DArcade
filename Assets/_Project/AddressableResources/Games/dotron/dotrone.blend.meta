@@ -1,0 +1,302 @@
+fileFormatVersion: 2
+guid: 7c0742a8cffcdf047b9c2cda1cb1282d
+ModelImporter:
+  serializedVersion: 21100
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronAAMarquee
+    second: {fileID: 2100000, guid: 9179041431473e8479a978bbd1a0e986, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronAAScreenP
+    second: {fileID: 2100000, guid: e5e3bb15755adab469bde23a8ef391d6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronBODYLamb
+    second: {fileID: 2100000, guid: f00ebda86517305418254f61329d194e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronBacGrillP
+    second: {fileID: 2100000, guid: 4aa8858144a861e46812e9235e8a0fbe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronBackMarqP
+    second: {fileID: 2100000, guid: 8ca5b91db4b1e914898c05b057ee70b2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronBasicWarnP
+    second: {fileID: 2100000, guid: 51f2183ce974a384d97a5c990c001e39, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronBlackHandlesP
+    second: {fileID: 2100000, guid: 0f4ed6d3c53442148bc9851787745874, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronBlueJoyP
+    second: {fileID: 2100000, guid: f6062d9fa36ffe04b9914d2b20ed37c3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronBodyRollerP
+    second: {fileID: 2100000, guid: 324411777e8d9c04db5fc4b36b924d85, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronButTriggerP
+    second: {fileID: 2100000, guid: 9db86292fe340974ea1db7fc7e2e7e35, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronButtonP
+    second: {fileID: 2100000, guid: 3e96bde1f49623744b03373bb10e157a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronCoinArea
+    second: {fileID: 2100000, guid: a739ad53949f0bf48b40e1d8b14597bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronControlP
+    second: {fileID: 2100000, guid: 1d80fbc0119c6e24fbcc4862dd26c826, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronFloorFrameP
+    second: {fileID: 2100000, guid: 51467a51912d720479c2b31cc7154673, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronFloorLightP
+    second: {fileID: 2100000, guid: 137949614505a6340a78fc49a3f61fd9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronGridWinP
+    second: {fileID: 2100000, guid: 20a5f72db2f417643a1184be42a0689f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronInPanelP
+    second: {fileID: 2100000, guid: 365e50debc0e5bd43804a2b1280cfe11, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronJoyInterior
+    second: {fileID: 2100000, guid: f3ce860b0c78ccf4ea96f5f9f590f950, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronJoystickerP
+    second: {fileID: 2100000, guid: fa853eef43e61924f9181caf50348c9a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronKeyPho
+    second: {fileID: 2100000, guid: ed57e4fdb8dccb24f89ead3d70541add, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronMetSidePlateP
+    second: {fileID: 2100000, guid: 2b6df5d5eab44274cbbdd6d30634f12e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronMetalBlins
+    second: {fileID: 2100000, guid: e6afe9869aeccf44eaab753090318d6f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronMonFramP
+    second: {fileID: 2100000, guid: b3f556bd5e87fac4b9d3baebafc8ebe4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronNewBezP
+    second: {fileID: 2100000, guid: 7405456cb8c0b66448f7359ab233f1d1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronPlasticP
+    second: {fileID: 2100000, guid: cc6cca09e3f75d74e9e664729f870cd2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronReflectLFP
+    second: {fileID: 2100000, guid: 5cf46de9b48ca494c86bcf32000e909c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronReflectRTP
+    second: {fileID: 2100000, guid: 44f3cf06fbe2bc34ab14447e95394278, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronRimsP
+    second: {fileID: 2100000, guid: ca0cb70dd850f064a971bbd9841e2b86, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronRivitBli
+    second: {fileID: 2100000, guid: a1d72bd1bf20d9742a764d4d468ab6a9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronRivitStripP
+    second: {fileID: 2100000, guid: 2447e85c26c5cf3468bf7f1d59f4f3e1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronRoofDecalP
+    second: {fileID: 2100000, guid: a2c1ef5ea1596784f8ee8aff12310226, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronRoofGrillP
+    second: {fileID: 2100000, guid: 9c3214f37a06c29449d10b5ffa2bf97d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronSeatPhong
+    second: {fileID: 2100000, guid: 4da71c24feb4a734385fd9800752fe76, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronShroud
+    second: {fileID: 2100000, guid: 337b66611d7686146b6208d33ad95aeb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronSideLFP
+    second: {fileID: 2100000, guid: 5351fdc05d3aea44195cf3f09758b7d7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronSideRTP
+    second: {fileID: 2100000, guid: 1c147664610c82140a10c91231aa5c03, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronSpinnerP
+    second: {fileID: 2100000, guid: 182d9c33348c36a41a655aab3babbda3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronTronGuyP
+    second: {fileID: 2100000, guid: a0d003af2a4cbd34998b2c973cbe5304, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronYieldPhon
+    second: {fileID: 2100000, guid: d75dd1b597da7e444b005dddf067b04d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ETronfloorP
+    second: {fileID: 2100000, guid: 94efa953c8bfa8a40827106c465a73aa, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 1
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 1
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 0
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 0
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 12
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

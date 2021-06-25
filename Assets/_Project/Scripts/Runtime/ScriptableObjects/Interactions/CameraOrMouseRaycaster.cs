@@ -28,10 +28,10 @@ namespace Arcade
     [CreateAssetMenu(menuName = "3DArcade/Interaction/CameraOrMouseRaycaster", fileName = "CameraOrMouseRaycaster")]
     public sealed class CameraOrMouseRaycaster : InteractionRaycasterBase
     {
-        protected override Ray GetRay(Camera camera)
+        protected override Ray GetRay(Camera camera, Vector2 offset)
         {
             if (Mouse.current is null || Cursor.lockState == CursorLockMode.Locked)
-                return camera.ScreenPointToRay(new Vector2(Screen.width * 0.5f, Screen.height * 0.5f));
+                return camera.ScreenPointToRay(new Vector2(Screen.width * 0.5f, Screen.height * 0.5f) + offset);
 
             Vector2 mousePosition = Mouse.current.position.ReadValue();
             return camera.ScreenPointToRay(mousePosition);

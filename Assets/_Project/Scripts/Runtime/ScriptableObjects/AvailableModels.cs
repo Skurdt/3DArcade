@@ -38,7 +38,7 @@ namespace Arcade
         {
             AsyncOperationHandle<IList<IResourceLocation>> gameModels = Addressables.LoadResourceLocationsAsync("GameModels");
             IList<IResourceLocation> items = gameModels.WaitForCompletion();
-            GameModels = items.Select(x => x.PrimaryKey.Substring(6)).ToArray();
+            GameModels = items.Select(x => x.PrimaryKey.Substring(6)).OrderBy(x => x).ToArray();
             Addressables.Release(gameModels);
         }
     }

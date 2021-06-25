@@ -1,0 +1,222 @@
+fileFormatVersion: 2
+guid: 2faefb8cabdd68f4a8feef1df2b33ce9
+ModelImporter:
+  serializedVersion: 21100
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: zookeepAMonitor
+    second: {fileID: 2100000, guid: f811173c951d1c941b5d944338c57710, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: zookeepBackKeyPho
+    second: {fileID: 2100000, guid: 7fb09eb99e06c1e4d903c549277dc28f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: zookeepBezelRimP
+    second: {fileID: 2100000, guid: b6d1af5d099f35f4a831e0877a3ed2ce, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: zookeepBezelRimP1
+    second: {fileID: 2100000, guid: 3d036ba8047f49b4dbd97754df8d8d9e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: zookeepCoinPho
+    second: {fileID: 2100000, guid: 6dfa775ea5ec44942bb76308de10f238, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: zookeepControl
+    second: {fileID: 2100000, guid: 7bb713cd5d036584d81a37520aae9771, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: zookeepInCoinLam
+    second: {fileID: 2100000, guid: f69c4f6dfde2a3249af5be9faf6b56b0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: zookeepInPanelPho
+    second: {fileID: 2100000, guid: d3450e3580d650d42ade3c7309575293, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: zookeepJoyKnobP
+    second: {fileID: 2100000, guid: 745f23b3201f9d441be6a539f0510e05, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: zookeepJoyMetalBli
+    second: {fileID: 2100000, guid: 0d86ab30a8e055f48be77b8c6ccfcea7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: zookeepJoyMetalBli1
+    second: {fileID: 2100000, guid: 16fd55dcb19231749886b696b2196b75, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: zookeepLFSidePho
+    second: {fileID: 2100000, guid: 399f7f488697b014fa2e46fd255fdb77, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: zookeepMonFrameP
+    second: {fileID: 2100000, guid: a26450f78d9b6c34ea80dcd047806d9f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: zookeepMostBody
+    second: {fileID: 2100000, guid: d1c1a8d5008d6ec4591b6c5410328e8b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: zookeepMostBody1
+    second: {fileID: 2100000, guid: cf7b6c8c05dd27549ae4e055547c87c5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: zookeepPlasticP
+    second: {fileID: 2100000, guid: 8953c6e7672d34241abe335d3d1fce5f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: zookeepRTSidePho
+    second: {fileID: 2100000, guid: 0b232516a26c4834fba8570fef261405, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: zookeepRimPho
+    second: {fileID: 2100000, guid: 72f22190e93c827469cf831ec0a14c07, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: zookeepRivitBli
+    second: {fileID: 2100000, guid: 47c5daf9636a7504db756a9e98d6fa52, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: zookeepSpeakerGP
+    second: {fileID: 2100000, guid: ab149efa08111ff43b49364b1f350910, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: zookeepaamarqueeP
+    second: {fileID: 2100000, guid: ed2111e36c585c84f889b128e5581d0f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: zookeepbezelpho
+    second: {fileID: 2100000, guid: 0107b666883f0bc48b35f264b1532410, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: zookeepbuttons
+    second: {fileID: 2100000, guid: aec2a7a41b7ea0f4ca5fccb908fb2baa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: zookeepwarning
+    second: {fileID: 2100000, guid: 48ad9543df6d2d14a9f315e8614fba47, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 1
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 1
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 0
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 0
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 12
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

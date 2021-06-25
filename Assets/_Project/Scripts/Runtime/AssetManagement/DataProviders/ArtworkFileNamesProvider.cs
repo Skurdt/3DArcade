@@ -68,8 +68,6 @@ namespace Arcade
 
             imageSequence.Add(platformEmulator?.Id);
 
-            imageSequence.Add(platform?.Id);
-
             return imageSequence.Images;
         }
     }

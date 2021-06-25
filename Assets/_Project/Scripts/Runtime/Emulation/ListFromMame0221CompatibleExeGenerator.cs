@@ -171,8 +171,8 @@ namespace Arcade
                     {
                         "0"   => GameScreenOrientation.Horizontal,
                         "90"  => GameScreenOrientation.Vertical,
-                        "180" => GameScreenOrientation.FlippedHorizontal,
-                        "270" => GameScreenOrientation.FlippedVertical,
+                        "180" => GameScreenOrientation.Horizontal,
+                        "270" => GameScreenOrientation.Vertical,
                         _     => GameScreenOrientation.Default
                     };
                 }

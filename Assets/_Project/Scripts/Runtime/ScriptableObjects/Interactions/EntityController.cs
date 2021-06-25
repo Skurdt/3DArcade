@@ -55,7 +55,8 @@ namespace Arcade
             foreach (DynamicArtworkComponent dynamicArtworkComponent in dynamicArtworkComponents)
                 dynamicArtworkComponent.enabled = true;
 
-            entity.Collider.enabled      = true;
+            foreach (Collider collider in entity.Colliders)
+                collider.enabled = true;
             entity.Rigidbody.isKinematic = false;
         }
 
@@ -68,7 +69,8 @@ namespace Arcade
                 dynamicArtworkComponent.enabled = false;
 
             entity.Rigidbody.isKinematic = true;
-            entity.Collider.enabled      = false;
+            foreach (Collider collider in entity.Colliders)
+                collider.enabled = false;
 
             entity.SaveMaterials();
             entity.SetMaterials(_dissolveMaterial);

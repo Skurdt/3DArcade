@@ -1,0 +1,171 @@
+<arcade description="FPSArcade Demo3">
+  <fpsarcade_properties>
+    <scene>fpsarcade_demo_3</scene>
+    <camera_settings orthographic="false">
+      <position x="0" y="0" z="0" />
+      <rotation x="0" y="0" z="0" />
+      <height>0.6</height>
+      <field_of_view>60</field_of_view>
+      <aspect_ratio>1</aspect_ratio>
+      <near_clip>0.1</near_clip>
+      <far_clip>300</far_clip>
+      <viewport_rect x="0" y="0" width="0" height="0" />
+    </camera_settings>
+    <render_settings>
+      <marquee_intensity>1.4</marquee_intensity>
+      <screen_lcd_intensity>1.4</screen_lcd_intensity>
+      <screen_raster_intensity>1.4</screen_raster_intensity>
+      <screen_svg_intensity>1.4</screen_svg_intensity>
+      <screen_vector_intenstity>2.1</screen_vector_intenstity>
+    </render_settings>
+    <audio_settings>
+      <main_volume>1</main_volume>
+      <music_volume>0.6</music_volume>
+      <ambient_volume>0.4</ambient_volume>
+      <minimum_distance>1</minimum_distance>
+      <maximum_distance>3</maximum_distance>
+    </audio_settings>
+    <model />
+    <props />
+  </fpsarcade_properties>
+  <cylarcade_properties wheel_variant="LineHorizontal" wheel_radius="5" sprockets="5">
+    <scene>_empty</scene>
+    <camera_settings orthographic="false">
+      <position x="0" y="0" z="0" />
+      <rotation x="0" y="0" z="0" />
+      <height>0.6</height>
+      <field_of_view>60</field_of_view>
+      <aspect_ratio>1</aspect_ratio>
+      <near_clip>0.1</near_clip>
+      <far_clip>300</far_clip>
+      <viewport_rect x="0" y="0" width="0" height="0" />
+    </camera_settings>
+    <render_settings>
+      <marquee_intensity>1.4</marquee_intensity>
+      <screen_lcd_intensity>1.4</screen_lcd_intensity>
+      <screen_raster_intensity>1.4</screen_raster_intensity>
+      <screen_svg_intensity>1.4</screen_svg_intensity>
+      <screen_vector_intenstity>2.1</screen_vector_intenstity>
+    </render_settings>
+    <audio_settings>
+      <main_volume>1</main_volume>
+      <music_volume>0.6</music_volume>
+      <ambient_volume>0.4</ambient_volume>
+      <minimum_distance>1</minimum_distance>
+      <maximum_distance>3</maximum_distance>
+    </audio_settings>
+    <model />
+    <props />
+    <mouse_look>false</mouse_look>
+    <selected_sprocket>-1</selected_sprocket>
+    <selected_position_z>5</selected_position_z>
+    <sprocket_rotation x="0" y="180" z="0" />
+    <model_spacing>0.2</model_spacing>
+    <horizontal_navigation>true</horizontal_navigation>
+    <inverse_navigation>false</inverse_navigation>
+    <inverse_list>false</inverse_list>
+    <line_angle>-5</line_angle>
+  </cylarcade_properties>
+  <games>
+    <game id="1942" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="1.34" y="-0.01" z="-11.52" />
+      <rotation x="0" y="1.32" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="1943" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="0" y="0" z="-11.59" />
+      <rotation x="0" y="1.08" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="19xx" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-1.33" y="0" z="-11.58" />
+      <rotation x="0" y="0.59" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="aliens" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-2.49" y="-0" z="-11.62" />
+      <rotation x="0" y="1.08" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="arabian" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-3.61" y="0" z="-11.62" />
+      <rotation x="0" y="1.08" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+  </games>
+</arcade>

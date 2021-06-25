@@ -20,12 +20,154 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE. */
 
+using System.Collections.Generic;
+using System.IO;
+using Unity.Mathematics;
 using UnityEditor;
+using UnityEngine;
 
 namespace Arcade.UnityEditor
 {
-    internal sealed class ModelImportWindow : EditorWindow
+    internal static class ModelUtilities
     {
+        [MenuItem("3DArcade/Add BoxCollider and Rigidbody")]
+        internal static void AddBoxColliderAndRigidbody()
+        {
+            GameObject obj = Selection.activeGameObject;
+            AddBoxCollider(obj);
+            AddRigidbody(obj);
+        }
+
+        [MenuItem("3DArcade/Add BoxCollider")]
+        internal static void AddBoxCollider() => AddBoxCollider(Selection.activeGameObject);
+
+        [MenuItem("3DArcade/Add Rigidbody")]
+        internal static void AddRigidbody() => AddRigidbody(Selection.activeGameObject);
+
+        [MenuItem("Assets/Create Prefab", priority = 10_000)]
+        internal static void CreatePrefab()
+        {
+            const string PREFABS_FOLDER = "Assets/_Project/Addressables/Games";
+            if (!Directory.Exists(PREFABS_FOLDER))
+                _ = Directory.CreateDirectory(PREFABS_FOLDER);
+
+            GameObject obj         = Selection.activeObject as GameObject;
+            string destinationPath = AssetDatabase.GenerateUniqueAssetPath($"{PREFABS_FOLDER}/{obj.name}.prefab");
+            if (File.Exists(destinationPath))
+            {
+                File.Delete(destinationPath);
+                File.Delete($"{destinationPath}.meta");
+                AssetDatabase.Refresh();
+            }
+
+            GameObject tempObj = Object.Instantiate(obj);
+            AddBoxColliderAndRigidbody(tempObj);
+            SetupNodes(tempObj.transform);
+
+            GameObject newObj = PrefabUtility.SaveAsPrefabAsset(tempObj, destinationPath, out bool success);
+            if (success)
+            {
+                Debug.Log($"Game prefab '{obj.name}' created");
+                //Selection.activeGameObject = newObj;
+                //EditorGUIUtility.PingObject(newObj);
+                _ = AssetDatabase.OpenAsset(newObj);
+            }
+            else
+                Debug.LogError($"Game prefab '{obj.name}' creation failed");
+
+            Object.DestroyImmediate(tempObj);
+        }
+
+        [MenuItem("3DArcade/Add BoxCollider and Rigidbody", true)]
+        internal static bool AddBoxColliderAndRigidbodyValidation() => !Application.isPlaying && Selection.activeGameObject != null && !EditorUtility.IsPersistent(Selection.activeGameObject);
+
+        [MenuItem("3DArcade/Add BoxCollider", true)]
+        internal static bool AddBoxColliderValidation() => !Application.isPlaying && Selection.activeGameObject != null && !EditorUtility.IsPersistent(Selection.activeGameObject);
+
+        [MenuItem("3DArcade/Add Rigidbody", true)]
+        internal static bool AddRigidbodyValidation() => !Application.isPlaying && Selection.activeGameObject != null && !EditorUtility.IsPersistent(Selection.activeGameObject);
+
+        [MenuItem("Assets/Create Prefab", true)]
+        internal static bool CreatePrefabValidation() => !Application.isPlaying && Selection.activeGameObject != null && EditorUtility.IsPersistent(Selection.activeGameObject);
+
+        private static void AddBoxColliderAndRigidbody(GameObject obj)
+        {
+            AddBoxCollider(obj);
+            AddRigidbody(obj);
+        }
+
+        private static void AddBoxCollider(GameObject obj)
+        {
+            if (obj.TryGetComponent(out BoxCollider collider))
+                Object.DestroyImmediate(collider);
+
+            collider = Undo.AddComponent<BoxCollider>(obj);
+
+            Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
+            if (renderers == null || renderers.Length == 0)
+                return;
+
+            Bounds bounds = new Bounds(renderers[0].bounds.center, renderers[0].bounds.size);
+            foreach (Renderer renderer in renderers)
+                bounds.Encapsulate(renderer.bounds);
+            collider.center = collider.transform.InverseTransformPoint(bounds.center);
+            Vector3 size = collider.transform.InverseTransformVector(bounds.size);
+            collider.size = new Vector3(math.abs(size.x), math.abs(size.y), math.abs(size.z));
+        }
+
+        private static void AddRigidbody(GameObject obj)
+        {
+            if (obj.TryGetComponent(out Rigidbody rigidbody))
+                Object.DestroyImmediate(rigidbody);
+
+            rigidbody = Undo.AddComponent<Rigidbody>(obj);
+            rigidbody.useGravity = true;
+            rigidbody.isKinematic = false;
+            rigidbody.mass = 80f;
+        }
+
+        private static void SetupNodes(Transform transform)
+        {
+            Transform[] children = GetAllChildren(transform);
+            if (children.Length == 0)
+                return;
+
+            for (int i = 0; i < children.Length; ++i)
+            {
+                Transform child  = children[i];
+                string childName = child.name;
+                if (childName.EndsWith("_marquee") || childName.EndsWith("_m"))
+                {
+                    child.GetComponent<MeshRenderer>().sharedMaterial = AssetDatabase.LoadAssetAtPath<Material>("Assets/_Project/Addressables/Materials/_dynamic_lit.mat");
+                    _ = child.gameObject.AddComponent<MarqueeNodeTag>();
+                }
+                else if (childName.EndsWith("_screen") || childName.EndsWith("_s"))
+                {
+                    child.GetComponent<MeshRenderer>().sharedMaterial = AssetDatabase.LoadAssetAtPath<Material>("Assets/_Project/Addressables/Materials/_dynamic_lit.mat");
+                    _ = child.gameObject.AddComponent<ScreenNodeTag>();
+                }
+                else if (childName.EndsWith("_generic") || childName.EndsWith("_g"))
+                {
+                    child.GetComponent<MeshRenderer>().sharedMaterial = AssetDatabase.LoadAssetAtPath<Material>("Assets/_Project/Addressables/Materials/_dynamic_unlit.mat");
+                    _ = child.gameObject.AddComponent<GenericNodeTag>();
+                }
+            }
+        }
+
+        private static Transform[] GetAllChildren(Transform root)
+        {
+            List<Transform> result = new List<Transform>();
+            foreach (Transform childTransform in root)
+            {
+                result.Add(childTransform);
+                result.AddRange(GetAllChildren(childTransform));
+            }
+            return result.ToArray();
+        }
+    }
+
+    //internal sealed class ModelImportWindow : EditorWindow
+    //{
     //    private static string _savedBrowseDir = string.Empty;
     //    private static string _externalPath   = string.Empty;
     //    private static ModelType _modelType   = ModelType.Game;
@@ -139,8 +281,8 @@ namespace Arcade.UnityEditor
     //        Undo.CollapseUndoOperations(Undo.GetCurrentGroup());
     //    }
 
-    //    [MenuItem("GameObject/ArcadeEditorExtensions/Node/Add Non-Kinematic RigidBody (Replace existing)", false, 12)]
-    //    private static void GameObjectAddNonKinematicRigidBody()
+    //    [MenuItem("GameObject/ArcadeEditorExtensions/Node/Add Non-Kinematic Rigidbody (Replace existing)", false, 12)]
+    //    private static void GameObjectAddNonKinematicRigidbody()
     //    {
     //        GameObject selectedObj = Selection.activeObject as GameObject;
 
@@ -148,13 +290,13 @@ namespace Arcade.UnityEditor
 
     //        if (selectedObj.TryGetComponent(out Rigidbody rigidbody))
     //            Undo.DestroyObjectImmediate(rigidbody);
-    //        Utils.AddRigidBody(selectedObj, false, 80f);
+    //        Utils.AddRigidbody(selectedObj, false, 80f);
 
     //        Undo.CollapseUndoOperations(Undo.GetCurrentGroup());
     //    }
 
-    //    [MenuItem("GameObject/ArcadeEditorExtensions/Node/Add Kinematic RigidBody (Replace existing)", false, 13)]
-    //    private static void GameObjectAddKinematicRigidBody()
+    //    [MenuItem("GameObject/ArcadeEditorExtensions/Node/Add Kinematic Rigidbody (Replace existing)", false, 13)]
+    //    private static void GameObjectAddKinematicRigidbody()
     //    {
     //        GameObject selectedObj = Selection.activeObject as GameObject;
 
@@ -162,7 +304,7 @@ namespace Arcade.UnityEditor
 
     //        if (selectedObj.TryGetComponent(out Rigidbody rigidbody))
     //            Undo.DestroyObjectImmediate(rigidbody);
-    //        Utils.AddRigidBody(selectedObj, true, 1f);
+    //        Utils.AddRigidbody(selectedObj, true, 1f);
 
     //        Undo.CollapseUndoOperations(Undo.GetCurrentGroup());
     //    }
@@ -217,11 +359,11 @@ namespace Arcade.UnityEditor
     //    [MenuItem("GameObject/ArcadeEditorExtensions/Node/Add BoxCollider (Replace existing)", true)]
     //    private static bool GameObjectAddBoxColliderValidation() => Selection.activeObject as GameObject != null;
 
-    //    [MenuItem("GameObject/ArcadeEditorExtensions/Node/Add Non-Kinematic RigidBody (Replace existing)", true)]
-    //    private static bool GameObjectAddNonKinematicRigidBodyValidation() => GameObjectAddBoxColliderValidation();
+    //    [MenuItem("GameObject/ArcadeEditorExtensions/Node/Add Non-Kinematic Rigidbody (Replace existing)", true)]
+    //    private static bool GameObjectAddNonKinematicRigidbodyValidation() => GameObjectAddBoxColliderValidation();
 
-    //    [MenuItem("GameObject/ArcadeEditorExtensions/Node/Add Kinematic RigidBody (Replace existing)", true)]
-    //    private static bool GameObjectAddKinematicRigidBodyValidation() => GameObjectAddBoxColliderValidation();
+    //    [MenuItem("GameObject/ArcadeEditorExtensions/Node/Add Kinematic Rigidbody (Replace existing)", true)]
+    //    private static bool GameObjectAddKinematicRigidbodyValidation() => GameObjectAddBoxColliderValidation();
 
     //    [MenuItem("GameObject/ArcadeEditorExtensions/Node/Set as marquee", true)]
     //    private static bool GameObjectSetAsMarqueeValidation()
@@ -326,21 +468,21 @@ namespace Arcade.UnityEditor
     //            case ModelType.Arcade:
     //            {
     //                prefabsFolder = GlobalPaths.ARCADEPREFABS_FOLDER;
-    //                AddRigidBody(tempObj, true, 1f);
+    //                AddRigidbody(tempObj, true, 1f);
     //            }
     //            break;
     //            case ModelType.Game:
     //            {
     //                prefabsFolder = GlobalPaths.GAMEPREFABS_FOLDER;
     //                AddBoxCollider(tempObj);
-    //                AddRigidBody(tempObj, false, 80f);
+    //                AddRigidbody(tempObj, false, 80f);
     //            }
     //            break;
     //            case ModelType.Prop:
     //            {
     //                prefabsFolder = GlobalPaths.PROPPREFABS_FOLDER;
     //                AddBoxCollider(tempObj);
-    //                AddRigidBody(tempObj, false, 80f);
+    //                AddRigidbody(tempObj, false, 80f);
     //            }
     //            break;
     //            case ModelType.None:
@@ -393,7 +535,7 @@ namespace Arcade.UnityEditor
     //        boxCollider.size   = new Vector3(math.abs(size.x), math.abs(size.y), math.abs(size.z));
     //    }
 
-    //    internal static void AddRigidBody(GameObject obj, bool kinematic, float mass)
+    //    internal static void AddRigidbody(GameObject obj, bool kinematic, float mass)
     //    {
     //        if (obj.GetComponent<Rigidbody>() != null)
     //            return;
@@ -502,5 +644,5 @@ namespace Arcade.UnityEditor
     //        }
     //        return result.ToArray();
     //    }
-    }
+    //}
 }

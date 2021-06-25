@@ -85,8 +85,8 @@ namespace Arcade
 
             _searchInputField.DeactivateInputField(true);
             _searchInputField.SetTextWithoutNotify("");
-            _filterableList.Value.Clear();
-            _filterableList.Filtered.Clear();
+            _filterableList?.Value?.Clear();
+            _filterableList?.Filtered?.Clear();
             _scrollRect.totalCount = 0;
             _scrollRect.RefillCells();
 

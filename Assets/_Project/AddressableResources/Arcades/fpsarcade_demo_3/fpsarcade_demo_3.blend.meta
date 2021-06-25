@@ -1,0 +1,242 @@
+fileFormatVersion: 2
+guid: cfec757adc1ccb74ba3c603735904472
+ModelImporter:
+  serializedVersion: 21100
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 3darcadeastart
+    second: {fileID: 2100000, guid: 1cfcbce5b8edc1749972eeee6361e808, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 3darcadeastcelling
+    second: {fileID: 2100000, guid: 5a53d5e8862b604498180e3d646e06b1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 3darcadeastcola
+    second: {fileID: 2100000, guid: 52d0af4187c4450459b9a4d5dd741fe2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 3darcadeastdeepblack
+    second: {fileID: 2100000, guid: 1fa073c1416196043bda5032c528dd26, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 3darcadeastdesk
+    second: {fileID: 2100000, guid: a1370bcdf14a036419adfd4242eb16aa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 3darcadeastepict1
+    second: {fileID: 2100000, guid: c62d20f9a8ac5894f9d655ace386cbae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 3darcadeastepict3
+    second: {fileID: 2100000, guid: 1930198b11f2fd74daed76cec8df0be8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 3darcadeastepict4
+    second: {fileID: 2100000, guid: d890e7898d6fbc243a583879151c6feb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 3darcadeastfloor
+    second: {fileID: 2100000, guid: fd1b48879ed985b48ba328fb50572ef6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 3darcadeastgalaxianship
+    second: {fileID: 2100000, guid: 2f7aad3d4624bdd4eb880acae3db1c7f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 3darcadeastmoodpground
+    second: {fileID: 2100000, guid: d6bc399dd29ef1240884e8ecb8b5976d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 3darcadeastmoonpwindows
+    second: {fileID: 2100000, guid: 1613c762054a90f45b29d634955c3e8d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 3darcadeastoceanblue
+    second: {fileID: 2100000, guid: 4167cbea66251de4bbd751f67a05cf2f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 3darcadeastsign
+    second: {fileID: 2100000, guid: ad627e04ab8e2504c87c30ae4c862eba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 3darcadeastwall
+    second: {fileID: 2100000, guid: 786313fcc3c25f8448a7f1e72cd77f99, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 3darcadeastwood2
+    second: {fileID: 2100000, guid: 9a13f8e4157e5d944989f8227ed15fdf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 3darcadeastwoodmap
+    second: {fileID: 2100000, guid: f4dc7e93e66f5ca46b6a4537c4e16423, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 3darcadeastwpict2
+    second: {fileID: 2100000, guid: 5099477e6059b054ead34d03fb0ffc5e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 3darcadechromemetal
+    second: {fileID: 2100000, guid: e4b708c021d601949a70e4f43145a77d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 3darcadeframepicnew
+    second: {fileID: 2100000, guid: 1b88bf5497da64a40ab3ba34f156fbdb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: darcadeastdarkness
+    second: {fileID: 2100000, guid: 5de17918830b89c43b8c9b719f8fb4b8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal1light
+    second: {fileID: 2100000, guid: 1109870f5eda2ec4da0d6f32055e73cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: museumlampshell
+    second: {fileID: 2100000, guid: 9e8ec74fc8f43c34eaf2b636d8d0bc65, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: museumlightred
+    second: {fileID: 2100000, guid: c5c4c2366231d464990b0cbb20fb29bf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: museumllightwhite
+    second: {fileID: 2100000, guid: 28c029aa0bb08514387f8f633aa9bcc7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: museummoonpatrolbody
+    second: {fileID: 2100000, guid: dcabffc6b05f4ca4e98a1d13e694a72b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: museummoonpatrolwheel
+    second: {fileID: 2100000, guid: 36bc4922b8c6e164d9d865976625ec7b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: museummoonpwindows
+    second: {fileID: 2100000, guid: 3e36883890040c54eb7d0b6f2e8dd614, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 1
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 1
+    useSRGBMaterialColor: 0
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 0
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 12
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 0
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 0
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

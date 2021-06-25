@@ -40,7 +40,7 @@ namespace Arcade
 
         public override void UpdateCurrentTarget(Camera camera)
         {
-            GameEntity target = Raycaster.GetCurrentTarget(camera);
+            GameEntity target = Raycaster.GetCurrentTarget(camera, Vector2.zero);
             Set(target);
         }
 

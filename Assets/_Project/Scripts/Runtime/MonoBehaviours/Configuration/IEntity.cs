@@ -27,7 +27,7 @@ namespace Arcade
     public interface IEntity
     {
         GameObject gameObject { get; }
-        Collider Collider { get; }
+        Collider[] Colliders { get; }
         Rigidbody Rigidbody { get; }
 
         void SaveMaterials();

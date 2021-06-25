@@ -1,12 +1,207 @@
 fileFormatVersion: 2
 guid: e97c6708e2cd60b4999c4a4350862a8f
 ModelImporter:
-  serializedVersion: 20200
+  serializedVersion: 21100
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceport_arch_blue
+    second: {fileID: 2100000, guid: cd4efb8343eb59e4f8745b1e5af6620c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceport_benches
+    second: {fileID: 2100000, guid: c0d60192b44084547954e7a354480d83, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceport_bulbs
+    second: {fileID: 2100000, guid: 9b6579f4ec1e23940b7a583414bf06d9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceport_cagemetal
+    second: {fileID: 2100000, guid: cb53c594c7787234a86e661f5a6023d3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceport_exitsign
+    second: {fileID: 2100000, guid: da71916d2c1c826469a0c7361ffe079c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceport_exteriorwall_white
+    second: {fileID: 2100000, guid: 196cb55d1e54f0041b50ca08a23b27b7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceport_facade_blue
+    second: {fileID: 2100000, guid: 5641150a3d1903a4787c8ba59e3f99a2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceport_facade_white
+    second: {fileID: 2100000, guid: 3bfd05054200ce0478104172af77f5bf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceport_flatblack
+    second: {fileID: 2100000, guid: 87f9bef1b52191c468b2e02f42b073af, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceport_logo_black
+    second: {fileID: 2100000, guid: 76c9ffd58e493d848a98d4846ce48fc0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceport_logo_white
+    second: {fileID: 2100000, guid: 4c724c0d629053040be8c093eec23738, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceport_metal
+    second: {fileID: 2100000, guid: a37561fa1fa40164ca5fa24fa2e9a7a7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceport_mural
+    second: {fileID: 2100000, guid: e6d4c4693baa1ec40aa95a41d49ba71b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceport_outside_floor_tile_00
+    second: {fileID: 2100000, guid: c1b1acb9516530c469495848afc8eb37, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceport_outside_floor_tile_01
+    second: {fileID: 2100000, guid: 6849203968cc9314a90133f73ddfebae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceport_panels
+    second: {fileID: 2100000, guid: 715683f4b6686714491fb61da603a1a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceport_portwindows
+    second: {fileID: 2100000, guid: 5cf4c56fb59be824882342f1ce1c6848, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceport_railings
+    second: {fileID: 2100000, guid: 4626508cf0ed5dd40b7e2281062ee320, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceport_samgoody_grate
+    second: {fileID: 2100000, guid: 5fe100e16ab985d41b63a0750bcf1321, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceport_samgoody_logo
+    second: {fileID: 2100000, guid: ee3e630b15dab7d4387db01b9e0490cc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceport_smokingsigns
+    second: {fileID: 2100000, guid: ea39d4f8a77bda042ba59c5fa8ce164b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceport_sockets
+    second: {fileID: 2100000, guid: 2dd197c1be55018448379ea970919ebc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceport_steel
+    second: {fileID: 2100000, guid: 68cc3dee9838efc4cbf1be6fd9c4e4f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceport_tanks_bottom
+    second: {fileID: 2100000, guid: 56988877931557c41aad5821dce7a16c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceport_tanks_top
+    second: {fileID: 2100000, guid: 9200460e7eba0044aa24c7802ec04ce0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceport_tube00
+    second: {fileID: 2100000, guid: 3dd0507f80828234cb21ccc527e30fd4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceport_tube01
+    second: {fileID: 2100000, guid: b8a378299c283fb42850a381e0ac41ed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceport_vents
+    second: {fileID: 2100000, guid: 41b0e482c4749d540a584a9155ce637a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceport_vents_frames
+    second: {fileID: 2100000, guid: e0b92d72887a01645865cbc710c77d86, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceport_wall_blue
+    second: {fileID: 2100000, guid: 57da553177c3ab5448e4d9548d730981, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceport_windows
+    second: {fileID: 2100000, guid: b7fff5271c9905c41beb0ef805ab2396, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceport_woolworth_grate
+    second: {fileID: 2100000, guid: e00585b837618fe45ad0f7fdd8ce53b6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceport_woolworth_sign_black
+    second: {fileID: 2100000, guid: d3a44b3106eece14d82ec9d2808464db, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceport_woolworth_sign_map
+    second: {fileID: 2100000, guid: c58f1365de640cd4b95dcc07f056da29, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceport_woolworth_wall_bricks
+    second: {fileID: 2100000, guid: a953325247cd5e84db71134d3e7fc875, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceportmetal.001
+    second: {fileID: 2100000, guid: fb3ab1b62681c3e4d97f0bc4866a0687, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceportportholes
+    second: {fileID: 2100000, guid: fdc30884cc7de4746a98738943d4cce4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceportroyrogers
+    second: {fileID: 2100000, guid: 98c8fc357d29be64598f2b6dd4d28a29, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spaceportrug
+    second: {fileID: 2100000, guid: 37230fa7a82ffe941a91e4846d4da0ae, type: 2}
   materials:
     materialImportMode: 2
-    materialName: 0
+    materialName: 1
     materialSearch: 1
     materialLocation: 1
   animations:
@@ -23,7 +218,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -36,17 +231,17 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
-    useSRGBMaterialColor: 1
+    addColliders: 1
+    useSRGBMaterialColor: 0
     sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
-    importCameras: 1
+    importCameras: 0
     importLights: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
-    generateSecondaryUV: 0
-    useFileUnits: 1
+    generateSecondaryUV: 1
+    useFileUnits: 0
     keepQuads: 0
     weldVertices: 1
     bakeAxisConversion: 0
@@ -57,12 +252,12 @@ ModelImporter:
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
-    secondaryUVAreaDistortion: 15.000001
+    secondaryUVAreaDistortion: 15
     secondaryUVHardAngle: 88
     secondaryUVMarginMethod: 1
     secondaryUVMinLightmapResolution: 40
     secondaryUVMinObjectScale: 1
-    secondaryUVPackMargin: 4
+    secondaryUVPackMargin: 12
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
@@ -73,7 +268,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 1
+  importAnimation: 0
   humanDescription:
     serializedVersion: 3
     human: []
@@ -92,7 +287,7 @@ ModelImporter:
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1

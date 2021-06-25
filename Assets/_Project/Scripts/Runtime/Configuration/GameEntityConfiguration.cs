@@ -51,6 +51,7 @@ namespace Arcade
             {
                 string[] returnFields = new string[]
                 {
+                    "Name",
                     "Description",
                     "CloneOf",
                     "RomOf",

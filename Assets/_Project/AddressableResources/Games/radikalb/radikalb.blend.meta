@@ -1,0 +1,247 @@
+fileFormatVersion: 2
+guid: 84a839b72c915f448a83691d92f1dcd2
+ModelImporter:
+  serializedVersion: 21100
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DefaultMaterial0
+    second: {fileID: 2100000, guid: c329fc64c5b361f448deaa83b579c423, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DefaultMaterial1
+    second: {fileID: 2100000, guid: b825288a7d9fd7f428354b2400bdc570, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DefaultMaterial2
+    second: {fileID: 2100000, guid: e77257dfecfc73042950c4f64e0269bd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DefaultMaterial3
+    second: {fileID: 2100000, guid: a8a0f0abcd714cd4c920742d1a5809f0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DefaultMaterial4
+    second: {fileID: 2100000, guid: 6cd96395938ea884c83540f847863fae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DefaultMaterial5
+    second: {fileID: 2100000, guid: be9a00eadb3ca4c46add9e21964983f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: handlebars
+    second: {fileID: 2100000, guid: 99732df33c2c0d44cbfc69bba1ff5996, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mk4black
+    second: {fileID: 2100000, guid: 0268e352436a8e44a87f40fcbf2de117, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mkspeakers
+    second: {fileID: 2100000, guid: 1ec697ce7870fd74a8b317032bdded85, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rabikalbyellow
+    second: {fileID: 2100000, guid: 40226e9e8d61e8449a189d3eccad8750, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: radikalbBack
+    second: {fileID: 2100000, guid: 77887be5277feae42bf8b9bcf74d23c3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: radikalbExtMatBot
+    second: {fileID: 2100000, guid: 7a8222cdbf4550845aa32ccd1495d120, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: radikalbExtMatRight
+    second: {fileID: 2100000, guid: 9accbdb73c9ffee4aa77896cd8333da3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: radikalbGlass
+    second: {fileID: 2100000, guid: a1bd9659e2b714f4890be3655f3e79b8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: radikalbbezelplastic
+    second: {fileID: 2100000, guid: 8454e07f8d7471c41ab3fe226165d4ef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: radikalbcoin
+    second: {fileID: 2100000, guid: 20c7a726cb337144e80894463d0b7684, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: radikalbcpll
+    second: {fileID: 2100000, guid: 6f47af2fe24e1d7469f6f4b4a88b6b44, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: radikalbcplr
+    second: {fileID: 2100000, guid: bdd0a1cb55634d34c879e3dea877bf11, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: radikalbcpo
+    second: {fileID: 2100000, guid: f50f19c93ac0ae841b8fea82eb03006f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: radikalbcprl
+    second: {fileID: 2100000, guid: e10af3a6cc4941741b4a3e6e987723db, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: radikalbcprr
+    second: {fileID: 2100000, guid: e9888708219d543459d3c10d4b783917, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: radikalbextmatleft
+    second: {fileID: 2100000, guid: 48c2ffb55d80f974ea5b0f757f63d598, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: radikalbfront
+    second: {fileID: 2100000, guid: 65c9cc708b9c79a459dd1041c65ec9d6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: radikalbmarquee
+    second: {fileID: 2100000, guid: 584f699162d255a46a34b7cb6c6a81bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: radikalbsall
+    second: {fileID: 2100000, guid: df4b77ff6903572488aaee02106996fb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: radikalbsalr
+    second: {fileID: 2100000, guid: a0f7bea76138c0f4bbdf57b1a3ecd3c7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: radikalbsarl
+    second: {fileID: 2100000, guid: 378378d247bcdef48abc2592273cb0c8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: radikalbsarr
+    second: {fileID: 2100000, guid: e3ebd5c0cabe0ed499d55a74f8a62351, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: radikalbsnapshot
+    second: {fileID: 2100000, guid: 7f7c1666307bdd04c8c847ca6b598d14, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 1
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 1
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 0
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 0
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 12
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

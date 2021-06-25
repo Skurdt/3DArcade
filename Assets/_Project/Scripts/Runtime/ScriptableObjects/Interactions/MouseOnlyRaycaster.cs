@@ -28,9 +28,9 @@ namespace Arcade
     [CreateAssetMenu(menuName = "3DArcade/Interaction/MouseOnlyRaycaster", fileName = "MouseOnlyRaycaster")]
     public sealed class MouseOnlyRaycaster : InteractionRaycasterBase
     {
-        protected override Ray GetRay(Camera camera)
+        protected override Ray GetRay(Camera camera, Vector2 offset)
         {
-            Vector2 mousePosition = Mouse.current.position.ReadValue();
+            Vector2 mousePosition = Mouse.current.position.ReadValue() + offset;
             return camera.ScreenPointToRay(mousePosition);
         }
     }

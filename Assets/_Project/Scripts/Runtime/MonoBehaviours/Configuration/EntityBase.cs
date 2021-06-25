@@ -27,24 +27,25 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 namespace Arcade
 {
-    [SelectionBase, DisallowMultipleComponent]
+    [System.Serializable, DisallowMultipleComponent, SelectionBase]
     public abstract class EntityBase<T> : MonoBehaviour, ITransformState, IEntity
         where T : EntityConfigurationBase
     {
         private sealed class PhysicsState
         {
-            public bool IsTrigger = false;
+            public Dictionary<Collider, bool> ColliderTriggerMap = new Dictionary<Collider, bool>();
             public CollisionDetectionMode CollisionDetectionMode = CollisionDetectionMode.Discrete;
             public RigidbodyInterpolation Interpolation = RigidbodyInterpolation.None;
             public bool IsKinematic = false;
         }
 
         public T Configuration { get; set; }
-        public Collider Collider { get; private set; }
+        public Bounds Bounds { get; internal set; }
+        public Collider[] Colliders { get; private set; }
         public Rigidbody Rigidbody { get; private set; }
 
-        public bool MoveCabMovable => Configuration.MoveCabMovable && Collider != null && Rigidbody != null;
-        public bool MoveCabGrabbable => Configuration.MoveCabGrabbable && Collider != null && Rigidbody != null;
+        public bool MoveCabMovable => Configuration.MoveCabMovable && !(Colliders is null) && Colliders.Length > 0 && Rigidbody != null;
+        public bool MoveCabGrabbable => Configuration.MoveCabGrabbable && !(Colliders is null) && Colliders.Length > 0 && Rigidbody != null;
 
         private readonly Dictionary<Renderer, Material> _savedMaterials = new Dictionary<Renderer, Material>();
         private MeshRenderer[] _renderers;
@@ -56,9 +57,20 @@ namespace Arcade
 
         private void Awake()
         {
-            Collider   = GetComponent<Collider>();
+            Colliders  = GetComponentsInChildren<Collider>(true);
             Rigidbody  = GetComponent<Rigidbody>();
             _renderers = GetComponentsInChildren<MeshRenderer>(true);
+            InitBounds();
+        }
+
+        private void InitBounds()
+        {
+            if (_renderers is null || _renderers.Length == 0)
+                return;
+
+            Bounds = new Bounds(_renderers[0].bounds.center, _renderers[0].bounds.size);
+            foreach (Renderer renderer in _renderers)
+                Bounds.Encapsulate(renderer.bounds);
         }
 
         public void InitialSetup(T configuration, int layer, bool vr)
@@ -165,7 +177,7 @@ namespace Arcade
 
         public bool InitAutoMove(int grabLayer)
         {
-            if (Collider == null || Rigidbody == null)
+            if (Colliders is null || Colliders.Length == 0 || Rigidbody == null)
                 return false;
 
             SavePhysicsState();
@@ -173,7 +185,8 @@ namespace Arcade
             _previousLayer = gameObject.layer;
             SetLayer(grabLayer);
 
-            Collider.isTrigger = true;
+            foreach (Collider collider in Colliders)
+                collider.isTrigger = true;
 
             Rigidbody.velocity = Vector3.zero;
             Rigidbody.angularVelocity = Vector3.zero;
@@ -213,27 +226,36 @@ namespace Arcade
 
         private void RestoreLayerToPrevious() => SetLayer(_previousLayer);
 
-        private void SavePhysicsState() => _savedPhysicsState = new PhysicsState
+        private void SavePhysicsState()
         {
-            IsTrigger = Collider.isTrigger,
-            CollisionDetectionMode = Rigidbody.collisionDetectionMode,
-            Interpolation = Rigidbody.interpolation,
-            IsKinematic = Rigidbody.isKinematic
-        };
+            Dictionary<Collider, bool> colliderTriggerMap = new Dictionary<Collider, bool>();
+            foreach (Collider collider in Colliders)
+                colliderTriggerMap.Add(collider, collider.isTrigger);
+
+            _savedPhysicsState = new PhysicsState
+            {
+                ColliderTriggerMap     = colliderTriggerMap,
+                CollisionDetectionMode = Rigidbody.collisionDetectionMode,
+                Interpolation          = Rigidbody.interpolation,
+                IsKinematic            = Rigidbody.isKinematic
+            };
+        }
 
         private void RestorePhysicsState()
         {
             if (_savedPhysicsState is null)
                 return;
 
-            if (Collider != null)
-                Collider.isTrigger = _savedPhysicsState.IsTrigger;
+            if (!(Colliders is null) && Colliders.Length > 0)
+                foreach (Collider collider in Colliders)
+                    if (_savedPhysicsState.ColliderTriggerMap.TryGetValue(collider, out bool wasTrigger))
+                        collider.isTrigger = wasTrigger;
 
             if (Rigidbody != null)
             {
                 Rigidbody.collisionDetectionMode = _savedPhysicsState.CollisionDetectionMode;
-                Rigidbody.interpolation = _savedPhysicsState.Interpolation;
-                Rigidbody.isKinematic = _savedPhysicsState.IsKinematic;
+                Rigidbody.interpolation          = _savedPhysicsState.Interpolation;
+                Rigidbody.isKinematic            = _savedPhysicsState.IsKinematic;
             }
 
             _savedPhysicsState = null;

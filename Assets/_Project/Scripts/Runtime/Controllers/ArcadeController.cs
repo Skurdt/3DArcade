@@ -58,7 +58,7 @@ namespace Arcade
             _props = await ModelSpawner.SpawPropsAsync();
 
             // Look for artworks only in play mode / runtime
-            if (Application.isPlaying)
+            if (Application.isPlaying && !(_games is null))
             {
                 foreach (GameEntity game in _games)
                     _arcadeContext.ArtworksController.SetupArtworksAsync(game).Forget();

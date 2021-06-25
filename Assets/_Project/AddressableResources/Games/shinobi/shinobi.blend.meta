@@ -1,0 +1,222 @@
+fileFormatVersion: 2
+guid: 112dc75cfa29d4446836ec71b8d1523f
+ModelImporter:
+  serializedVersion: 21100
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 01shinobimarquee
+    second: {fileID: 2100000, guid: 926f3c43fb871924a9b871684f8ad6d2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 02shinobimonitor
+    second: {fileID: 2100000, guid: 9a560e905b4ee2c41939b2eceec790d6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shinobibezel
+    second: {fileID: 2100000, guid: d94d5432d8b29c14cbb2a0d3c97ec3b6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shinobibezelclip
+    second: {fileID: 2100000, guid: 5943e317b7b99f9438e6498a7c982ca2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shinobiblack
+    second: {fileID: 2100000, guid: 6c18c69df9701614fa74afaa2b52acfa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shinobibottom
+    second: {fileID: 2100000, guid: 98d4f0c602c12284fac4d647e17d2163, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shinobibuttonblue
+    second: {fileID: 2100000, guid: 049a8b5550c94eb4689a4a45543ca57d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shinobibuttonred
+    second: {fileID: 2100000, guid: 0a7dc71b760cf224ca7c466eb2ed05c3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shinobibuttonsleft
+    second: {fileID: 2100000, guid: ace193d86142ee04492aeb33df2511e6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shinobibuttonsright
+    second: {fileID: 2100000, guid: 852360d51a4868049b0968abdad1760c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shinobibuttonwhite
+    second: {fileID: 2100000, guid: 2a3c5cb3d1f657d43902ee8cf0b2b377, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shinobicoindoor
+    second: {fileID: 2100000, guid: 0ca5dd572093a8349a9f0417a2e83172, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shinobicpo
+    second: {fileID: 2100000, guid: 5180455e9295deb4fb20b87655fdc2f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shinobicposticker1
+    second: {fileID: 2100000, guid: c9f0a66c47e60be40abaa2bab7a97775, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shinobiinstleft
+    second: {fileID: 2100000, guid: fb356a7a98597d945bf96b83b7bb4f66, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shinobiinstright
+    second: {fileID: 2100000, guid: ba750ced86d488e4c9433676559e95fd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shinobijoysticktop
+    second: {fileID: 2100000, guid: d21e6446994d05a489c82a9cf14c4e89, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shinobileftsidein
+    second: {fileID: 2100000, guid: a5b1ab2eefbfead41a27d7f5c4e63342, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shinobileftsideout
+    second: {fileID: 2100000, guid: 446f19849ebf53245b8cae0a627c6921, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shinobirightsidein
+    second: {fileID: 2100000, guid: 9b80e21aa77a40a448d190746e6c6ee8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shinobirightsideout
+    second: {fileID: 2100000, guid: 1d684bb791fde9a49b865a5564316f8f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shinobisideart
+    second: {fileID: 2100000, guid: 8f16149dc778f4e4fbc0ed225b59aea3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shinobitmoldleft
+    second: {fileID: 2100000, guid: d55e0eac25f8b644ba3b9d11ebc864c2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shinobitmoldright
+    second: {fileID: 2100000, guid: ae9551c19a8e48242a656766b7da58e2, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 1
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 1
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 0
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 0
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 12
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

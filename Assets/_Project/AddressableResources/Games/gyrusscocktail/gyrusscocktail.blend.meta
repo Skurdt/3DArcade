@@ -1,0 +1,307 @@
+fileFormatVersion: 2
+guid: 07be9c7dce0b6574b94400298a7778ce
+ModelImporter:
+  serializedVersion: 21100
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTBPanLam
+    second: {fileID: 2100000, guid: 9c54762ae7230eb4c8f2a5eaff8ecefa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTBracketPh
+    second: {fileID: 2100000, guid: 17bec1b50a266594f995f23d85c96e1d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTBracketPh1
+    second: {fileID: 2100000, guid: 3d57ae9d683136f48b457ccb45e4c526, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTBracketPh2
+    second: {fileID: 2100000, guid: 92d8885eb1913b1488affce47de419da, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTBracketPh3
+    second: {fileID: 2100000, guid: ae9430b096e7819438d050b057e0d4e4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTCSlotBli
+    second: {fileID: 2100000, guid: f99a8897eacd97242ad2103d13ff51d9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTCSlotBli1
+    second: {fileID: 2100000, guid: 4b27963e602cdab4da573e298cc55360, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTCommetPho
+    second: {fileID: 2100000, guid: 85099dab653324d46a8c5e0093401dda, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTCommetPho1
+    second: {fileID: 2100000, guid: c380c7d32a9392c4a99196d3f11344c5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTConPanLFPho
+    second: {fileID: 2100000, guid: 1312bc64b07ee7147bcbd8368c0fefe0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTConPanRTPho
+    second: {fileID: 2100000, guid: 0f821dd392353584695702034f93ba06, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTFPanelLam
+    second: {fileID: 2100000, guid: 9b05393794b289a4aae6c28dbf8d732a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTFireButPho
+    second: {fileID: 2100000, guid: 9b23e6b8902388b4d9e49122388bd771, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTFireButPho1
+    second: {fileID: 2100000, guid: 8575d7442d8319b418f887130c69ee95, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTFireButPho2
+    second: {fileID: 2100000, guid: 8a903b15fa236574193d2328f45f6a7f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTFireButPho3
+    second: {fileID: 2100000, guid: e2248081a1258b0468e18d28f220ae43, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTInCoinLam
+    second: {fileID: 2100000, guid: 5646c9413fb261f47ae92a44df4e8091, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTInCoinLam1
+    second: {fileID: 2100000, guid: da3aea7141803ae45b25593ce6288380, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTInSidePho
+    second: {fileID: 2100000, guid: 26703a5f2724a1544a43400fbc094ebe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTInSidePho1
+    second: {fileID: 2100000, guid: d445b89d546d4b84dbb2ce7d37c54570, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTInstructPho
+    second: {fileID: 2100000, guid: 8947ed6a5e63b9f4da6c92a8484dad4c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTInstructPho1
+    second: {fileID: 2100000, guid: 9076b5e269518404a9d7aee82fd0484d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTJoyRodBli
+    second: {fileID: 2100000, guid: 20ec5e601fd861247aee1708efe52815, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTJoyRodBli1
+    second: {fileID: 2100000, guid: 886c2f0c49eec2a4f8436f13512fd905, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTJoyRodBli2
+    second: {fileID: 2100000, guid: 94122c30976ed0a44907a2bae00c52d3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTJoyRodBli3
+    second: {fileID: 2100000, guid: 2c43368b861e62e4ea0ae2052864a155, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTPlasticPho
+    second: {fileID: 2100000, guid: f6c5d0508abfd1447a8740f8de5793a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTPlayerButPho
+    second: {fileID: 2100000, guid: 16a47884420c92f4a9c0d4dbf560ec20, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTPlayerButPho1
+    second: {fileID: 2100000, guid: 8d60c64c24cfa964caa465a052a9dc09, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTPlayerButPho2
+    second: {fileID: 2100000, guid: 794f6713acaa5464c85603f00d03fc16, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTPlayerButPho3
+    second: {fileID: 2100000, guid: 61a22c810dd45794dbef926da85ff0cd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTTopNKnobPho
+    second: {fileID: 2100000, guid: d24c740f1a13ab94988801a5310ceb77, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTTopNKnobPho1
+    second: {fileID: 2100000, guid: 404a42ebc3ad501449aacf99fe9b0476, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTTopNKnobPho2
+    second: {fileID: 2100000, guid: bbded415ca6a6594bb5c94c3dc16dc59, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTTopNKnobPho3
+    second: {fileID: 2100000, guid: a844a9e397775e44aaee685dc4a24d68, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTTopNKnobPho4
+    second: {fileID: 2100000, guid: ff6f46b83becd864985313d6af29a7bd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTTopNKnobPho5
+    second: {fileID: 2100000, guid: 6ae9d0a0c2471f54d96add3636eddc84, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTTransBoxMax
+    second: {fileID: 2100000, guid: f578e589d964a6c479cf8844d457430e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTWoodBodyLam
+    second: {fileID: 2100000, guid: df5f44e8118d1094393a48b3b82ebc28, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTaaamarquee
+    second: {fileID: 2100000, guid: 200254d79eda5f844b254ebcfdca4c96, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GyrussTaaamonitor
+    second: {fileID: 2100000, guid: ccee54b09539237478365ad787d27600, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 1
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 1
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 0
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 0
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 12
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

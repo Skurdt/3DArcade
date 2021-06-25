@@ -1,0 +1,252 @@
+fileFormatVersion: 2
+guid: 14c0f1407a56d0543885239e287686c3
+ModelImporter:
+  serializedVersion: 21100
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mkred
+    second: {fileID: 2100000, guid: 1de719809aef77640aef6ac3f15c339a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mksarl
+    second: {fileID: 2100000, guid: 272031c01179e5242a1193a29556279a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mkwhite
+    second: {fileID: 2100000, guid: 7af65f5a42f89a2428bcf6b44db55bcb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wwfmaniaBack
+    second: {fileID: 2100000, guid: cc25cb3f4feda4043845020b5f8db6a2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wwfmaniaExtMatBot
+    second: {fileID: 2100000, guid: 78d730871f3835d4bb31305d3ababc28, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wwfmaniaExtMatRight
+    second: {fileID: 2100000, guid: d6a181f82d59aa349bd069c8b4465291, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wwfmaniaGlass
+    second: {fileID: 2100000, guid: 3597edf80d71721499a541f421664614, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wwfmaniabezelplastic
+    second: {fileID: 2100000, guid: 426ee9841f8a134449504fdf6c166ea8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wwfmaniablack
+    second: {fileID: 2100000, guid: b8840857cfb5a98449662d79ca8b92d1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wwfmaniacoin
+    second: {fileID: 2100000, guid: ac192044ec638a34f989f76ba93e353a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wwfmaniacpfront
+    second: {fileID: 2100000, guid: ebe39738cb25fc74b8bfc6114fded0b9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wwfmaniacpll
+    second: {fileID: 2100000, guid: d9d628ad462880c48b80aca67dda46c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wwfmaniacplm
+    second: {fileID: 2100000, guid: 4a3eb646f3a2f5c4c86b758109aa888a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wwfmaniacplr
+    second: {fileID: 2100000, guid: 9cfd3d86be1eb584d975d5502d2d59da, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wwfmaniacpo
+    second: {fileID: 2100000, guid: 099a79625ac828f49b9f541e97d002ba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wwfmaniacprl
+    second: {fileID: 2100000, guid: 69ccc9d5ba839d54d937c7202ffe1b71, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wwfmaniacprm
+    second: {fileID: 2100000, guid: 71e39dcd9d5f9474698c5c9787842b7f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wwfmaniacprr
+    second: {fileID: 2100000, guid: 395631cce6e47d34aa74fe7d10d75697, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wwfmaniaextmatleft
+    second: {fileID: 2100000, guid: 67189112369a0c04ea7f375635b9da57, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wwfmaniaextmatmid
+    second: {fileID: 2100000, guid: c585cb53dc0f16646a4b83a48aee3ae2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wwfmanialightblue
+    second: {fileID: 2100000, guid: 0ed61e078d2921d4989617542cc680ca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wwfmaniamarquee
+    second: {fileID: 2100000, guid: eb71a8565637e7749a6fae3292b82945, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wwfmaniasall
+    second: {fileID: 2100000, guid: e15a0ec3d31d4334fa60e20eb23380be, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wwfmaniasalm
+    second: {fileID: 2100000, guid: ea8811190a0d3c447912a4c6b7abc591, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wwfmaniasalr
+    second: {fileID: 2100000, guid: e45fabb9d5fcaef4397a1eb11cec0526, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wwfmaniasarm
+    second: {fileID: 2100000, guid: ccab90ffe7d6c7648964614ae49c24d9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wwfmaniasarr
+    second: {fileID: 2100000, guid: a966ecc22a8602f4787b017fb20c153f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wwfmaniasnapshot
+    second: {fileID: 2100000, guid: 5a745c1ad9129c440b02460e1779419f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wwfmaniaspeakers
+    second: {fileID: 2100000, guid: 028ba1eca66e8294ba32352fa205994e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wwfmaniayellow
+    second: {fileID: 2100000, guid: 4b6a6ab9fecec6247adfb22230f7dd41, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 1
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 1
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 0
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 0
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 12
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

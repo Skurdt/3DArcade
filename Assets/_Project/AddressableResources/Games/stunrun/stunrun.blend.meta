@@ -1,0 +1,242 @@
+fileFormatVersion: 2
+guid: c1cac39001f9fea43908bd42acfd5ffa
+ModelImporter:
+  serializedVersion: 21100
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stunrunAAMonP
+    second: {fileID: 2100000, guid: 0ae69432b4a540c40a1f2d508dad7709, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stunrunBackBlackP
+    second: {fileID: 2100000, guid: 8053f5bab99232f459e4fda261d4fdfe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stunrunBackKeyPho
+    second: {fileID: 2100000, guid: d57f5e3ebd68e6f449e7843fd30568e1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stunrunButBLKP
+    second: {fileID: 2100000, guid: 84e8aca6dd3aedc4c9e9dfeafa454a3a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stunrunCSlotBli
+    second: {fileID: 2100000, guid: 98df074aeb1775f40a742f9ada556009, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stunrunDangerP
+    second: {fileID: 2100000, guid: ec90426a806e10843a1497c1921761f6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stunrunHandStrip
+    second: {fileID: 2100000, guid: 345fd0dfc6038af46b3858cac3382b2e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stunrunInCoinLam
+    second: {fileID: 2100000, guid: 1b60b54ca3f1e6b4f9b00d6e31aa6edd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stunrunMonRimP
+    second: {fileID: 2100000, guid: 5bc5c71addd8b6e48b7526b0b2bba492, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stunrunMonSIdeP
+    second: {fileID: 2100000, guid: 137f9d20747e3d449ad23169da5f0293, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stunrunNoStepP
+    second: {fileID: 2100000, guid: aacf564c3842c2e46828e97fa1c599c0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stunrunPlasticP
+    second: {fileID: 2100000, guid: 929df9f135e243547a52d8525c4c8317, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stunrunRedP1
+    second: {fileID: 2100000, guid: bd655285d557d7f47bbc8ec4993b6bfc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stunrunRimP
+    second: {fileID: 2100000, guid: 79e152c70c447734bae21151397c925c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stunrunSpeakerP
+    second: {fileID: 2100000, guid: de0266516cd29f444b7cc7580718e547, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stunrunTexTreadP
+    second: {fileID: 2100000, guid: 6dd86c27df9c4e5469a6cba88d310acf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stunrunYolkAxelBlin
+    second: {fileID: 2100000, guid: b51eaa74597e63f4f924d7c347f63ecf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stunrunYolkColorP
+    second: {fileID: 2100000, guid: 4d5f1b453ceca2a498f41b524f88ec6c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stunrunYolkRunP
+    second: {fileID: 2100000, guid: a4fff05a9f20d9748a4be3568463b036, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stunrunaamarqueeP
+    second: {fileID: 2100000, guid: 21c37dc55ac7d044295b79b3b84b8be1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stunrunbodyP
+    second: {fileID: 2100000, guid: c85f3068cfb466f4db8138118b451d82, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stunruninstructionP
+    second: {fileID: 2100000, guid: dbe5f573432c4c34dbc52634a85c6c0a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stunrunjoytriggerP
+    second: {fileID: 2100000, guid: 06ca042e8edb59b4e8bf8f96502669ad, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stunrunmarqsideP
+    second: {fileID: 2100000, guid: 8f9dde3c700ab9d41926d3be233679cd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stunrunpedelBlin
+    second: {fileID: 2100000, guid: 11ff8e7e3b0f3d84cb57b34f78808854, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stunrunrolloverP
+    second: {fileID: 2100000, guid: 81d99da949e28f348820ab711069b686, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stunrunsideP
+    second: {fileID: 2100000, guid: 9502534cf0e81ae42aaed37dc121246c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stunrunthrusterP
+    second: {fileID: 2100000, guid: 8b7e7ee6603f5c240a28532292ab1e34, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 1
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 1
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 0
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 0
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 12
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -32,6 +32,21 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - ArcadeScenes
+  - m_GUID: db98b052f73a2364aad5d4dfec78de2a
+    m_Address: Arcades/vslounge
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ArcadeScenes
+  - m_GUID: 8c50cbf66e60ee649bec541131652fba
+    m_Address: Arcades/station_break
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ArcadeScenes
+  - m_GUID: 26239b2d34cdccf42a01d8f8cfb28818
+    m_Address: Arcades/fpsarcade_demo_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ArcadeScenes
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a791319076b3e034bb0f17c6bf81a76f, type: 2}
   m_SchemaSet:

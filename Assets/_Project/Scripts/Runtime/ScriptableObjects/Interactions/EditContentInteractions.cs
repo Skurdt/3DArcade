@@ -25,6 +25,8 @@ using SK.Utilities.Unity;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 namespace Arcade
 {
@@ -39,7 +41,6 @@ namespace Arcade
         [SerializeField] private ArtworksController _artworksController;
 
         [SerializeField, Layer] private int _hightlightLayer;
-        [SerializeField] private float _spawnDistance  = 2f;
         [SerializeField] private float _verticalOffset = 0.05f;
         [SerializeField] private LayerMask _worldLayerMask;
 
@@ -51,9 +52,11 @@ namespace Arcade
         [System.NonSerialized] private Transform _player;
         [System.NonSerialized] private Camera _camera;
         [System.NonSerialized] private GameObject _spawnIndicator;
+        [System.NonSerialized] private Bounds _spawnIndicatorBounds;
 
         [System.NonSerialized] private bool _drawSpawnIndicator = true;
         [System.NonSerialized] private bool _spawning;
+        [System.NonSerialized] private float _rotationOffset;
 
         public void Initialize(Camera camera)
         {
@@ -63,9 +66,16 @@ namespace Arcade
 
             _addedItems.Clear();
             _removedItems.Clear();
+            _rotationOffset = 0f;
 
             _player = _arcadeContext.Player.ActiveTransform;
             _camera = _arcadeContext.Player.Camera;
+
+            MeshRenderer[] spawnIndicatorRenderers = _spawnIndicator.GetComponentsInChildren<MeshRenderer>(true);
+            _spawnIndicatorBounds = new Bounds(spawnIndicatorRenderers[0].bounds.center, spawnIndicatorRenderers[0].bounds.size);
+            foreach (MeshRenderer renderer in spawnIndicatorRenderers)
+                _spawnIndicatorBounds.Encapsulate(renderer.bounds);
+            _spawnIndicatorBounds.Expand(new Vector3(0.25f, 0f, 0.25f));
 
             UpdateCurrentTarget(camera);
         }
@@ -78,7 +88,7 @@ namespace Arcade
 
         public override void UpdateCurrentTarget(Camera camera)
         {
-            GameEntity target = Raycaster.GetCurrentTarget(camera);
+            GameEntity target = Raycaster.GetCurrentTarget(camera, new Vector2(0f, -Screen.height * 0.25f));
             if (target == null)
             {
                 if (!_spawning)
@@ -93,18 +103,8 @@ namespace Arcade
                 Reset();
 
                 if (_drawSpawnIndicator)
-                {
-                    Vector3 playerPosition  = _player.position;
-                    Vector3 playerDirection = _player.forward;
-                    Vector3 spawnPosition   = playerPosition + (playerDirection * _spawnDistance);
+                    DrawSpawnIndicator();
 
-                    Ray ray = _camera.ScreenPointToRay(_camera.WorldToScreenPoint(spawnPosition));
-                    if (Physics.Raycast(ray, out RaycastHit _, math.INFINITY, _worldLayerMask))
-                    {
-                        Quaternion spawnRotation = Quaternion.LookRotation(playerDirection);
-                        _spawnIndicator.transform.SetPositionAndRotation(spawnPosition, spawnRotation);
-                    }
-                }
                 return;
             }
 
@@ -170,7 +170,8 @@ namespace Arcade
             {
                 item.gameObject.SetActive(true);
 
-                item.Collider.enabled      = true;
+                foreach (Collider collider in item.Colliders)
+                    collider.enabled = true;
                 item.Rigidbody.isKinematic = false;
 
                 DynamicArtworkComponent[] dynamicArtworkComponents = item.GetComponentsInChildren<DynamicArtworkComponent>();
@@ -186,7 +187,7 @@ namespace Arcade
                 return;
 
             GameEntityConfiguration configuration = ClassUtils.DeepCopy(CurrentTarget.Configuration);
-            Vector3 spawnPosition                 = CurrentTarget.transform.position + (Vector3.up * _verticalOffset);
+            Vector3 spawnPosition                 = CurrentTarget.transform.position + new Vector3(0f, _verticalOffset, 0f);
             Quaternion spawnRotation              = CurrentTarget.transform.localRotation;
 
             _onRequestUpdatedModelConfiguration.Raise(configuration);
@@ -226,10 +227,8 @@ namespace Arcade
 
             GameEntityConfiguration configuration = new GameEntityConfiguration();
 
-            Vector3 playerPosition   = _player.position;
-            Vector3 playerDirection  = _player.forward;
-            Vector3 spawnPosition    = playerPosition + (Vector3.up * _verticalOffset) + (playerDirection * _spawnDistance);
-            Quaternion spawnRotation = Quaternion.LookRotation(-playerDirection);
+            Vector3 spawnPosition    = _spawnIndicator.transform.position + new Vector3(0f, _verticalOffset, 0f);
+            Quaternion spawnRotation = Quaternion.LookRotation(-_spawnIndicator.transform.forward);
 
             _onRequestUpdatedModelConfiguration.Raise(configuration);
             if (string.IsNullOrEmpty(configuration.Id))
@@ -284,6 +283,62 @@ namespace Arcade
         {
             _spawnIndicator.SetActive(false);
             _drawSpawnIndicator = false;
+        }
+
+        private void DrawSpawnIndicator()
+        {
+            bool pointerOverUI = EventSystem.current.IsPointerOverGameObject();
+
+            bool useMousePosition = !(Mouse.current is null) && Cursor.lockState != CursorLockMode.Locked && !pointerOverUI;
+            Vector2 rayPosition   = useMousePosition ? Mouse.current.position.ReadValue(): new Vector2(Screen.width * 0.5f, Screen.height * 0.25f);
+            Ray ray               = _camera.ScreenPointToRay(rayPosition);
+
+            if (!Physics.Raycast(ray, out RaycastHit hitInfo, math.INFINITY, _worldLayerMask))
+                return;
+
+            Transform transform = _spawnIndicator.transform;
+            Vector3 position    = hitInfo.point;
+            Vector3 normal      = hitInfo.normal;
+            float dot           = Vector3.Dot(Vector3.up, normal);
+
+            if (!pointerOverUI)
+            {
+                InputAction rotateAction = _arcadeContext.InputActions.FpsEditPositions.Rotate;
+                if (!(rotateAction.activeControl is null) && !(rotateAction.activeControl.device is Mouse))
+                    _rotationOffset += rotateAction.ReadValue<float>() * Time.deltaTime * 100f;
+                else
+                    _rotationOffset += rotateAction.ReadValue<float>();
+            }
+
+            // Floor
+            if (dot > 0.05f)
+            {
+                transform.position      = Vector3.Lerp(transform.position, position, Time.deltaTime * 12f);
+                transform.localRotation = Quaternion.FromToRotation(Vector3.up, normal)
+                                        * Quaternion.LookRotation(_player.forward)
+                                        * Quaternion.AngleAxis(transform.localRotation.y, Vector3.up)
+                                        * Quaternion.AngleAxis(_rotationOffset, Vector3.up);
+                return;
+            }
+
+            // Ceiling
+            if (dot < -0.05f)
+            {
+                transform.position      = Vector3.Lerp(transform.position, position, Time.deltaTime * 12f);
+                transform.localRotation = Quaternion.FromToRotation(Vector3.up, -normal)
+                                        * Quaternion.LookRotation(_player.forward)
+                                        * Quaternion.AngleAxis(transform.localRotation.y, Vector3.up)
+                                        * Quaternion.AngleAxis(_rotationOffset, Vector3.up);
+                return;
+            }
+
+            _rotationOffset = 0f;
+
+            // Vertical surface
+            Vector3 positionOffset  = normal * Mathf.Max(_spawnIndicatorBounds.extents.x + 0.05f, _spawnIndicatorBounds.extents.z + 0.05f);
+            Vector3 newPosition     = new Vector3(position.x, transform.position.y, position.z) + positionOffset;
+            transform.position      = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * 12f);
+            transform.localRotation = Quaternion.LookRotation(-normal);
         }
     }
 }

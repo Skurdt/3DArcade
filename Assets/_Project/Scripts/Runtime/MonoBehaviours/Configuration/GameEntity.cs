@@ -24,6 +24,7 @@ using Cinemachine;
 
 namespace Arcade
 {
+    [System.Serializable]
     public sealed class GameEntity : EntityBase<GameEntityConfiguration>
     {
         protected override void OnInitialSetup(bool vr)

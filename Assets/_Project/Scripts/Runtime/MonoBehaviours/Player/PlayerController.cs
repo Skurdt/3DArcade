@@ -38,9 +38,6 @@ namespace Arcade
         public abstract bool MovementEnabled { get; set; }
         public abstract bool LookEnabled { get; set; }
 
-        protected const float CONTROLLER_HEIGHT_TO_CENTER_RATIO          = 2f / 0.18f;
-        protected const float CONTROLLER_HEIGHT_TO_CAMERA_POSITION_RATIO = 1.5f / 2f;
-
         protected InputActions _inputActions;
         protected CharacterController _characterController;
         protected CinemachineTransposer _cinemachineTransposer;
@@ -85,12 +82,8 @@ namespace Arcade
 
         protected void SetHeight(float heightInput)
         {
-            _cinemachineTransposer.m_FollowOffset = new Vector3(0f, _characterController.height * CONTROLLER_HEIGHT_TO_CAMERA_POSITION_RATIO, 0f);
-
-            _characterController.height += heightInput;
-            _characterController.center = new Vector3(0f, _characterController.height / 2f, 0f);
-            _characterController.height = Mathf.Clamp(_characterController.height, 0.1f, 4f);
-            _characterController.radius = _characterController.height / CONTROLLER_HEIGHT_TO_CENTER_RATIO;
+            _cinemachineTransposer.m_FollowOffset += new Vector3(0f, heightInput, 0f);
+            _cinemachineTransposer.m_FollowOffset = new Vector3(0f, Mathf.Clamp(_cinemachineTransposer.m_FollowOffset.y, 0.5f, 3f), 0f);
         }
     }
 }
