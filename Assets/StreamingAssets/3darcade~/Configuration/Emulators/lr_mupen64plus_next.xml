@@ -1,0 +1,11 @@
+<emulator description="Libretro: Mupen64Plus Next">
+  <interaction_type>LibretroCore</interaction_type>
+  <directory />
+  <working_directory />
+  <executable>mupen64plus_next</executable>
+  <arguments />
+  <supported_extensions />
+  <games_directories>
+    <directory>D:/__Roms</directory>
+  </games_directories>
+</emulator>

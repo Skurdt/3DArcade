@@ -18,35 +18,35 @@ MonoBehaviour:
   m_GUID: 526741a4390a6ae448e3aa0fe0aa1816
   m_SerializeEntries:
   - m_GUID: 35893b120b4284b48b172e5c3cb265da
-    m_Address: Textures/_default_marquee_00
+    m_Address: Textures/default_marquee_00
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: e414cf77a61944ec881371ed944fe4ad
-    m_Address: Textures/_default_marquee_01
+    m_Address: Textures/default_marquee_01
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 89cc81baf6f574e69a4dc410d4d60aaa
-    m_Address: Textures/_default_marquee_02
+    m_Address: Textures/default_marquee_02
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 082a2b6c50b074d76aef888a6495a4f8
-    m_Address: Textures/_default_marquee_03
+    m_Address: Textures/default_marquee_03
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: c1ccbafb552484a2aaf79eae7efa5f9a
-    m_Address: Textures/_default_marquee_04
+    m_Address: Textures/default_marquee_04
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 470d3cdc797194f4abb638eab4ed44db
-    m_Address: Textures/_default_marquee_05
+    m_Address: Textures/default_marquee_05
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: ef60e340b974643029d36ddba4a92477
-    m_Address: Textures/_default_marquee_06
+    m_Address: Textures/default_marquee_06
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 5449564b5482f41c6940d28afe8bf22c
-    m_Address: Textures/_default_marquee_07
+    m_Address: Textures/default_marquee_07
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 0bc6948d9f3a91540bd57400af7b6102
@@ -55,6 +55,10 @@ MonoBehaviour:
     m_SerializedLabels: []
   - m_GUID: 52af283fae193c54bb0dbb5477ffbc1b
     m_Address: Materials/_dynamic_unlit
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 06d8da9f4853c074f88174d5f9b7d42a
+    m_Address: Textures/prototype_512x512_Blue
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

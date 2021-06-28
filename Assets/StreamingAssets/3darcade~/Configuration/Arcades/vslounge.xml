@@ -196,7 +196,7 @@
       <artwork_directories_override />
       <description_override />
       <position x="3.48" y="-0" z="-17.03" />
-      <rotation x="0" y="-88.88" z="0" />
+      <rotation x="-0" y="-88.88" z="0" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />
@@ -276,7 +276,7 @@
       <artwork_directories_override />
       <description_override />
       <position x="-2.36" y="-0" z="-35.33" />
-      <rotation x="0" y="86.16" z="-0" />
+      <rotation x="-0" y="86.16" z="-0" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />
@@ -316,7 +316,7 @@
       <artwork_directories_override />
       <description_override />
       <position x="-2.24" y="-0" z="-32.01" />
-      <rotation x="-0" y="89.84" z="-0" />
+      <rotation x="0" y="89.84" z="-0" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />
@@ -456,7 +456,7 @@
       <artwork_directories_override />
       <description_override />
       <position x="1.17" y="-0" z="-25.55" />
-      <rotation x="0" y="179.6" z="0" />
+      <rotation x="0" y="179.6" z="-0" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />
@@ -536,7 +536,7 @@
       <artwork_directories_override />
       <description_override />
       <position x="-5.63" y="-0" z="-25.27" />
-      <rotation x="0" y="90.08" z="-0" />
+      <rotation x="-0" y="90.08" z="-0" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />
@@ -576,7 +576,7 @@
       <artwork_directories_override />
       <description_override />
       <position x="-5.64" y="-0" z="-27.65" />
-      <rotation x="-0" y="90.24" z="-0" />
+      <rotation x="0" y="90.24" z="-0" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />
@@ -976,7 +976,7 @@
       <artwork_directories_override />
       <description_override />
       <position x="5.35" y="-0" z="-41.16" />
-      <rotation x="-0" y="0.4" z="0" />
+      <rotation x="-0" y="0.4" z="-0" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />
@@ -1076,7 +1076,7 @@
       <artwork_directories_override />
       <description_override />
       <position x="5.65" y="-0" z="-34.15" />
-      <rotation x="0" y="-91.28" z="0" />
+      <rotation x="-0" y="-91.28" z="0" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />
@@ -1136,7 +1136,7 @@
       <artwork_directories_override />
       <description_override />
       <position x="5.65" y="-0" z="-30.14" />
-      <rotation x="0" y="-92.08" z="0" />
+      <rotation x="-0" y="-92.08" z="0" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />
@@ -1216,7 +1216,7 @@
       <artwork_directories_override />
       <description_override />
       <position x="5.65" y="-0" z="-24.71" />
-      <rotation x="0" y="-91.6" z="0" />
+      <rotation x="-0" y="-91.6" z="0" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />
@@ -1236,7 +1236,7 @@
       <artwork_directories_override />
       <description_override />
       <position x="5.58" y="-0" z="-23.2" />
-      <rotation x="-0" y="-91.6" z="-0" />
+      <rotation x="-0" y="-91.6" z="0" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />
@@ -1276,7 +1276,7 @@
       <artwork_directories_override />
       <description_override />
       <position x="-3.54" y="-0" z="-12.96" />
-      <rotation x="0" y="89.44" z="-0" />
+      <rotation x="-0" y="89.44" z="-0" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />
@@ -1376,7 +1376,7 @@
       <artwork_directories_override />
       <description_override />
       <position x="-1.23" y="-4.15" z="-1.53" />
-      <rotation x="0" y="179.88" z="-0" />
+      <rotation x="0" y="179.88" z="0" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />
@@ -1396,7 +1396,7 @@
       <artwork_directories_override />
       <description_override />
       <position x="-3.14" y="-4.15" z="-1.53" />
-      <rotation x="-0" y="179.87" z="0" />
+      <rotation x="-0" y="179.87" z="-0" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />
@@ -1456,7 +1456,7 @@
       <artwork_directories_override />
       <description_override />
       <position x="-5.69" y="-4.15" z="-3.15" />
-      <rotation x="0" y="89.91" z="0" />
+      <rotation x="0" y="89.91" z="-0" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />
@@ -1476,7 +1476,7 @@
       <artwork_directories_override />
       <description_override />
       <position x="-2.2" y="-4.15" z="-1.53" />
-      <rotation x="-0" y="179.89" z="-0" />
+      <rotation x="0" y="179.89" z="0" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />
@@ -1496,7 +1496,7 @@
       <artwork_directories_override />
       <description_override />
       <position x="2.76" y="0" z="-38.06" />
-      <rotation x="0" y="-90" z="0" />
+      <rotation x="0" y="-90.01" z="0" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />
@@ -1516,7 +1516,7 @@
       <artwork_directories_override />
       <description_override />
       <position x="2.76" y="0" z="-36.53" />
-      <rotation x="0" y="-90" z="-0" />
+      <rotation x="0.02" y="-90.02" z="0.01" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />
@@ -1536,7 +1536,7 @@
       <artwork_directories_override />
       <description_override />
       <position x="2.76" y="0" z="-33.8" />
-      <rotation x="0" y="-90.01" z="0" />
+      <rotation x="-0" y="-89.97" z="-0" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />
@@ -1596,7 +1596,7 @@
       <artwork_directories_override />
       <description_override />
       <position x="2.76" y="0" z="-30.45" />
-      <rotation x="0" y="-90" z="0" />
+      <rotation x="0.01" y="-89.98" z="-0.01" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />
@@ -1616,7 +1616,7 @@
       <artwork_directories_override />
       <description_override />
       <position x="2.76" y="0" z="-29.37" />
-      <rotation x="0" y="-90" z="-0" />
+      <rotation x="0.01" y="-89.99" z="-0.01" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />
@@ -1636,7 +1636,7 @@
       <artwork_directories_override />
       <description_override />
       <position x="2.76" y="0" z="-28.24" />
-      <rotation x="0" y="-89.99" z="0" />
+      <rotation x="0" y="-89.98" z="-0.01" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />
@@ -1656,7 +1656,7 @@
       <artwork_directories_override />
       <description_override />
       <position x="2.76" y="0" z="-35.14" />
-      <rotation x="0" y="-90" z="0" />
+      <rotation x="0.01" y="-89.99" z="-0.01" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />
@@ -1776,7 +1776,7 @@
       <artwork_directories_override />
       <description_override />
       <position x="5.83" y="0" z="-7.85" />
-      <rotation x="0.24" y="-89.99" z="0.03" />
+      <rotation x="0.23" y="-89.98" z="0.06" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />
@@ -1796,7 +1796,7 @@
       <artwork_directories_override />
       <description_override />
       <position x="-5.72" y="-0" z="-6.58" />
-      <rotation x="-0" y="90" z="-0" />
+      <rotation x="0" y="90" z="-0" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />
@@ -1836,7 +1836,7 @@
       <artwork_directories_override />
       <description_override />
       <position x="-5.81" y="0" z="-8.84" />
-      <rotation x="0" y="90.01" z="-0" />
+      <rotation x="-0" y="90.01" z="-0" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />
@@ -1896,7 +1896,7 @@
       <artwork_directories_override />
       <description_override />
       <position x="2.67" y="0" z="-4.61" />
-      <rotation x="0" y="-111.67" z="0" />
+      <rotation x="-0" y="-111.67" z="-0" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />
@@ -1916,7 +1916,27 @@
       <artwork_directories_override />
       <description_override />
       <position x="-5.81" y="0" z="-9.87" />
-      <rotation x="0" y="90.35" z="-0" />
+      <rotation x="0" y="90.35" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="Duke Nukem 64 (USA)" platform="nintendo_64">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="2.64" y="-3.43" z="-10.33" />
+      <rotation x="0" y="-179.6" z="-0" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />

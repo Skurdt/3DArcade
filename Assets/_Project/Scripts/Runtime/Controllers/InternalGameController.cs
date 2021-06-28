@@ -58,18 +58,21 @@ namespace Arcade
             LibretroScreenNode screenNode = screenNodeTag.gameObject.AddComponentIfNotFound<LibretroScreenNode>();
             _libretroBridge = new LibretroBridge(screenNode, _player.ActiveTransform);
 
+            string coreName = !string.IsNullOrEmpty(emulator.Executable) ? emulator.Executable : emulator.Id;
             foreach (string gameDirectory in emulator.GamesDirectories)
             {
-                string coreName = !string.IsNullOrEmpty(emulator.Executable) ? emulator.Executable : emulator.Id;
-                if (!_libretroBridge.Start(coreName, gameDirectory, configuration.Id))
+                try
                 {
+                    _libretroBridge.Start(coreName, gameDirectory, configuration.Id);
+                    //_libretroBridge.InputEnabled = true;
+                    return true;
+                }
+                catch (System.Exception e)
+                {
+                    Debug.LogException(e);
                     _libretroBridge.Stop();
                     continue;
                 }
-
-                _libretroBridge.InputEnabled = true;
-
-                return true;
             }
 
             StopGame();

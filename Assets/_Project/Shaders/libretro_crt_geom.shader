@@ -1,8 +1,8 @@
-Shader "Unlit/Test"
+Shader "Unlit/libretro_crt_geom"
 {
     Properties
     {
-        [MainTexture][PerRendererData] _BaseMap ("BaseMap", 2D) = "white" {}
+        [MainTexture] _MainTex ("MainTex", 2D) = "white" {}
 
         CRTgamma ("Target Gamma", Float) = 2.4
         monitorgamma ("Monitor Gamma", Float) = 2.2
@@ -52,9 +52,9 @@ Shader "Unlit/Test"
             #define mod(x,y) (x - y * trunc(x/y))
 
             #ifdef LINEAR_PROCESSING
-            #   define TEX2D(c) pow(tex2D(_BaseMap, (c)), float4(CRTgamma,CRTgamma,CRTgamma,CRTgamma))
+            #   define TEX2D(c) pow(tex2D(_MainTex, (c)), float4(CRTgamma,CRTgamma,CRTgamma,CRTgamma))
             #else
-            #   define TEX2D(c) tex2D(_BaseMap, (c))
+            #   define TEX2D(c) tex2D(_MainTex, (c))
             #endif
 
             struct appdata
@@ -81,8 +81,8 @@ Shader "Unlit/Test"
                 float2 mod_factor : TEXCOORD6;
             };
 
-            sampler2D _BaseMap;
-            float4 _BaseMap_ST;
+            sampler2D _MainTex;
+            float4 _MainTex_ST;
 
             float CRTgamma;
             float monitorgamma;
@@ -302,7 +302,7 @@ Shader "Unlit/Test"
             {
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
-                o.uv     = TRANSFORM_TEX(v.uv, _BaseMap);
+                o.uv     = TRANSFORM_TEX(v.uv, _MainTex);
 
 
                 // Precalculate a bunch of useful values we'll need in the fragment
@@ -339,7 +339,7 @@ Shader "Unlit/Test"
                                 i.mod_factor,
                                 size,
                                 i.uv,
-                                tex2D(_BaseMap, i.uv));
+                                tex2D(_MainTex, i.uv));
             }
             ENDHLSL
         }

@@ -52,12 +52,7 @@ namespace Arcade
                                                       return extensions.Contains(extension);
                                                   });
 
-                GameConfiguration[] games = filteredList.Where(fullPath =>
-                                                              {
-                                                                  string extension = Path.GetExtension(fullPath).TrimStart('.');
-                                                                  return extensions.Contains(extension);
-                                                              })
-                                                        .Select(filePath => Path.GetFileNameWithoutExtension(filePath))
+                GameConfiguration[] games = filteredList.Select(filePath => Path.GetFileNameWithoutExtension(filePath))
                                                         .Distinct()
                                                         .Select(fileName => new GameConfiguration { Description = fileName, Name = fileName })
                                                         .ToArray();

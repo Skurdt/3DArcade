@@ -287,12 +287,7 @@ namespace Arcade
 
         private void DrawSpawnIndicator()
         {
-            bool pointerOverUI = EventSystem.current.IsPointerOverGameObject();
-
-            bool useMousePosition = !(Mouse.current is null) && Cursor.lockState != CursorLockMode.Locked && !pointerOverUI;
-            Vector2 rayPosition   = useMousePosition ? Mouse.current.position.ReadValue(): new Vector2(Screen.width * 0.5f, Screen.height * 0.25f);
-            Ray ray               = _camera.ScreenPointToRay(rayPosition);
-
+            Ray ray = _camera.ScreenPointToRay(new Vector2(Screen.width * 0.5f, Screen.height * 0.25f));
             if (!Physics.Raycast(ray, out RaycastHit hitInfo, math.INFINITY, _worldLayerMask))
                 return;
 
@@ -301,6 +296,7 @@ namespace Arcade
             Vector3 normal      = hitInfo.normal;
             float dot           = Vector3.Dot(Vector3.up, normal);
 
+            bool pointerOverUI = EventSystem.current.IsPointerOverGameObject();
             if (!pointerOverUI)
             {
                 InputAction rotateAction = _arcadeContext.InputActions.FpsEditPositions.Rotate;
