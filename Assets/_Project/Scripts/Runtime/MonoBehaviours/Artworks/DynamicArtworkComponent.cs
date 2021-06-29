@@ -66,10 +66,6 @@ namespace Arcade
 
         private void Awake() => _renderer = GetComponent<Renderer>();
 
-        private void OnEnable() => ArtworksController.OnVideoPlayerAdded += VideoPlayerAddedCallback;
-
-        private void OnDisable() => ArtworksController.OnVideoPlayerAdded -= VideoPlayerAddedCallback;
-
         private void Update()
         {
             if (VideoIsPlaying)
@@ -102,6 +98,8 @@ namespace Arcade
            SwapTexture();
         }
 
+        public void SetVideoPlayer(VideoPlayer videoPlayer) => _videoPlayer = videoPlayer;
+
         private void SwapTexture()
         {
             if (_renderer == null || !_renderer.enabled)
@@ -127,7 +125,5 @@ namespace Arcade
         }
 
         private void RandomizeDelay() => _imageCyclingDelay = Random.Range(DEFAULT_MIN_DELAY, DEFAULT_MAX_DELAY);
-
-        private void VideoPlayerAddedCallback() => _videoPlayer = GetComponent<VideoPlayer>();
     }
 }

@@ -29,8 +29,6 @@ namespace Arcade
     [CreateAssetMenu(menuName = "3DArcade/ArtworksController", fileName = "ArtworksController")]
     public sealed class ArtworksController : ScriptableObject
     {
-        public static event System.Action OnVideoPlayerAdded;
-
         public const string SHADER_EMISSION_KEYWORD      = "_EMISSION";
         public static readonly int ShaderBaseColorId     = Shader.PropertyToID("_BaseColor");
         public static readonly int ShaderBaseMapId       = Shader.PropertyToID("_BaseMap");
@@ -67,9 +65,9 @@ namespace Arcade
             float screenIntensity  = configuration is GameEntityConfiguration gameEntityConfiguration ? GetScreenIntensity(gameEntityConfiguration) : 1f;
             float genericIntensity = 1f;
 
-            UniTask marqueeSetupTask = SetupNodeAsync(nodeControllers.Marquee, arcadeController, gameObject, configuration, (float)marqueeIntensity);
-            UniTask screenSetupTask  = SetupNodeAsync(nodeControllers.Screen, arcadeController, gameObject, configuration, screenIntensity);
-            await UniTask.WhenAll(marqueeSetupTask, screenSetupTask);
+            UniTask marqueeNodeTask = SetupNodeAsync(nodeControllers.Marquee, arcadeController, gameObject, configuration, (float)marqueeIntensity);
+            UniTask screenNodeTask  = SetupNodeAsync(nodeControllers.Screen, arcadeController, gameObject, configuration, screenIntensity);
+            await UniTask.WhenAll(marqueeNodeTask, screenNodeTask);
             await SetupNodeAsync(nodeControllers.Generic, arcadeController, gameObject, configuration, genericIntensity);
 
             float GetScreenIntensity(GameEntityConfiguration gameEntityConfiguration)
@@ -201,7 +199,8 @@ namespace Arcade
                 videoPlayer.controlledAudioTrackCount = 1;
                 videoPlayer.Stop();
 
-                OnVideoPlayerAdded?.Invoke();
+                if (renderer.TryGetComponent(out DynamicArtworkComponent dynamicArtworkComponent))
+                    dynamicArtworkComponent.SetVideoPlayer(videoPlayer);
 
                 await UniTask.Yield();
             }
@@ -212,11 +211,7 @@ namespace Arcade
             Color color = new Color(Random.value, Random.value, Random.value);
 
             foreach (Renderer renderer in renderers)
-            {
-                MaterialPropertyBlock block = new MaterialPropertyBlock();
-                block.SetColor(ShaderBaseColorId, color);
-                renderer.SetPropertyBlock(block);
-            }
+                renderer.material.SetColor(ShaderBaseColorId, color);
         }
 
         private static void SetMagicPixels(Renderer[] renderers)
@@ -242,11 +237,7 @@ namespace Arcade
             }
 
             foreach (Renderer renderer in renderers)
-            {
-                MaterialPropertyBlock block = new MaterialPropertyBlock();
-                block.SetTexture(ShaderBaseMapId, marqueeTexture);
-                renderer.SetPropertyBlock(block);
-            }
+                renderer.material.SetTexture(ShaderBaseMapId, marqueeTexture);
         }
 
         private static void SetupDynamicArtworkComponents(Renderer[] renderers, Texture[] textures, float emissionIntensity)

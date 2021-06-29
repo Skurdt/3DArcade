@@ -122,23 +122,13 @@ namespace Arcade
                 Color color = renderer.materials[0].GetColor(ArtworksController.ShaderBaseColorId);
                 Texture texture = renderer.materials[0].GetTexture(ArtworksController.ShaderBaseMapId);
                 if (texture == null)
-                {
                     texture = renderer.materials[0].GetTexture(ArtworksController.ShaderEmissionMapId);
-                    if (texture == null)
-                    {
-                        MaterialPropertyBlock blockRead = new MaterialPropertyBlock();
-                        renderer.GetPropertyBlock(blockRead);
-                        texture = blockRead.GetTexture(ArtworksController.ShaderEmissionMapId);
-                    }
-                }
 
                 renderer.material = material;
 
-                MaterialPropertyBlock blockWrite = new MaterialPropertyBlock();
-                blockWrite.SetColor(ArtworksController.ShaderBaseColorId, color);
+                material.SetColor(ArtworksController.ShaderBaseColorId, color);
                 if (texture != null)
-                    blockWrite.SetTexture(ArtworksController.ShaderBaseMapId, texture);
-                renderer.SetPropertyBlock(blockWrite);
+                    material.SetTexture(ArtworksController.ShaderBaseMapId, texture);
             }
         }
 
@@ -146,10 +136,9 @@ namespace Arcade
         {
             foreach (MeshRenderer renderer in _renderers)
             {
-                MaterialPropertyBlock blockRead = new MaterialPropertyBlock();
-                renderer.GetPropertyBlock(blockRead);
-                blockRead.SetFloat(id, value);
-                renderer.SetPropertyBlock(blockRead);
+                MaterialPropertyBlock block = new MaterialPropertyBlock();
+                block.SetFloat(id, value);
+                renderer.SetPropertyBlock(block);
             }
         }
 

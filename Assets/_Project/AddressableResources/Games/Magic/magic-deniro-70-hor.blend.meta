@@ -7,6 +7,16 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: deniromagicchrome
+    second: {fileID: 2100000, guid: c7f07e8d8193a794b9e610943ed828ec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: deniromagicred
+    second: {fileID: 2100000, guid: 178eac9faef26c2438cd245cca029ee1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: denirosmagicblack
     second: {fileID: 2100000, guid: 33bd6dc03005e6d43abfe6fa87bef3ba, type: 2}
   - first:

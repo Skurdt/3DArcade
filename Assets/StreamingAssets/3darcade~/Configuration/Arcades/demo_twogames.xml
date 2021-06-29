@@ -76,7 +76,7 @@
       <artwork_directories_override />
       <description_override />
       <position x="3.86" y="-0" z="-4.39" />
-      <rotation x="-0" y="-40.43" z="-0" />
+      <rotation x="-0" y="-40.43" z="0" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />
@@ -219,46 +219,6 @@
       <rotation x="-0" y="-85.83" z="0" />
       <scale x="1" y="1" z="1" />
       <interaction_type>FpsArcadeConfiguration</interaction_type>
-      <emulator_override />
-      <name_override />
-      <cloneof_override />
-      <romof_override />
-      <genre_override />
-      <year_override />
-      <manufacturer_override />
-    </game>
-    <game id="Duke Nukem 64 (USA)" platform="nintendo_64">
-      <grabbable>true</grabbable>
-      <movecab_movable>true</movecab_movable>
-      <movecab_grabbable>true</movecab_grabbable>
-      <model_override />
-      <artwork_files_override />
-      <artwork_directories_override />
-      <description_override />
-      <position x="2.53" y="-0" z="5.25" />
-      <rotation x="-0" y="-149.09" z="-0" />
-      <scale x="1" y="1" z="1" />
-      <interaction_type>Default</interaction_type>
-      <emulator_override />
-      <name_override />
-      <cloneof_override />
-      <romof_override />
-      <genre_override />
-      <year_override />
-      <manufacturer_override />
-    </game>
-    <game id="RR64 - Ridge Racer 64 (USA)" platform="nintendo_64">
-      <grabbable>true</grabbable>
-      <movecab_movable>true</movecab_movable>
-      <movecab_grabbable>true</movecab_grabbable>
-      <model_override />
-      <artwork_files_override />
-      <artwork_directories_override />
-      <description_override />
-      <position x="1.59" y="-0" z="5.72" />
-      <rotation x="-0" y="-160.87" z="0" />
-      <scale x="1" y="1" z="1" />
-      <interaction_type>Default</interaction_type>
       <emulator_override />
       <name_override />
       <cloneof_override />
