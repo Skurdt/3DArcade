@@ -116,7 +116,7 @@
       <artwork_directories_override />
       <description_override />
       <position x="-1.33" y="0" z="-11.58" />
-      <rotation x="0" y="0.59" z="0" />
+      <rotation x="0" y="0.59" z="-0" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />
@@ -136,7 +136,7 @@
       <artwork_directories_override />
       <description_override />
       <position x="-2.49" y="-0" z="-11.62" />
-      <rotation x="0" y="1.08" z="0" />
+      <rotation x="0" y="1.08" z="-0" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />
@@ -156,7 +156,7 @@
       <artwork_directories_override />
       <description_override />
       <position x="-3.61" y="0" z="-11.62" />
-      <rotation x="0" y="1.08" z="-0" />
+      <rotation x="0" y="1.08" z="0" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />

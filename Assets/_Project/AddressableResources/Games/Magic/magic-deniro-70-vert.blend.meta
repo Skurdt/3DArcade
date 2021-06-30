@@ -12,6 +12,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: denirosmagicchrome
+    second: {fileID: 2100000, guid: c7f07e8d8193a794b9e610943ed828ec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: denirosmagiccol
     second: {fileID: 2100000, guid: fdad895b08d0aa84fbbdf06f696f0196, type: 2}
   - first:
@@ -27,8 +32,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: denirosmagicmetalblack
+    second: {fileID: 2100000, guid: f5ce8425057e7e24ebdedee69ce898ca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: denirosmagicmon
     second: {fileID: 2100000, guid: d4beea8ab188c0545b403bb46fc4990c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: denirosmagicred
+    second: {fileID: 2100000, guid: 178eac9faef26c2438cd245cca029ee1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: denirosmagicwhite
+    second: {fileID: 2100000, guid: 267d96132b039da4597038a976ccbbe5, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

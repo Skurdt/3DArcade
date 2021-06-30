@@ -1,4 +1,4 @@
-Shader "Unlit/libretro_crt_geom"
+Shader "Unlit/libretro_crt_geom_local"
 {
     Properties
     {
