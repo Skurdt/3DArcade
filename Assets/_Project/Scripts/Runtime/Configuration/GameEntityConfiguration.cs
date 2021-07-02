@@ -59,7 +59,7 @@ namespace Arcade
                     "Year",
                     "Manufacturer",
                     "ScreenType",
-                    "ScreenRotation",
+                    "ScreenOrientation",
                     "Mature",
                     "Playable",
                     "IsBios",

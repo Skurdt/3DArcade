@@ -21,6 +21,7 @@ Shader "Unlit/libretro_crt_geom_local"
         lum ("Luminance Boost", Float) = 0.0
         interlace_toggle ("Interlacing", Float) = 1.0
     }
+
     SubShader
     {
         Tags { "RenderType"="Opaque" }
@@ -34,8 +35,7 @@ Shader "Unlit/libretro_crt_geom_local"
 
             #include "UnityCG.cginc"
 
-            // Comment the next line to disable interpolation in linear gamma (and
-            // gain speed).
+            // Comment the next line to disable interpolation in linear gamma (and gain speed).
             #define LINEAR_PROCESSING
 
             // Enable 3x oversampling of the beam profile; improves moire effect caused by scanlines+curvature
@@ -105,71 +105,69 @@ Shader "Unlit/libretro_crt_geom_local"
 
             float intersect(float2 xy, float4 sin_cos_angle)
             {
-                    float A = dot(xy,xy)+d*d;
-                    float B = 2.0*(R*(dot(xy,sin_cos_angle.xy)-d*sin_cos_angle.zw.x*sin_cos_angle.zw.y)-d*d);
-                    float C = d*d + 2.0*R*d*sin_cos_angle.zw.x*sin_cos_angle.zw.y;
-                    return (-B-sqrt(B*B-4.0*A*C))/(2.0*A);
+                float A = dot(xy,xy)+d*d;
+                float B = 2.0*(R*(dot(xy,sin_cos_angle.xy)-d*sin_cos_angle.zw.x*sin_cos_angle.zw.y)-d*d);
+                float C = d*d + 2.0*R*d*sin_cos_angle.zw.x*sin_cos_angle.zw.y;
+                return (-B-sqrt(B*B-4.0*A*C))/(2.0*A);
             }
 
             float2 bkwtrans(float2 xy, float4 sin_cos_angle)
             {
-                    float c = intersect(xy, sin_cos_angle);
-                    float2 point_ = float2(c,c)*xy;
-                    point_ -= float2(-R,-R)*sin_cos_angle.xy;
-                    point_ /= float2(R,R);
-                    float2 tang = sin_cos_angle.xy/sin_cos_angle.zw;
-                    float2 poc = point_/sin_cos_angle.zw;
-                    float A = dot(tang,tang)+1.0;
-                    float B = -2.0*dot(poc,tang);
-                    float C = dot(poc,poc)-1.0;
-                    float a = (-B+sqrt(B*B-4.0*A*C))/(2.0*A);
-                    float2 uv = (point_-a*sin_cos_angle.xy)/sin_cos_angle.zw;
-                    float r = FIX(R*acos(a));
-                    return uv*r/sin(r/R);
+                float c = intersect(xy, sin_cos_angle);
+                float2 point_ = float2(c,c)*xy;
+                point_ -= float2(-R,-R)*sin_cos_angle.xy;
+                point_ /= float2(R,R);
+                float2 tang = sin_cos_angle.xy/sin_cos_angle.zw;
+                float2 poc = point_/sin_cos_angle.zw;
+                float A = dot(tang,tang)+1.0;
+                float B = -2.0*dot(poc,tang);
+                float C = dot(poc,poc)-1.0;
+                float a = (-B+sqrt(B*B-4.0*A*C))/(2.0*A);
+                float2 uv = (point_-a*sin_cos_angle.xy)/sin_cos_angle.zw;
+                float r = FIX(R*acos(a));
+                return uv*r/sin(r/R);
             }
 
             float2 fwtrans(float2 uv, float4 sin_cos_angle)
             {
-                    float r = FIX(sqrt(dot(uv,uv)));
-                    uv *= sin(r/R)/r;
-                    float x = 1.0-cos(r/R);
-                    float D = d/R + x*sin_cos_angle.z*sin_cos_angle.w+dot(uv,sin_cos_angle.xy);
-                    return d*(uv*sin_cos_angle.zw-x*sin_cos_angle.xy)/D;
+                float r = FIX(sqrt(dot(uv,uv)));
+                uv *= sin(r/R)/r;
+                float x = 1.0-cos(r/R);
+                float D = d/R + x*sin_cos_angle.z*sin_cos_angle.w+dot(uv,sin_cos_angle.xy);
+                return d*(uv*sin_cos_angle.zw-x*sin_cos_angle.xy)/D;
             }
 
             float3 maxscale(float4 sin_cos_angle)
             {
-                    float2 c = bkwtrans(-R * sin_cos_angle.xy / (1.0 + R/d*sin_cos_angle.z*sin_cos_angle.w), sin_cos_angle);
-                    float2 a = float2(0.5,0.5)*aspect;
-                    float2 lo = float2(fwtrans(float2(-a.x,c.y), sin_cos_angle).x,
-                                 fwtrans(float2(c.x,-a.y), sin_cos_angle).y)/aspect;
-                    float2 hi = float2(fwtrans(float2(+a.x,c.y), sin_cos_angle).x,
-                                 fwtrans(float2(c.x,+a.y), sin_cos_angle).y)/aspect;
-                    return float3((hi+lo)*aspect*0.5,max(hi.x-lo.x,hi.y-lo.y));
+                float2 c = bkwtrans(-R * sin_cos_angle.xy / (1.0 + R/d*sin_cos_angle.z*sin_cos_angle.w), sin_cos_angle);
+                float2 a = float2(0.5,0.5)*aspect;
+                float2 lo = float2(fwtrans(float2(-a.x,c.y), sin_cos_angle).x, fwtrans(float2(c.x,-a.y), sin_cos_angle).y)/aspect;
+                float2 hi = float2(fwtrans(float2(+a.x,c.y), sin_cos_angle).x, fwtrans(float2(c.x,+a.y), sin_cos_angle).y)/aspect;
+                return float3((hi+lo)*aspect*0.5,max(hi.x-lo.x,hi.y-lo.y));
             }
 
             float4 scanlineWeights(float distance, float4 color)
             {
-                    // "wid" controls the width of the scanline beam, for each RGB
-                    // channel The "weights" lines basically specify the formula
-                    // that gives you the profile of the beam, i.e. the intensity as
-                    // a function of distance from the vertical center of the
-                    // scanline. In this case, it is gaussian if width=2, and
-                    // becomes nongaussian for larger widths. Ideally this should
-                    // be normalized so that the integral across the beam is
-                    // independent of its width. That is, for a narrower beam
-                    // "weights" should have a higher peak at the center of the
-                    // scanline than for a wider beam.
+                // "wid" controls the width of the scanline beam, for each RGB
+                // channel The "weights" lines basically specify the formula
+                // that gives you the profile of the beam, i.e. the intensity as
+                // a function of distance from the vertical center of the
+                // scanline. In this case, it is gaussian if width=2, and
+                // becomes nongaussian for larger widths. Ideally this should
+                // be normalized so that the integral across the beam is
+                // independent of its width. That is, for a narrower beam
+                // "weights" should have a higher peak at the center of the
+                // scanline than for a wider beam.
             #ifdef USEGAUSSIAN
-                    float4 wid = 0.3 + 0.1 * pow(color, float4(3.0, 3.0, 3.0, 3.0));
-                    float v = distance / (wid * scanline_weight/0.3);
-                    float4 weights = float4(v,v,v,v);
-                    return (lum + 0.4) * exp(-weights * weights) / wid;
+                float4 wid = 0.3 + 0.1 * pow(color, float4(3.0, 3.0, 3.0, 3.0));
+                float v = distance / (wid * scanline_weight/0.3);
+                float4 weights = float4(v,v,v,v);
+                return (lum + 0.4) * exp(-weights * weights) / wid;
             #else
-                    float4 wid = 2.0 + 2.0 * pow(color, float4(4.0, 4.0, 4.0, 4.0));
-                    float v = distance / scanline_weight;
-                    float4 weights = float4(v,v,v,v);
-                    return (lum + 1.4) * exp(-pow(weights * rsqrt(0.5 * wid), wid)) / (0.6 + 0.2 * wid);
+                float4 wid = 2.0 + 2.0 * pow(color, float4(4.0, 4.0, 4.0, 4.0));
+                float v = distance / scanline_weight;
+                float4 weights = float4(v,v,v,v);
+                return (lum + 1.4) * exp(-pow(weights * rsqrt(0.5 * wid), wid)) / (0.6 + 0.2 * wid);
             #endif
             }
 
@@ -218,9 +216,7 @@ Shader "Unlit/libretro_crt_geom_local"
                     xy =  (bkwtrans(cd, sin_cos_angle)/float2(overscan_x / 100.0, overscan_y / 100.0)/aspect+float2(0.5, 0.5)) * video_size / texture_size;
                 }
                 else
-                {
                     xy = texCoord;
-                }
 
                 float2 cd2 = xy;
                 cd2 *= texture_size / video_size;
@@ -232,24 +228,20 @@ Shader "Unlit/libretro_crt_geom_local"
                 float cval = clamp((cdist.x-dist)*cornersmooth,0.0, 1.0);
 
                 float2 xy2 = ((xy * TextureSize/video_size-float2(0.5, 0.5))*float2(1.0,1.0)+float2(0.5, 0.5))*video_size/TextureSize;
-                // Of all the pixels that are mapped onto the texel we are
-                // currently rendering, which pixel are we currently rendering?
+                // Of all the pixels that are mapped onto the texel we are currently rendering, which pixel are we currently rendering?
                 float2 ilfloat = float2(0.0, ilfac.y > 1.5 ? mod(float(frame_count), 2.0) : 0.0);
 
                 float2 ratio_scale = (xy * TextureSize - float2(0.5, 0.5) + ilfloat) / ilfac;
 
-      #ifdef OVERSAMPLE
+            #ifdef OVERSAMPLE
                 float filter = video_size.y / output_size.y;
-      #endif
+            #endif
                 float2 uv_ratio = frac(ratio_scale);
 
                 // Snap to the center of the underlying texel.
-
                 xy = (floor(ratio_scale) * ilfac + float2(0.5, 0.5) - ilfloat) / TextureSize;
 
-                // Calculate Lanczos scaling coefficients describing the effect
-                // of various neighbour texels in a scanline on the current
-                // pixel.
+                // Calculate Lanczos scaling coefficients describing the effect of various neighbour texels in a scanline on the current pixel.
                 float4 coeffs = PI * float4(1.0 + uv_ratio.x, uv_ratio.x, 1.0 - uv_ratio.x, 2.0 - uv_ratio.x);
 
                 // Prevent division by zero.
@@ -261,33 +253,29 @@ Shader "Unlit/libretro_crt_geom_local"
                 // Normalize.
                 coeffs /= dot(coeffs, float4(1.0, 1.0, 1.0, 1.0));
 
-                // Calculate the effective colour of the current and next
-                // scanlines at the horizontal location of the current pixel,
-                // using the Lanczos coefficients above.
+                // Calculate the effective colour of the current and next scanlines at the horizontal location of the current pixel, using the Lanczos coefficients above.
                 float4 col  = clamp(mul(coeffs, float4x4(TEX2D(xy + float2(-one.x, 0.0)), TEX2D(xy), TEX2D(xy + float2(one.x, 0.0)), TEX2D(xy + float2(2.0 * one.x, 0.0)))), 0.0, 1.0);
                 float4 col2 = clamp(mul(coeffs, float4x4(TEX2D(xy + float2(-one.x, one.y)), TEX2D(xy + float2(0.0, one.y)), TEX2D(xy + one), TEX2D(xy + float2(2.0 * one.x, one.y)))), 0.0, 1.0);
 
-#ifndef LINEAR_PROCESSING
+            #ifndef LINEAR_PROCESSING
                 col  = pow(col , CRTgamma);
                 col2 = pow(col2, CRTgamma);
-#endif
-                // Calculate the influence of the current and next scanlines on
-                // the current pixel.
+            #endif
+                // Calculate the influence of the current and next scanlines on the current pixel.
                 float4 weights  = scanlineWeights(uv_ratio.y, col);
                 float4 weights2 = scanlineWeights(1.0 - uv_ratio.y, col2);
-#ifdef OVERSAMPLE
+            #ifdef OVERSAMPLE
                 uv_ratio.y = uv_ratio.y+1.0/3.0*filter;
                 weights    = (weights+scanlineWeights(uv_ratio.y, col))/3.0;
                 weights2   = (weights2+scanlineWeights(abs(1.0-uv_ratio.y), col2))/3.0;
                 uv_ratio.y = uv_ratio.y-2.0/3.0*filter;
                 weights    = weights + scanlineWeights(abs(uv_ratio.y), col) / 3.0;
                 weights2   = weights2 + scanlineWeights(abs(1.0 - uv_ratio.y), col2) / 3.0;
-#endif
+            #endif
                 float3 mul_res = (col * weights + col2 * weights2).rgb;
                 mul_res *= float3(cval, cval, cval);
 
-                // dot-mask emulation:
-                // Output pixels are alternately tinted green and magenta.
+                // dot-mask emulation: Output pixels are alternately tinted green and magenta.
                 float3 dotMaskWeights = lerp(float3(1.0, 1.0 - DOTMASK, 1.0), float3(1.0 - DOTMASK, 1.0, 1.0 - DOTMASK), floor(mod(mod_factor, 2.0)));
                 mul_res *= dotMaskWeights;
 
@@ -304,9 +292,7 @@ Shader "Unlit/libretro_crt_geom_local"
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.uv     = TRANSFORM_TEX(v.uv, _MainTex);
 
-
-                // Precalculate a bunch of useful values we'll need in the fragment
-                // shader.
+                // Precalculate a bunch of useful values we'll need in the fragment shader.
                 float2 sinangle = sin(float2(x_tilt, y_tilt));
                 float2 cosangle = cos(float2(x_tilt, y_tilt));
                 o.sin_cos_angle = float4(sinangle.x, sinangle.y, cosangle.x, cosangle.y);
@@ -320,7 +306,6 @@ Shader "Unlit/libretro_crt_geom_local"
 
                 // Resulting X pixel-coordinate of the pixel we're drawing.
                 o.mod_factor = o.uv.x * 384.0;
-
 
                 return o;
             }

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1019305913207595928
+--- !u!1 &3639405394916343413
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,10 +8,75 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1290155662685273820}
-  - component: {fileID: 2514948545838939032}
-  - component: {fileID: 2836333957350394235}
-  - component: {fileID: 3076650892756483828}
+  - component: {fileID: 4164161971174810831}
+  - component: {fileID: 4305047235421806277}
+  - component: {fileID: 719337462497949124}
+  m_Layer: 0
+  m_Name: magic-deniro-80-vert
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4164161971174810831
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3639405394916343413}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4683299269690383720}
+  - {fileID: 6748053960997922274}
+  - {fileID: 2525435069568565805}
+  - {fileID: 7828619791490388390}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4305047235421806277
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3639405394916343413}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.65190065, y: 1.7312977, z: 0.6744665}
+  m_Center: {x: -0.0008357763, y: 0.8656415, z: 0.007104039}
+--- !u!54 &719337462497949124
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3639405394916343413}
+  serializedVersion: 2
+  m_Mass: 80
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!1 &4784836824609798310
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6748053960997922274}
+  - component: {fileID: 7972653984416522406}
+  - component: {fileID: 7718822704687419973}
+  - component: {fileID: 6547016652389835252}
   m_Layer: 0
   m_Name: magic-deniro-80-vert_generic
   m_TagString: Untagged
@@ -19,35 +84,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1290155662685273820
+--- !u!4 &6748053960997922274
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1019305913207595928}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_GameObject: {fileID: 4784836824609798310}
+  m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4164161971174810831}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &2514948545838939032
+--- !u!33 &7972653984416522406
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1019305913207595928}
+  m_GameObject: {fileID: 4784836824609798310}
   m_Mesh: {fileID: -2317398010748448006, guid: 9fe5590712d797f43943aa221e8a8296, type: 3}
---- !u!23 &2836333957350394235
+--- !u!23 &7718822704687419973
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1019305913207595928}
+  m_GameObject: {fileID: 4784836824609798310}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -83,19 +148,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3076650892756483828
+--- !u!114 &6547016652389835252
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1019305913207595928}
+  m_GameObject: {fileID: 4784836824609798310}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8929406a885506d4e8a6751e01c3c2e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1942628504516091188
+--- !u!1 &6248727695746156042
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,10 +168,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2370778888268810904}
-  - component: {fileID: 8384852820629358496}
-  - component: {fileID: 8662722913958514905}
-  - component: {fileID: 8630859955674643892}
+  - component: {fileID: 7828619791490388390}
+  - component: {fileID: 4043829878073138334}
+  - component: {fileID: 3781412325437787111}
+  - component: {fileID: 1412568453369505235}
   m_Layer: 0
   m_Name: magic-deniro-80-vert_screen
   m_TagString: Untagged
@@ -114,35 +179,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2370778888268810904
+--- !u!4 &7828619791490388390
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1942628504516091188}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0.00016715526, y: 1.0806097, z: -0.037977397}
+  m_GameObject: {fileID: 6248727695746156042}
+  m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.00016715526, y: 1.0806097, z: -0.037977394}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4164161971174810831}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8384852820629358496
+--- !u!33 &4043829878073138334
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1942628504516091188}
+  m_GameObject: {fileID: 6248727695746156042}
   m_Mesh: {fileID: 5001859391463428559, guid: 9fe5590712d797f43943aa221e8a8296, type: 3}
---- !u!23 &8662722913958514905
+--- !u!23 &3781412325437787111
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1942628504516091188}
+  m_GameObject: {fileID: 6248727695746156042}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -178,19 +243,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8630859955674643892
+--- !u!114 &1412568453369505235
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1942628504516091188}
+  m_GameObject: {fileID: 6248727695746156042}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2500d90d07ed1a0469e7eddaa7ba519d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &2476616249732037129
+--- !u!1 &7934462616282226999
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -198,10 +263,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8020435117284546835}
-  - component: {fileID: 7227269661611111717}
-  - component: {fileID: 7886522733755023536}
-  - component: {fileID: 3847459613777650200}
+  - component: {fileID: 2525435069568565805}
+  - component: {fileID: 2886246169198669339}
+  - component: {fileID: 2391662409545702286}
+  - component: {fileID: 4221541738335722072}
   m_Layer: 0
   m_Name: magic-deniro-80-vert_marquee
   m_TagString: Untagged
@@ -209,35 +274,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8020435117284546835
+--- !u!4 &2525435069568565805
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2476616249732037129}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0.00041787326, y: 1.6301622, z: 0.15461746}
+  m_GameObject: {fileID: 7934462616282226999}
+  m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.00041788816, y: 1.6301622, z: 0.15461746}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4164161971174810831}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &7227269661611111717
+--- !u!33 &2886246169198669339
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2476616249732037129}
+  m_GameObject: {fileID: 7934462616282226999}
   m_Mesh: {fileID: -8670684231415035108, guid: 9fe5590712d797f43943aa221e8a8296, type: 3}
---- !u!23 &7886522733755023536
+--- !u!23 &2391662409545702286
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2476616249732037129}
+  m_GameObject: {fileID: 7934462616282226999}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -273,19 +338,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3847459613777650200
+--- !u!114 &4221541738335722072
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2476616249732037129}
+  m_GameObject: {fileID: 7934462616282226999}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9aa47212c50c2e74481929b830685047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &3639405394916343413
+--- !u!1 &8391449651332046438
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -293,9 +358,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4164161971174810831}
-  - component: {fileID: 1885206968314563840}
-  - component: {fileID: 2951728712334241777}
+  - component: {fileID: 4683299269690383720}
+  - component: {fileID: 3038231488258937789}
+  - component: {fileID: 7995258152817808020}
   m_Layer: 0
   m_Name: magic-deniro-80-vert
   m_TagString: Untagged
@@ -303,100 +368,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4164161971174810831
+--- !u!4 &4683299269690383720
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3639405394916343413}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 8391449651332046438}
+  m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 917609734572295766}
-  - {fileID: 1290155662685273820}
-  - {fileID: 8020435117284546835}
-  - {fileID: 2370778888268810904}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1885206968314563840
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3639405394916343413}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.65190065, y: 1.7317154, z: 0.6744665}
-  m_Center: {x: -0.0008357763, y: 0.86585027, z: 0.00710395}
---- !u!54 &2951728712334241777
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3639405394916343413}
-  serializedVersion: 2
-  m_Mass: 80
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!1 &4050424992160695640
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 917609734572295766}
-  - component: {fileID: 7380165718558771331}
-  - component: {fileID: 2501386769658988970}
-  m_Layer: 0
-  m_Name: magic-deniro-80-vert
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &917609734572295766
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4050424992160695640}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4164161971174810831}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &7380165718558771331
+--- !u!33 &3038231488258937789
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4050424992160695640}
+  m_GameObject: {fileID: 8391449651332046438}
   m_Mesh: {fileID: -4350862347283062746, guid: 9fe5590712d797f43943aa221e8a8296, type: 3}
---- !u!23 &2501386769658988970
+--- !u!23 &7995258152817808020
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4050424992160695640}
+  m_GameObject: {fileID: 8391449651332046438}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -410,7 +410,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fdad895b08d0aa84fbbdf06f696f0196, type: 2}
+  - {fileID: 2100000, guid: f5ce8425057e7e24ebdedee69ce898ca, type: 2}
+  - {fileID: 2100000, guid: 178eac9faef26c2438cd245cca029ee1, type: 2}
+  - {fileID: 2100000, guid: c7f07e8d8193a794b9e610943ed828ec, type: 2}
   - {fileID: 2100000, guid: 33bd6dc03005e6d43abfe6fa87bef3ba, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0

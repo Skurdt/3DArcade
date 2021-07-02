@@ -39,7 +39,7 @@ namespace Arcade
             public string Year { get; set; }
             public string Manufacturer { get; set; }
             public string ScreenType { get; set; }
-            public string ScreenRotation { get; set; }
+            public string ScreenOrientation { get; set; }
             public bool Mature { get; set; }
             public bool Playable { get; set; }
             public bool IsBios { get; set; }
@@ -49,22 +49,22 @@ namespace Arcade
 
             public static readonly string[] Columns = new string[]
             {
-                "Id             INTEGER",
-                "Name           TEXT NOT NULL UNIQUE ON CONFLICT IGNORE",
-                "Description    TEXT NOT NULL UNIQUE ON CONFLICT IGNORE",
-                "CloneOf        TEXT",
-                "RomOf          TEXT",
-                "Genre          TEXT",
-                "Year           TEXT",
-                "Manufacturer   TEXT",
-                "ScreenType     TEXT",
-                "ScreenRotation TEXT",
-                "Mature         INTEGER",
-                "Playable       INTEGER",
-                "IsBios         INTEGER",
-                "IsDevice       INTEGER",
-                "IsMechanical   INTEGER",
-                "Available      INTEGER",
+                "Id                INTEGER",
+                "Name              TEXT NOT NULL UNIQUE ON CONFLICT IGNORE",
+                "Description       TEXT NOT NULL UNIQUE ON CONFLICT IGNORE",
+                "CloneOf           TEXT",
+                "RomOf             TEXT",
+                "Genre             TEXT",
+                "Year              TEXT",
+                "Manufacturer      TEXT",
+                "ScreenType        TEXT",
+                "ScreenOrientation TEXT",
+                "Mature            INTEGER",
+                "Playable          INTEGER",
+                "IsBios            INTEGER",
+                "IsDevice          INTEGER",
+                "IsMechanical      INTEGER",
+                "Available         INTEGER",
                 "PRIMARY KEY(Id)"
             };
         }
@@ -147,21 +147,21 @@ namespace Arcade
         {
             DBGame result = new DBGame
             {
-                Name           = game.Name,
-                Description    = game.Description,
-                CloneOf        = game.CloneOf,
-                RomOf          = game.RomOf,
-                Genre          = game.Genre,
-                Year           = game.Year,
-                Manufacturer   = game.Manufacturer,
-                ScreenType     = game.ScreenType.ToString(),
-                ScreenRotation = game.ScreenOrientation.ToString(),
-                Mature         = game.Mature,
-                Playable       = game.Playable,
-                IsBios         = game.IsBios,
-                IsDevice       = game.IsDevice,
-                IsMechanical   = game.IsMechanical,
-                Available      = game.Available
+                Name              = game.Name,
+                Description       = game.Description,
+                CloneOf           = game.CloneOf,
+                RomOf             = game.RomOf,
+                Genre             = game.Genre,
+                Year              = game.Year,
+                Manufacturer      = game.Manufacturer,
+                ScreenType        = game.ScreenType.ToString(),
+                ScreenOrientation = game.ScreenOrientation.ToString(),
+                Mature            = game.Mature,
+                Playable          = game.Playable,
+                IsBios            = game.IsBios,
+                IsDevice          = game.IsDevice,
+                IsMechanical      = game.IsMechanical,
+                Available         = game.Available
             };
 
             return result;
