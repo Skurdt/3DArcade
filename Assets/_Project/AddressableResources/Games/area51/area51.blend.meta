@@ -17,16 +17,6 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: area51blue
-    second: {fileID: 2100000, guid: 505e588c5c8a1254c806df4f6efb3797, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: area51bluegunblue
-    second: {fileID: 2100000, guid: e27afe2d3c5a0554abeedbfa7e17fe67, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
       name: area51blueguntex
     second: {fileID: 2100000, guid: a173f2413eb22be42900f2e31c1ace75, type: 2}
   - first:
@@ -37,53 +27,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: area51cpobottomblack
-    second: {fileID: 2100000, guid: 09a73b6f44e22cb4aad9d647dd4cc35f, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: area51cpobottongreen
-    second: {fileID: 2100000, guid: 5fb62e0e7b75cfd4a87eda2df9c6f776, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
       name: area51cpotop
     second: {fileID: 2100000, guid: 1b42dc8ee02cd3945bbf19b25fec9f6a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: area51green
+    second: {fileID: 2100000, guid: 356002898833f9b42bc994a2ef206bf4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: area51left
     second: {fileID: 2100000, guid: 2cd494ecadd52d345b1a5049756da6f0, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: area51leftblack
-    second: {fileID: 2100000, guid: e6262cc81abb34040af44084174c3bef, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: area51leftgreen
-    second: {fileID: 2100000, guid: be4e5df2c67f13548a063b6d38611d6d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: area51marquee
-    second: {fileID: 2100000, guid: ea5f1f90cfe52b94bbc4ffc4fcc76e1f, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: area51monitor
-    second: {fileID: 2100000, guid: 1d1eb14a9ac462c4599c6b43363e7e1c, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: area51red
-    second: {fileID: 2100000, guid: 6698577f50fec4a4ab002e864a508be7, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: area51redgunred
-    second: {fileID: 2100000, guid: 1e0d3c58c233b92498b613379fa644cb, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -94,16 +49,6 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: area51right
     second: {fileID: 2100000, guid: 8be1f40d7aed2c543bfe2e41e2eaeefa, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: area51rightblack
-    second: {fileID: 2100000, guid: 9ace779886c86da48b54496423869440, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: area51rightgreen
-    second: {fileID: 2100000, guid: a22c255eec6756e488a19a0bfe6a7dc0, type: 2}
   materials:
     materialImportMode: 2
     materialName: 1

@@ -152,6 +152,21 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - GameModels
+  - m_GUID: 8b9754d4158297648b7cbd1d8b7461f3
+    m_Address: Games/archrivl
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GameModels
+  - m_GUID: 2e41a107876a0e047b52db204afbfaf5
+    m_Address: Games/area51
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GameModels
+  - m_GUID: 3a983b574f44e26419ad7f239cd472b0
+    m_Address: Games/arkanoid
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GameModels
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a791319076b3e034bb0f17c6bf81a76f, type: 2}
   m_SchemaSet:

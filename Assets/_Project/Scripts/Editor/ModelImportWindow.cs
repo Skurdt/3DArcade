@@ -138,17 +138,17 @@ namespace Arcade.UnityEditor
                 string childName = child.name;
                 if (childName.EndsWith("_marquee") || childName.EndsWith("_m"))
                 {
-                    child.GetComponent<MeshRenderer>().sharedMaterial = AssetDatabase.LoadAssetAtPath<Material>("Assets/_Project/Addressables/Materials/_dynamic_lit.mat");
+                    child.GetComponent<MeshRenderer>().sharedMaterial = AssetDatabase.LoadAssetAtPath<Material>("Assets/_Project/Addressables/Materials/_dynamic_unlit.mat");
                     _ = child.gameObject.AddComponent<MarqueeNodeTag>();
                 }
                 else if (childName.EndsWith("_screen") || childName.EndsWith("_s"))
                 {
-                    child.GetComponent<MeshRenderer>().sharedMaterial = AssetDatabase.LoadAssetAtPath<Material>("Assets/_Project/Addressables/Materials/_dynamic_lit.mat");
+                    child.GetComponent<MeshRenderer>().sharedMaterial = AssetDatabase.LoadAssetAtPath<Material>("Assets/_Project/Addressables/Materials/_dynamic_unlit.mat");
                     _ = child.gameObject.AddComponent<ScreenNodeTag>();
                 }
                 else if (childName.EndsWith("_generic") || childName.EndsWith("_g"))
                 {
-                    child.GetComponent<MeshRenderer>().sharedMaterial = AssetDatabase.LoadAssetAtPath<Material>("Assets/_Project/Addressables/Materials/_dynamic_unlit.mat");
+                    child.GetComponent<MeshRenderer>().sharedMaterial = AssetDatabase.LoadAssetAtPath<Material>("Assets/_Project/Addressables/Materials/_dynamic_lit.mat");
                     _ = child.gameObject.AddComponent<GenericNodeTag>();
                 }
             }

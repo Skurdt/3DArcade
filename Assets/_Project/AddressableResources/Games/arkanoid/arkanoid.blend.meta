@@ -7,6 +7,36 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: arkanoid_bezel
+    second: {fileID: 2100000, guid: 2e43b70abeb3e0d479b73a09dcaa444c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: arkanoid_chrome
+    second: {fileID: 2100000, guid: 7ba57a7dc0143ad418493df29ede12b5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: arkanoid_coindoor
+    second: {fileID: 2100000, guid: 34a9e9370a493dd4e8b7c3cf48800bbd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: arkanoid_cpanel
+    second: {fileID: 2100000, guid: d0f92ffe21e5c3c44a62764b61369d37, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: arkanoid_darkness
+    second: {fileID: 2100000, guid: a1250380b8cbce64a88a08ad8226f59a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: arkanoid_sideart
+    second: {fileID: 2100000, guid: 07f489bd6e0f1ce409207fb15d01e796, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: arkanoidbezelart
     second: {fileID: 2100000, guid: ac623c708eb22c141b610f2c2c456e29, type: 2}
   - first:
