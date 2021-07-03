@@ -79,6 +79,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: amidar_Mat14
     second: {fileID: 2100000, guid: 02ddbf549e08ee748894baaf3ccfe859, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: amidar_cab
+    second: {fileID: 2100000, guid: ff538f8bda2ab4f45bd0e829db852709, type: 2}
   materials:
     materialImportMode: 2
     materialName: 1
