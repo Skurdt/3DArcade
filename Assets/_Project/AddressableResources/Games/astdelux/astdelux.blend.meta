@@ -7,16 +7,6 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: 01astdeluxmarquee
-    second: {fileID: 2100000, guid: ccde8b40c2ad4aa45a38af9d8fbb1c48, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: 02astdeluxmonitor
-    second: {fileID: 2100000, guid: 71d8a90918f14764c9956355f4cf03a0, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
       name: astdeluxbackdrop
     second: {fileID: 2100000, guid: f84bf7c524c2abe4c9cf2fd2efd778e7, type: 2}
   - first:
@@ -24,16 +14,6 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: astdeluxbezel
     second: {fileID: 2100000, guid: d5cc8efb08cf5f84a93dcc896f13afd3, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: astdeluxblack
-    second: {fileID: 2100000, guid: 942ae77a190c0744caea231eb2922af6, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: astdeluxbuttonwhite
-    second: {fileID: 2100000, guid: 7f2877c8150390f4ca4e050fb5a57444, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -47,48 +27,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: astdeluxsideartright
-    second: {fileID: 2100000, guid: 223b47f71d7ab0641bf487886650bc7c, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: astdeluxsidelartleft
-    second: {fileID: 2100000, guid: fc195e2446976c64cb8ae805a7eac7f9, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: astdeluxsideleftin
-    second: {fileID: 2100000, guid: 653a537c67a3a614e960c102a6241d73, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: astdeluxsiderightin
-    second: {fileID: 2100000, guid: 14780f2f4ce964844bee6bcb6d966232, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: astdeluxtitle
-    second: {fileID: 2100000, guid: 9ede580a4c91b9b4cb502a47e21b5dc1, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: astdeluxtmoldleft
-    second: {fileID: 2100000, guid: a050abf9ecb773a4db2f689f78736bf4, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: astdeluxtmoldright
-    second: {fileID: 2100000, guid: 1a65a4496c5c383479b54ca267c87b3d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: astdeluxvolbuttonbase
-    second: {fileID: 2100000, guid: 3a1f5e0c3dd1c6942bb74b175507dd5a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: astdeluxvolcbuttontop
-    second: {fileID: 2100000, guid: 741eec2e95c757247806593401ebcc0b, type: 2}
+      name: astdeluxsidelart
+    second: {fileID: 2100000, guid: ae006d71b7be57247a39819cc6952d17, type: 2}
   materials:
     materialImportMode: 2
     materialName: 1

@@ -175,8 +175,8 @@
       <artwork_files_override />
       <artwork_directories_override />
       <description_override />
-      <position x="1.64" y="-0" z="2.01" />
-      <rotation x="-0" y="-90" z="-0" />
+      <position x="1.64" y="-0" z="2.97" />
+      <rotation x="0" y="-90.06" z="0" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />
@@ -235,8 +235,8 @@
       <artwork_files_override />
       <artwork_directories_override />
       <description_override />
-      <position x="-3.78" y="0" z="2.24" />
-      <rotation x="0" y="90" z="-0" />
+      <position x="-3.71" y="0" z="2.96" />
+      <rotation x="-0" y="90" z="-0" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />
@@ -316,7 +316,7 @@
       <artwork_directories_override />
       <description_override />
       <position x="-1.54" y="0" z="10.95" />
-      <rotation x="-0" y="-89.95" z="-0" />
+      <rotation x="0" y="-89.95" z="0" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />
@@ -356,7 +356,7 @@
       <artwork_directories_override />
       <description_override />
       <position x="-0.6" y="-0" z="10.95" />
-      <rotation x="-0" y="90.69" z="0" />
+      <rotation x="0" y="90.69" z="-0" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />
@@ -855,8 +855,8 @@
       <artwork_files_override />
       <artwork_directories_override />
       <description_override />
-      <position x="-3.77" y="-0" z="3.36" />
-      <rotation x="-0" y="90" z="-0" />
+      <position x="-3.68" y="-0" z="3.65" />
+      <rotation x="0" y="90" z="-0" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />
@@ -915,8 +915,8 @@
       <artwork_files_override />
       <artwork_directories_override />
       <description_override />
-      <position x="1.61" y="-0.01" z="3.11" />
-      <rotation x="-0" y="-90" z="0" />
+      <position x="1.64" y="-0.01" z="3.69" />
+      <rotation x="0" y="-87.99" z="0" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />
@@ -975,8 +975,8 @@
       <artwork_files_override />
       <artwork_directories_override />
       <description_override />
-      <position x="-3.77" y="0" z="1.06" />
-      <rotation x="0" y="91.95" z="-0" />
+      <position x="-3.72" y="0" z="2.26" />
+      <rotation x="0" y="90.71" z="-0" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />
@@ -995,8 +995,8 @@
       <artwork_files_override />
       <artwork_directories_override />
       <description_override />
-      <position x="1.54" y="-0" z="1.01" />
-      <rotation x="0" y="-90.07" z="-0" />
+      <position x="1.54" y="-0" z="2.16" />
+      <rotation x="0" y="-90.07" z="0" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />
@@ -1015,8 +1015,88 @@
       <artwork_files_override />
       <artwork_directories_override />
       <description_override />
-      <position x="1.66" y="0" z="-0.39" />
-      <rotation x="0" y="-88.24" z="0" />
+      <position x="1.75" y="0" z="0.64" />
+      <rotation x="-0" y="-88.62" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="armora" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-3.75" y="-0" z="1.55" />
+      <rotation x="0" y="93.69" z="-0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="armwrest" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="1.49" y="0" z="1.34" />
+      <rotation x="0" y="-90.15" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="assault" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="1.59" y="-0" z="-0.19" />
+      <rotation x="0" y="-90.63" z="0" />
+      <scale x="1" y="1" z="1" />
+      <interaction_type>Default</interaction_type>
+      <emulator_override />
+      <name_override />
+      <cloneof_override />
+      <romof_override />
+      <genre_override />
+      <year_override />
+      <manufacturer_override />
+    </game>
+    <game id="astdelux" platform="arcade">
+      <grabbable>true</grabbable>
+      <movecab_movable>true</movecab_movable>
+      <movecab_grabbable>true</movecab_grabbable>
+      <model_override />
+      <artwork_files_override />
+      <artwork_directories_override />
+      <description_override />
+      <position x="-3.6" y="0" z="0.85" />
+      <rotation x="0" y="92.4" z="-0" />
       <scale x="1" y="1" z="1" />
       <interaction_type>Default</interaction_type>
       <emulator_override />

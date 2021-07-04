@@ -7,53 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: armbattleback
-    second: {fileID: 2100000, guid: 7a48910b3b9d6a94599800189af1da92, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: armbattlebezel
-    second: {fileID: 2100000, guid: 16e8f3da83d274e439758cd9f0b82454, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: armbattlecasecolor
-    second: {fileID: 2100000, guid: 91b11839a6777ee40b2d494078dc19c4, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: armbattledbutton
-    second: {fileID: 2100000, guid: ffe3e8542f235c04d9b23916d2951688, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: armbattleextra
-    second: {fileID: 2100000, guid: a9970f8cb97a64b4fbf8a0ec34380418, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: armbattlefrontcolor
-    second: {fileID: 2100000, guid: 74a87f7edead4764e83f72df318e688d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: armbattlelhalf
-    second: {fileID: 2100000, guid: 446ecb106c071c24fa775ee47f36a232, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: armbattlemarquee
-    second: {fileID: 2100000, guid: 314d415fd152a574bbe7c2f7f0f8b0cf, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
       name: armbattlemattel
     second: {fileID: 2100000, guid: 56243744925a8414188985a30ff10c36, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: armbattlescr
-    second: {fileID: 2100000, guid: ecde25205962aed4db8dd9505391cba6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 1

@@ -7,16 +7,6 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: 01armwrestmarquee
-    second: {fileID: 2100000, guid: 5cb48f4b92502844c96b2987c0f712e2, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: 02armwrestsnap
-    second: {fileID: 2100000, guid: 87ee1ad8115ff8548ae5fbf564e5b3ab, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
       name: armwrestblack
     second: {fileID: 2100000, guid: 749b0a38183dfde4498600a88fc0861b, type: 2}
   - first:

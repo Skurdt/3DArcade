@@ -7,16 +7,6 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: 01assaultmarqueemat
-    second: {fileID: 2100000, guid: 36144980290546c4381f76fb92d72611, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: 02assaultmonitormat
-    second: {fileID: 2100000, guid: 734ce8b1cc6204142884ce68a285c6c0, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
       name: assaultcabinetmat
     second: {fileID: 2100000, guid: d6fd2927b1334934f926e3336ff7d14d, type: 2}
   - first:

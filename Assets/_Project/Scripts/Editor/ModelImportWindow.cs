@@ -52,13 +52,15 @@ namespace Arcade.UnityEditor
                 _ = Directory.CreateDirectory(PREFABS_FOLDER);
 
             GameObject obj         = Selection.activeObject as GameObject;
-            string destinationPath = AssetDatabase.GenerateUniqueAssetPath($"{PREFABS_FOLDER}/{obj.name}.prefab");
+            string destinationPath = Path.Combine(PREFABS_FOLDER, $"{obj.name}.prefab");
             if (File.Exists(destinationPath))
             {
                 File.Delete(destinationPath);
                 File.Delete($"{destinationPath}.meta");
                 AssetDatabase.Refresh();
             }
+
+            destinationPath = AssetDatabase.GenerateUniqueAssetPath(destinationPath);
 
             GameObject tempObj = Object.Instantiate(obj);
             AddBoxColliderAndRigidbody(tempObj);

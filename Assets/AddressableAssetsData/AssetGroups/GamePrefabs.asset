@@ -167,6 +167,31 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - GameModels
+  - m_GUID: 56d3bfe8f0db875428258904c8d1f7cd
+    m_Address: Games/armbattle
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GameModels
+  - m_GUID: 44912fd806ffe1b4c8d4798be9173766
+    m_Address: Games/armora
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GameModels
+  - m_GUID: d4b59609e53e2d043a0b4d4f37866205
+    m_Address: Games/armwrest
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GameModels
+  - m_GUID: ac30109bb9207634d8c2995ae54cd237
+    m_Address: Games/assault
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GameModels
+  - m_GUID: 8e266407a21c6024ba1eb7f061671328
+    m_Address: Games/astdelux
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GameModels
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a791319076b3e034bb0f17c6bf81a76f, type: 2}
   m_SchemaSet:

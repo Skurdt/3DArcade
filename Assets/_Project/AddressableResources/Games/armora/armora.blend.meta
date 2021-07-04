@@ -7,13 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: 01armoramarquee
-    second: {fileID: 2100000, guid: ddbf738f194ca7e41ac21532127ece96, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: 02armoramonitor
-    second: {fileID: 2100000, guid: 656ef1738f0e0084eab0edb4dd112ab6, type: 2}
+      name: armora_darkness
+    second: {fileID: 2100000, guid: 81a0154bad5c4c447b50f08eaf90955f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
