@@ -192,6 +192,46 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - GameModels
+  - m_GUID: 7b65bca0a9ac68c4098979a26dec53bb
+    m_Address: Games/asteroid
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GameModels
+  - m_GUID: 57d0beed5ea9037458a67bcb277b54dd
+    m_Address: Games/astinvad
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GameModels
+  - m_GUID: 4f28efe5848e16d49b59472590877025
+    m_Address: Games/astron
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GameModels
+  - m_GUID: 66435a3d74898714eacb35aa054ce21c
+    m_Address: Games/atari_800XL
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GameModels
+  - m_GUID: ac9860b03f91c0c4ea61b0c0e970bf28
+    m_Address: Games/atari_2600_kiosk
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GameModels
+  - m_GUID: a3db8615fc8af814881c7641c25834e7
+    m_Address: Games/atari_7800
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GameModels
+  - m_GUID: 9848f7e3bd48bbf4f87ab3482437f759
+    m_Address: Games/atari_lynx
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GameModels
+  - m_GUID: 4e75f9a3e7d8b26489b958fd7557e9a2
+    m_Address: Games/atari_st
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - GameModels
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a791319076b3e034bb0f17c6bf81a76f, type: 2}
   m_SchemaSet:

@@ -7,6 +7,51 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: astinvad_bezel
+    second: {fileID: 2100000, guid: 450d3501adecd2f46bfe2ccc98720920, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: astinvad_bezel_tr
+    second: {fileID: 2100000, guid: 065f6c5ac13ec0a449ed335f4159c79a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: astinvad_black
+    second: {fileID: 2100000, guid: 8414339f73d16e84a99c1d9e409be5f9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: astinvad_buttons
+    second: {fileID: 2100000, guid: 63af681134e493b46b4c1d3e8d4d0a0c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: astinvad_coindoor
+    second: {fileID: 2100000, guid: 2b8b08eca681c264683ed6068789ce39, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: astinvad_cpanel
+    second: {fileID: 2100000, guid: 6a83cc3e47c01d2479f42db6cb9c2fcb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: astinvad_darkness
+    second: {fileID: 2100000, guid: cfbc0840462bf4642879bad73596887e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: astinvad_sideleft
+    second: {fileID: 2100000, guid: 2a5383a451287ba4ea766b467b7479f3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: astinvad_sideright
+    second: {fileID: 2100000, guid: ff61c7faf2d9a654e87ca531eadbb1c3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: astinvadbezelart
     second: {fileID: 2100000, guid: 3e70541ed3011f84da1febdff6ab3932, type: 2}
   - first:

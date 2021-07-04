@@ -7,13 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: abeltblackinside
-    second: {fileID: 2100000, guid: 6babd7316852eb147bf6f9946aeb6087, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: abeltblackoutside
-    second: {fileID: 2100000, guid: e3e90a782d0013b44a854f01111f4065, type: 2}
+      name: abelt_darkness
+    second: {fileID: 2100000, guid: c608f25244abd394fb3d803ef25d32d6, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -32,11 +27,6 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: abeltglass
-    second: {fileID: 2100000, guid: d991a37b02f472f41b20397e239d0598, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
       name: abeltinstructioncard
     second: {fileID: 2100000, guid: 793b0807aa5f30c438edd50474700f97, type: 2}
   - first:
@@ -52,38 +42,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: abeltmarquee
-    second: {fileID: 2100000, guid: 44b4b52339f15664e8f0cb240e113eef, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: abeltmonitor
-    second: {fileID: 2100000, guid: c0287e84884ea994f9cd81d4baa7663c, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: abeltred
-    second: {fileID: 2100000, guid: 965897a48b4d44f4a9cc912fd611c2f3, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: abeltsidesblack
-    second: {fileID: 2100000, guid: 109a9e05dc1517b4982acf18eea391f3, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
       name: abeltsidesmulti
     second: {fileID: 2100000, guid: a68a0160a2893994bbc0651e1e5f9bcd, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: abeltsidestmolding
-    second: {fileID: 2100000, guid: d3954e17c83e8fc489030acb8c86d5e4, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: abeltyellow
-    second: {fileID: 2100000, guid: 8c61032731229314fa145fb617b67b88, type: 2}
   materials:
     materialImportMode: 2
     materialName: 1
