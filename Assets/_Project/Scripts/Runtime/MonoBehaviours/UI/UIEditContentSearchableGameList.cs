@@ -66,7 +66,8 @@ namespace Arcade
 
             int platformIndex = platformDropdownValue - 1;
 
-            if (_platformIndex != platformIndex)
+            bool isSamePlatform = _platformIndex == platformIndex;
+            if (!isSamePlatform)
             {
                 _searchInputField.DeactivateInputField(true);
                 _searchInputField.SetTextWithoutNotify("");
@@ -88,8 +89,12 @@ namespace Arcade
             else if (_filterableList.Filtered.Count == 0)
                 _filterableList.Filtered = _allGames[_platformIndex].ToList();
 
-            _scrollRect.totalCount = _filterableList.Filtered.Count;
-            _scrollRect.RefillCells();
+            if (!isSamePlatform)
+            {
+                _scrollRect.totalCount = _filterableList.Filtered.Count;
+                _scrollRect.RefillCells();
+            }
+
             if (_filterableList.Filtered.Count > 0)
                 Show();
             else
@@ -185,34 +190,42 @@ namespace Arcade
 
         private async UniTaskVoid RefreshAsync()
         {
-            _searchInputField.DeactivateInputField(true);
-            _searchInputField.SetTextWithoutNotify("");
+            try
+            {
+                _searchInputField.DeactivateInputField(true);
+                _searchInputField.SetTextWithoutNotify("");
 
-            if (_cancellationTokenSource == null || _cancellationTokenSource.IsCancellationRequested)
+                if (_cancellationTokenSource == null || _cancellationTokenSource.IsCancellationRequested)
+                {
+                    if (_allGames.ContainsKey(_platformIndex))
+                        _= _allGames.Remove(_platformIndex);
+                    return;
+                }
+
+                _ = await UniTask.Run(() =>
+                {
+                    lock (_lock)
+                    {
+                        GameConfiguration[] games = _databases.Games.GetGames(_databases.Platforms[_platformIndex].MasterList);
+                        _allGames.Add(_platformIndex, games);
+                        if (games is null)
+                            _filterableList.Filtered.Clear();
+                        else
+                            _filterableList.Filtered = games.ToList();
+                    }
+                }, cancellationToken: _cancellationTokenSource.Token).SuppressCancellationThrow();
+                _scrollRect.totalCount = _filterableList.Filtered.Count;
+                _scrollRect.RefillCells();
+                if (_filterableList.Filtered.Count > 0)
+                    Show();
+                else
+                    Hide();
+            }
+            catch
             {
                 if (_allGames.ContainsKey(_platformIndex))
                     _= _allGames.Remove(_platformIndex);
-                return;
             }
-
-            _ = await UniTask.Run(() =>
-            {
-                lock (_lock)
-                {
-                    GameConfiguration[] games = _databases.Games.GetGames(_databases.Platforms[_platformIndex].MasterList);
-                    _allGames.Add(_platformIndex, games);
-                    if (games is null)
-                        _filterableList.Filtered.Clear();
-                    else
-                        _filterableList.Filtered = games.ToList();
-                }
-            }, cancellationToken: _cancellationTokenSource.Token).SuppressCancellationThrow();
-            _scrollRect.totalCount = _filterableList.Filtered.Count;
-            _scrollRect.RefillCells();
-            if (_filterableList.Filtered.Count > 0)
-                Show();
-            else
-                Hide();
         }
     }
 }
